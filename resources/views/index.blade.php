@@ -142,5 +142,4 @@
         </footer>
       </div>
     </div>
-  </body>
-</html>
+ @include('footer')

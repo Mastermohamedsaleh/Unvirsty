@@ -34,7 +34,7 @@ class CollegeController extends Controller
             $college->note = $request->note;
             $college->save();
 
-            return redirect()->route('Admin.colleges.index');
+            return redirect()->route('colleges.index');
         }catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -63,7 +63,7 @@ class CollegeController extends Controller
             $college->name = $request->name;        
             $college->note = $request->note;        
             $college->save();
-            return redirect()->route('Admin.colleges.index');
+            return redirect()->route('colleges.index');
 
         }catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -72,12 +72,6 @@ class CollegeController extends Controller
 
     public function destroy($id)
     {
-        
-        // $college = College::findOrFail($id)->delete();
-    
-        // return redirect()->route('colleges.index');
-
-
         College ::destroy($id);
         session()->flash('delete');
         return redirect()->back();

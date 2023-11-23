@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Classroom extends Model
+class Section extends Model
 {
     use HasFactory;
 
+      protected $fillable = ['name','classroom_id','college_id'];
 
-     protected $table = 'classrooms'; 
 
-    protected $fillable=['name','college_id'];
+    public function classroom()
+    {
+        return $this->belongsTo('App\Models\Classroom', 'classroom_id');
+    }
 
     public function college()
     {

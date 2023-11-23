@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\SectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ Route::get('/', function () {
 Route::resource('admins',AdminController::class);
 Route::resource('colleges',CollegeController::class);
 Route::resource('classrooms',ClassroomController::class);
+Route::resource('sections',SectionController::class);
 
+
+Route::get('/classes/{id}', [SectionController::class , 'getclasses'])->name('classes');
 
 

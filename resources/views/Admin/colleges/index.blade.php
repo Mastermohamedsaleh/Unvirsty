@@ -43,7 +43,7 @@
  
 
  <div class="table-responsive">
-                        <table id="example" class="table key-buttons text-md-nowrap">
+                        <table id="datatable"  class="table key-buttons text-md-nowrap">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -95,6 +95,6 @@
  <!-- end container -->
  </div>
     
-
+ @include('footer')
 
    

@@ -24,6 +24,12 @@
                 @endif
 
 
+
+                @if(Session::has('message'))
+<p class="alert alert-info">{{ Session::get('message') }}</p>
+@endif
+
+
  <div class="container mt-3">
 
 
@@ -43,7 +49,7 @@
  
 
  <div class="table-responsive">
-                        <table id="example" class="table key-buttons text-md-nowrap">
+                        <table  id="datatable" class="table key-buttons text-md-nowrap">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -91,5 +97,4 @@
  </div>
     
 
-
-   
+ @include('footer')

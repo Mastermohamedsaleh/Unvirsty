@@ -20,21 +20,25 @@
 
 
 
+        <form action="{{route('classrooms.store')}}" method="post">
 
-      <input type="text" name="name" class="form-controll">
-
-
-      <div class="mm"></div>
+        @csrf
+        
+      <div class="create" id="create"></div>
        
-        <a href="javascript:void(0)" class="btn btn-danger addrow">+</a>
+       <a href="javascript:void(0)" class="btn btn-danger addrow" id="addrow">+</a>
+
+
+
         
        
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -43,9 +47,37 @@
 <script>
 $(document).ready(function(){
   $(".addrow").click(function(){
-     var row = '<input type="text" name="name" class="form-controll">'
+    var row = `
+    <div class="row mt-2">
+    <div class="col">
+    <input type="text" name="name[]" class="form-control">
+    </div>
+    <div class="col">
+    <select name="college_id[]" id=""class="form-select">
 
-     $('.mm').append(row);
+@foreach($colleges as $college)
+  <option value="" disable>Choose College</option>
+  <option value="{{$college->id}}">{{$college->name}}</option>
+@endforeach
+</select>
+
+    </div>
+    <div class="col">
+    <a hreg="javascript:void(0)" class="btn btn-danger deleteRow" >-</a>
+    </div>
+    </div>
+      `
+     $('.create').append(row);
+
+     $(".deleteRow").click(function(){
+
+      $(this).parent().parent().remove();
+           
+     });
+
+
   });
 });
 </script>
+
+

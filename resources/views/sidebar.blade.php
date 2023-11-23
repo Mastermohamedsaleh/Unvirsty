@@ -12,13 +12,16 @@
                     <a href="#" class="sidebar-link"><i class="fa-solid fa-list"></i>Dashboard</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{route('admins.index')}}" class="sidebar-link"><i class="fa-solid fa-lock"></i>Admins</a>
+                    <a href="{{route('admins.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-lock"></i>Admins</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{route('colleges.index')}}" class="sidebar-link"><i class="fa-solid fa-building-columns"></i>Colleges</a>
+                    <a href="{{route('colleges.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-building-columns"></i>Colleges</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{route('classrooms.index')}}" class="sidebar-link"><i class="fa-solid fa-building-columns"></i>Classroom</a>
+                    <a href="{{route('classrooms.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0"  class="fa-solid fa-graduation-cap"></i>Classroom</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{route('sections.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>Sections</a>
                 </li>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-file-lines pe-2"></i> Pages</a>
