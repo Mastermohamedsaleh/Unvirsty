@@ -9,47 +9,82 @@
 
 
 
-     <div class="container">
-        
-     
-     
+<div class="container mt-3">  
  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#section">
- Add New College
+ <i class="fa-solid fa-plus"></i>  Add New Section
 </button><br><br>
-      @include('Admin.sections.add')
-
-
-     </div>
+  @include('Admin.sections.add')
+</div>
 
 
 
-     <div class="accordion" id="accordionExample">
-
+     
 
 
 
 
-      @foreach($colleges as $college )
-     <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{$college->name}}" aria-expanded="false" aria-controls="collapseTwo">
-            {{$college->name}}
-      </button>
-    </h2>
-    <div id="{{$college->name}}" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
+     <div class="container">
+
+ <!-- Message Success -->
+@if(Session::has('message'))
+<p class="alert alert-info">{{ Session::get('message') }}</p>
+@endif
+<!-- End Success -->
+
+ <!-- Message Error -->
+@if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+@endif
+ <!-- End Message Error -->
+
+
+
+
+     <div class="row mt-3">
+     @foreach($colleges as $college )
+
+
+
+
+
+
+     <div class="col-sm-12  mt-3">
+
+
+
+
+
+     <div class="card" >
+  <div class="card-header">
+   {{$college->name}}
   </div>
-@endforeach
+  <ul class="list-group list-group-flush">
+   <a href="{{route('sections.show',$college->id)}}"><li class="list-group-item text-primary">View Section {{$college->name}}</li></a> 
+  
+  </ul>
+</div> 
 
 
 
-
-
-
+      <!-- end col one -->
      </div>
+
+@endforeach
+<!-- end Row -->
+</div>
+
+<!-- end container -->
+</div>
+
+
+
+ 
 
 
 

@@ -24,11 +24,11 @@
                     <a href="{{route('sections.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>Sections</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-file-lines pe-2"></i> Pages</a>
+                    <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-file-lines pe-2"></i> Students</a>
                     <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Page 1</a>
-                            <a href="#" class="sidebar-link">Page 2</a>
+                            <a href="{{route('students.index')}}" class="sidebar-link">All Student</a>
+                            <a href="{{route('students.create')}}" class="sidebar-link">Add Student</a>
                         </li>
                     </ul>
                 </li>

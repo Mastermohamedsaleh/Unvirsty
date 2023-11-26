@@ -27,12 +27,17 @@
       <div class="col">
       <label>College: </label>
                <select name="college_id" class="form-select">
+               <option value="" disable>Choose College</option>
                        @foreach($colleges as $college) 
-                       <option value="" disable>Choose College</option>
+                     
                        <option value="{{$college->id}}" {{ $college->id == $classroom->college_id ? 'selected' : '' }} >{{$college->name}}</option>
                        @endforeach
                </select>
       </div>
+
+
+
+
 
 
 

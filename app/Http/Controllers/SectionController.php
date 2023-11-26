@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Models\College;
 use App\Models\Classroom;
+use App\Models\Section;
+use Illuminate\Support\Facades\Session;
+
+use App\Http\Requests\SectionRequest;
+
+
 
 
 class SectionController extends Controller
@@ -27,15 +33,38 @@ class SectionController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(SectionRequest $request)
     {
-        //
+         
+        try {
+
+       
+            $Sections = new Section();
+      
+            $Sections->name = $request->name;
+            $Sections->college_id = $request->college_id;
+            $Sections->classroom_id = $request->classroom_id;
+            $Sections->status = 1;
+            $Sections->save();
+
+            Session::flash('message', 'Add Success'); 
+            return redirect()->route('sections.index');
+        }
+      
+        catch (\Exception $e){
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+         
+
     }
 
  
     public function show($id)
     {
-        //
+        $sections =  Section::where('college_id',$id)->get();
+        $classrooms =  Classroom::where('college_id',$id)->get();
+
+        return view("Admin.sections.show",compact('sections','classrooms'));
     }
 
   
@@ -45,15 +74,44 @@ class SectionController extends Controller
     }
 
     
-    public function update(Request $request, $id)
+    public function update(SectionRequest $request, $id)
     {
-        //
+        
+
+
+
+        try {
+            
+            $Sections = Section::findOrFail($request->id);
+      
+            $Sections->name = $request->name;
+            $Sections->status = $request->status;
+            $Sections->college_id = $request->college_id;
+            $Sections->classroom_id = $request->classroom_id;
+         
+            $Sections->save();
+            Session::flash('message', 'Update Success');       
+            return redirect()->back();
+        }
+        catch(\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+
+
+
+
     }
 
  
-    public function destroy($id)
+    public function destroy(Request $request , $id)
     {
-        //
+        
+
+        $Sections = Section::findOrFail($request->id)->delete();
+        Session::flash('message', 'Delete Success');
+        return redirect()->back();
+
+
     }
 
 
@@ -65,6 +123,13 @@ class SectionController extends Controller
         return $list_classes;
 
           
+    }
+
+
+    public function getsection($id){
+
+        $list_sections = Section::where("college_id", $id)->pluck("name", "id");
+        return  $list_sections;
     }
 
 
