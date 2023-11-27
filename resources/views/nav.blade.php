@@ -12,7 +12,38 @@
                   <div class="dropdown-menu dropdown-menu-end">
                     <a href="#" class="dropdown-item">Profile</a>
                     <a href="#" class="dropdown-item">Setting</a>
-                    <a href="#" class="dropdown-item">Log out</a>
+                    <a href="#" class="dropdown-item">
+      
+
+
+                    
+             @if(auth('web')->check())
+									<form method="POST" action="{{ route('logout.user') }}">
+									@elseif(auth('admin')->check())
+									<form method="POST" action="{{ route('admin.logout') }}">
+									@elseif(auth('student')->check())
+									<form method="get" action="{{ route('student.logout') }}">
+									@endif
+									@csrf
+                                       <a class="dropdown-item" href="#"
+                                        onclick="event.preventDefault();
+                                        this.closest('form').submit();"><i class="bx bx-log-out"></i>Sign Out</a> 
+                                     
+                                         </form> 
+
+
+
+
+
+
+
+
+
+
+
+
+        
+             </a>
                   </div>
                 </a>
               </li>

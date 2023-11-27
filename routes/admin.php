@@ -15,9 +15,9 @@ use App\Http\Controllers\{AdminController,CollegeController,ClassroomController,
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('dashboard/admin', function () {
+    return view('index');
+})->middleware(['auth:admin'])->name('dashboard.admin');
 
 Route::resource('admins',AdminController::class);
 Route::resource('colleges',CollegeController::class);
@@ -30,3 +30,7 @@ Route::get('/classes/{id}', [SectionController::class , 'getclasses'])->name('cl
 Route::get('/getsection/{id}', [SectionController::class , 'getsection'])->name('getsection');
 
 
+
+
+
+require __DIR__.'/auth.php';

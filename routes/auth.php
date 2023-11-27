@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\{AdminController,StudentController};
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -16,10 +17,35 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name('login');
+
+
+
+
+
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    
+
+
+
+    // /////////////////////////////// login admin ///////////////////////////////////////////////
+    Route::post('login/admin', [AdminController::class, 'store'])->middleware('guest')->name('admin.login');
+    Route::post('/logout/admin', [AdminController::class, 'destroy'])->middleware('auth:admin')->name('admin.logout');
+    // /////////////////////////////// login admin ///////////////////////////////////////////////
+
+
+    // /////////////////////////////// login student ///////////////////////////////////////////////
+    Route::post('login/student', [StudentController::class, 'store'])->name('student.login');
+    // Route::get('logout/student', [StudentController::class, 'destroy'])->middleware('auth:admin')->name('student.logout');
+
+
+
+
+
+    // /////////////////////////////// login student ///////////////////////////////////////////////
+
+
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->name('password.request');

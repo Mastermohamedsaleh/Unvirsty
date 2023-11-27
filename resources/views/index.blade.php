@@ -118,7 +118,7 @@
             <div class="row text-muted">
               <div class="col-0 text-start">
                 <div class="mb-0">
-                  <a href="#" class="text-muted"><strong>Zeyad Salem</strong></a>
+                  <a href="#" class="text-muted"><strong>UnVirsty</strong></a>
                 </div>
               </div>
               <div class="cold-6 text-end">
