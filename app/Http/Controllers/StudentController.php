@@ -39,9 +39,6 @@ class StudentController extends Controller
     {
          
          
-
-        DB::beginTransaction();
-
         try {
             $students = new Student();
             $students->name = $request->name;
@@ -58,9 +55,7 @@ class StudentController extends Controller
 
           
            Session::flash('message', 'Add Success');
-         
-     
-            return redirect()->route('students.create');
+            return redirect()->route('students.index');
 
         }
 
@@ -68,12 +63,7 @@ class StudentController extends Controller
     
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-
-
-
-
- 
-          
+     
     }
 
 
@@ -85,18 +75,48 @@ class StudentController extends Controller
   
     public function edit($id)
     {
-        //
+         $student = Student::findOrfail($id);
+
+         $data['genders'] = Gender::all();
+         $data['nationalities']  = Nationalitie::all();
+         $data['colleges'] = College::all();
+
+        return view('Admin.students.edit',compact('student') , $data);
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $students =  Student::findOrfail($request->id);
+            $students->name = $request->name;
+            $students->email = $request->email;
+            $students->password = $request->password;
+            $students->gender_id = $request->gender_id;
+            $students->ssn = $request->ssn;
+            $students->nationalitie_id = $request->nationalitie_id;    
+            $students->college_id = $request->college_id;
+            $students->classroom_id = $request->classroom_id;
+            $students->section_id = $request->section_id;
+            $students->academic_year = $request->academic_year;
+            $students->save();
+
+          
+           Session::flash('message', 'Update Success');
+            return redirect()->route('students.index');
+
+        }
+
+        catch (\Exception $e){
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request  , $id)
     {
-        //
+        $student = Student::findOrFail($request->id)->delete();
+        Session::flash('message', 'Delete Success');
+        return redirect()->route('students.index');
     }
 }

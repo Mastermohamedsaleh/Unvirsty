@@ -12,7 +12,6 @@
 
 
 
-
 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -24,6 +23,18 @@
                 @endif
 
 
+
+                @if(Session::has('message'))
+<p class="alert alert-info">{{ Session::get('message') }}</p>
+@endif
+
+
+
+
+
+
+
+
  <div class="container mt-3">
 
 
@@ -33,13 +44,8 @@
 
  <div class="card-body">
        
-
-
-
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#student">
- Add New student
-</button><br><br>
-      @include('Admin.students.add')
+ 
+ <a href="{{route('students.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add New Student</a>
  
 
  <div class="table-responsive">
@@ -49,6 +55,7 @@
                                 <th>#</th>
                                 <th>name</th>
                                 <th>email</th>
+                                <th>College</th>
                                 <th>Processes</th>
                             </tr>
                             </thead>
@@ -59,21 +66,24 @@
                                     <td> {{$i++}} </td>
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->email }}</td>
+                                    <td>{{ $student->college->name }}</td>
                                     <td>
                               
 
-<button type="button" class="btn btn-sm btn-danger inline-block" data-bs-toggle="modal" data-bs-target="#deletestudent{{$student->id}}">
+
+               
+
+<a href="{{route('students.edit',$student->id)}}" class="mb-2 btn btn-outline-success btn-sm"> <i class="fas fa-edit"></i></a>
+
+
+
+
+<button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletestudent{{$student->id}}">
 <i class="fas fa-trash"></i>
 </button>
-                
-
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editstudent{{$student->id}}">
- <i class="fas fa-edit"></i>
-</button><br><br>
-
-@include('Admin.students.edit')
 
 @include('Admin.students.delete')
+
 
                                     </td>
 
@@ -89,6 +99,13 @@
 
 
  </div>
+
+
+
+
+
+
+
 
 
  <!-- end container -->

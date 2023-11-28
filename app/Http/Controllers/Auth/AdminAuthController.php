@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\Auth\AdminLoginRequest;
 
-class AdminController extends Controller
+class AdminAuthController extends Controller
 {
 
  
@@ -28,7 +28,7 @@ class AdminController extends Controller
     }
 
  
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         Auth::guard('admin')->logout();
 
@@ -36,7 +36,7 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
 
 
     }

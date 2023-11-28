@@ -22,7 +22,7 @@
 									@elseif(auth('admin')->check())
 									<form method="POST" action="{{ route('admin.logout') }}">
 									@elseif(auth('student')->check())
-									<form method="get" action="{{ route('student.logout') }}">
+									<form method="POST" action="{{ route('student.logout') }}">
 									@endif
 									@csrf
                                        <a class="dropdown-item" href="#"

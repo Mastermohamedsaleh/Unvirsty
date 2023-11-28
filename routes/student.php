@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 
+use App\Http\Controllers\Auth\StudentController;
 
 
 
@@ -13,7 +14,34 @@ Route::get('dashboard/student', function () {
 
 
 
-Route::post('logout/student', [StudentController::class, 'destroy'])->middleware(['auth:student'])->name('student.logout');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// /////////////////////////////////////// logout student /////////////////////////////////////////////////////////////////
+
+Route::post('logout/student', [StudentController::class, 'destroy'])->middleware('auth:student')->name('student.logout');
+
+
+//#############################################################################################
+
+
 
 
 require __DIR__.'/auth.php';

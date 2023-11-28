@@ -24,7 +24,7 @@
                     <a href="{{route('sections.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>Sections</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-file-lines pe-2"></i> Students</a>
+                    <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-graduation-cap"></i> Students</a>
                     <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
                             <a href="{{route('students.index')}}" class="sidebar-link">All Student</a>
@@ -33,11 +33,11 @@
                     </ul>
                 </li>
               <li class="sidebar-item">
-                  <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-sliders pe-2"></i> Posts</a>
+                  <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-person-chalkboard"></i> Doctors</a>
                   <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                       <li class="sidebar-item">
-                          <a href="#" class="sidebar-link">Post 1</a>
-                          <a href="#" class="sidebar-link">Post 2</a>
+                          <a href="{{route('doctors.index')}}" class="sidebar-link">All Doctors</a>
+                          <a href="{{route('doctors.create')}}" class="sidebar-link">Add Doctor</a>
                       </li>
                   </ul>
               </li>

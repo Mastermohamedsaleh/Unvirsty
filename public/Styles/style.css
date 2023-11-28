@@ -154,7 +154,7 @@ html[data-bs-theme="light"] .theme-toggle .fa-moon{
     display: block;
     font-size: 1.25rem;
     color: #FFF;
-}
+} 
 html[data-bs-theme="dark"] .theme-toggle .fa-moon{
     display: none;
 }

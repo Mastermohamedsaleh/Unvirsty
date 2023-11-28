@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\Auth\StudentRequest;
 
@@ -25,18 +26,18 @@ class StudentController extends Controller
     }
 
  
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        // Auth::guard('student')->logout();
+        Auth::guard('student')->logout();
 
-        // $request->session()->invalidate();
+        $request->session()->invalidate();
 
-        // $request->session()->regenerateToken();
+        $request->session()->regenerateToken();
 
-        // return redirect('/login');
+        return redirect('/login');
 
 
-        return "mohaemd";
+    
 
     }
 }
