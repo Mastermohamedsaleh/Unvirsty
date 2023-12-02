@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('name');
+            $table->string('ssn')->unique();
+            $table->foreignId('college_id')->references('id')->on('colleges')->onDelete('cascade');
+            $table->bigInteger('section_id')->unsigned();
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->bigInteger('gender_id')->unsigned();
+            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
+            $table->foreignId('nationalitie_id')->references('id')->on('nationalities')->onDelete('cascade');
+            $table->date('Joining_Date');
+            $table->text('Address');
             $table->timestamps();
         });
     }

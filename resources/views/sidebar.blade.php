@@ -24,11 +24,15 @@
                     <a href="{{route('sections.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>Sections</a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="{{route('sections.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>subject</a>
+                </li>
+                <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-graduation-cap"></i> Students</a>
                     <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
                             <a href="{{route('students.index')}}" class="sidebar-link">All Student</a>
                             <a href="{{route('students.create')}}" class="sidebar-link">Add Student</a>
+                            <a href="{{route('promotion.create')}}" class="sidebar-link">Promotion Students</a>
                         </li>
                     </ul>
                 </li>

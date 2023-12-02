@@ -8,8 +8,7 @@
 
 
 
-<h3 class="text-success text-center">colleges</h3>
-
+<h3 class="text-primary text-center">doctors</h3>
 
 
 
@@ -21,10 +20,13 @@
                             @endforeach
                         </ul>
                     </div>
-    @endif
+                @endif
 
 
 
+                @if(Session::has('message'))
+<p class="alert alert-info">{{ Session::get('message') }}</p>
+@endif
 
 
 
@@ -42,13 +44,8 @@
 
  <div class="card-body">
        
-
-
-
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#college">
- Add New College
-</button><br><br>
-      @include('Admin.colleges.add')
+ 
+ <a href="{{route('doctors.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add New doctor</a>
  
 
  <div class="table-responsive">
@@ -57,32 +54,36 @@
                             <tr>
                                 <th>#</th>
                                 <th>name</th>
-                                <th>Note</th>
+                                <th>email</th>
+                                <th>College</th>
                                 <th>Processes</th>
                             </tr>
                             </thead>
                             <tbody>
                                     <?php $i= 1  ?>
-                            @foreach($colleges as  $college)
+                            @foreach($doctors as  $doctor)
                                 <tr>
                                     <td> {{$i++}} </td>
-                                    <td>{{ $college->name }}</td>
-                                    <td>
-                                       {{   ($college->note == '' ? 'No Note' :$college->note )  }}       
-                                    </td>
+                                    <td>{{ $doctor->name }}</td>
+                                    <td>{{ $doctor->email }}</td>
+                                    <td>{{ $doctor->college->name }}</td>
                                     <td>
                               
 
-<button type="button" class="btn btn-sm btn-danger inline-block" data-bs-toggle="modal" data-bs-target="#deletecollege{{$college->id}}">
+
+               
+
+<a href="{{route('doctors.edit',$doctor->id)}}" class="mb-2 btn btn-outline-success btn-sm"> <i class="fas fa-edit"></i></a>
+
+
+
+
+<button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletedoctor{{$doctor->id}}">
 <i class="fas fa-trash"></i>
 </button>
-                
 
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editcollege{{$college->id}}">
- <i class="fas fa-edit"></i>
-</button><br><br>
-@include('Admin.colleges.edit')
-@include('Admin.colleges.delete')
+@include('Admin.doctors.delete')
+
 
                                     </td>
 
@@ -97,13 +98,18 @@
 
 
 
-
  </div>
+
+
+
+
+
+
+
 
 
  <!-- end container -->
  </div>
     
- @include('footer')
 
-   
+ @include('footer')

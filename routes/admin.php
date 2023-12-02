@@ -2,7 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\{AdminController,CollegeController,ClassroomController,SectionController ,StudentController,DoctorController};
+use App\Http\Controllers\{AdminController,
+    CollegeController,
+    ClassroomController,
+    SectionController ,
+    StudentController,
+    DoctorController,
+    PromotionController};
 
 use App\Http\Controllers\Auth\AdminAuthController;
 
@@ -34,6 +40,7 @@ Route::resource('classrooms',ClassroomController::class);
 Route::resource('sections',SectionController::class);
 Route::resource('students',StudentController::class);
 Route::resource('doctors',DoctorController::class);
+Route::resource('promotion',PromotionController::class);
 
 
 Route::get('/classes/{id}', [SectionController::class , 'getclasses'])->name('classes');

@@ -40,7 +40,9 @@ h4{
 #sidebar{
     max-width: 264px;
     min-width: 264px;
-    background: var(--bs-dark);
+    /* background: var(--bs-dark); */
+    background-color: #192F59;
+    /* 00D084 */
     transition:all 0.35s ease-in-out;
 }
 
@@ -87,6 +89,23 @@ a.sidebar-link{
     position:relative;
     display: block;
     font-size: 0.875rem;
+    transition: 0.5s;
+}
+
+
+a.sidebar-link:hover{
+     background-color: #00D084 ;
+     
+}
+
+.text-color{
+    color: #00D084;
+}
+
+.button-color{
+    background-color: #00D084 ;
+
+
 }
 
 .sidebar-link[data-bs-toggle="collapse"].collapsed::after{
