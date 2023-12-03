@@ -33,6 +33,7 @@
                             <a href="{{route('students.index')}}" class="sidebar-link">All Student</a>
                             <a href="{{route('students.create')}}" class="sidebar-link">Add Student</a>
                             <a href="{{route('promotion.create')}}" class="sidebar-link">Promotion Students</a>
+                            <a href="{{route('promotion.index')}}" class="sidebar-link">Mangment Promotion Students</a>
                         </li>
                     </ul>
                 </li>

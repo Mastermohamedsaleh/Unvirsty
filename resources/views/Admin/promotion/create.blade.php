@@ -14,7 +14,26 @@
 
    <h4 class="text-color text-center mt-4">Promotion</h4>
 
-<form action="{{route('promotion.store')}}" method="post"></form>
+
+   @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+
+
+                @if(Session::has('message'))
+<p class="alert alert-info">{{ Session::get('message') }}</p>
+@endif
+
+
+
+<form action="{{route('promotion.store')}}" method="post">
 
 @csrf
    <div class="container mt-4">
@@ -25,7 +44,7 @@
    <h4 class=" mt-4">Promotion Form</h4>
 
 
-   <div class="col-4">
+   <div class="col-3">
 
 
 <div class="form-group">
@@ -51,7 +70,7 @@
 
 
 
-   <div class="col-4">
+   <div class="col-3">
    <div class="form-group">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
@@ -66,7 +85,7 @@
    <!-- end one col -->
    </div>
 
-   <div class="col-4">
+   <div class="col-3">
   
 
 
@@ -89,6 +108,26 @@
 
 
 
+
+   <div class="col-3">
+                                <div class="form-group">
+                                    <label for="academic_year">academic_year : <span class="text-danger">*</span></label>
+                                    <select class="form-select" name="academic_year">
+                                        <option selected disabled >Choose Academic year...</option>
+                                        @php
+                                            $current_year = date("Y");
+                                        @endphp
+                                        @for($year=$current_year; $year<=$current_year +1 ;$year++)
+                                            <option value="{{ $year}}">{{ $year }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+
    <!-- end row -->
    </div>
 
@@ -101,7 +140,7 @@
    <h4 class=" mt-4">Promotion TO</h4>
 
 
-   <div class="col-4">
+   <div class="col-3">
 
 
 <div class="form-group">
@@ -127,7 +166,7 @@
 
 
 
-   <div class="col-4">
+   <div class="col-3">
    <div class="form-group">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
@@ -142,7 +181,7 @@
    <!-- end one col -->
    </div>
 
-   <div class="col-4">
+   <div class="col-3">
   
 
 
@@ -165,13 +204,32 @@
 
 
 
+
+
+   <div class="col-3">
+                                <div class="form-group">
+                                    <label for="academic_year">academic_year : <span class="text-danger">*</span></label>
+                                    <select class="form-select" name="academic_year_new">
+                                        <option selected disabled>Choose academic_year_new ...</option>
+                                        @php
+                                            $current_year = date("Y");
+                                        @endphp
+                                        @for($year=$current_year; $year<=$current_year +1 ;$year++)
+                                            <option value="{{ $year}}">{{ $year }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>  
+
+
+
    <!-- end row -->
    </div>
 
 
 
 
- <button class="btn button-color mt-3">Save</button>
+ <button   type="submit" class="btn button-color mt-3">Save</button>
 
 
 
