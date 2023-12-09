@@ -27,7 +27,8 @@ return new class extends Migration
             $table->foreignId('to_classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreignId('to_section_id')->nullable()->references('id')->on('sections')->onDelete('cascade');
 
-
+            $table->string('academic_year');
+            $table->string('academic_year_new');
 
 
             $table->timestamps();

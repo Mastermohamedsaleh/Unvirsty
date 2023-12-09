@@ -33,14 +33,16 @@
                                         <tr>
                                             <th class="alert alert-info">#</th>
                                             <th class="alert alert-info">Name</th>
-                                            <th class="alert alert-danger">College</th>
-                                            <th class="alert alert-danger">السنة الدراسية</th>
-                                            <th class="alert alert-danger">الصف الدراسي السابق</th>
-                                            <th class="alert alert-danger">القسم الدراسي السابق</th>
-                                            <th class="alert alert-success">المرحلة الدراسية الحالي</th>
-                                            <th class="alert alert-success">السنة الدراسية الحالية</th>
-                                            <th class="alert alert-success">الصف الدراسي الحالي</th>
-                                            <th class="alert alert-success">القسم الدراسي الحالي</th>
+                                            <th class="alert alert-danger">From College</th>
+                                            <th class="alert alert-danger">academic_year</th>
+                                            <th class="alert alert-danger">From Classroom</th>
+                                            <th class="alert alert-danger">From Section</th>
+
+                                            <th class="alert alert-success">To College</th>
+                                            <th class="alert alert-success">academic_year_new  </th>
+
+                                            <th class="alert alert-success">To Classroom</th>
+                                            <th class="alert alert-success">To Section</th>
                                             <th>Processes</th>
                                         </tr>
                                         </thead>
@@ -50,42 +52,41 @@
                                                 <td>{{ $loop->index+1 }}</td>
                                                 <td>{{$promotion->student->name}}</td>
                                                 <td>{{$promotion->f_college->name}}</td>
-                                                <!-- <td>{{$promotion->academic_year}}</td> -->
+                                                <td>{{$promotion->academic_year}}</td>
                                                 <td>{{$promotion->f_classroom->name}}</td>
                                                 <td>
-                                                    @if($promotion->from_section) 
-                                                    $promotion->f_section->name
-                                                    @else
-                                                    'no Section'
-                                                    @endif
+                                
+                                                    <?php
+                                                     if($promotion->from_section){
+                                                      echo    $promotion->f_section->name;
+                                                     }else{
+                                                        echo    'no Section';
+                                                     }
+                                                    ?>
+
+
+
                                                 </td>
                                                 <td>{{$promotion->t_college->name}}</td>
-                                                <!-- <td>{{$promotion->academic_year_new}}</td> -->
+                                                <td>{{$promotion->academic_year_new}}</td>
                                                 <td>{{$promotion->t_classroom->name}}</td>
                                                 <td>
                                                 
-                                                @if($promotion->to_section_id) 
-                                                $promotion->t_section->name
-                                                    @else
-                                                    'no Section'
-                                                    @endif
+                                                <?php
+                                                     if($promotion->from_section){
+                                                      echo    $promotion->f_section->name;
+                                                     }else{
+                                                        echo    'no Section';
+                                                     }
+                                                    ?>
                                                 </td>
                                                 <td>
 
-                                                <a href="{{route('students.edit',$promotion->id)}}"
-                                                       class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
-                                                            class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm"
-                                                            data-toggle="modal"
-                                                            data-target="#Delete_Student{{ $promotion->id }}"
-                                                           ><i
-                                                            class="fa fa-trash"></i></button>
-                                            <a href="{{route('students.show',$promotion->id)}}"
-                                            class="btn btn-warning btn-sm" role="button" aria-pressed="true"><i
-                                            class="far fa-eye"></i></a>
+ <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#Delete_one{{$promotion->id}}">ارجاع الطالب</button>
+ <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#">تخرج الطالب</button>
 
 
-                                                   
+ @include('Admin.promotion.Delete_one')         
                                                 </td>
                                             </tr>
                                 

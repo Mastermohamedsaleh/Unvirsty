@@ -8,7 +8,8 @@ use App\Http\Controllers\{AdminController,
     SectionController ,
     StudentController,
     DoctorController,
-    PromotionController};
+    PromotionController,
+    GraduatedController};
 
 use App\Http\Controllers\Auth\AdminAuthController;
 
@@ -41,6 +42,7 @@ Route::resource('sections',SectionController::class);
 Route::resource('students',StudentController::class);
 Route::resource('doctors',DoctorController::class);
 Route::resource('promotion',PromotionController::class);
+Route::resource('graduated',GraduatedController::class);
 
 
 Route::get('/classes/{id}', [SectionController::class , 'getclasses'])->name('classes');

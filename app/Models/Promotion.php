@@ -11,13 +11,13 @@ class Promotion extends Model
 
 
     // protected $guarded=[];
-    protected $fillable = ['student_id','from_college','from_classroom','from_section','to_college','to_classroom_id','to_section_id'];
+    protected $fillable = ['student_id','from_college','from_classroom','from_section','to_college','to_classroom_id','to_section_id','academic_year','academic_year_new'];
 
 
 
     public function student()
     {
-        return $this->belongsTo('App\Models\Classroom', 'student_id');
+        return $this->belongsTo('App\Models\Student', 'student_id');
     }
 
 

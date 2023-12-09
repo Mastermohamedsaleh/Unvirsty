@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreignId('section_id')->nullable()->references('id')->on('sections')->onDelete('cascade');
             $table->foreignId('gender_id')->references('id')->on('genders')->onDelete('cascade');
             $table->foreignId('nationalitie_id')->references('id')->on('nationalities')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

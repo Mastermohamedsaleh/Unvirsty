@@ -261,61 +261,6 @@
 
 
 
-<script>
-$(document).ready(function () {
-
-    $('select[name="college_id"]').on('change', function () {
-      
-        var college_id = $(this).val();
-        if(college_id){
-            $.ajax({
-                url: "{{ URL::to('classes') }}/"+college_id,
-                type: "GET",
-                dataType: "json",
-
-              success: function(data) {
-                 $('select[name="classroom_id"]').empty();
-                 $.each(data, function (key, value) { 
-                    $('select[name="classroom_id"]').append('<option value="' + key + '">' + value + '</option>')   
-                 });
-              },
-            });
-
-        }else {
-            console.log('AJAX load did not work');
-            }
-    });
-
-
-    $('select[name="college_id"]').on('change', function () {
-
-        var college_id = $(this).val();
-
-        if(college_id){
-            $.ajax({
-                url: "{{ URL::to('getsection') }}/"+college_id,
-                type: "GET",
-                dataType: "json",
-
-              success: function(data) {
-                 $('select[name="section_id"]').empty();
-                 $.each(data, function (key, value) { 
-                    $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>')   
-                 });
-              },
-            });
-
-        }else{
-            console.log('AJAX load did not work');
-
-        }
-
-    });  
-});
-
-
-
-</script>
 
 
 
