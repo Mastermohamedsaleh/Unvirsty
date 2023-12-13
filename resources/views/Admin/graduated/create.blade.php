@@ -87,7 +87,7 @@
 
 <label>Section: <span class="text-danger">*</span> </label>
 <select name="section_id" class="form-select">
-        <option value="" disabled>Choose Classroom</option>
+        <option value="" disabled>Choose Sections</option>
  
  </select>
 

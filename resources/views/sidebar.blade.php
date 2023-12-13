@@ -8,6 +8,8 @@
                 <li class="sidebar-header">
                     Admin elements
                 </li>
+
+
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link"><i class="fa-solid fa-list"></i>Dashboard</a>
                 </li>
@@ -27,6 +29,13 @@
                     <a href="{{route('sections.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>subject</a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="{{route('fee.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-comment-dollar"></i>Fee</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{route('receipt.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-comment-dollar"></i>Receipt</a>
+                </li>
+
+                <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-graduation-cap"></i> Students</a>
                     <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
@@ -39,6 +48,9 @@
                         </li>
                     </ul>
                 </li>
+
+
+
               <li class="sidebar-item">
                   <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-person-chalkboard"></i> Doctors</a>
                   <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">

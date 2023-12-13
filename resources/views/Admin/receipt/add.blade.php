@@ -1,0 +1,85 @@
+@include('header')
+  <div class="wrapper">
+    @include('sidebar')
+
+      <div class="main">
+ @include('nav')
+
+
+
+
+<div class="container mt-5">
+
+
+
+
+
+
+
+
+<div class="card">
+
+<div class="card-body">
+
+
+
+<h4 class="text-primary text-center">Receipt</h4>
+
+
+<form action="{{route('receipt.store')}}" method="post">
+
+
+@csrf
+<div class="row">
+
+
+<input type="hidden" name="student_id" value="{{$student->id}}">
+
+<div class="col-12">
+    <label for="">Amount <span class="text-danger">*</span></label>
+    <input type="number" name="Debit" class="form-control">
+</div>
+
+
+<div class="col-12">
+
+<label for="">Description <span class="text-danger">*</span></label>
+ 
+<textarea name="description"  cols="30" rows="10" class="form-control"></textarea>
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+<button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+</form>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+ @include('footer')

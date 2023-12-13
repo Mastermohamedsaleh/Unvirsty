@@ -50,7 +50,7 @@ class Student extends Authenticatable
 
     public function classroom()
     {
-        return $this->belongsTo('App\Models\Classroom', 'Classroom_id');
+        return $this->belongsTo('App\Models\Classroom', 'classroom_id');
     }
 
     // علاقة بين الطلاب الاقسام الدراسية لجلب اسم القسم  في جدول الطلاب

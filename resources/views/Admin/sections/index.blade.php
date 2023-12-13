@@ -60,12 +60,12 @@
 
 
 
-     <div class="card" >
+     <div class="card shadow" style="width:700px;   margin: 0 auto " >
   <div class="card-header">
    {{$college->name}}
   </div>
   <ul class="list-group list-group-flush">
-   <a href="{{route('sections.show',$college->id)}}"><li class="list-group-item text-primary">View Section {{$college->name}}</li></a> 
+   <a href="{{route('sections.show',$college->id)}}"><li class="list-group-item text-primary text-center">View Section {{$college->name}}</li></a> 
   
   </ul>
 </div> 

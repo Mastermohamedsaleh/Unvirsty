@@ -9,7 +9,10 @@ use App\Http\Controllers\{AdminController,
     StudentController,
     DoctorController,
     PromotionController,
-    GraduatedController};
+    GraduatedController,
+    FeeController,
+    FeeInvoicesController,
+    ReceiptStudentController};
 
 use App\Http\Controllers\Auth\AdminAuthController;
 
@@ -43,10 +46,15 @@ Route::resource('students',StudentController::class);
 Route::resource('doctors',DoctorController::class);
 Route::resource('promotion',PromotionController::class);
 Route::resource('graduated',GraduatedController::class);
+Route::resource('fee',FeeController::class);
+Route::resource('fee_invoices',FeeInvoicesController::class);
+Route::resource('receipt',ReceiptStudentController::class);
 
 
 Route::get('/classes/{id}', [SectionController::class , 'getclasses'])->name('classes');
 Route::get('/getsection/{id}', [SectionController::class , 'getsection'])->name('getsection');
+
+
 
 
 

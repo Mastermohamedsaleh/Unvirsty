@@ -60,7 +60,6 @@
 
 
 <div class="col-md-6">
-
 <div class="form-group">
  <label>Name : <span class="text-danger">*</span></label>
  <input  type="text" name="name"  class="form-control">
