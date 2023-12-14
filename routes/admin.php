@@ -12,7 +12,8 @@ use App\Http\Controllers\{AdminController,
     GraduatedController,
     FeeController,
     FeeInvoicesController,
-    ReceiptStudentController};
+    ReceiptStudentController,
+    SubjectController};
 
 use App\Http\Controllers\Auth\AdminAuthController;
 
@@ -49,6 +50,7 @@ Route::resource('graduated',GraduatedController::class);
 Route::resource('fee',FeeController::class);
 Route::resource('fee_invoices',FeeInvoicesController::class);
 Route::resource('receipt',ReceiptStudentController::class);
+Route::resource('subject',SubjectController::class);
 
 
 Route::get('/classes/{id}', [SectionController::class , 'getclasses'])->name('classes');

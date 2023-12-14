@@ -75,6 +75,7 @@ class ClassroomController extends Controller
                 $classroom->college_id = $request->college_id,
             ]);
             Session::flash('message', 'Udpate Success'); 
+       
             return redirect()->route('classrooms.index');
         }
 

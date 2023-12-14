@@ -131,7 +131,7 @@
 
 <label>Classroom: <span class="text-danger">*</span> </label>
 <select name="classroom_id" class="form-select">
-    <option value="" disabled>Choose Classroom</option>
+ <option value="" disabled>Choose Classroom</option>
        
  </select>
 

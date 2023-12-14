@@ -56,7 +56,6 @@ $(document).ready(function(){
     <select name="college_id[]" id=""class="form-select">
     <option value="" disabled>Choose College</option>
 @foreach($colleges as $college)
-
   <option value="{{$college->id}}">{{$college->name}}</option>
 @endforeach
 </select>
