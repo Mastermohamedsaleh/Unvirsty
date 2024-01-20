@@ -34,7 +34,7 @@
  <div class="col">
        <label for="Name" class="mr-sm-2">Name Student : <span class="text-danger">*</span></label>
        <select class="form-select" name="student_id" required>
-               <option value="{{ $student->id }}">{{ $student->name }}</option>
+               <option value="{{$student->id}}">{{ $student->name }}</option>
        </select>
    </div>
 
@@ -60,7 +60,7 @@
  <label>Amount : <span class="text-danger">*</span></label>
  <select name="amount" id="" class="form-select">
  @foreach($fees as $fee)
-     <option value="{{ $fee->amount }}">{{ $fee->amount }}</option>
+     <option value="{{$fee->amount}}">{{ $fee->amount }}</option>
   @endforeach
  </select>
 

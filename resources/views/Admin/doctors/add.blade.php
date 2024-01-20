@@ -16,7 +16,6 @@
 
 <h4 class="text-center text-color fs-1 fw-bold fst-italic">Doctor</h4>
 
-<img src="{{URL::asset('assets/images/edd01-1.jpg')}}" class="img-thumbnail rounded-circle mx-auto d-block"   alt="..." style="width:200px;hieght:300px">
 
 
 

@@ -19,8 +19,8 @@
       <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من عملية تراجع الطالب ؟ {{$promotion->student->name}}</h5>
             
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button  class="btn btn-danger">delete</button>
+        <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
+        <button  class="btn btn-danger button-mode">delete</button>
       </div>
 </form>
     </div>

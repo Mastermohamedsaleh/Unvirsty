@@ -23,8 +23,8 @@
       
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button  class="btn btn-danger">Return</button>
+        <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
+        <button  class="btn btn-danger button-mode">Return</button>
       </div>
 </form>
     </div>

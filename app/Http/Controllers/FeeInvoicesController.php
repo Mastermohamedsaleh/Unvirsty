@@ -39,25 +39,29 @@ class FeeInvoicesController extends Controller
         DB::beginTransaction();
          
         try{
-            $fee = new Fee_invoice();
-            $fee->invoice_date = date('Y-m-d');
-            $fee->student_id = $request->student_id;
-            $fee->college_id = $request->college_id;
-            $fee->classroom_id = $request->classroom_id;
-            $fee->section_id = $request->section_id;
-            $fee->fee_id = $request->fee_id;
-            $fee->amount = $request->amount;
-            $fee->save();
+   
 
-            
-             // حفظ البيانات في جدول حسابات الطلاب
+            $fee_invoice = new Fee_invoice();
+            $fee_invoice->invoice_date = date('Y-m-d');
+            $fee_invoice->student_id = $request->student_id;
+            $fee_invoice->college_id = $request->college_id;
+            $fee_invoice->classroom_id = $request->classroom_id;
+            $fee_invoice->section_id = $request->section_id;
+            $fee_invoice->fee_id = $request->fee_id;
+            $fee_invoice->amount = $request->amount;
+            $fee_invoice->save();
+
+
+             // حفظ البيانات في جدول حسابات الطلاب 
              $StudentAccount = new StudentAccount();
              $StudentAccount->date = date('Y-m-d');
-             $StudentAccount->fee_invoice_id = $fee->id;
+             $StudentAccount->fee_invoice_id =  $fee_invoice->id;
              $StudentAccount->student_id = $request->student_id;
              $StudentAccount->Debit = $request->amount;
              $StudentAccount->credit = 0.00;
              $StudentAccount->save();
+
+        
 
              DB::commit();
 

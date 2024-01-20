@@ -34,8 +34,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button  class="btn btn-primary">udpate</button>
+        <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
+        <button  class="btn btn-primary button-mode">udpate</button>
 </form>
       </div>
     </div>

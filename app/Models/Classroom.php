@@ -19,5 +19,10 @@ class Classroom extends Model
         return $this->belongsTo('App\Models\College', 'college_id');
     }
 
+    public function section()
+    {
+        return $this->belongsTo('App\Models\Section', 'section_id');
+    }
+
 
 }

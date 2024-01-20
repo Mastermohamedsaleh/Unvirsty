@@ -25,8 +25,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button  class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
+        <button  class="btn btn-danger button-mode">Delete</button>
       </div>
       </form>
     </div>

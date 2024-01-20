@@ -34,6 +34,9 @@
                 <li class="sidebar-item">
                     <a href="{{route('receipt.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-comment-dollar"></i>Receipt</a>
                 </li>
+                <li class="sidebar-item">
+                    <a href="{{route('attendance.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Attendance</a>
+                </li>
 
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-graduation-cap"></i> Students</a>
@@ -61,11 +64,11 @@
                   </ul>
               </li>
               <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-regular fa-user pe-2"></i> Auth</a>
+                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-regular fa-user pe-2"></i> Quizzes</a>
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">Log in</a>
-                        <a href="#" class="sidebar-link">Register</a>
+                        <a href="{{route('quizzes.index')}}" class="sidebar-link">Quizze</a>
+                        <a href="{{route('questions.index')}}" class="sidebar-link">Questions</a>
                         <a href="#" class="sidebar-link">Forgot Password</a>
                     </li>
                 </ul>
