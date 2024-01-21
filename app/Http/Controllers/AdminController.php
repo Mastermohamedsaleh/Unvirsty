@@ -19,6 +19,13 @@ class AdminController extends Controller
     {
          $admins = Admin::all();
          return view('Admin.admins.index',compact('admins'));
+    
+
+
+
+
+
+
     }
 
   

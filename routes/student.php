@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\StudentController;
 
+use App\Http\Controllers\Student\ExamController;
+
 
 
 
@@ -15,20 +17,7 @@ Route::get('dashboard/student', function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::resource('student_exams', ExamController::class);
 
 
 

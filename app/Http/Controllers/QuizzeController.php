@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 use App\Models\College;
 use App\Models\Quizze;
+use App\Models\Question;
 use App\Models\Subject;
 use App\Models\Doctor;
 use Illuminate\Support\Facades\Session;
@@ -17,7 +17,7 @@ class QuizzeController extends Controller
 
     public function index()
     {
-        $quizzes = Quizze::get();
+        $quizzes = Quizze::where('doctor_id',auth()->user()->id)->get();
         return view('Doctor.Quizzes.index', compact('quizzes'));
     }
 
@@ -25,7 +25,7 @@ class QuizzeController extends Controller
     public function create()
     {
         $data['colleges'] = College::all();
-        $data['subjects'] = Subject::all();
+        $data['subjects'] = Subject::where('doctor_id',auth()->user()->id)->get();
         $data['doctors'] = Doctor::all();
         return view('Doctor.Quizzes.create', $data);
     }
@@ -40,7 +40,7 @@ class QuizzeController extends Controller
             $quizzes->college_id = $request->college_id;
             $quizzes->classroom_id = $request->classroom_id;
             $quizzes->section_id = $request->section_id;
-            $quizzes->doctor_id = $request->doctor_id;
+            $quizzes->doctor_id = auth()->user()->id;
             $quizzes->save();
             Session::flash('message', 'Add Success');
             return redirect()->route('quizzes.index');
@@ -53,7 +53,9 @@ class QuizzeController extends Controller
 
     public function show($id)
     {
-        //
+        $questions = Question::where('quizze_id',$id)->get();
+        $quizz = Quizze::findorFail($id);
+        return view('Doctor.Questions.index',compact('questions','quizz'));
     }
 
 
@@ -61,7 +63,7 @@ class QuizzeController extends Controller
     {
         $quizz = Quizze::findorFail($id);
         $data['colleges'] = College::all();
-        $data['subjects'] = Subject::all();
+        $data['subjects'] =  Subject::where('doctor_id',auth()->user()->id)->get();
         $data['doctors'] = Doctor::all();
         return view('Doctor.Quizzes.edit', $data, compact('quizz'));
     }
@@ -76,7 +78,7 @@ class QuizzeController extends Controller
             $quizzes->college_id = $request->college_id;
             $quizzes->classroom_id = $request->classroom_id;
             $quizzes->section_id = $request->section_id;
-            $quizzes->doctor_id = $request->doctor_id;
+            $quizzes->doctor_id = auth()->user()->id;
             $quizz->save();
             Session::flash('message', 'Update Success');
             return redirect()->back();

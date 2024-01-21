@@ -22,6 +22,9 @@ class RedirectIfAuthenticated
         if (auth('student')->check()){
             return redirect(RouteServiceProvider::STUDENT);
         }
+        if (auth('doctor')->check()){
+            return redirect(RouteServiceProvider::DOCTOR);
+        }
 
         return $next($request);
     }

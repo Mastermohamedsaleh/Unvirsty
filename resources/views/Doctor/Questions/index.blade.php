@@ -1,6 +1,6 @@
 @include('header')
   <div class="wrapper">
-    @include('sidebar')
+  @include('sidebar_doctor')
 
       <div class="main">
 @include('nav')
@@ -41,7 +41,7 @@
 
 
 
-
+<h2>All Question : </h2><h5  class="text-danger">{{$quizz->name}}</h5>
 
 <div class="container mt-3">
 
@@ -51,7 +51,7 @@
 
 
 
-<a href="{{route('questions.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add New questions</a>
+<a href="{{route('questions.show',$quizz->id)}}" class="mb-2 btn btn-outline-primary btn-sm">Add New questions</a>
 
 
 

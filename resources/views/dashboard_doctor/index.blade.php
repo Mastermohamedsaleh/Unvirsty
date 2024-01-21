@@ -4,7 +4,7 @@
   
      @include('header')
   <div class="wrapper">
-    @include('sidebar_student')
+    @include('sidebar_doctor')
 
 
 
@@ -14,7 +14,7 @@
         <!-- main -->
 
 
-        الدخول كطالب
+        الدخول دكتور
         <main class="content px-3 py-2">
           <div class="content-fluid">
             <div class="mb-3">

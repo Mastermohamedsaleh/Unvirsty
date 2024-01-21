@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AttendanceController;
 
+use App\Http\Controllers\Auth\DoctorController;
+
+use App\Http\Controllers\QuizzeController;
+use App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +20,36 @@ use App\Http\Controllers\AttendanceController;
 |
 */
 
-Route::resource('attendance',AttendanceController::class);
+
+
+Route::get('dashboard/doctor', function () {
+    return view('dashboard_doctor.index');
+})->middleware(['auth:doctor'])->name('dashboard.doctor');
 
 
 
+Route::group(['middleware' => 'auth:doctor'], function(){
+    Route::resource('quizzes',QuizzeController::class);
+    Route::resource('questions',QuestionController::class);
+    
+    
+    Route::resource('attendance',AttendanceController::class);
+});
+
+
+
+
+
+
+
+// /////////////////////////////////////// logout student /////////////////////////////////////////////////////////////////
+
+Route::post('logout/doctor', [DoctorController::class, 'destroy'])->middleware('auth:doctor')->name('doctor.logout');
+
+
+//#############################################################################################
+
+
+
+
+require __DIR__.'/auth.php';

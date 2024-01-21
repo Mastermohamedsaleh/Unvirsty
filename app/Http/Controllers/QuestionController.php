@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Session;
 class QuestionController extends Controller
 {
 
-    public function index()
+    public function index($id)
     {
-        $questions = Question::get();
-        return view('Doctor.Questions.index', compact('questions'));
+        // $questions = Question::get();
+        // return view('Doctor.Questions.index', compact('questions'));
     }
 
 
@@ -34,10 +34,10 @@ class QuestionController extends Controller
             $question->answers = $request->answers;
             $question->right_answer = $request->right_answer;
             $question->score = $request->score;
-            $question->quizze_id = $request->quizze_id;
+            $question->quizze_id =  $request->quizz_id;
             $question->save();
             Session::flash('message', 'Add Success');
-            return redirect()->route('questions.index');
+            return redirect()->back();
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
@@ -46,7 +46,8 @@ class QuestionController extends Controller
 
     public function show($id)
     {
-        //
+        $quizz_id = $id;
+        return view('Doctor.Questions.create', compact('quizz_id'));
     }
 
     public function edit($id)

@@ -1,6 +1,6 @@
 @include('header')
   <div class="wrapper">
-    @include('sidebar')
+  @include('sidebar_doctor')
 
       <div class="main">
 @include('nav')
@@ -8,6 +8,26 @@
 
 
 <div class="container mt-5">
+
+
+
+
+
+@if ($errors->any())
+                    <div class="alert alert-danger" style="width:300px; margin:0px auto">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+
+
+                @if(Session::has('message'))
+<p class="alert alert-info" style="width:300px; margin:0px auto">{{ Session::get('message') }}</p>
+@endif
 
 <form action="{{route('questions.store')}}" method="post" autocomplete="off">
 
@@ -27,6 +47,7 @@
 <div class="col-12">
 <label for="title">Name Question </label>
     <input type="text" name="title" id="input-name" autofocus>
+    <input type="hidden" value="{{$quizz_id}}" name="quizz_id">
 </div>
 
 
@@ -46,21 +67,7 @@
 </div>
 
 
-<div class="col-6">
 
-
-<label for="Grade_id">Name Quizze  : <span
-                                                    class="text-danger">*</span></label>
-                                            <select class="custom-select mr-sm-2" name="quizze_id">
-                                                <option selected disabled> Chooces Quizze...</option>
-                                                @foreach($quizzes as $quizze)
-                                                    <option value="{{ $quizze->id }}">{{ $quizze->name }}</option>
-                                                @endforeach
-     </select>
-
-
-
-</div>
 
 
 

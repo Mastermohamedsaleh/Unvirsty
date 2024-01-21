@@ -1,6 +1,6 @@
 @include('header')
   <div class="wrapper">
-    @include('sidebar')
+  @include('sidebar_doctor')
 
       <div class="main">
 @include('nav')
@@ -83,31 +83,6 @@
                                             </select>
                                         </div>
                                     </div>
-
-
-
-
-
-
-
-
-
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label > Doctor : <span class="text-danger">*</span></label>
-                                            <select class="custom-select mr-sm-2" name="doctor_id">
-                                                <option selected disabled>Choose Doctor  ...</option>
-                                                @foreach($doctors as $doctor)
-                                                    <option  value="{{ $doctor->id }}">{{ $doctor->name }}</option>
-                                                @endforeach
-                                            </select>
-                </div>
-        </div>
-
-
-
-
-
 
 
 

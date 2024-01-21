@@ -14,8 +14,6 @@ use App\Http\Controllers\{AdminController,
     FeeInvoicesController,
     ReceiptStudentController,
     SubjectController,
-    QuizzeController,
-    QuestionController
 };
 
 use App\Http\Controllers\Auth\AdminAuthController;
@@ -54,18 +52,21 @@ Route::resource('fee',FeeController::class);
 Route::resource('fee_invoices',FeeInvoicesController::class);
 Route::resource('receipt',ReceiptStudentController::class);
 Route::resource('subject',SubjectController::class);
-Route::resource('quizzes',QuizzeController::class);
-Route::resource('questions',QuestionController::class);
 
 
-Route::get('/classes/{id}', [SectionController::class , 'getclasses'])->name('classes');
-Route::get('/getsection/{id}', [SectionController::class , 'getsection'])->name('getsection');
+
+
 
 
 
 
 
 });
+
+
+
+Route::get('/classes/{id}', [SectionController::class , 'getclasses'])->name('classes');
+Route::get('/getsection/{id}', [SectionController::class , 'getsection'])->name('getsection');
 
 // ////////////////////////////////logout adminP///////////////////////////////////////////
 Route::post('/logout/admin', [AdminAuthController::class, 'destroy'])->middleware('auth:admin')->name('admin.logout');
