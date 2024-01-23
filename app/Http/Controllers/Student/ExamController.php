@@ -38,9 +38,10 @@ class ExamController extends Controller
     }
 
 
-    public function show($id)
+    public function show($quizze_id)
     {
-        //
+        $student_id = Auth::guard('student')->user()->id;
+       return view('Student.Exams.show',compact('quizze_id','student_id'));        
     }
 
 

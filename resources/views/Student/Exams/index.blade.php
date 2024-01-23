@@ -66,6 +66,8 @@
 
 
 
+
+
 <div class="table-responsive">
                         <table id="datatable"  class="table table-hover table-bordered">
 
@@ -90,7 +92,7 @@
 
 
                       <td>
-<a href="#" class="mb-2 btn btn-outline-success btn-sm"><i class="fa-solid fa-eye"></i></a>
+<a href="{{route('student_exams.show',$quizze->id)}}" class="mb-2 btn btn-outline-success btn-sm"><i class="fa-solid fa-eye"></i></a>
 
                       </td>
 

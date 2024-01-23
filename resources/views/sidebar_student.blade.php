@@ -41,10 +41,10 @@
                   </ul>
               </li> -->
               <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-regular fa-user pe-2"></i> Quizzes</a>
+                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-regular fa-user pe-2"></i> Quizzes  </a> 
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="{{route('student_exams.index')}}" class="sidebar-link">My Quizze</a>
+                        <a href="{{route('student_exams.index')}}" class="sidebar-link">My Quizze   </a>
                     
                     </li>
                 </ul>
