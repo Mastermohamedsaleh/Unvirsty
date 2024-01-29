@@ -17,7 +17,7 @@
       <div class="col">
       <div class="form-group">
         <label>Name: </label>
-        <input type="text"  value="{{$classroom->name}}" name="name" class="form-control" >
+        <input type="text"  value="{{$classroom->name}}" name="name"  >
         </div>
       </div>
 

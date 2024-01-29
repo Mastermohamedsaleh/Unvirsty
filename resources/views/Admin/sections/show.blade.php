@@ -28,13 +28,13 @@
 
  <!-- Message Success -->
  @if(Session::has('message'))
-<p class="alert alert-info">{{ Session::get('message') }}</p>
+<p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
 @endif
 <!-- End Success -->
 
  <!-- Message Error -->
 @if ($errors->any())
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" style="width:500px;   margin: 0 auto ">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>

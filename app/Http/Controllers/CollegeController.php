@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\College;
-
+use App\Http\Requests\CollegeRequest;
+         
 
 class CollegeController extends Controller
 {
@@ -23,7 +24,7 @@ class CollegeController extends Controller
     }
 
  
-    public function store(Request $request)
+    public function store(CollegeRequest $request)
     {
            
 
@@ -55,7 +56,7 @@ class CollegeController extends Controller
     //
     }
 
-    public function update(Request $request, $id)
+    public function update(CollegeRequest $request, College $college)
     {
         try{
 

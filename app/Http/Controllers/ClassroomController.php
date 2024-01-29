@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Session;
 
+use App\Http\Requests\ClassroomRequest;
+
+
+
 class ClassroomController extends Controller
 {
   
@@ -26,7 +30,7 @@ class ClassroomController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(ClassroomRequest $request)
     {
     
         try {
@@ -50,9 +54,16 @@ class ClassroomController extends Controller
     }
 
 
-    public function show(Classroom $classroom)
+    public function show($college_id)
     {
-        //
+         
+      $classrooms =  Classroom::where('college_id',$college_id)->get();
+      $colleges = College::all();
+
+         
+      return view('Admin.classrooms.show', compact('classrooms','colleges'));
+
+         
     }
 
     public function edit(Classroom $classroom)
@@ -61,7 +72,7 @@ class ClassroomController extends Controller
     }
 
 
-    public function update(Request $request, Classroom $classroom)
+    public function update(ClassroomRequest $request, Classroom $classroom)
     {
         
           
@@ -76,7 +87,7 @@ class ClassroomController extends Controller
             ]);
             Session::flash('message', 'Udpate Success'); 
        
-            return redirect()->route('classrooms.index');
+            return redirect()->back();
         }
 
         catch(\Exception $e) {
@@ -91,6 +102,7 @@ class ClassroomController extends Controller
     {
         $Classrooms = Classroom::findOrFail($request->id)->delete();
         Session::flash('message', 'Delete Success');
-        return redirect()->route('classrooms.index');
+        return redirect()->back();
+
     }
 }

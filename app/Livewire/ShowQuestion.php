@@ -34,9 +34,6 @@ class ShowQuestion extends Component
         ->first();
 
 
-
-
-
         if( $studentDegree == null ){
 
                // insert
@@ -54,7 +51,37 @@ class ShowQuestion extends Component
             $degree->save();
         }else{
             
+
        // update
+
+       if ($studentDegree->question_id >= $this->data[$this->counter]->id) { 
+
+
+        $stuDegree->score = 0;
+        $stuDegree->abuse = '1';
+        $stuDegree->save();
+        Session::flash('message', 'مم إلغاء الاختبار لإكتشاف تلاعب بالنظام');
+
+        return redirect('student_exams');
+
+
+       }else{
+
+
+
+        $stuDegree->question_id = $question_id;
+                if (strcmp(trim($answer), trim($right_answer)) === 0) {
+                    $stuDegree->score += $score;
+                } else {
+                    $stuDegree->score += 0;
+                }
+                $stuDegree->save();
+
+
+       }
+
+
+
 
                    
              
@@ -64,7 +91,7 @@ class ShowQuestion extends Component
         if ($this->counter < $this->questioncount - 1) {
             $this->counter++;
         } else {     
-             Session::flash('message', 'م إجراء الاختبار بنجاح');
+            Session::flash('message', 'م إجراء الاختبار بنجاح');
             return redirect('student_exams');
         }
 

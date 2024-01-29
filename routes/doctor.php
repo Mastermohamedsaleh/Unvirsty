@@ -34,6 +34,11 @@ Route::group(['middleware' => 'auth:doctor'], function(){
     
     
     Route::resource('attendance',AttendanceController::class);
+
+   Route::get('student_quizze/{id}',[QuizzeController::class,'student_quizze'])->name('student.quizze');
+
+   Route::post('repeat_quizze', [QuizzeController::class,'repeat_quizze'])->name('repeat.quizze');
+
 });
 
 

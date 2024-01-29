@@ -9,6 +9,7 @@ use App\Models\Admin;
 
 use App\Http\Requests\adminrequest;
 
+use Illuminate\Support\Facades\Session;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -17,15 +18,8 @@ class AdminController extends Controller
   
     public function index()
     {
-         $admins = Admin::all();
+         $admins = Admin::where('status',1)->get();
          return view('Admin.admins.index',compact('admins'));
-    
-
-
-
-
-
-
     }
 
   
@@ -38,16 +32,20 @@ class AdminController extends Controller
     public function store(adminrequest $request)
     {
            
-
         try{
 
             $admin = new Admin();
             $admin->name = $request->name;
             $admin->email =   $request->email;
-            $admin->password =   Hash::make($request->password);
+            $admin->status =  1;
+            $admin->password =  Hash::make($request->password);
  
             $admin->save();
 
+
+            Session::flash('message', 'Add Success'); 
+       
+            return redirect()->back();
 
         }catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -79,6 +77,8 @@ class AdminController extends Controller
             $admin->password =   $request->oldpassword;
             $admin->update();
 
+            Session::flash('message', 'Udpate Success');  
+            return redirect()->back();
 
         }catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

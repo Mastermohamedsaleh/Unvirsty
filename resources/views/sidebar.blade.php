@@ -63,16 +63,7 @@
                       </li>
                   </ul>
               </li>
-              <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-regular fa-user pe-2"></i> Quizzes</a>
-                <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item">
-                        <a href="{{route('quizzes.index')}}" class="sidebar-link">Quizze</a>
-                        <a href="{{route('questions.index')}}" class="sidebar-link">Questions</a>
-                        <a href="#" class="sidebar-link">Forgot Password</a>
-                    </li>
-                </ul>
-            </li>
+        
             <li class="sidebar-header">
               Multi level menu
             </li>

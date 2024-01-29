@@ -15,7 +15,7 @@
       <div class="col">
       <div class="form-group">
         <label>Name: </label>
-        <input type="text"  name="name" class="form-control" >
+        <input type="text"  name="name"  >
         </div>
       </div>
 
@@ -23,7 +23,7 @@
       <div class="col">
       <div class="form-group">
          <label>Note : </label>
-         <input type="text"  name="note" class="form-control" >
+         <input type="text"  name="note"  >
          </div>
       </div>
 

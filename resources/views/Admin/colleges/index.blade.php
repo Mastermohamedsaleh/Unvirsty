@@ -8,13 +8,13 @@
 
 
 
-<h3 class="text-success text-center">colleges</h3>
+<h3 class="text-primary text-center">Colleges</h3>
 
 
 
 
 @if ($errors->any())
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" style="width:500px;   margin: 0 auto ">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -24,6 +24,9 @@
     @endif
 
 
+    @if(Session::has('message'))
+<p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
+@endif
 
 
 
@@ -52,7 +55,9 @@
  
 
  <div class="table-responsive">
-                        <table id="datatable"  class="table key-buttons text-md-nowrap">
+                        <table id="datatable"  class="table table-hover table-sm table-bordered p-0"
+                                           data-page-length="50"
+                                           style="text-align: center">
                             <thead>
                             <tr>
                                 <th>#</th>

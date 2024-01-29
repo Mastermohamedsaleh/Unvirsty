@@ -11,6 +11,7 @@
         
       <form method="post"  action="{{route('admins.update',$admin->id)}}" autocomplete="off" enctype="multipart/form-data">
       @csrf
+      @method('PUT')
       <div class="row">
       <div class="col">
       <div class="form-group">
@@ -19,7 +20,7 @@
         </div>
       </div>
 
-      <input type="text" name="oldpassword" value="{{$admin->password}}" >
+      <input type="hidden" name="oldpassword" value="{{$admin->password}}" >
   
       <div class="col">
       <div class="form-group">

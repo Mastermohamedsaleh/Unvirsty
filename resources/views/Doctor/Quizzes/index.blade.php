@@ -105,6 +105,10 @@
 <button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#Delete_quizze{{ $quizze->id }}" >  <i class="fas fa-trash"></i></button>
 <a href="{{route('quizzes.show',$quizze->id)}}" class="mb-2 btn btn-outline-primary btn-sm"><i class="fa-solid fa-circle-question"></i></a>
 
+
+<a href="{{route('student.quizze',$quizze->id)}}"
+                                                       class="btn btn-primary btn-sm" title="عرض الطلاب المختبرين" role="button" aria-pressed="true"><i
+                                                            class="fa fa-street-view"></i></a>
 @include('Doctor.Quizzes.delete')
 
                             </td>

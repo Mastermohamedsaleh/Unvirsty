@@ -50,7 +50,7 @@ $(document).ready(function(){
     var row = `
     <div class="row mt-2">
     <div class="col">
-    <input type="text" name="name[]" class="form-control">
+    <input type="text" name="name[]" >
     </div>
     <div class="col">
     <select name="college_id[]" id=""class="form-select">

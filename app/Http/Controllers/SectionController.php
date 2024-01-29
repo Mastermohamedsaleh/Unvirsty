@@ -22,8 +22,8 @@ class SectionController extends Controller
 
         $colleges = College::all();
         $classrooms = Classroom::all();
-
-        return view('Admin.sections.index',compact('colleges','classrooms'));
+        $sections = Section::all();
+        return view('Admin.sections.index',compact('colleges','classrooms','sections'));
     }
 
   
@@ -44,11 +44,11 @@ class SectionController extends Controller
             $Sections->name = $request->name;
             $Sections->college_id = $request->college_id;
             $Sections->classroom_id = $request->classroom_id;
-            $Sections->status = 1;
+           
             $Sections->save();
 
             Session::flash('message', 'Add Success'); 
-            return redirect()->route('sections.index');
+            return redirect()->back();
         }
       
         catch (\Exception $e){

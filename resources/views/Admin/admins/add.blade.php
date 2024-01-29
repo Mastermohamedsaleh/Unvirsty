@@ -12,27 +12,27 @@
       <form method="post"  action="{{route('admins.store')}}" autocomplete="off" enctype="multipart/form-data">
       @csrf
       <div class="row">
-      <div class="col">
+      <div class="col-12">
       <div class="form-group">
         <label>Name: </label>
-        <input type="text"  name="name" class="form-control" >
+        <input type="text"  name="name"  >
         </div>
       </div>
 
 
-      <div class="col">
+      <div class="col-12">
       <div class="form-group">
          <label>Email : </label>
-         <input type="email"  name="email" class="form-control" >
+         <input type="email"  name="email"  >
          </div>
       </div>
 
 
 
-      <div class="col">
+      <div class="col-12">
       <div class="form-group">
             <label>Password: </label>
-            <input type="password"  name="password" class="form-control" >
+            <input type="password"  name="password"  >
         </div>
       </div>
 
@@ -41,8 +41,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary button-mode">Save</button>
       </div>
 </form>
     </div>

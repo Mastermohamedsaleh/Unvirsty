@@ -92,9 +92,25 @@
 
 
                       <td>
-<a href="{{route('student_exams.show',$quizze->id)}}" class="mb-2 btn btn-outline-success btn-sm"><i class="fa-solid fa-eye"></i></a>
 
-                      </td>
+
+
+
+                      @php $student_exams = route('student_exams.show',$quizze->id)  @endphp
+
+                      <?php
+
+            $question =  App\Models\Question::where( 'quizze_id' , $quizze->id )->first();
+
+            if( $question == null){
+                echo "No Quetions Until Now";
+            }else{
+          echo "<a href='$student_exams' class='mb-2 btn btn-outline-success btn-sm' onclick='alertAbuse()'><i class='fa-solid fa-eye'></i></a>";
+     
+            }
+?>
+
+              </td>
 
                     </tr>
                @endforeach
@@ -107,6 +123,12 @@
 </div>
 
 
+
+<script>
+            function alertAbuse() {
+                alert("برجاء عدم إعادة تحميل الصفحة بعد دخول الاختبار - في حال تم تنفيذ ذلك سيتم الغاء الاختبار بشكل اوتوماتيك ");
+            }
+        </script>
 
 
 

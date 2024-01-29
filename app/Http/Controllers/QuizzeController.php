@@ -8,6 +8,7 @@ use App\Models\Quizze;
 use App\Models\Question;
 use App\Models\Subject;
 use App\Models\Doctor;
+use App\Models\Degree;
 use Illuminate\Support\Facades\Session;
 
 
@@ -98,4 +99,15 @@ class QuizzeController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
+
+
+    public function student_quizze($quizze_id)
+    {
+        $degrees = Degree::where('quizze_id', $quizze_id)->get();
+        return view('Doctor.Quizzes.student_quizze', compact('degrees'));
+    }
+
+
+
 }

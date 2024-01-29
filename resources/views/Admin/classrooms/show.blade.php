@@ -8,9 +8,7 @@
 
 
 
-<h3 class="text-primary text-center">Admins</h3>
-
-
+<h3 class="text-primary text-center">Classroom</h3>
 
 
 @if ($errors->any())
@@ -24,11 +22,10 @@
                 @endif
 
 
-                
-    @if(Session::has('message'))
+
+@if(Session::has('message'))
 <p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
 @endif
-
 
 
  <div class="container mt-3">
@@ -43,54 +40,49 @@
 
 
 
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#admin">
- Add New Admin
-</button><br><br>
-      @include('Admin.admins.add')
+
  
 
  <div class="table-responsive">
-                        <table id="datatable"  class="table key-buttons text-md-nowrap">
+                        <table  id="datatable" class="table table-hover table-sm table-bordered p-0"
+                                           data-page-length="50"
+                                           style="text-align: center">
                             <thead>
                             <tr>
                                 <th>#</th>
                                 <th>name</th>
-                                <th>email</th>
+                                <th>College</th>
                                 <th>Processes</th>
                             </tr>
                             </thead>
                             <tbody>
                                     <?php $i= 1  ?>
-                            @foreach($admins as  $admin)
+                            @foreach($classrooms as  $classroom)
                                 <tr>
                                     <td> {{$i++}} </td>
-                                    <td>{{ $admin->name }}</td>
-                                    <td>{{ $admin->email }}</td>
+                                    <td>{{$classroom->name }}</td>
+                                    <td>{{$classroom->college->name}}</td>
                                     <td>
                               
 
-<button type="button" class="btn btn-sm btn-danger inline-block" data-bs-toggle="modal" data-bs-target="#deleteadmin{{$admin->id}}">
+<button type="button" class="btn btn-sm btn-danger inline-block" data-bs-toggle="modal" data-bs-target="#deleteclassroom{{$classroom->id}}">
 <i class="fas fa-trash"></i>
 </button>
                 
 
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editadmin{{$admin->id}}">
+ <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editclassroom{{$classroom->id}}">
  <i class="fas fa-edit"></i>
 </button><br><br>
-
-@include('Admin.admins.edit')
-
-@include('Admin.admins.delete')
-
-                                    </td>
-
-                                        </div>
-
-                                    </td>
-                                </tr>
+@include('Admin.classrooms.edit')
+@include('Admin.classrooms.delete')
+                          </td>
+                        </div>
+                     </td>
+                </tr>
 @endforeach
 
  </div>
+
 
 
 
@@ -101,5 +93,7 @@
  <!-- end container -->
  </div>
     
+
+
 
  @include('footer')
