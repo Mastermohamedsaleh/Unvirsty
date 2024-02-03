@@ -9,17 +9,16 @@
 
 
 
-<div class="cantainer mt-5">
+<div class="container mt-3">
 
 
-<div class="card m-5">
+<h3 class="text-primary text-center">Doctor</h3>
+
+<div class="card">
 
 
  
-<div class="card-header">
-    <h4 class="text-success text-center">Doctor</h4>
-    <!-- end card header -->
-</div>
+
 
 
 
@@ -56,6 +55,8 @@
 <div class="row">
 
 
+<legend><span class="number">1</span> Edit info Doctor</legend>
+
 <input type="hidden" value="{{$doctor->password}}" name="password">
 <input type="hidden" value="{{$doctor->id}}" name="id">
 
@@ -64,7 +65,7 @@
 
 <div class="form-group">
  <label>Name : <span class="text-danger">*</span></label>
- <input  type="text" name="name"  value= "{{$doctor->name}}" class="form-control">
+ <input  type="text" name="name"  value= "{{$doctor->name}}"   >
 </div>             
 <!-- end one col -->
 </div>
@@ -74,7 +75,7 @@
 
 <div class="form-group">
  <label>Email : <span class="text-danger">*</span></label>
- <input  type="email" name="email"  value= "{{$doctor->email}}" class="form-control" require>
+ <input  type="email" name="email"  value= "{{$doctor->email}}"    require>
 </div>   
 
 <!-- end one two -->
@@ -87,66 +88,22 @@
 
 <div class="form-group">
  <label>Ssn : <span class="text-danger">*</span></label>
- <input  type="text" name="ssn" value= "{{$doctor->ssn}}"  class="form-control" require>
+ <input  type="text" name="ssn" value= "{{$doctor->ssn}}"     require>
 </div> 
 
 
 <!-- end one four -->
 </div>
 
-<div class="col-md-6">
 
 
-<div class="form-group">
-
-<label>College: <span class="text-danger">*</span> </label>
-<select name="college_id" id="college_id" class="form-select">
-        <option value="" >Choose College</option>
-            @foreach($colleges as $college) 
-          
-        <option value="{{$college->id}}" {{ $college->id == $doctor->college_id ? 'selected' : '' }}  >{{$college->name}}</option>
-      
-            @endforeach
- </select>
-
-
-</div> 
-
-
-<!-- end one five -->
-</div>
-
-
-
-<div class="col-md-6">
-
-
-<div class="form-group">
-
-<label>Section: <span class="text-danger">*</span> </label>
-<select name="section_id" class="form-select">
-        <option value="" disabled>Choose Section</option>
- 
- </select>
-
-
-</div> 
-
-
-
-
-
-
-
-<!-- end one seven -->
-</div>
 
 
 <div class="col-md-6">
 
 <div class="form-group">
  <label>Address : <span class="text-danger">*</span></label>
- <input  type="text" name="address" value="{{$doctor->Address}}" class="form-control" require>
+ <input  type="text" name="address" value="{{$doctor->Address}}"  require>
 </div>
 
 
@@ -203,7 +160,7 @@
 <label>Current Year: <span class="text-danger">*</span> </label>
 
 
-<input class="form-control" type="text" name="Joining_Date"  value="{{$doctor->Joining_Date}}" id="">
+<input    type="text" name="Joining_Date"  value="{{$doctor->Joining_Date}}" id="">
 
 
 </div> 
@@ -222,7 +179,7 @@
 
 
  
-<button type="submit" class="btn btn-success m-3">UPdate</button>
+<button type="submit" class="btn btn-primary m-3">update</button>
  
 
 
@@ -249,41 +206,6 @@
 
 <!-- end container -->
 </div>
-
-
-
-<script>
-$(document).ready(function () {
-
-        var college_id =   $('#college_id').find(":selected").val();
-
-        if(college_id){
-            $.ajax({
-                url: "{{ URL::to('getsection') }}/"+college_id,
-                type: "GET",
-                dataType: "json",
-
-              success: function(data) {
-                 $('select[name="section_id"]').empty();
-                 $.each(data, function (key, value) { 
-                    $('select[name="section_id"]').append('<option   value="' + key + '">' + value + '</option>')   
-                 });
-              },
-            });
-
-        }else{
-            console.log('AJAX load did not work');
-        }
-
-});
-
-
-
-</script>
-
-
-
-
 
 
 

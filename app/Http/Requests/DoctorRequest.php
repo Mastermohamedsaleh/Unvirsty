@@ -29,8 +29,6 @@ class DoctorRequest extends FormRequest
             'password'=>'required|string|min:6|max:10',
              'ssn'=>'required',
              'address'=>'required',
-             'college_id'=>'required',
-             'section_id'=>'required',
              'gender_id'=>'required',
              'nationalitie_id'=>'required',
              'Joining_Date'=>'required'

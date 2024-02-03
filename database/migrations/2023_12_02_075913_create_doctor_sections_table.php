@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('doctor_sections', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
             $table->foreignId('college_id')->references('id')->on('colleges')->onDelete('cascade');
             $table->foreignId('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreignId('section_id')->nullable()->references('id')->on('sections')->onDelete('cascade');

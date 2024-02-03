@@ -45,8 +45,6 @@ class DoctorController extends Controller
           $doctor->nationalitie_id = $request->nationalitie_id;
           $doctor->ssn = $request->ssn;
           $doctor->Address = $request->address;
-          $doctor->college_id = $request->college_id;
-          $doctor->section_id = $request->section_id;
           $doctor->Joining_Date = $request->Joining_Date;
       $doctor->save();
           Session::flash('message', 'Add Success');

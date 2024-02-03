@@ -16,7 +16,7 @@
   <input type="hidden" name="id" value="{{$doctor->id}}">
       
                         <div class="col">
-                            <p class="h5 text-danger"> Do You Want Delete This College</p>
+                            <p class="h5 text-danger"> Do You Want Delete This Doctor</p>
                             <input type="text" class="form-control" readonly value="{{ $doctor->name }}">
                         </div>
                 

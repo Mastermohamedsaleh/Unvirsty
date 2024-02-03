@@ -13,7 +13,7 @@
 
 
 @if ($errors->any())
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" style="width:500px;   margin: 0 auto ">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -25,7 +25,7 @@
 
 
                 @if(Session::has('message'))
-<p class="alert alert-info">{{ Session::get('message') }}</p>
+<p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
 @endif
 
 
@@ -55,7 +55,8 @@
                                 <th>#</th>
                                 <th>name</th>
                                 <th>email</th>
-                                <th>College</th>
+                                <th>Snn</th>
+                                <th>Joining_Date</th>
                                 <th>Processes</th>
                             </tr>
                             </thead>
@@ -66,7 +67,8 @@
                                     <td> {{$i++}} </td>
                                     <td>{{ $doctor->name }}</td>
                                     <td>{{ $doctor->email }}</td>
-                                    <td>{{ $doctor->college->name }}</td>
+                                      <td>{{ $doctor->ssn }}</td>
+                                      <td>{{ $doctor->Joining_Date }}</td>
                                     <td>
                               
 

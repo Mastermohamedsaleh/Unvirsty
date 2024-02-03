@@ -14,6 +14,7 @@ use App\Http\Controllers\{AdminController,
     FeeInvoicesController,
     ReceiptStudentController,
     SubjectController,
+    DoctorCollegeController
 };
 
 use App\Http\Controllers\Auth\AdminAuthController;
@@ -52,6 +53,7 @@ Route::resource('fee',FeeController::class);
 Route::resource('fee_invoices',FeeInvoicesController::class);
 Route::resource('receipt',ReceiptStudentController::class);
 Route::resource('subject',SubjectController::class);
+Route::resource('doctors_college',DoctorCollegeController::class);
 
 
 
