@@ -13,7 +13,7 @@ use App\Http\Controllers\{AdminController,
     FeeController,
     FeeInvoicesController,
     ReceiptStudentController,
-    SubjectController,
+    CourseController,
     DoctorCollegeController
 };
 
@@ -52,7 +52,7 @@ Route::resource('graduated',GraduatedController::class);
 Route::resource('fee',FeeController::class);
 Route::resource('fee_invoices',FeeInvoicesController::class);
 Route::resource('receipt',ReceiptStudentController::class);
-Route::resource('subject',SubjectController::class);
+Route::resource('course',CourseController::class);
 Route::resource('doctors_college',DoctorCollegeController::class);
 
 

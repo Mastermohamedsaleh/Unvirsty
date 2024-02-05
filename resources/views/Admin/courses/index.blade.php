@@ -15,10 +15,10 @@
 
 
 
-<a href="{{route('subject.create')}}" class="btn btn-primary">Add Subject</a>
+<a href="{{route('course.create')}}" class="btn btn-primary">Add Course</a>
 
 
-<h4 class="text-primary text-center">All Subject</h4>
+<h4 class="text-primary text-center">All Course</h4>
 
 
 
@@ -68,29 +68,29 @@
                                             <th>Doctor</th>
                                             <th>Proccess</th>
                                            </tr>
-                                   @foreach($subjects as $subject)
+                                   @foreach($courses as $course)
                                            <tr>
                                         <td>{{$loop->index + 1}}</td>
-                                        <td>{{$subject->name}}</td>
-                                        <td>{{$subject->college->name}}</td>
-                                        <td>{{$subject->classroom->name}}</td>
+                                        <td>{{$course->name}}</td>
+                                        <td>{{$course->college->name}}</td>
+                                        <td>{{$course->classroom->name}}</td>
                                         <td> <?php
-                                          if($subject->section_id){
-                                           echo   $subject->section->name;
+                                          if($course->section_id){
+                                           echo   $course->section->name;
                                           }else{
                                              echo    'no Section';
                                           }
                                          ?>
                                             </td>
-                                        <td>{{$subject->doctor->name}}</td>
+                                        <td>{{$course->doctor->name}}</td>
                                         <td>
-<button type="button" class="btn btn-outline-danger btn-sm inline-block" data-bs-toggle="modal" data-bs-target="#deletesubject{{$subject->id}}">
+<button type="button" class="btn btn-outline-danger btn-sm inline-block" data-bs-toggle="modal" data-bs-target="#deletescourse{{$course->id}}">
 <i class="fas fa-trash"></i>
 </button>
                 
-@include('Admin.subject.delete')
+@include('Admin.courses.delete')
 
- <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editsubject{{$subject->id}}">
+ <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editcourse{{$course->id}}">
  <i class="fas fa-edit"></i>
 </button><br><br>
                                         </td>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Subject;
+use App\Models\Course;
 use App\Models\Doctor;
 use App\Models\College;
 use Illuminate\Support\Facades\Session;
@@ -13,26 +13,26 @@ use Illuminate\Support\Facades\Session;
 
 use Illuminate\Support\Facades\DB;
 
-class SubjectController extends Controller
+class CourseController extends Controller
 {
 
 
     public function index()
     {
-        $data['subjects'] = Subject::all();
+        $data['courses'] = Course::all();
         $data['colleges'] = College::all();
         $data['doctors'] = Doctor::all();
-        return view('Admin.subject.index',$data);
+        return view('Admin.courses.index',$data);
     }
 
  
 
     public function create()
     {
-        $data['subjects'] = Subject::all();
+        $data['courses'] = Course::all();
         $data['colleges'] = College::all();
         $data['doctors'] = Doctor::all();
-        return view('Admin.subject.create',$data);
+        return view('Admin.courses.create',$data);
     }
 
  
@@ -55,12 +55,12 @@ class SubjectController extends Controller
                     'classroom_id'=>$classroom,
                     'section_id'=>$section,
                   ];
-                 DB::table('subjects')->insert($insert);
+                 DB::table('courses')->insert($insert);
             }  
 
 
             Session::flash('message', 'Add Success'); 
-            return redirect()->route('subject.index');
+            return redirect()->route('course.index');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -90,8 +90,8 @@ class SubjectController extends Controller
 
     public function destroy(Request $request)
     {
-        Subject::findOrFail($request->id)->delete();
+        Course::findOrFail($request->id)->delete();
         Session::flash('message', 'Delete Success');
-        return redirect()->route('subject.index');
+        return redirect()->route('course.index');
     }
 }

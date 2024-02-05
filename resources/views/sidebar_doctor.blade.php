@@ -13,6 +13,9 @@
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link"><i class="fa-solid fa-list"></i>Dashboard</a>
                 </li>
+                <li class="sidebar-item">
+                    <a href="{{route('library')}}" class="sidebar-link"><i class="fa-solid fa-list"></i>My_Library</a>
+                </li>
                 <!-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-lock"></i>Admins</a>
                 </li> -->

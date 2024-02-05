@@ -45,7 +45,7 @@
 
 
 
-<form action="{{route('doctors.update','test')}}" method="post">
+<form action="{{route('doctors.update',$doctor->id)}}" method="post">
 
 
 @method('PUT')

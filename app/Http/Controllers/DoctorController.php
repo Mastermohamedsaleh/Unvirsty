@@ -93,7 +93,8 @@ class DoctorController extends Controller
       
             $doctor->save();
             Session::flash('message', 'Update Success');
-            return redirect()->route('doctors.index');
+            // return redirect()->route('doctors.index');
+            return redirect()->back();
 
           }catch (\Exception $e){    
               return redirect()->back()->withErrors(['error' => $e->getMessage()]);

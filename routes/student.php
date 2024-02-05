@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\StudentController;
 use App\Http\Controllers\Student\ExamController;
 
 
+use App\Http\Controllers\LibraryController;
 
 
 Route::get('dashboard/student', function () {
@@ -20,7 +21,14 @@ Route::get('dashboard/student', function () {
 Route::resource('student_exams', ExamController::class);
 
 
+Route::controller(LibraryController::class)->group(function() {  
+    
+    Route::get('librarytostudent', 'ShowToStudent')->name('librarytostudent');
+    Route::get('viewcourse/{id}', 'ViewCourse')->name('viewcourse');
+    
 
+
+});
 
 
 // /////////////////////////////////////// logout student /////////////////////////////////////////////////////////////////

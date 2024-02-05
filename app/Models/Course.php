@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class Course extends Model
 {
     use HasFactory;
+
 
 
     public function classroom()
@@ -30,7 +31,8 @@ class Subject extends Model
     {
         return $this->belongsTo('App\Models\Doctor', 'doctor_id');
     }
-
-
-
+    public function library()
+    {
+        return $this->belongsTo('App\Models\Library', 'library_id');
+    }
 }

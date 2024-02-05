@@ -25,9 +25,9 @@
 
 
 
-<h4 class="text-primary text-center">Add Subject</h4>
+<h4 class="text-primary text-center">Add Course</h4>
 
-<form action="{{route('subject.store')}}" method="post">
+<form action="{{route('course.store')}}" method="post">
 
 
 @csrf
@@ -40,7 +40,7 @@
  <div class="col-4">
     <label>Collge: <span class="text-danger">*</span> </label>
 
-    <select name="college_id" id=""class="form-select">
+    <select name="college_id" >
     <option value="" >Choose College</option>
 @foreach($colleges as $college)
   <option value="{{$college->id}}">{{$college->name}}</option>
@@ -59,7 +59,7 @@
     <div class="form-group">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
-<select name="classroom_id" class="form-select">
+<select name="classroom_id" >
  <option value="" disabled>Choose Classroom</option>
        
  </select>
@@ -75,7 +75,7 @@
     <div class="form-group">
 
 <label>Section: <span class="text-danger">*</span> </label>
-<select name="section_id" class="form-select">
+<select name="section_id" >
         <option value="" disabled>Choose Classroom</option>
  
  </select>
@@ -128,10 +128,10 @@ $(document).ready(function(){
     var row = `
     <div class="row mt-2">
     <div class="col">
-    <input type="text" name="name[]" class="form-control">
+    <input type="text" name="name[]" >
     </div>
     <div class="col">
-    <select name="doctor_id[]" id=""class="form-select">
+    <select name="doctor_id[]" >
     <option value="" disabled>Choose Doctor</option>
 @foreach($doctors as $doctor)
   <option value="{{$doctor->id}}">{{$doctor->name}}</option>

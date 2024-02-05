@@ -26,7 +26,7 @@
                     <a href="{{route('sections.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>Sections</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{route('subject.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>subject</a>
+                    <a href="{{route('course.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>Course</a>
                 </li>
                 <li class="sidebar-item">
                     <a href="{{route('fee.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-comment-dollar"></i>Fee</a>

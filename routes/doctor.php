@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\DoctorController;
 
 use App\Http\Controllers\QuizzeController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\LibraryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,12 @@ Route::group(['middleware' => 'auth:doctor'], function(){
     
     
     Route::resource('attendance',AttendanceController::class);
+
+    Route::controller(LibraryController::class)->group(function() {  
+     Route::get('library', 'index')->name('library');
+     Route::post('library_store', 'store')->name('library_store');
+     Route::get('library_create', 'create')->name('library_create');
+});
 
    Route::get('student_quizze/{id}',[QuizzeController::class,'student_quizze'])->name('student.quizze');
 
