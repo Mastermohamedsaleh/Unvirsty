@@ -20,6 +20,7 @@
 <tr>
 
   <td>#</td>
+  <td>Title</td>
   <td>Course</td>
   <td>Doctor</td>
   <td>View</td>
@@ -30,13 +31,14 @@
 <tbody>
 
 <?php  $i = 0 ; ?>
-@foreach($courses as $course)
+@foreach($libraries as $library)
 <tr>
     <td>{{++$i}}</td>
-    <td>{{$course->name}}</td>
-    <td>{{$course->doctor->name}}</td>
+    <td>{{$library->title}}</td>
+    <td>{{$library->course->name}}</td>
+    <td>{{$library->doctor->name}}</td>
     <td>
-        <a href="{{route('viewcourse',$course->id)}}" class="btn btn-outline-success"><i class="fa-solid fa-eye"></i></a>
+        <a href="{{route('viewcourse',$library->id)}}" class="btn btn-outline-success"><i class="fa-solid fa-eye"></i></a>
 
         <a href="#" title="تحميل الكتاب" class="btn btn-outline-warning" role="button" aria-pressed="true"><i class="fas fa-download"></i></a>
     </td>

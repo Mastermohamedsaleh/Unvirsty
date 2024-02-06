@@ -38,6 +38,7 @@ Route::get('dashboard/admin', function () {
 
 
 
+
 Route::middleware(['auth:admin'])->group(function () {
 
 

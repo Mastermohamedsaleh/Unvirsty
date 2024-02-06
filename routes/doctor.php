@@ -37,10 +37,14 @@ Route::group(['middleware' => 'auth:doctor'], function(){
     Route::resource('attendance',AttendanceController::class);
 
     Route::controller(LibraryController::class)->group(function() {  
-     Route::get('library', 'index')->name('library');
+     Route::get('library_index', 'index')->name('library_index');
      Route::post('library_store', 'store')->name('library_store');
      Route::get('library_create', 'create')->name('library_create');
 });
+
+
+
+
 
    Route::get('student_quizze/{id}',[QuizzeController::class,'student_quizze'])->name('student.quizze');
 

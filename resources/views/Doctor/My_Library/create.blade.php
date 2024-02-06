@@ -57,7 +57,7 @@
 
 <label>Course: <span class="text-danger">*</span> </label>
 <select name="course_id" >
-        <option value="" disabled>Choose Course</option>
+        <option value="" >Choose Course</option>
             @foreach($courses as $course) 
             <option value="{{$course->id}}" >{{$course->name}}</option>
             @endforeach
@@ -67,10 +67,7 @@
 
 
 
-<div class="col-12">
-
-
-                                   
+<div class="col-12">                               
 <div class="form-group">
     <label for="academic_year">Attachment : <span class="text-danger">*</span></label>
     <input type="file" accept="application/pdf" name="file_name" >
@@ -120,5 +117,18 @@
 
 
 
-
 @include('footer')
+
+
+
+
+
+
+
+
+
+
+
+
+
+

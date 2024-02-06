@@ -31,8 +31,5 @@ class Course extends Model
     {
         return $this->belongsTo('App\Models\Doctor', 'doctor_id');
     }
-    public function library()
-    {
-        return $this->belongsTo('App\Models\Library', 'library_id');
-    }
+ 
 }
