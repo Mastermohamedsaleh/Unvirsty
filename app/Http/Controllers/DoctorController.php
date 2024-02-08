@@ -80,6 +80,11 @@ class DoctorController extends Controller
     {
         try{
             $doctor = Dcotor::findOrfail($request->id);
+
+        // $info =    $request->expect('password');
+
+       
+
             $doctor->name = $request->name;
             $doctor->email = $request->email;
             $doctor->password =  $request->password;

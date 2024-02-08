@@ -14,7 +14,8 @@ use App\Http\Controllers\{AdminController,
     FeeInvoicesController,
     ReceiptStudentController,
     CourseController,
-    DoctorCollegeController
+    DoctorCollegeController,
+    SettingController,
 };
 
 use App\Http\Controllers\Auth\AdminAuthController;
@@ -55,11 +56,13 @@ Route::resource('fee_invoices',FeeInvoicesController::class);
 Route::resource('receipt',ReceiptStudentController::class);
 Route::resource('course',CourseController::class);
 Route::resource('doctors_college',DoctorCollegeController::class);
+Route::resource('setting',SettingController::class);
 
 
-
-
-
+Route::controller(SettingController::class)->group(function() {  
+    Route::get('setting','index');
+    Route::post('setting_update','update');
+});
 
 
 

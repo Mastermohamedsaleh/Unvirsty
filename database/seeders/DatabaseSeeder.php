@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             GenderSeeder::class,
             NationalitieSeeder::class,
             AdminSeeder::class,
+            SettingSeeder::class,
         ]);
     }
 }

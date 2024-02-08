@@ -65,22 +65,14 @@
                   </ul>
               </li>
         
-            <li class="sidebar-header">
-              Multi level menu
-            </li>
-            <li class="sidebar-item">
-              <a href="#" class="sidebar-link collapsed" data-bs-target="#multi" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-share-nodes pe-2"></i> Multi dropdown</a>
-              <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar" >
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" area-expanded="false" data-bs-target="#level-1">level 1</a>
-                    <ul id="level-1" class="sidebar-dropdown list-unstyled collapse">
-                      <li class="sidebar-item">
-                          <a href="#" class="sidebar-link">level 1.1</a>
-                          <a href="#" class="sidebar-link">level 1.2</a>
-                      </li>
-                  </ul>
-            </ul>
-            </li>
+        
+              <li class="sidebar-item">
+                    <a href="{{url('setting')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-gears"></i>Setting</a>
+                </li>
+
+         
+
+
             </ul>
         </div>    
     </aside>
