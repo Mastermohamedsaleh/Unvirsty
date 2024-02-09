@@ -10,6 +10,7 @@ use App\Models\College;
 use App\Models\Classroom;
 use App\Models\Section;
 use App\Models\Doctor;
+use App\Models\Doctor_section;
 
 
 
@@ -22,9 +23,8 @@ class DoctorCollegeController extends Controller
  
     public function index()
     {
-   
-        return view('Admin.doctor_college.index');
-      
+        $doctors =  Doctor::all();   
+        return view('Admin.doctor_college.index',compact('doctors')); 
     }
 
 
@@ -72,7 +72,8 @@ class DoctorCollegeController extends Controller
   
     public function show($id)
     {
-        //
+          $doctor_colleges =  Doctor_section::where('doctor_id',$id)->get();
+          return view('Admin.doctor_college.show',compact('doctor_colleges'));
     }
 
 

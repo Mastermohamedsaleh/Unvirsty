@@ -46,7 +46,7 @@ class DoctorController extends Controller
           $doctor->ssn = $request->ssn;
           $doctor->Address = $request->address;
           $doctor->Joining_Date = $request->Joining_Date;
-      $doctor->save();
+          $doctor->save();
           Session::flash('message', 'Add Success');
           return redirect()->route('doctors.index');
 

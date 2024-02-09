@@ -37,6 +37,16 @@
                 <li class="sidebar-item">
                     <a href="{{route('attendance.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Attendance</a>
                 </li>
+                <li class="sidebar-item">
+                    <a href="{{route('examschedule.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>ExamSchedule</a>
+                </li>
+
+
+
+
+
+
+
 
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-graduation-cap"></i> Students <i class="fa-solid fa-chevron-down float-end"></i> </a>
@@ -60,7 +70,7 @@
                       <li class="sidebar-item">
                           <a href="{{route('doctors.index')}}" class="sidebar-link">All Doctors</a>
                           <a href="{{route('doctors.create')}}" class="sidebar-link">Add Doctor</a>
-                          <a href="{{route('doctors_college.index')}}" class="sidebar-link">Add Doctor With College</a>
+                          <a href="{{route('doctors_college.index')}}" class="sidebar-link">Doctor With College</a>
                       </li>
                   </ul>
               </li>

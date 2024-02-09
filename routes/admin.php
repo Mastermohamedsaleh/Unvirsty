@@ -16,6 +16,9 @@ use App\Http\Controllers\{AdminController,
     CourseController,
     DoctorCollegeController,
     SettingController,
+    ExamScheduleController,
+    AjaxController,
+    FeedbackCourseController
 };
 
 use App\Http\Controllers\Auth\AdminAuthController;
@@ -57,6 +60,7 @@ Route::resource('receipt',ReceiptStudentController::class);
 Route::resource('course',CourseController::class);
 Route::resource('doctors_college',DoctorCollegeController::class);
 Route::resource('setting',SettingController::class);
+Route::resource('examschedule',ExamScheduleController::class);
 
 
 Route::controller(SettingController::class)->group(function() {  
@@ -64,8 +68,17 @@ Route::controller(SettingController::class)->group(function() {
     Route::post('setting_update','update');
 });
 
+Route::controller(AjaxController::class)->group(function() {  
+Route::get('getcourse/{id}','GetCourse');
+});
 
 
+
+Route::controller(ExamScheduleController::class)->group(function() {  
+          
+Route::get('schedule/{classroom_id}/{college_id}','showschedule');
+
+});
 
 });
 

@@ -26,6 +26,7 @@ $('select[name="college_id"]').on('change', function () {
 
           success: function(data) {
              $('select[name="classroom_id"]').empty();
+             $('select[name="classroom_id"]').append('<option selected  > Choose Classroom...</option>');
              $.each(data, function (key, value) { 
                 $('select[name="classroom_id"]').append('<option value="' + key + '">' + value + '</option>')   
              });
