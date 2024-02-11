@@ -17,8 +17,8 @@ class ExamScheduleController extends Controller
   
     public function index()
     {
-        $examschedule = ExamSchedule::all();
-        return view('Admin.examschedule.index',compact('examschedule'));
+        $colleges = College::all();
+        return view('Admin.examschedule.index',compact('colleges'));
     }
 
  
@@ -67,12 +67,22 @@ class ExamScheduleController extends Controller
     }
 
 
-    public function show(ExamSchedule $examSchedule , $id , $id2)
+    public function show(ExamSchedule $examSchedule , Request $request)
     {
-        // $examschedule  = ExamSchedule::findOrfail($id)->get();
-        // return view('Admin.examschedule.show',compact('examschedule'));
+ 
+       if( $request->college_id && $request->classroom_id && $request->section_id ){
+         $examschedule =   ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->get();
+         $colleges = College::all();
+            return view('Admin.examschedule.index',compact('examschedule','colleges'));
+       }elseif($request->college_id && $request->classroom_id){
+         $examschedule = ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->get();
+         $colleges = College::all();
+             return view('Admin.examschedule.index',compact('examschedule','colleges'));
+       }else{
+        return redirect()->back(); 
+       }
+    
 
-        return $id2;
     }
 
  

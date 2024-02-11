@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Doctor;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 
 use App\Models\Question;
 use App\Models\Quizze;
 use Illuminate\Support\Facades\Session;
 
-
 class QuestionController extends Controller
 {
-
     public function index($id)
     {
         // $questions = Question::get();

@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\StudentController;
 
 use App\Http\Controllers\Student\ExamController;
+use App\Http\Controllers\Student\ExamScheduleStudentController;  
 
 
-use App\Http\Controllers\LibraryController;
-
+use App\Http\Controllers\Doctor\LibraryController;  
 
 Route::get('dashboard/student', function () {
     return view('dashboard_student.index');
@@ -30,6 +30,9 @@ Route::controller(LibraryController::class)->group(function() {
 
 });
 
+Route::controller(ExamScheduleStudentController::class)->group(function() {  
+    Route::get('examschedule', 'index');
+});
 
 // /////////////////////////////////////// logout student /////////////////////////////////////////////////////////////////
 

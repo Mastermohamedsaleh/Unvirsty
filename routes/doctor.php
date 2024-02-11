@@ -6,9 +6,10 @@ use App\Http\Controllers\AttendanceController;
 
 use App\Http\Controllers\Auth\DoctorController;
 
-use App\Http\Controllers\QuizzeController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\Doctor\QuizzeController;
+use App\Http\Controllers\Doctor\QuestionController;
+use App\Http\Controllers\Doctor\LibraryController;
+use App\Http\Controllers\Doctor\DoctorCollegeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,10 @@ Route::get('dashboard/doctor', function () {
 Route::group(['middleware' => 'auth:doctor'], function(){
     Route::resource('quizzes',QuizzeController::class);
     Route::resource('questions',QuestionController::class);
-    
+
+    Route::controller(DoctorCollegeController::class)->group(function() {  
+             Route::get('my_class','index');
+    });
     
     Route::resource('attendance',AttendanceController::class);
 

@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Doctor;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 
 use App\Models\College;
 use App\Models\Quizze;
 use App\Models\Question;
-use App\Models\Subject;
+use App\Models\Course;      // Change All Subject Into Course
 use App\Models\Doctor;
 use App\Models\Degree;
-use Illuminate\Support\Facades\Session;
-
 
 class QuizzeController extends Controller
 {
-
-
     public function index()
     {
         $quizzes = Quizze::where('doctor_id',auth()->user()->id)->get();
@@ -107,7 +106,4 @@ class QuizzeController extends Controller
         $degrees = Degree::where('quizze_id', $quizze_id)->get();
         return view('Doctor.Quizzes.student_quizze', compact('degrees'));
     }
-
-
-
 }

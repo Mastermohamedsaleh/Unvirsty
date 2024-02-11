@@ -1,33 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Doctor;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-
-
-
 
 use App\Models\Library;
 use App\Models\Course;
 use App\Models\Doctor_section;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\LibraryRequest;
-
-
 use Illuminate\Support\Facades\Auth;
-
-
 use File;
 
 class LibraryController extends Controller
 {
-     
     public function index()
     {
         $libraries = Library::where('doctor_id',auth()->user()->id)->get();
         return view('Doctor.My_Library.index',compact('libraries'));
-
     }
 
 
@@ -75,10 +66,14 @@ try{
         ->where('section_id', Auth::guard('student')->user()->section_id)
         ->orderBy('id', 'DESC')
         ->pluck('id');
-      
         $libraries =  Library::where('course_id', $course_id)->get();
-
-         return view('Student.Library.index',compact('libraries'));
+        if($libraries){
+        return view('Student.Library.index',compact('libraries'));
+        }else{
+            return redirect()->back();
+        }
+      
+      
 
     }
 
@@ -97,7 +92,5 @@ try{
         }
          
     }
-
-
 
 }

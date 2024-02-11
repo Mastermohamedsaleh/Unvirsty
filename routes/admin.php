@@ -74,11 +74,11 @@ Route::get('getcourse/{id}','GetCourse');
 
 
 
-Route::controller(ExamScheduleController::class)->group(function() {  
+// Route::controller(ExamScheduleController::class)->group(function() {  
           
-Route::get('schedule/{classroom_id}/{college_id}','showschedule');
+// Route::get('schedule/{classroom_id}/{college_id}','showschedule');
 
-});
+// });
 
 });
 

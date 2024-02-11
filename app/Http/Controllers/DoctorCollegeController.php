@@ -39,13 +39,14 @@ class DoctorCollegeController extends Controller
   
     public function store(Request $request)
     {
+               
         
         $doctor = $request->doctor;
         $college = $request->college_id;
         $classroom = $request->classroom_id;
 
         if($request->section_id){
-           $section =  $request->section_id ;
+           $section =  $request->section_id;
         }else{ 
            $section = null;
         }
@@ -90,6 +91,8 @@ class DoctorCollegeController extends Controller
  
     public function destroy($id)
     {
-        //
+        Doctor_section::findOrFail($id)->delete();
+        Session::flash('message', 'Delete Success');
+        return redirect()->back();
     }
 }
