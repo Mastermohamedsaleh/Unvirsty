@@ -38,7 +38,7 @@
                     <a href="{{route('attendance.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Attendance</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{route('examschedule.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>ExamSchedule</a>
+                    <a href="" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>ExamSchedule</a>
                 </li>
 
 

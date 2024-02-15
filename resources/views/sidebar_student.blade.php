@@ -21,6 +21,10 @@
                 <li class="sidebar-item">
                     <a href="{{URL('examschedule')}}" class="sidebar-link"><i class="fa-solid fa-list"></i>My Schedule</a>
                 </li>
+
+                <li class="sidebar-item">
+                    <a href="{{URL('fee_student')}}" class="sidebar-link"><i class="fa-solid fa-list"></i>My Fee</a>
+                </li>
                 <!-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-lock"></i>Admins</a>
                 </li> -->

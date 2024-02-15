@@ -12,7 +12,7 @@
 
 
 @if ($errors->any())
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger"  style="width:500px;   margin: 0 auto ">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -24,7 +24,7 @@
 
 
                 @if(Session::has('message'))
-<p class="alert alert-info">{{ Session::get('message') }}</p>
+<p class="alert alert-info"  style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
 @endif
 
 
@@ -49,7 +49,7 @@
  
 
  <div class="table-responsive">
-                        <table id="datatable"  class="table key-buttons text-md-nowrap">
+                        <table   class="table key-buttons text-md-nowrap">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -90,15 +90,20 @@
                                         </div>
 
                                     </td>
+            
+            
                                 </tr>
+
+                             
 @endforeach
 
  </div>
 
 
-
+ {{ $fee_invoices->links() }}
 
  </div>
+
 
 
 

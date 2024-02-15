@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\StudentAccount;
 use App\Models\FundAccount;
+use App\Models\Fee_Invoice;
 use App\Models\ReceiptStudent;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,7 @@ class ReceiptStudentController extends Controller
   
     public function index()
     {
-        $receipt_students = ReceiptStudent::all();
+        $receipt_students = ReceiptStudent::paginate(PAGENATOR_COUNT);
         return view('Admin.receipt.index',compact('receipt_students'));
     }
 
@@ -75,14 +76,19 @@ class ReceiptStudentController extends Controller
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('Admin.receipt.add',compact('student'));
+        $fee_invoices = Fee_Invoice::where('student_id',$id)->first();
+        return view('Admin.receipt.add',compact('student','fee_invoices'));
+
     }
 
  
     public function edit($id)
     {
         $receipt = ReceiptStudent::findorfail($id);
-        return view('Admin.Receipt.edit',compact('receipt'));
+        $student_id = ReceiptStudent::where('id',$id)->pluck('student_id');
+        $fee_invoices = Fee_Invoice::where('student_id',$student_id)->first();
+        return view('Admin.Receipt.edit',compact('receipt','fee_invoices'));
+      
     }
 
 

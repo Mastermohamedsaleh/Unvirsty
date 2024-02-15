@@ -24,13 +24,17 @@ class ClassroomRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' =>'required|'
-
-
-            "name"    => "required|array",
-            "name.*"  => "required|string|max:255",
-
-
+            "name"    => "required",
+            'college_id'=>'required|exists:colleges,id',
         ];
     }
+
+
+    public function messages()
+    {
+        return [
+            'college_id.exists' => 'Enter College',
+        ];
+    }
+
 }

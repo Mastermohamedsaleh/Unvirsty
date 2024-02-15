@@ -18,7 +18,8 @@ use App\Http\Controllers\{AdminController,
     SettingController,
     ExamScheduleController,
     AjaxController,
-    FeedbackCourseController
+    FeedbackCourseController,
+    SearchController
 };
 
 use App\Http\Controllers\Auth\AdminAuthController;
@@ -34,6 +35,10 @@ use App\Http\Controllers\Auth\AdminAuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+define('PAGENATOR_COUNT', 15);
+
 
 Route::get('dashboard/admin', function () {
     return view('index');
@@ -73,6 +78,11 @@ Route::get('getcourse/{id}','GetCourse');
 });
 
 
+
+
+Route::controller(SearchController::class)->group(function() {  
+    Route::get('search_receipt','SearchReceipt');
+    });
 
 // Route::controller(ExamScheduleController::class)->group(function() {  
           

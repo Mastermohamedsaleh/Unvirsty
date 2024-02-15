@@ -12,7 +12,7 @@
 
 
 
-   <h4 class="text-color text-center mt-4">Promotion</h4>
+   <h4 class="text-color text-center mt-4"  style="width:500px;   margin: 0 auto ">Promotion</h4>
 
 
    @if ($errors->any())
@@ -28,7 +28,7 @@
 
 
                 @if(Session::has('message'))
-<p class="alert alert-info">{{ Session::get('message') }}</p>
+<p class="alert alert-info"  style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
 @endif
 
 

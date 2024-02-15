@@ -34,19 +34,18 @@
 
 
 <input type="hidden" name="student_id" value="{{$student->id}}">
-
 <div class="col-12">
     <label for="">Amount <span class="text-danger">*</span></label>
-    <input type="number" name="Debit" class="form-control">
+
+    <select name="Debit" id="">
+      <option value="{{$fee_invoices->amount}}">{{$fee_invoices->amount}}</option>
+      <option value="{{$fee_invoices->amount / 2}}">{{$fee_invoices->amount / 2 }}</option>
+    </select>
 </div>
 
-
 <div class="col-12">
-
 <label for="">Description <span class="text-danger">*</span></label>
- 
-<textarea name="description"  cols="30" rows="10" class="form-control"></textarea>
-
+<textarea name="description"  cols="30" rows="10" ></textarea>
 </div>
 
 

@@ -24,10 +24,21 @@ class FeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'college_id'=>'required',
-            'classroom_id'=>'required',
+            'college_id'=>'required|exists:colleges,id',
+            'classroom_id'=>'required|exists:classrooms,id',
             'amount'=>'required|numeric',
             'academic_year'=>'required',
         ];
+
+    }
+
+
+    public function messages()
+    {
+        return [
+            'college_id.exists' => 'Enter College',
+            'classroom_id.exists' => 'Enter Classroom',
+        ];
     }
 }
+

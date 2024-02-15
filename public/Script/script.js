@@ -5,8 +5,3 @@ sidebarToggle.addEventListener("click",function(){
  
 
 
-var coll = document.querySelector(".coll");
-
-coll.addEventListener("click",function(){
-    document.querySelector(".plus").innerHTML = '-';
-});

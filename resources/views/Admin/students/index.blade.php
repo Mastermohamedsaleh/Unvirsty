@@ -74,24 +74,30 @@
 
 
                                     <!-- Example single danger button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Action
-  </button>
-  <ul class="dropdown-menu">
-    <li>  <a href="{{route('fee_invoices.show',$student->id)}}" class="mb-2 btn btn-outline-info btn-sm dropdown-item" title="Add Fee">  <i class="fa-solid fa-sack-dollar"></i> </a></li>
-    <li><a href="{{route('receipt.show',$student->id)}}" class="mb-2 btn btn-outline-info btn-sm dropdown-item" title="Receipt">  <i class="fa-solid fa-hand-holding-dollar"></i> </a></li>
-    <li><a href="{{route('students.edit',$student->id)}}" class="mb-2 btn btn-outline-warning btn-sm dropdown-item" title="Data Student"> <i class="fa-solid fa-database"></i> </a></li>
-    <li><a href="{{route('students.edit',$student->id)}}" class="mb-2 btn btn-outline-success btn-sm dropdown-item" title="Edit Student"> <i class="fas fa-edit"></i></a>
-</li>
-  </ul>
-</div> 
+
 
 
         
 <button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletestudent{{$student->id}}" title="Delete Student">
 <i class="fas fa-trash"></i>
 </button>
+
+
+
+
+<!-- Example single danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+    Action
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{{route('fee_invoices.show',$student->id)}}"> <i class="fa-solid fa-sack-dollar"></i> Add Fee</a></li>
+    <li><a class="dropdown-item" href="{{route('receipt.show',$student->id)}}" > <i class="fa-solid fa-hand-holding-dollar"></i> Receipt</a></li>
+    <li><a class="dropdown-item" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i> Edit Student</a></li>
+  </ul>
+</div>
+
+
 
 @include('Admin.students.delete')
 

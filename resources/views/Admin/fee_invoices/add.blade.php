@@ -91,8 +91,12 @@
 
  <!-- end Row -->
  </div>
- <button type="submit" class="btn btn-primary mt-3" >Submit</button>
 
+ @if($student_fee)
+
+ @else
+ <button type="submit" class="btn btn-primary mt-3" >Submit</button>
+@endif
 
  </form>
 

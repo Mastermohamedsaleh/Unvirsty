@@ -30,11 +30,77 @@
 @endif
 
 
+
+
+
+
+
+
+
+
+<div class="card mb-3">
+
+
+
+<div class="card-body">
+
+
+<form action="{{url('search_receipt')}}" method="get">
+<div class="row">
+
+
+
+<div class="col-4">
+<label for="">Name<span class="text-danger">*</span></label>
+<input type="text" name="name">
+<!-- end col -->
+</div>
+
+<div class="col-4">
+<label for="">Amount<span class="text-danger">*</span></label>
+<input type="number" name="amount">
+<!-- end col -->
+</div>
+
+<div class="col-4" style="margin:auto">
+<button type="submit" class="btn btn-primary">Search</button>
+<!-- end col -->
+</div>
+
+
+
+
+
+
+<!-- end Row -->
+</div>
+
+</form>
+
+
+
+<!-- end car-body search -->
+</div>
+
+
+
+<!-- end card seach -->
+</div>
+
+
+
+
+
+
+
+
+
+
 <div class="card">
 
 
 
-<h4 class="text-center text-primary"> سندات القبض</h4>
+<h4 class="text-center text-primary mt-3"> سندات القبض</h4>
 
 <div class="caed-body">
 
@@ -45,7 +111,7 @@
 
 <div class="container">
 
-                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0 "
+                                    <table  class="table  table-hover table-sm table-bordered p-0 "
                                            data-page-length="50"
                                            style="text-align: center">
                                         <thead>
@@ -71,7 +137,7 @@
                                        
                                         @endforeach
                                     </table>
-
+                                    {{ $receipt_students->links() }}          
                                     </div>
                                 </div>
 

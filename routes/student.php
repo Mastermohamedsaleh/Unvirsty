@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\StudentController;
 
 use App\Http\Controllers\Student\ExamController;
 use App\Http\Controllers\Student\ExamScheduleStudentController;  
+use App\Http\Controllers\Student\FeeController;  
 
 
 use App\Http\Controllers\Doctor\LibraryController;  
@@ -29,6 +30,12 @@ Route::controller(LibraryController::class)->group(function() {
 
 
 });
+
+Route::controller(FeeController::class)->group(function() {   
+    Route::get('fee_student', 'index');
+    Route::get('details_fee_student', 'Details');
+});
+
 
 Route::controller(ExamScheduleStudentController::class)->group(function() {  
     Route::get('examschedule', 'index');

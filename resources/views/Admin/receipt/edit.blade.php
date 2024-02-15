@@ -31,12 +31,19 @@
 @method('PUT')
 <div class="row">
 
-<input  type="hidden" name="student_id" value="{{$receipt->student->id}}" class="form-control">
+<input  type="hidden" name="student_id" value="{{$receipt->student_id}}" class="form-control">
 <input  type="hidden" name="id" value="{{$receipt->id}}" class="form-control">
 
 <div class="col-12">
     <label for="">Amount <span class="text-danger">*</span></label>
-    <input type="number" name="Debit" value="{{$receipt->Debit}}" class="form-control">
+<select name="Debit" id="">
+
+<option value="{{$fee_invoices->amount}}">{{$fee_invoices->amount}}</option>
+<option value="{{$fee_invoices->amount / 2}}">{{$fee_invoices->amount / 2}}</option>
+
+
+</select>
+
 </div>
 
 

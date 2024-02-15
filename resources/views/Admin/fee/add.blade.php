@@ -55,7 +55,7 @@
 <div class="form-group">
 <label>Title: <span class="text-danger">*</span> </label>
 
-    <input type="text"  name="title" class="form-control">
+    <input type="text"  name="title" >
 </div>
 
 </div>
@@ -67,7 +67,7 @@
     <div class="form-group">
 <label>Amount: <span class="text-danger">*</span> </label>
 
-        <input type="number"  name="amount" class="form-control">
+        <input type="number"  name="amount" >
     </div>
 
     </div>
@@ -78,7 +78,7 @@
     <div class="form-group">
 
 <label>College: <span class="text-danger">*</span> </label>
-<select name="college_id" class="form-select">
+<select name="college_id" >
         <option value="" >Choose College</option>
             @foreach($colleges as $college) 
           
@@ -98,7 +98,7 @@
    <div class="form-group">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
-<select name="classroom_id" class="form-select">
+<select name="classroom_id" >
     <option value="" disabled>Choose Classroom</option>
        
  </select>
@@ -119,7 +119,7 @@
 <div class="form-group">
 
 <label>Section: <span class="text-danger">*</span> </label>
-<select name="section_id" class="form-select">
+<select name="section_id">
         <option value="" disabled>Choose Classroom</option>
  
  </select>
@@ -136,7 +136,7 @@
 <div class="form-group">
 
                               <label for="academic_year">academic_year : <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="academic_year">
+                                    <select  name="academic_year">
                                         <option selected disabled >Choose Academic year...</option>
                                         @php
                                             $current_year = date("Y");
@@ -170,7 +170,7 @@
 
 
   <button class="btn btn-primary mt-3" type="submit">Save</button>
-  <a href="{{route('fee.index')}}" class="btn btn-danger mt-3" >back</a>
+
 
 </form>
 

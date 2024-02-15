@@ -1,6 +1,6 @@
 @include('header')
   <div class="wrapper">
-    @include('sidebar')
+    @include('sidebar_student')
 
       <div class="main">
  @include('nav')
@@ -12,7 +12,7 @@
 
 
 
- <h4 class="text-primary text-center">All Fee</h4>
+ <h4 class="text-primary text-center mt-3"> My Fee</h4>
 
 
 
@@ -35,14 +35,13 @@
 @endif
 
 
-<div class="container mt-5">
+<div class="container mt-2">
 
 
-     <a  href="{{route('fee.create')}}" class="btn btn-primary" >Add Fee</a>
 
 
 <div class="table-responsive">
-                        <table  id="datatable" class="table table-hover key-buttons text-md-nowrap">
+                        <table   class="table table-hover key-buttons text-md-nowrap">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -52,42 +51,21 @@
                                 <th>Classroom</th>
                                 <th>Section</th>
                                 <th>Academic Year</th>
-                                <th>Process</th>
+                                <th>Details</th>
+                            
                             </tr>
 </thead>
 <tbody>                        
-@foreach($fee as $f)
+@foreach($fees as $f)
                            <tr>
                            <td>{{$loop->index+1}}</td>
                            <td>{{$f->title}}</td>
                             <td>{{$f->amount}}</td>
                             <td>{{$f->college->name}}</td>
                             <td>{{$f->classroom->name}}</td>
-                            <td>                    
-                                  <?php
-                                 if($f->section_id){
-                                  echo $f->section->name;
-                                 }else{
-                                echo 'no Section';
-                                 }
-                                ?>
-                            </td>
+                            <td>{{ ($f->section_id  ? $f->section->name : 'no Section' ) }}</td>
                             <td>{{$f->academic_year}}</td>
-                          
-
-
-                            <td>
-                               <a href="{{route('fee.edit',$f->id)}}"class="mb-2 btn btn-outline-success btn-sm"> <i class="fas fa-edit"></i></a>
-
-
-
-<button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#Delete_Fee{{ $f->id }}" >  <i class="fas fa-trash"></i></button>
-
-
-@include('Admin.fee.delete')
-                            </td>
-
-
+                             <td> <a href="{{url('details_fee_student')}}" class="btn btn-primary btn-sm">Details</a>  </td>
                            </tr>
 
                          @endforeach

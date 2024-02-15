@@ -19,7 +19,7 @@ class FeeInvoicesController extends Controller
     public function index()
     {
         
-        $fee_invoices = Fee_invoice::all();
+        $fee_invoices = Fee_invoice::paginate(PAGENATOR_COUNT);
      
         return view('Admin.fee_invoices.index',compact('fee_invoices'));
 
@@ -39,8 +39,6 @@ class FeeInvoicesController extends Controller
         DB::beginTransaction();
          
         try{
-   
-
             $fee_invoice = new Fee_invoice();
             $fee_invoice->invoice_date = date('Y-m-d');
             $fee_invoice->student_id = $request->student_id;
@@ -84,10 +82,10 @@ class FeeInvoicesController extends Controller
     public function show($id)
     {
         $student = Student::findorfail($id);
+        $student_fee = Fee_Invoice::where('student_id',$id)->first();
         $fees = Fee::where('college_id',$student->college_id)->where('classroom_id',$student->classroom_id)->get();
-        return view('Admin.fee_invoices.add',compact('student','fees'));
-
-    
+     return view('Admin.fee_invoices.add',compact('student','fees','student_fee'));
+        
     }
 
 
