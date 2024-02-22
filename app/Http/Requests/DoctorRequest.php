@@ -23,9 +23,9 @@ class DoctorRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name'=>'required',
-            'email' => 'required|email|unique:doctors,email,'.$this->id,
+            'email' => 'required|email|unique:doctors,email,id'.$this->id,
             'password'=>'required|string|min:6|max:10',
              'ssn'=>'required',
              'address'=>'required',
@@ -34,5 +34,13 @@ class DoctorRequest extends FormRequest
              'Joining_Date'=>'required'
 
         ];
+
+        if($this->id) {
+            return array_merge($rules, ['password' => 'required|min:6']);
+        }
+        
+        return $rules;
+
+
     }
 }

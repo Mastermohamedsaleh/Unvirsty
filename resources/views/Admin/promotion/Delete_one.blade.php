@@ -9,13 +9,12 @@
       </div>
       <div class="modal-body">
         
-      <form method="post"  action="{{route('promotion.destroy','test')}}" autocomplete="off" >
+      <form method="post"  action="{{route('promotion.destroy',$promotion->id)}}" autocomplete="off" >
        @method('DELETE')
       @csrf
 
 
 
-      <input type="hidden" name="id" value="{{$promotion->id}}">
       <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من عملية تراجع الطالب ؟ {{$promotion->student->name}}</h5>
             
       <div class="modal-footer">

@@ -26,7 +26,7 @@ class FeeRequest extends FormRequest
         return [
             'college_id'=>'required|exists:colleges,id',
             'classroom_id'=>'required|exists:classrooms,id',
-            'amount'=>'required|numeric',
+            'amount'=>'required|numeric|min:1',
             'academic_year'=>'required',
         ];
 
@@ -37,7 +37,9 @@ class FeeRequest extends FormRequest
     {
         return [
             'college_id.exists' => 'Enter College',
+            'college_id.required' => 'Enter College is required',
             'classroom_id.exists' => 'Enter Classroom',
+            'classroom_id.required' => 'Enter Classroom is required',
         ];
     }
 }

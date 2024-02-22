@@ -56,6 +56,7 @@
                                 <th>#</th>
                                 <th>name</th>
                                 <th>email</th>
+                                <th>College</th>
                                 <th>Processes</th>
                             </tr>
                             </thead>
@@ -66,6 +67,7 @@
                                     <td> {{$i++}} </td>
                                     <td>{{ $admin->name }}</td>
                                     <td>{{ $admin->email }}</td>
+                                    <td>{{ $admin->college->name }}</td>
                                     <td>
                               
 

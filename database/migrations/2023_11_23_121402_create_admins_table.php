@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->tinyInteger('status')->default(0);
             $table->string('password');
+            $table->foreignId('college_id')->nullable()->references('id')->on('colleges')->onDelete('cascade');
             $table->timestamps();
         });
     }

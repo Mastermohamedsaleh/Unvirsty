@@ -56,6 +56,8 @@
                                 <th>name</th>
                                 <th>email</th>
                                 <th>College</th>
+                                <th>Classroom</th>
+                                <th>Section</th>
                                 <th>Processes</th>
                             </tr>
                             </thead>
@@ -67,6 +69,8 @@
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->email }}</td>
                                     <td>{{ $student->college->name }}</td>
+                                    <td>{{ $student->classroom->name }}</td>
+                                    <td>{{  (  $student->section_id  ?  $student->section->name   : 'No Section' ) }}</td>
                                     <td>
                               
 
@@ -90,11 +94,20 @@
   <button type="button" class="btn btn-danger dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
     Action
   </button>
+
+
+
+  @if(auth('admin')->check()) 
+  <a class="btn btn-outline-success btn-sm" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i>  <i class="fas fa-edit"></i></a>
+  @else
+
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="{{route('fee_invoices.show',$student->id)}}"> <i class="fa-solid fa-sack-dollar"></i> Add Fee</a></li>
     <li><a class="dropdown-item" href="{{route('receipt.show',$student->id)}}" > <i class="fa-solid fa-hand-holding-dollar"></i> Receipt</a></li>
-    <li><a class="dropdown-item" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i> Edit Student</a></li>
   </ul>
+
+  @endif
+
 </div>
 
 

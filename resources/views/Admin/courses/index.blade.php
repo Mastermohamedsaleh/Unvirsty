@@ -15,7 +15,6 @@
 
 
 
-<a href="{{route('course.create')}}" class="btn btn-primary">Add Course</a>
 
 
 <h4 class="text-primary text-center">All Course</h4>
@@ -49,8 +48,10 @@
 
 
 
- <div class="carrd-body">
+ <div class="card-body">
 
+
+<a href="{{route('course.create')}}" class="btn btn-primary mb-2 btn-sm">Add Course</a>
 
 
  <table id="datatable" class="table table-hover table-sm table-bordered p-0"
@@ -58,7 +59,7 @@
                                            style="text-align: center">
 
 
-
+                                    <thead>
                                            <tr>
                                             <th>#</th>
                                             <th>Name</th>
@@ -68,38 +69,34 @@
                                             <th>Doctor</th>
                                             <th>Proccess</th>
                                            </tr>
+                                           </thead>
+                                           <tbody>
                                    @foreach($courses as $course)
                                            <tr>
                                         <td>{{$loop->index + 1}}</td>
                                         <td>{{$course->name}}</td>
                                         <td>{{$course->college->name}}</td>
                                         <td>{{$course->classroom->name}}</td>
-                                        <td> <?php
-                                          if($course->section_id){
-                                           echo   $course->section->name;
-                                          }else{
-                                             echo    'no Section';
-                                          }
-                                         ?>
-                                            </td>
+                                        <td>  {{(  $course->section_id ?  $course->section->name  : 'no Section' )}}</td>
                                         <td>{{$course->doctor->name}}</td>
                                         <td>
-<button type="button" class="btn btn-outline-danger btn-sm inline-block" data-bs-toggle="modal" data-bs-target="#deletescourse{{$course->id}}">
+<button type="button" class="btn btn-outline-danger btn-sm inline-block" data-bs-toggle="modal" data-bs-target="#deletecourse{{$course->id}}">
 <i class="fas fa-trash"></i>
 </button>
                 
 @include('Admin.courses.delete')
 
- <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editcourse{{$course->id}}">
- <i class="fas fa-edit"></i>
-</button><br><br>
+
+
+<a href="{{route('course.edit',$course->id)}}" class="btn btn-outline-primary btn-sm" ><i class="fas fa-edit"></i></a>
+
                                         </td>
                                            </tr>
 
 
                                    @endforeach
 
-
+                                   </tbody>
     </table>                     
 
 

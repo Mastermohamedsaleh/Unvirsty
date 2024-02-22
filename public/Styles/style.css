@@ -633,3 +633,85 @@ text-transform: uppercase;
 /* end 404 */
 
 
+
+/* Home */
+
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+/*----shortcuts------*/
+.txt-darkblue{
+  color: #192F59;
+}
+.txt-green{
+  color:#00d084;
+}
+.txt-gray{
+  color: #B9B9B9;
+}
+.bg-color1{
+  background-color: #192F59;
+}
+.dark-layer{
+  box-shadow: inset 0 0 0 1000px rgba(25, 47, 89,0.8);
+}
+.button1{
+  border: 0;
+  border-left: 10px solid #192F59;
+  width: 150px;
+  height: 50px;
+}
+
+/*-----shortcuts------*/
+
+/* adjusting carousel */
+.c-item{
+  height: 600px;
+}
+
+.c-img{
+  height: 100%;
+  object-fit: cover;
+}
+/* ---------------------- */
+.button{
+  background-color: transparent;
+  color: #00d084;
+  border:2px solid  rgb(0, 208, 132);
+  border-radius: 15px;
+}
+.wide-card{
+  height: 157px;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+.card .icon{
+  height: 40px;
+  width: 40px;
+}
+.card .icon img{
+  height: 100%;
+  width: 100%;
+}
+.card .txt .s1{
+  color:#192F59;
+}
+.card .txt .s2{
+  color:#B9B9B9;
+}
+.about-university{
+  background-image: url(../Assets/images/8.jpg);
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(25, 47, 89,0.8);
+}
+.hover1{
+  transition: all 0.3s;
+}
+.hover1:hover{
+  transition: all 0.3s;
+  box-shadow: inset 0 0 0 1000px rgba(0, 208, 132,0.65);
+}
+.card1 span{
+  background-color: rgba(255, 255, 255, 0.2);
+}

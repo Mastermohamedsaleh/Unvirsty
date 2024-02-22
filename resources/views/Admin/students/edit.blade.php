@@ -7,22 +7,18 @@
 
 
 
+<h3 class="text-primary text-center mt-4">Update Student</h3>
 
 
-<div class="cantainer mt-5">
+<div class="cantainer">
+
+
 
 
 <div class="card m-5">
 
 
  
-<div class="card-header">
-    <h4 class="text-success text-center">Student</h4>
-    <!-- end card header -->
-</div>
-
-
-
 <div class="card-body">
 
 
@@ -46,7 +42,7 @@
 
 
 
-<form action="{{route('students.update','test')}}" method="post">
+<form action="{{route('students.update',$student->id)}}" method="post">
 
 
 @method('PUT')
@@ -57,14 +53,13 @@
 
 
 <input type="hidden" value="{{$student->password}}" name="password">
-<input type="hidden" value="{{$student->id}}" name="id">
 
 
 <div class="col-md-6">
 
 <div class="form-group">
  <label>Name : <span class="text-danger">*</span></label>
- <input  type="text" name="name"  value= "{{$student->name}}" class="form-control">
+ <input  type="text" name="name"  value= "{{$student->name}}" >
 </div>             
 <!-- end one col -->
 </div>
@@ -74,7 +69,7 @@
 
 <div class="form-group">
  <label>Email : <span class="text-danger">*</span></label>
- <input  type="email" name="email"  value= "{{$student->email}}" class="form-control" require>
+ <input  type="email" name="email"  value= "{{$student->email}}"    require>
 </div>   
 
 <!-- end one two -->
@@ -87,7 +82,7 @@
 
 <div class="form-group">
  <label>Ssn : <span class="text-danger">*</span></label>
- <input  type="text" name="ssn" value= "{{$student->ssn}}"  class="form-control" require>
+ <input  type="text" name="ssn" value= "{{$student->ssn}}"     require>
 </div> 
 
 
@@ -100,7 +95,7 @@
 <div class="form-group">
 
 <label>College: <span class="text-danger">*</span> </label>
-<select name="college_id" class="form-select">
+<select name="college_id"   >
         <option value="" >Choose College</option>
             @foreach($colleges as $college) 
           
@@ -122,7 +117,7 @@
 <div class="form-group">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
-<select name="classroom_id" class="form-select">
+<select name="classroom_id"   >
     <option value="" disabled>Choose Classroom</option>
        
  </select>
@@ -140,7 +135,7 @@
 <div class="form-group">
 
 <label>Section: <span class="text-danger">*</span> </label>
-<select name="section_id" class="form-select">
+<select name="section_id"   >
         <option value="" disabled>Choose Section</option>
  
  </select>
@@ -157,7 +152,7 @@
 <div class="form-group">
 
 <label>Gender: <span class="text-danger">*</span> </label>
-<select name="gender_id" class="form-select">
+<select name="gender_id"   >
         <option value="" disabled>Choose Gender</option>
             @foreach($genders as $gender) 
             <option value="{{$gender->id}}" {{ $gender->id == $student->gender_id ? 'selected' : '' }} >{{$gender->type}}</option>
@@ -176,7 +171,7 @@
 <div class="form-group">
 
 <label>Nationalitie: <span class="text-danger">*</span> </label>
-<select name="nationalitie_id" class="form-select ">
+<select name="nationalitie_id" >
         <option value="" disabled>Choose Nationalitie</option>
             @foreach($nationalities as $nationalitie) 
             <option value="{{$nationalitie->id}}" {{ $nationalitie->id == $student->nationalitie_id ? 'selected' : '' }}  >{{$nationalitie->nationalitie}}</option>
@@ -195,7 +190,7 @@
 <div class="form-group">
 
 <label>Current Year: <span class="text-danger">*</span> </label>
-<select class="custom-select mr-sm-2 form-select" name="academic_year" >
+<select class="custom-select mr-sm-2 " name="academic_year" >
                                     <option selected disabled>Choose Year...</option>
                                     @php
                                         $current_year = date("Y");
@@ -222,7 +217,7 @@
 
 
  
-<button type="submit" class="btn btn-success m-3">UPdate</button>
+<button type="submit" class="btn btn-primary m-3">Update</button>
  
 
 

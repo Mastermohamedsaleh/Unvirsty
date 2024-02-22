@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Models\Student;
 use App\Models\StudentAccount;
 use App\Models\FundAccount;

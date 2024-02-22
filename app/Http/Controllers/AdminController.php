@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Admin;
+use App\Models\College;
 
 
 use App\Http\Requests\adminrequest;
@@ -19,7 +20,8 @@ class AdminController extends Controller
     public function index()
     {
          $admins = Admin::where('status',1)->get();
-         return view('Admin.admins.index',compact('admins'));
+         $colleges = College::all();
+         return view('Admin.admins.index',compact('admins','colleges'));
     }
 
   
@@ -37,9 +39,9 @@ class AdminController extends Controller
             $admin = new Admin();
             $admin->name = $request->name;
             $admin->email =   $request->email;
+            $admin->college_id =   $request->college_id;
             $admin->status =  1;
             $admin->password =  Hash::make($request->password);
- 
             $admin->save();
 
 
@@ -74,6 +76,8 @@ class AdminController extends Controller
             $admin = Admin::findOrFail($id);
             $admin->name = $request->name;
             $admin->email =   $request->email;
+            $admin->college_id =   $request->college_id;
+            
             $admin->password =   $request->oldpassword;
             $admin->update();
 

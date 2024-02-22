@@ -26,7 +26,7 @@ class DoctorController extends Controller
     public function create()
     {
         $data['genders'] = Gender::all();
-        $data['colleges'] = College::all();
+        $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
         $data['sections'] = Section::all();
         $data['nationalities']  = Nationalitie::all();
 
@@ -76,34 +76,37 @@ class DoctorController extends Controller
     }
 
  
-    public function update(DoctorRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        try{
-            $doctor = Dcotor::findOrfail($request->id);
+        // try{
 
-        // $info =    $request->expect('password');
+
+
+            $doctor = Dcotor::findorfail($id);
+            return $doctor;
+
 
        
 
-            $doctor->name = $request->name;
-            $doctor->email = $request->email;
-            $doctor->password =  $request->password;
-            $doctor->gender_id = $request->gender_id;
-            $doctor->nationalitie_id = $request->nationalitie_id;
-            $doctor->ssn = $request->ssn;
-            $doctor->Address = $request->address;
-            $doctor->college_id = $request->college_id;
-            $doctor->section_id = $request->section_id;
-            $doctor->Joining_Date = $request->Joining_Date;
+            // $doctor->name = $request->name;
+            // $doctor->email = $request->email;
+            // // $doctor->password =  $request->password;
+            // $doctor->gender_id = $request->gender_id;
+            // $doctor->nationalitie_id = $request->nationalitie_id;
+            // $doctor->ssn = $request->ssn;
+            // $doctor->Address = $request->address;
+            // $doctor->college_id = $request->college_id;
+            // $doctor->section_id = $request->section_id;
+            // $doctor->Joining_Date = $request->Joining_Date;
       
-            $doctor->save();
-            Session::flash('message', 'Update Success');
-            // return redirect()->route('doctors.index');
-            return redirect()->back();
+            // $doctor->save();
+            // Session::flash('message', 'Update Success');
+            // // return redirect()->route('doctors.index');
+            // return redirect()->back();
 
-          }catch (\Exception $e){    
-              return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-          }
+        //   }catch (\Exception $e){    
+        //       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        //   }
     }
 
 

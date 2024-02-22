@@ -12,7 +12,6 @@
 
 
 
- <h4 class="text-primary text-center">All Fee</h4>
 
 
 
@@ -41,6 +40,14 @@
      <a  href="{{route('fee.create')}}" class="btn btn-primary" >Add Fee</a>
 
 
+ <h3 class="text-primary text-center">All Fee</h3>
+
+
+
+     <div class="card">
+
+
+     <div class="card-body">
 <div class="table-responsive">
                         <table  id="datatable" class="table table-hover key-buttons text-md-nowrap">
                         <thead>
@@ -63,14 +70,8 @@
                             <td>{{$f->amount}}</td>
                             <td>{{$f->college->name}}</td>
                             <td>{{$f->classroom->name}}</td>
-                            <td>                    
-                                  <?php
-                                 if($f->section_id){
-                                  echo $f->section->name;
-                                 }else{
-                                echo 'no Section';
-                                 }
-                                ?>
+                            <td>                   
+                                {{ ( $f->section_id ? $f->section->name :'no Section' ) }}
                             </td>
                             <td>{{$f->academic_year}}</td>
                           
@@ -94,6 +95,14 @@
 
                                 </tbody>
 </table>
+
+
+<!-- end card body -->
+</div>
+
+<!-- end card -->
+</div> 
+
 </div>
 
 

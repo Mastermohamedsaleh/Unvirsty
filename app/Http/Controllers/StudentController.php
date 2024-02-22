@@ -21,7 +21,7 @@ class StudentController extends Controller
  
     public function index()
     {
-        $students = Student::all();
+        $students = Student::where('college_id',auth()->user()->college_id)->get();
         return view('Admin.students.index',compact('students'));
     }
 
@@ -30,7 +30,7 @@ class StudentController extends Controller
     {
       $data['genders'] = Gender::all();
       $data['nationalities']  = Nationalitie::all();
-      $data['colleges'] = College::all();
+      $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
     return view('Admin.students.add',$data);
     }
 
@@ -75,11 +75,18 @@ class StudentController extends Controller
   
     public function edit($id)
     {
-         $student = Student::findOrfail($id);
+        
+        
+         $student = Student::where('id',$id )->where('college_id',auth()->user()->college_id)->first();
+
+         if( !$student  ){
+            return redirect()->back();
+         }
+
 
          $data['genders'] = Gender::all();
          $data['nationalities']  = Nationalitie::all();
-         $data['colleges'] = College::all();
+         $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
 
         return view('Admin.students.edit',compact('student') , $data);
     }
@@ -88,7 +95,7 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $students =  Student::findOrfail($request->id);
+            $students =  Student::findOrfail($id);
             $students->name = $request->name;
             $students->email = $request->email;
             $students->password = $request->password;

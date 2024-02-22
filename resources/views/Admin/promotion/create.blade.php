@@ -12,7 +12,7 @@
 
 
 
-   <h4 class="text-color text-center mt-4"  style="width:500px;   margin: 0 auto ">Promotion</h4>
+   <h3 class="text-primary text-center mt-4"  style="width:500px;   margin: 0 auto ">Promotion</h3>
 
 
    @if ($errors->any())
@@ -36,11 +36,15 @@
 <form action="{{route('promotion.store')}}" method="post">
 
 @csrf
+<div class="card">
+    <div class="card-body">
    <div class="container mt-4">
 
 
   
 
+
+  
 
    <div class="row">
 
@@ -54,7 +58,7 @@
 <div class="form-group">
 
 <label>College: <span class="text-danger">*</span> </label>
-<select name="college_id" class="form-select">
+<select name="college_id"  >
         <option value="" >Choose College</option>
             @foreach($colleges as $college) 
           
@@ -78,7 +82,7 @@
    <div class="form-group">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
-<select name="classroom_id" class="form-select">
+<select name="classroom_id"  >
     <option value="" disabled>Choose Classroom</option>
        
  </select>
@@ -96,7 +100,7 @@
 <div class="form-group">
 
 <label>Section: <span class="text-danger">*</span> </label>
-<select name="section_id" class="form-select">
+<select name="section_id"  >
         <option value="" disabled>Choose Classroom</option>
  
  </select>
@@ -116,7 +120,7 @@
    <div class="col-3">
                                 <div class="form-group">
                                     <label for="academic_year">academic_year : <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="academic_year">
+                                    <select   name="academic_year">
                                         <option selected disabled >Choose Academic year...</option>
                                         @php
                                             $current_year = date("Y");
@@ -150,7 +154,7 @@
 <div class="form-group">
 
 <label>College: <span class="text-danger">*</span> </label>
-<select name="college_id_new" class="form-select">
+<select name="college_id_new" >
         <option value="" >Choose College</option>
             @foreach($colleges as $college) 
           
@@ -174,7 +178,7 @@
    <div class="form-group">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
-<select name="classroom_id_new" class="form-select">
+<select name="classroom_id_new"  >
     <option value="" disabled>Choose Classroom</option>
        
  </select>
@@ -192,7 +196,7 @@
 <div class="form-group">
 
 <label>Section: <span class="text-danger">*</span> </label>
-<select name="section_id_new" class="form-select">
+<select name="section_id_new"  >
         <option value="" disabled>Choose Classroom</option>
  
  </select>
@@ -213,7 +217,7 @@
    <div class="col-3">
                                 <div class="form-group">
                                     <label for="academic_year">academic_year : <span class="text-danger">*</span></label>
-                                    <select class="form-select" name="academic_year_new">
+                                    <select   name="academic_year_new">
                                         <option selected disabled>Choose academic_year_new ...</option>
                                         @php
                                             $current_year = date("Y");
@@ -230,10 +234,10 @@
    <!-- end row -->
    </div>
 
+ 
 
 
-
- <button   type="submit" class="btn button-color mt-3">Save</button>
+ <button   type="submit" class="btn btn-primary mt-3">Save</button>
 
 
 
@@ -253,11 +257,16 @@
 
 
 
+</div>
+</div>
 
 
    <!-- container -->
    </div>
 
+  
+
+   
 
    <script>
 $(document).ready(function () {

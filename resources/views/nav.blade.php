@@ -7,14 +7,14 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a href="#" data-bs-toggle="dropdown" class="navbar-icon pe-md-0">
-                 <legend><span class="number">A</span>Admin@email.com</legend>
+                 <legend><span class="number ">{{substr(auth()->user()->email , 0 ,1)}}</span>{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></legend>
                   <div class="dropdown-menu dropdown-menu-end">
                     <a href="#" class="dropdown-item">Profile</a>
                     <a href="#" class="dropdown-item">Setting</a>
                     <a href="#" class="dropdown-item">
       
 
-
+ 
                     
              @if(auth('web')->check())
 									<form method="POST" action="{{ route('logout.user') }}">

@@ -6,27 +6,28 @@
  @include('nav')
 
 
-<h4 class="text-color text-center mt-4">Mangment Promotion</h4>
-
-
-
-
-
-
+<h3 class="text-primary text-center mt-4">Mangment Promotion</h3>
 
 <div class="container mt-5">
 
+
+
+
+
+
+
+<div class="card">
+
+<div class="card-body">
 
 
 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#Delete_all">
        Return All
 </button><br><br>
 
-
-
-
  <div class="table-responsive">
-                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
+                                    <table id="datatable"
+                                    class="table table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
                                            style="text-align: center">
                                         <thead>
@@ -95,6 +96,8 @@
 
 
 
+                                                    </div>
+                                                    </div>
 
 
 

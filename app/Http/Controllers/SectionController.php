@@ -9,10 +9,6 @@ use App\Models\Classroom;
 use App\Models\Section;
 use Illuminate\Support\Facades\Session;
 
-use App\Http\Requests\SectionRequest;
-
-
-
 
 class SectionController extends Controller
 {

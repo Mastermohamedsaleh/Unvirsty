@@ -30,6 +30,15 @@
       </div>
 
 
+      
+      <div class="col-12">
+      <label>College : </label>
+      <select name="college_id" id=""></select>
+        @foreach($colleges as $college )
+        <option value="{{$college->id}}">{{$college->name}}</option>
+        @endforeach
+</select>
+      </div>
 
       </div>
 

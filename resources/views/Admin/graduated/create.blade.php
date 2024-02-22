@@ -25,7 +25,13 @@
 <p class="alert alert-info">{{ Session::get('message') }}</p>
 @endif
 
-<h4 class="text-center text-primary">Add Graduated Students</h4>
+<h3 class="text-center text-primary">Add Graduated Students</h3>
+
+
+
+<div class="card">
+
+<div class="card-body">
 
 <form action="{{route('graduated.store')}}" method="post">
 
@@ -107,6 +113,8 @@
 </form>
 
 
+</div>
+</div>
 
 
 

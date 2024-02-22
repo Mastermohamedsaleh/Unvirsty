@@ -9,17 +9,14 @@
 
 
 
-<div class="cantainer mt-5">
+<div class="cantainer mt-2">
+
+
+<h3 class="text-primary text-center">Add Student</h3>
+
 
 
 <div class="card m-5">
-
-
- 
-<div class="card-header">
-    <h4 class="text-warning text-center">Student</h4>
-    <!-- end card header -->
-</div>
 
 
 
@@ -62,7 +59,7 @@
 <div class="col-md-6">
 <div class="form-group">
  <label>Name : <span class="text-danger">*</span></label>
- <input  type="text" name="name"  class="form-control">
+ <input  type="text" name="name" >
 </div>             
 <!-- end one col -->
 </div>
@@ -72,7 +69,7 @@
 
 <div class="form-group">
  <label>Email : <span class="text-danger">*</span></label>
- <input  type="email" name="email"  class="form-control" require>
+ <input  type="email" name="email"     require>
 </div>   
 
 <!-- end one two -->
@@ -83,7 +80,7 @@
 
 <div class="form-group">
  <label>Password : <span class="text-danger">*</span></label>
- <input  type="password" name="password"  class="form-control" require>
+ <input  type="password" name="password"     require>
 </div> 
 
 
@@ -95,7 +92,7 @@
 
 <div class="form-group">
  <label>Ssn : <span class="text-danger">*</span></label>
- <input  type="text" name="ssn"  class="form-control" require>
+ <input  type="text" name="ssn"     require>
 </div> 
 
 
@@ -108,7 +105,7 @@
 <div class="form-group">
 
 <label>College: <span class="text-danger">*</span> </label>
-<select name="college_id" class="form-select">
+<select name="college_id" >
         <option value="" >Choose College</option>
             @foreach($colleges as $college) 
           
@@ -130,7 +127,7 @@
 <div class="form-group">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
-<select name="classroom_id" class="form-select">
+<select name="classroom_id"   >
  <option value="" disabled>Choose Classroom</option>
        
  </select>
@@ -148,7 +145,7 @@
 <div class="form-group">
 
 <label>Section: <span class="text-danger">*</span> </label>
-<select name="section_id" class="form-select">
+<select name="section_id"   >
         <option value="" disabled>Choose Classroom</option>
  
  </select>
@@ -165,7 +162,7 @@
 <div class="form-group">
 
 <label>Gender: <span class="text-danger">*</span> </label>
-<select name="gender_id" class="form-select">
+<select name="gender_id"   >
         <option value="" disabled>Choose Gender</option>
             @foreach($genders as $gender) 
             <option value="{{$gender->id}}" >{{$gender->type}}</option>
@@ -184,7 +181,7 @@
 <div class="form-group">
 
 <label>Nationalitie: <span class="text-danger">*</span> </label>
-<select name="nationalitie_id" class="form-select ">
+<select name="nationalitie_id" >
         <option value="" disabled>Choose Nationalitie</option>
             @foreach($nationalities as $nationalitie) 
             <option value="{{$nationalitie->id}}" >{{$nationalitie->nationalitie}}</option>
@@ -203,7 +200,7 @@
 <div class="form-group">
 
 <label>Current Year: <span class="text-danger">*</span> </label>
-<select class="custom-select mr-sm-2 form-select" name="academic_year" >
+<select class="custom-select mr-sm-2" name="academic_year" >
                                     <option selected disabled>Choose Year...</option>
                                     @php
                                         $current_year = date("Y");
@@ -230,7 +227,7 @@
 
 
  
-<button type="submit" class="btn btn-warning m-3">Save</button>
+<button type="submit" class="btn btn-primary m-3">Save</button>
  
 
 
@@ -257,43 +254,6 @@
 
 <!-- end container -->
 </div>
-
-
-
-
-
-
-
-<form action="">
-        
-<fieldset>
-          
-          <legend><span class="number">1</span> Your basic info</legend>
-          
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="user_name">
-          
-          <label for="mail">Email:</label>
-          <input type="email" id="mail" name="user_email">
-          
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="user_password">
-          
-          <label>Age:</label>
-          <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label><br>
-          <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">13 or Older</label>
-        
-        </fieldset>
-
-
-
-        </form>
-
-
-
-
-
-
 
 
 

@@ -18,7 +18,7 @@
       </div>
       <div class="modal-body">
         
-      <form method="post"  action="{{route('graduated.update','test')}}" autocomplete="off" >
+      <form method="post"  action="{{route('graduated.update',$student->id)}}" autocomplete="off" >
       @method('PUT')
       @csrf
 
@@ -27,7 +27,6 @@
 
 
 
-      <input type="hidden" name="id" value="{{$student->id}}">
 <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من الغاء عملية التخرج ؟</h5>
                     <input type="text" readonly value="{{$student->name}}" class="form-control">
 

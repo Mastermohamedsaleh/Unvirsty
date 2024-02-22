@@ -23,7 +23,7 @@ class GraduatedController extends Controller
 
     public function create()
     {
-        $colleges = College::all();
+        $colleges = College::where('id',auth()->user()->college_id)->get();
         return view('Admin.graduated.create',compact('colleges'));
         
     }
@@ -58,15 +58,15 @@ return redirect()->route('graduated.index');
 
     public function update(Request $request, $id)
     {
-        student::onlyTrashed()->where('id', $request->id)->first()->restore();
+        student::onlyTrashed()->where('id', $id)->first()->restore();
         Session::flash('message', 'Return Success');
-      return redirect()->route('graduated.index');
+        return redirect()->route('graduated.index');
     }
 
 
     public function destroy( Request $request , $id)
     {
-        student::onlyTrashed()->where('id', $request->id)->first()->forceDelete();
+        student::onlyTrashed()->where('id', $id)->first()->forceDelete();
         Session::flash('message', 'Delete Success');
         return redirect()->back();
     }

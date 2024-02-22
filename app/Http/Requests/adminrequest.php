@@ -26,7 +26,16 @@ class adminrequest extends FormRequest
         return [
             'name'=>'required',
             'email' => 'required|email|unique:admins,email,'.$this->id,
-            'password'=>'required|string|min:6|max:10'
+            'password'=>'required|string|min:6|max:10',
+            'college_id'=>'required|exists:colleges,id',
         ];
     }
+    
+    public function messages()
+    {
+        return [
+            'college_id.exists' => 'Enter College',
+            'college_id.required' => 'Enter College'
+        ];
+        }
 }

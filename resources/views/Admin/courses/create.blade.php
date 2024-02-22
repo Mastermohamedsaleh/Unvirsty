@@ -6,18 +6,10 @@
  @include('nav')
 
 
-
-
-
-
-
+ <h3 class="text-primary text-center">Add Course</h3>
 
 
  <div class="container mt-5">
-
-
-
-
 
  <div class="card">
 
@@ -25,10 +17,26 @@
 
 
 
-<h4 class="text-primary text-center">Add Course</h4>
+
+ 
+@if ($errors->any())
+                    <div class="alert alert-danger" style="width:500px;   margin: 0 auto ">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+
+
+                @if(Session::has('message'))
+<p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
+@endif
+
 
 <form action="{{route('course.store')}}" method="post">
-
 
 @csrf
  <div class="row">
@@ -132,7 +140,7 @@ $(document).ready(function(){
     </div>
     <div class="col">
     <select name="doctor_id[]" >
-    <option value="" disabled>Choose Doctor</option>
+    <option value="" >Choose Doctor</option>
 @foreach($doctors as $doctor)
   <option value="{{$doctor->id}}">{{$doctor->name}}</option>
 @endforeach

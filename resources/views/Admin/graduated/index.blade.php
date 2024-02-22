@@ -7,10 +7,19 @@
 
 
 
- <h5 class="text-center text-primary">Graduated Student</h5>
+ <h3 class="text-center text-primary mt-3">Graduated Student</h3>
 
 
  <div class="container">
+
+
+ <div class="card">
+
+
+ <div class="card-body">
+
+
+
 
  <div class="table-responsive">
                         <table id="datatable"  class="table key-buttons text-md-nowrap">
@@ -51,6 +60,15 @@
                                     </td>
                                 </tr>
 @endforeach
+
+
+</table>
+
+
+</div>
+
+</div>
+
 
  </div>
 

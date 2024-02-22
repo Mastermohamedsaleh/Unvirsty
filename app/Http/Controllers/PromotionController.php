@@ -19,14 +19,14 @@ class PromotionController extends Controller
  
     public function index()
     {
-        $promotions = Promotion::all();
+        $promotions = Promotion::where('id',auth()->user()->college_id)->get();
         return view('Admin.promotion.mangment',compact('promotions'));
     }
 
    
     public function create()
     {
-         $colleges =  College::all();
+        $colleges =  College::where('id',auth()->user()->college_id)->get();
         return view('Admin.promotion.create' , compact('colleges'));
     }
 
@@ -34,12 +34,7 @@ class PromotionController extends Controller
     public function store(PromotionRequest $request)
     {
         
-
-      
-
-
         DB::beginTransaction();
-
         try{
          if($request->section_id){
            $students = student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->where('academic_year',$request->academic_year)->get();       
@@ -100,7 +95,7 @@ class PromotionController extends Controller
     }
 
  
-    public function destroy(Request $request)
+    public function destroy(Request $request , $id)
     {
         DB::beginTransaction();
 
@@ -109,7 +104,7 @@ class PromotionController extends Controller
             // التراجع عن الكل
             if($request->page_id ==1){
 
-             $Promotions = Promotion::all();
+             $Promotions = Promotion::where('id',auth()->user()->college_id)->get();;
              foreach($Promotions as $Promotion){
 
                  //التحديث في جدول الطلاب
@@ -142,7 +137,7 @@ class PromotionController extends Controller
                     ]);
 
 
-                Promotion::destroy($request->id);
+                Promotion::destroy($id);
                 DB::commit();
                 Session::flash('message', 'Return Success');
                 return redirect()->back();

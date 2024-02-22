@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         
-      <form method="post"  action="{{route('course.destroy','test')}}" autocomplete="off" >
+      <form method="post"  action="{{route('course.destroy',$course->id)}}" autocomplete="off" >
       @csrf
     @method('DELETE')
 
@@ -18,8 +18,7 @@
 
 
 
-    <input type="hidden" name="id" value="{{$course->id}}">
-    <h5 style="font-family: 'Cairo', sans-serif;">Are you Sure from delete Subjuct</h5>
+    <h5 style="font-family: 'Cairo', sans-serif;">Are you Sure from delete Course</h5>
 
       
 

@@ -21,6 +21,8 @@ use App\Http\Controllers\{AdminController,
     FeedbackCourseController,
     SearchController
 };
+use App\Http\Livewire\Calendar;
+use App\Models\Event;
 
 use App\Http\Controllers\Auth\AdminAuthController;
 
@@ -66,6 +68,12 @@ Route::resource('course',CourseController::class);
 Route::resource('doctors_college',DoctorCollegeController::class);
 Route::resource('setting',SettingController::class);
 Route::resource('examschedule',ExamScheduleController::class);
+
+
+
+
+// Livewire::component('calendar', Calendar::class);
+
 
 
 Route::controller(SettingController::class)->group(function() {  

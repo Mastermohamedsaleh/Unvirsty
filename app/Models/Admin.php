@@ -38,6 +38,13 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    
+    public function college()
+    {
+        return $this->belongsTo('App\Models\College', 'college_id');
+    }
  
 
 }
