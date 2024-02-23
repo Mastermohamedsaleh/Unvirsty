@@ -3,41 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
-
 use App\Models\College;
 use App\Models\Classroom;
 use App\Models\Section;
 use App\Models\Doctor;
-use App\Models\Doctor_section;
-
-
-
+use App\Models\Course;
+use App\Models\Doctor_college;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\DoctorCollegeRequest;
+
+
 
 class DoctorCollegeController extends Controller
 {
  
     public function index()
     {
-        $doctors =  Doctor::all();   
+        $doctors =  Doctor::where('college_id',auth()->user()->college_id)->get();   
         return view('Admin.doctor_college.index',compact('doctors')); 
     }
 
 
     public function create()
     {
-
         $data['colleges'] = College::all();
-        $data['doctors'] = Doctor::all();
+        $data['doctors'] = Doctor::where('college_id',auth()->user()->college_id)->get();
+        $data['courses'] = Course::where('college_id',auth()->user()->college_id)->get();
         return view('Admin.doctor_college.add',$data);
     }
 
   
-    public function store(Request $request)
+    public function store(DoctorCollegeRequest $request)
     {
                
         
@@ -59,7 +56,7 @@ class DoctorCollegeController extends Controller
               'classroom_id'=>$classroom,
                 'section_id'=>$section,
             ];
-           DB::table('doctor_sections')->insert($insert);
+           DB::table('doctor_colleges')->insert($insert);
       }
         
       Session::flash('message', 'Add Success');
@@ -73,7 +70,14 @@ class DoctorCollegeController extends Controller
   
     public function show($id)
     {
-          $doctor_colleges =  Doctor_section::where('doctor_id',$id)->get();
+
+        $doctor = Doctor_college::where('id',$id )->where('college_id',auth()->user()->college_id)->first();
+        if( !$doctor  ){
+           return redirect()->back();
+        }
+
+
+          $doctor_colleges =  Doctor_college::where('doctor_id',$id)->get();
           return view('Admin.doctor_college.show',compact('doctor_colleges'));
     }
 
@@ -91,7 +95,8 @@ class DoctorCollegeController extends Controller
  
     public function destroy($id)
     {
-        Doctor_section::findOrFail($id)->delete();
+
+        Doctor_college::findOrFail($id)->delete();
         Session::flash('message', 'Delete Success');
         return redirect()->back();
     }

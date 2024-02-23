@@ -27,7 +27,7 @@ class CourseController extends Controller
     {
         $data['courses'] = Course::all();
         $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
-        $data['doctors'] = Doctor::all();
+        $data['doctors'] = Doctor::where('college_id',auth()->user()->college_id)->get();
         return view('Admin.courses.create',$data);
     }
 

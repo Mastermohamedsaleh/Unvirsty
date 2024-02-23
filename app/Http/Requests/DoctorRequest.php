@@ -25,8 +25,8 @@ class DoctorRequest extends FormRequest
     {
         $rules = [
             'name'=>'required',
-            'email' => 'required|email|unique:doctors,email,id'.$this->id,
-            'password'=>'required|string|min:6|max:10',
+            'email' => "required|email|unique:doctors,email,$this->id,id",
+             'password'=>'required|string|min:6|max:10',
              'ssn'=>'required',
              'address'=>'required',
              'gender_id'=>'required',

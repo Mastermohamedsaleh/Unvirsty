@@ -130,7 +130,7 @@
 <div class="form-group">
 
 <label>Gender: <span class="text-danger">*</span> </label>
-<select name="gender_id" class="form-select">
+<select name="gender_id" >
         <option value="" disabled>Choose Gender</option>
             @foreach($genders as $gender) 
             <option value="{{$gender->id}}" >{{$gender->type}}</option>
@@ -151,7 +151,7 @@
 <div class="form-group">
 
 <label>Nationalitie: <span class="text-danger">*</span> </label>
-<select name="nationalitie_id" class="form-select ">
+<select name="nationalitie_id">
         <option value="" disabled>Choose Nationalitie</option>
             @foreach($nationalities as $nationalitie) 
             <option value="{{$nationalitie->id}}" >{{$nationalitie->nationalitie}}</option>

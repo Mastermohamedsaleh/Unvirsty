@@ -11,20 +11,24 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
 
+use App\Http\Requests\ExamScheduleRequest;
+
+
+
 
 class ExamScheduleController extends Controller
 {
   
     public function index()
     {
-        $colleges = College::all();
+        $colleges = College::where('id',auth()->user()->college_id)->get();
         return view('Admin.examschedule.index',compact('colleges'));
     }
 
  
     public function create()
     {
-        $colleges = College::all();
+        $colleges = College::where('id',auth()->user()->college_id)->get();
         return view('Admin.examschedule.add',compact('colleges'));
     }
 
@@ -46,15 +50,15 @@ class ExamScheduleController extends Controller
             'exam_date' =>$exam_date[$i],
             'start_time' =>$start_time[$i],
             'end_time' =>$end_time[$i],
-          'college_id'=>$college_id,
-          'classroom_id'=>$classroom_id,
-          'section_id'=>$section_id,
+            'college_id'=>$college_id,
+            'classroom_id'=>$classroom_id,
+            'section_id'=>$section_id,
          
         ];
        DB::table('exam_schedules')->insert($insert); 
     }
       Session::flash('message', 'Add Success');
-      return redirect()->back();
+      return redirect()->route('examsschedule.index');
 
 
 
@@ -70,14 +74,27 @@ class ExamScheduleController extends Controller
     public function show(ExamSchedule $examSchedule , Request $request)
     {
  
+
        if( $request->college_id && $request->classroom_id && $request->section_id ){
-         $examschedule =   ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->get();
-         $colleges = College::all();
-            return view('Admin.examschedule.index',compact('examschedule','colleges'));
+
+        if( auth()->user()->college_id != $request->college_id  ){
+           return redirect()->back();
+        }else{
+            $examschedule =   ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->get();
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+               return view('Admin.examschedule.index',compact('examschedule','colleges'));
+        }
+      
        }elseif($request->college_id && $request->classroom_id){
-         $examschedule = ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->get();
-         $colleges = College::all();
-             return view('Admin.examschedule.index',compact('examschedule','colleges'));
+          if( auth()->user()->college_id != $request->college_id ){
+           return redirect()->back();
+        }else{
+            $examschedule = ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->get();
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+          return view('Admin.examschedule.index',compact('examschedule','colleges'));
+        }
+
+      
        }else{
         return redirect()->back(); 
        }

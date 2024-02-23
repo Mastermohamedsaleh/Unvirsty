@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         
-      <form method="post"  action="{{route('examschedule.update',$schedule->id)}}" autocomplete="off" >
+      <form method="post"  action="{{route('examsschedule.update',$schedule->id)}}" autocomplete="off" >
       @method('PUT')
       @csrf
 

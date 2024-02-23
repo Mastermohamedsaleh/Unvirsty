@@ -67,7 +67,7 @@ Route::resource('receipt',ReceiptStudentController::class);
 Route::resource('course',CourseController::class);
 Route::resource('doctors_college',DoctorCollegeController::class);
 Route::resource('setting',SettingController::class);
-Route::resource('examschedule',ExamScheduleController::class);
+Route::resource('examsschedule',ExamScheduleController::class);
 
 
 

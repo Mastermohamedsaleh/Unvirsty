@@ -77,9 +77,23 @@
                     <a href="{{route('course.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>Course</a>
                 </li>
   
-                <li class="sidebar-item">
-                    <a href="" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>ExamSchedule</a>
-                </li>
+                <!-- <li class="sidebar-item">
+                    <a href="" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i></a>
+                </li> -->
+
+
+
+                
+              <li class="sidebar-item">
+                  <a href="#" class="sidebar-link collapsed" data-bs-target="#Schedule" data-bs-toggle="collapse" area-expanded="false"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i> Schedule <i class="fa-solid fa-chevron-down float-end"></i></a>
+                  <ul id="Schedule" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                      <li class="sidebar-item">
+                       <a href="" class="sidebar-link"> StudySchedule</a>  
+                       <a href="{{route('examsschedule.index')}}" class="sidebar-link"> ExamSchedule</a>              
+                      </li>
+                  </ul>
+              </li>
+
 
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Accountant </a>

@@ -60,7 +60,7 @@
 
       <div class="form-group">
     <label for="exampleFormControlSelect2">Doctor :</label>
-    <select multiple name="doctor[]" class="form-control" id="exampleFormControlSelect2">
+    <select multiple name="doctor[]"  id="exampleFormControlSelect2">
                         @foreach($doctors as $doctor)
                               <option value="{{$doctor->id}}">{{$doctor->name}}</option>
                         @endforeach
@@ -73,7 +73,7 @@
       <div class="col-12 mt-3">
       <div class="form-group">
          <label>College : </label>
-                   <select name="college_id" class="form-select">    
+                   <select name="college_id"  >    
                      <option value="" disable>Chooces College</option>
                         @foreach($colleges as $college)
                               <option value="{{$college->id}}">{{$college->name}}</option>
@@ -87,7 +87,7 @@
       <div class="col-12 mt-3">
       <div class="form-group">
          <label> Classroom : </label>
-                <select name="classroom_id" class="form-select" >
+                <select name="classroom_id"   >
 
                 </select>
          </div>
@@ -96,8 +96,20 @@
       <div class="col-12 mt-3">
       <div class="form-group">
          <label> Section : </label>
-                <select name="section_id" class="form-select" >
+                <select name="section_id"   >
 
+                </select>
+         </div>
+      </div>
+
+      <div class="col-12 mt-3">
+      <div class="form-group">
+         <label> Course : </label>
+
+                <select name="course_id"   >
+          @foreach($courses as $course)
+                <option value="{{$course->id}}">{{$course->name}}</option>
+          @endforeach
                 </select>
          </div>
       </div>

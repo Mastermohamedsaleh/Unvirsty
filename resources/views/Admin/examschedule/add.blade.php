@@ -40,7 +40,7 @@
 
 <div class="row">
 
-<form action="{{route('examschedule.store')}}" method="post">
+<form action="{{route('examsschedule.store')}}" method="post">
 
 @csrf
 <div class="col-12">
@@ -103,6 +103,30 @@
 </div>
     </div>
 
+
+
+
+    <div class="col-4">
+<div class="form-group">
+<label>Current Year: <span class="text-danger">*</span> </label>
+<select class="custom-select mr-sm-2" name="year" >
+          @php
+              $current_year = date("Y");
+          @endphp
+          @for($year=$current_year; $year<=$current_year +1 ;$year++)
+              <option value="{{ $year}}">{{ $year }}</option>
+          @endfor
+      </select>
+</div> 
+</div>
+
+<div class="col-4">
+<label>Semester: <span class="text-danger">*</span> </label>
+ <select name="semester" id="">
+  <option value="semester1">Semester 1</option>
+  <option value="semester2">Semester 2</option>
+ </select>
+</div>
 
 
 

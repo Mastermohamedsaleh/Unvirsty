@@ -11,7 +11,28 @@
 
 
 
-<a href="{{route('examschedule.create')}}" class="btn btn-primary mb-3">Add Schedule</a>
+<a href="{{route('examsschedule.create')}}" class="btn btn-primary mb-3">Add Schedule</a>
+
+
+
+
+@if ($errors->any())
+                    <div class="alert alert-danger" style="width:500px;   margin: 0 auto ">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+
+
+                @if(Session::has('message'))
+<p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
+@endif
+
+
 
 
 
@@ -27,7 +48,7 @@
 
 
 
-<form action="{{route('examschedule.show','test')}}" method="get">
+<form action="{{route('examsschedule.show','test')}}" method="get">
 
 <div class="row">
 
@@ -67,10 +88,29 @@
 
 </div>
 
+<div class="col-3">
+<div class="form-group">
+<label> Year: <span class="text-danger">*</span> </label>
+<select class="custom-select mr-sm-2" name="year" >
+          @php
+              $current_year = date("Y");
+          @endphp
+          @for($year=$current_year; $year<=$current_year +1 ;$year++)
+              <option value="{{ $year}}">{{ $year }}</option>
+          @endfor
+      </select>
+</div> 
+</div>
 
 
 
-    <button type="submit" class="btn btn-primary">Search</button>
+
+
+<div class="col-3">
+<button type="submit" class="btn btn-primary">Search</button>
+</div>
+
+
 
 
 

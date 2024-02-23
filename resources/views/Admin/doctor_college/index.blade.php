@@ -10,7 +10,7 @@
 
 <div class="container mt-3">
  
-<a href="{{route('doctors_college.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add New doctor</a>
+<a href="{{route('doctors_college.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add doctor to class</a>
 
 
 

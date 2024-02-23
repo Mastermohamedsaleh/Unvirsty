@@ -18,7 +18,7 @@ class DoctorController extends Controller
 
     public function index()
     {
-        $doctors = Doctor::all();
+        $doctors = Doctor::where('college_id',auth()->user()->college_id)->get();
         return view('Admin.doctors.index',compact('doctors'));
     }
 
@@ -44,6 +44,7 @@ class DoctorController extends Controller
           $doctor->gender_id = $request->gender_id;
           $doctor->nationalitie_id = $request->nationalitie_id;
           $doctor->ssn = $request->ssn;
+          $doctor->college_id = auth()->user()->college_id;
           $doctor->Address = $request->address;
           $doctor->Joining_Date = $request->Joining_Date;
           $doctor->save();
@@ -64,49 +65,41 @@ class DoctorController extends Controller
  
     public function edit($id)
     {
-          
-     $data['doctor']  = Doctor::findorfail($id);
+     $doctor = Doctor::where('id',$id )->where('college_id',auth()->user()->college_id)->first();
+     if( !$doctor  ){
+        return redirect()->back();
+     }
         $data['genders'] = Gender::all();
-        $data['colleges'] = College::all();
+        $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
         $data['sections'] = Section::all();
         $data['nationalities']  = Nationalitie::all();
 
-        return view('Admin.doctors.edit',$data);
+        return view('Admin.doctors.edit', compact('doctor') ,$data);
          
     }
 
  
-    public function update(Request $request, $id)
+    public function update(DoctorRequest $request, $id)
     {
-        // try{
+        try{
 
-
-
-            $doctor = Dcotor::findorfail($id);
-            return $doctor;
-
-
+            $doctor =  Doctor::findOrfail($id);
+            $doctor->name = $request->name;
+            $doctor->email = $request->email;
+            $doctor->gender_id = $request->gender_id;
+            $doctor->nationalitie_id = $request->nationalitie_id;
+            $doctor->ssn = $request->ssn;
+            $doctor->Address = $request->address;
+            $doctor->Joining_Date = $request->Joining_Date;
+            $doctor->college_id = auth()->user()->college_id;
+            $doctor->save();
+            Session::flash('message', 'Update Success');
+            return redirect()->route('doctors.index');
        
 
-            // $doctor->name = $request->name;
-            // $doctor->email = $request->email;
-            // // $doctor->password =  $request->password;
-            // $doctor->gender_id = $request->gender_id;
-            // $doctor->nationalitie_id = $request->nationalitie_id;
-            // $doctor->ssn = $request->ssn;
-            // $doctor->Address = $request->address;
-            // $doctor->college_id = $request->college_id;
-            // $doctor->section_id = $request->section_id;
-            // $doctor->Joining_Date = $request->Joining_Date;
-      
-            // $doctor->save();
-            // Session::flash('message', 'Update Success');
-            // // return redirect()->route('doctors.index');
-            // return redirect()->back();
-
-        //   }catch (\Exception $e){    
-        //       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        //   }
+          }catch (\Exception $e){    
+              return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+          }
     }
 
 

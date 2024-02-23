@@ -57,8 +57,6 @@
 
 <legend><span class="number">1</span> Edit info Doctor</legend>
 
-<input type="hidden" value="{{$doctor->password}}" name="password">
-<input type="hidden" value="{{$doctor->id}}" name="id">
 
 
 <div class="col-md-6">
@@ -120,7 +118,7 @@
 <div class="form-group">
 
 <label>Gender: <span class="text-danger">*</span> </label>
-<select name="gender_id" class="form-select">
+<select name="gender_id" >
         <option value="" disabled>Choose Gender</option>
             @foreach($genders as $gender) 
             <option value="{{$gender->id}}" {{ $gender->id == $doctor->gender_id ? 'selected' : '' }} >{{$gender->type}}</option>
@@ -139,7 +137,7 @@
 <div class="form-group">
 
 <label>Nationalitie: <span class="text-danger">*</span> </label>
-<select name="nationalitie_id" class="form-select ">
+<select name="nationalitie_id" >
         <option value="" disabled>Choose Nationalitie</option>
             @foreach($nationalities as $nationalitie) 
             <option value="{{$nationalitie->id}}" {{ $nationalitie->id == $doctor->nationalitie_id ? 'selected' : '' }}  >{{$nationalitie->nationalitie}}</option>

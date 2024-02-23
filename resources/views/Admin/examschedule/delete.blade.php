@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         
-      <form method="post"  action="{{route('examschedule.destroy',$schedule->id)}}" autocomplete="off" >
+      <form method="post"  action="{{route('examsschedule.destroy',$schedule->id)}}" autocomplete="off" >
        @method('DELETE')
       @csrf
 
