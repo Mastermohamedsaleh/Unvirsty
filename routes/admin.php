@@ -19,7 +19,10 @@ use App\Http\Controllers\{AdminController,
     ExamScheduleController,
     AjaxController,
     FeedbackCourseController,
-    SearchController
+    SearchController,
+    StudyScheduleController,
+    AccountantController,
+    ProfileController
 };
 use App\Http\Livewire\Calendar;
 use App\Models\Event;
@@ -68,12 +71,18 @@ Route::resource('course',CourseController::class);
 Route::resource('doctors_college',DoctorCollegeController::class);
 Route::resource('setting',SettingController::class);
 Route::resource('examsschedule',ExamScheduleController::class);
+Route::resource('studyschedule',StudyScheduleController::class);
+Route::resource('accountant',AccountantController::class);
 
 
 
 
 // Livewire::component('calendar', Calendar::class);
 
+
+Route::controller(ProfileController::class)->group(function() {  
+    Route::get('adminprofile','admin');
+});
 
 
 Route::controller(SettingController::class)->group(function() {  

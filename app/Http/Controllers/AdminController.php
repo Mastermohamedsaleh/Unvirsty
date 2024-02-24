@@ -38,6 +38,7 @@ class AdminController extends Controller
 
             $admin = new Admin();
             $admin->name = $request->name;
+            $admin->image_name = 'defualt.jpg';
             $admin->email =   $request->email;
             $admin->college_id =   $request->college_id;
             $admin->status =  1;

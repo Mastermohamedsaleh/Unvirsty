@@ -7,7 +7,9 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a href="#" data-bs-toggle="dropdown" class="navbar-icon pe-md-0">
-                 <legend><span class="number ">{{substr(auth()->user()->email , 0 ,1)}}</span>{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></legend>
+                 <!-- <legend><span class="number ">{{substr(auth()->user()->email , 0 ,1)}}</span>{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></legend> -->
+
+              <img src="{{ url::asset( 'Assets/images/defualt.jpg' )}}" alt="" style="width:40px; height:40px;   border-radius:50% ;"><h4 class="d-inline">{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></h4>  
                   <div class="dropdown-menu dropdown-menu-end">
                     <a href="#" class="dropdown-item">Profile</a>
                     <a href="#" class="dropdown-item">Setting</a>

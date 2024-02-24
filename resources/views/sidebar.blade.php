@@ -38,6 +38,11 @@
                     <a href="{{route('fee.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-comment-dollar"></i>Fee</a>
                 </li>
 
+
+                <li class="sidebar-item">
+                    <a href="{{url('adminprofile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile </a>
+                </li>
+
               <li class="sidebar-item">
                     <a href="{{url('setting')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-gears"></i>Setting</a>
                 </li>
@@ -88,7 +93,7 @@
                   <a href="#" class="sidebar-link collapsed" data-bs-target="#Schedule" data-bs-toggle="collapse" area-expanded="false"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i> Schedule <i class="fa-solid fa-chevron-down float-end"></i></a>
                   <ul id="Schedule" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                       <li class="sidebar-item">
-                       <a href="" class="sidebar-link"> StudySchedule</a>  
+                       <a href="{{route('studyschedule.index')}}" class="sidebar-link"> StudySchedule</a>  
                        <a href="{{route('examsschedule.index')}}" class="sidebar-link"> ExamSchedule</a>              
                       </li>
                   </ul>
@@ -96,10 +101,10 @@
 
 
                 <li class="sidebar-item">
-                    <a href="" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Accountant </a>
+                    <a href="{{route('accountant.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Accountant </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile </a>
+                    <a href="{{url('adminprofile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile </a>
                 </li>
         
 
@@ -108,12 +113,7 @@
 
 
                    
-         <li class="sidebar-item">
-                    <a href="{{route('receipt.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-comment-dollar"></i>Receipt</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('attendance.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Attendance</a>
-                </li>
+     
 
 
 
