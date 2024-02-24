@@ -9,7 +9,14 @@
                 <a href="#" data-bs-toggle="dropdown" class="navbar-icon pe-md-0">
                  <!-- <legend><span class="number ">{{substr(auth()->user()->email , 0 ,1)}}</span>{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></legend> -->
 
-              <img src="{{ url::asset( 'Assets/images/defualt.jpg' )}}" alt="" style="width:40px; height:40px;   border-radius:50% ;"><h4 class="d-inline">{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></h4>  
+    @if(auth()->user()->image_name == 'default.jpg')
+    <img src="{{URL::asset('assets/images/default.jpg')}}" alt="SomeThing Wrong" class="img-fluid " style="width:60px; height:60px;   border-radius:50% ;"><h4 class="d-inline">{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></h4>
+    @else
+    <img src="{{asset('/imageAdmins/'.auth()->user()->image_name)}}" alt="" class="img-fluid " style="width:60px; height:60px;   border-radius:50% ;"><h4 class="d-inline">{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></h4>         
+       @endif
+
+
+                 
                   <div class="dropdown-menu dropdown-menu-end">
                     <a href="#" class="dropdown-item">Profile</a>
                     <a href="#" class="dropdown-item">Setting</a>

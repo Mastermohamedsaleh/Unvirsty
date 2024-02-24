@@ -9,6 +9,25 @@
  @include('nav')
 
 
+<div class="mt-2">
+ @if ($errors->any())
+                    <div class="alert alert-danger" style="width:500px;   margin: 0 auto ">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+
+                
+    @if(Session::has('message'))
+<p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
+@endif
+
+</div>
+
 <section class="vh-100" style="background-color: #f4f5f7;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -22,10 +41,25 @@
                 <!-- <legend><span class="number img-fluid my-5"   style="padding: 30px;">{{substr(auth()->user()->email , 0 ,1)}}</span></legend>
              -->
 
-             <img src="{{ url::asset( 'Assets/images/defualt.jpg' )}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">
+          
+      @if(auth()->user()->image_name == 'default.jpg')
+    <img src="{{URL::asset('Assets/images/default.jpg')}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">
+    @else
+    <img src="{{asset('/imageAdmins/'.auth()->user()->image_name)}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">         
+       @endif
+
+
               <h5>{{auth()->user()->name}} </h5>
               <p>Smart Academy</p>
-              <i class="far fa-edit mb-5"></i>
+
+       
+
+              
+ <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editprofileadmin{{auth()->user()->id}}">
+ <i class="far fa-edit mb-5"></i>
+</button><br><br>
+
+
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">
@@ -66,6 +100,73 @@
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="editprofileadmin{{auth()->user()->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+      <form method="post"  action="{{route('updateadminprofile',auth()->user()->id)}}" autocomplete="off" enctype="multipart/form-data">
+      @csrf
+      <div class="row">
+      <div class="col-12">
+      <div class="form-group">
+        <label>Name: </label>
+        <input type="text"  value="{{auth()->user()->name}}" name="name"  >
+        </div>
+      </div>
+
+  
+      <div class="col-12">
+      <div class="form-group">
+         <label>Email : </label>
+         <input type="email" value="{{auth()->user()->email}}"  name="email"  >
+         </div>
+      </div>
+
+
+
+      <div class="col">
+        <label for="">Image :</label>
+        <input type="file" name="image">
+      </div>
+
+      
+  
+
+      </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
+        <button  class="btn btn-primary button-mode">udpate</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+        
+
+              
+
 
 
 @include('footer')
