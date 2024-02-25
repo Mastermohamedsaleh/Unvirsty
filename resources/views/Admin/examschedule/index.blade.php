@@ -53,7 +53,7 @@
 <div class="row">
 
 
-<div class="col-3">
+<div class="col-2">
    
 
 <label>Collge: <span class="text-danger">*</span> </label>
@@ -68,7 +68,7 @@
 </div>
 
 
-<div class="col-3">
+<div class="col-2">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
 <select name="classroom_id" >
@@ -79,7 +79,7 @@
 </div>
 
 
-<div class="col-3">
+<div class="col-2">
 <label>Section: <span class="text-danger">*</span> </label>
 <select name="section_id" >
         <option value="" disabled>Choose Classroom</option>
@@ -88,7 +88,7 @@
 
 </div>
 
-<div class="col-3">
+<div class="col-2">
 <div class="form-group">
 <label> Year: <span class="text-danger">*</span> </label>
 <select class="custom-select mr-sm-2" name="year" >
@@ -102,11 +102,24 @@
 </div> 
 </div>
 
+<div class="col-2">
+<div class="form-group">
+<label> Semester: <span class="text-danger">*</span> </label>
+<select class="custom-select mr-sm-2" name="semester" >
+
+              <option value="semester1">Semester 1</option>
+              <option value="semester2">Semester 2</option>
+
+      </select>
+</div> 
+</div>
 
 
 
 
-<div class="col-3">
+
+<div class="col-2">
+<label> Search: <span class="text-danger">*</span> </label>
 <button type="submit" class="btn btn-primary">Search</button>
 </div>
 
@@ -159,6 +172,26 @@
 
 
 
+@foreach($examschedule as $schedule)
+
+<div class="row">
+
+
+<div class="col">
+<h4 class="text-primary"> Academic Year : {{$schedule->year}}</h4> 
+</div>
+
+   
+<div class="col">
+<h4 class="text-primary float-end"> Semester : {{$schedule->semester}}</h4>
+</div>
+
+
+</div>
+
+
+
+@endforeach
 
 
 <table   class="table table-hover table-sm table-bordered p-0"

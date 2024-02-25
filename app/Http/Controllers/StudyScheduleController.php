@@ -33,43 +33,59 @@ class StudyScheduleController extends Controller
     }
 
 
-    public function store(StudyScheduleRequest $request)
+    public function store( Request $request)
     {
-        try{  
+
+        // StudyScheduleRequest
+        // try{  
             $course_id = $request->course_id;
             $college_id = $request->college_id;
             $classroom_id = $request->classroom_id ;
             $section_id = $request->section_id ;
             $doctor_id = $request->doctor_id ;
-            $course_day = $request->course_day ;
+            // $course_day = $request->course_day ;
             $start_time = $request->start_time ;
             $end_time = $request->end_time ;
           
+
+            
+       
+
             for($i =0 ; $i < count($course_id) ; $i++){
-              $insert = [
-                  'course_id'=>$course_id[$i],
-                  'course_date' =>$course_day[$i],
-                  'start_time' =>$start_time[$i],
-                  'end_time' =>$end_time[$i],
-                  'doctor_id' =>$doctor_id[$i],
-                  'college_id'=>$college_id,
-                  'classroom_id'=>$classroom_id,
-                  'section_id'=>$section_id,
-                  'year' => $request->year,
-                  'semester'=> $request->semester
+
+                $course[$i] = $request->course_day;
                
-              ];
-             DB::table('study_schedules')->insert($insert); 
+
+            //   $insert = [
+            //       'course_id'=>$course_id[$i],
+            //       'start_time'=>$start_time[$i],
+            //       'end_time'=>$end_time[$i],
+            //       'doctor_id'=>$doctor_id[$i],
+            //       'college_id'=>$college_id,
+            //       'classroom_id'=>$classroom_id,
+            //       'section_id'=>$section_id,
+            //       'year' => $request->year,
+            //       'semester'=> $request->semester,
+            //       'location'=>$request->location,
+
+               
+            //   ];
+
+    print_r($course);
+
+            //  DB::table('study_schedules')->insert($insert); 
           }
-            Session::flash('message', 'Add Success');
-            return redirect()->route('studyschedule.index');
+            // Session::flash('message', 'Add Success');
+            // return redirect()->route('studyschedule.index');
+      
+ 
+
       
       
       
-      
-          }catch (\Exception $e){    
-              return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-          }
+        //   }catch (\Exception $e){    
+        //       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        //   }
     }
 
 

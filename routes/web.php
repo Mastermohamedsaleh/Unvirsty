@@ -29,4 +29,4 @@ Route::get('/dashboard', function () {
 
 
 
-
+Route::post('/change-password', [App\Http\Controllers\ProfileController::class, 'updatePassword'])->name('update-password');

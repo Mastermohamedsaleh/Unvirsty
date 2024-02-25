@@ -113,12 +113,12 @@
 
 
                    
-         <li class="sidebar-item">
+         <!-- <li class="sidebar-item">
                     <a href="{{route('receipt.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-comment-dollar"></i>Receipt</a>
                 </li>
                 <li class="sidebar-item">
                     <a href="{{route('attendance.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Attendance</a>
-                </li>
+                </li> -->
 
 
 

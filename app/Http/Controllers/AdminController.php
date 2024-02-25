@@ -94,7 +94,7 @@ class AdminController extends Controller
         
         $admin = Admin::findOrFail($id)->delete();
     
-        return redirect()->route('Admin.admins.index');
+        return redirect()->route('admins.index');
 
    
     }

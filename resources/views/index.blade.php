@@ -26,7 +26,7 @@
        }
    ?></h2>
       
-       
+       @if(auth()->user()->status == 0)
 
 <div class="row">
 
@@ -43,19 +43,19 @@
                     <div class="widget-49-title-wrapper">
                         
                         <div class="widget-49-date-success">
-                            <span class="widget-49-date-day">0</span>
-                            <span class="widget-49-date-month">apr</span>
+                            <span class="widget-49-date-day">{{\App\Models\College::count()}}</span>
+                         
                         </div>
 
                         <div class="widget-49-meeting-info">
                             <span class="widget-49-pro-title"></span>
-                            <span class="widget-49-meeting-time">lsc</span>
+                   
                         </div>
                     </div>
                 
 
                     <div class="widget-49-meeting-action">
-                        <a href="" class="btn btn-sm btn-flash-border-primary">View All</a>
+                        <a href="{{route('colleges.index')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
         <div class="card card-margin">
 
             <div class="card-header no-border">
-                <h5 class="card-title">College</h5>
+                <h5 class="card-title">Classroom</h5>
             </div>
 
             <div class="card-body pt-0">
@@ -74,19 +74,19 @@
                     <div class="widget-49-title-wrapper">
                         
                         <div class="widget-49-date-success">
-                            <span class="widget-49-date-day">0</span>
-                            <span class="widget-49-date-month">apr</span>
+                            <span class="widget-49-date-day">{{\App\Models\Classroom::count()}}</span>
+                 
                         </div>
 
                         <div class="widget-49-meeting-info">
                             <span class="widget-49-pro-title"></span>
-                            <span class="widget-49-meeting-time">lsc</span>
+                           
                         </div>
                     </div>
                 
 
                     <div class="widget-49-meeting-action">
-                        <a href="" class="btn btn-sm btn-flash-border-primary">View All</a>
+                        <a href="{{route('classrooms.index')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
         <div class="card card-margin">
 
             <div class="card-header no-border">
-                <h5 class="card-title">College</h5>
+                <h5 class="card-title">Section</h5>
             </div>
 
             <div class="card-body pt-0">
@@ -105,19 +105,19 @@
                     <div class="widget-49-title-wrapper">
                         
                         <div class="widget-49-date-success">
-                            <span class="widget-49-date-day">0</span>
-                            <span class="widget-49-date-month">apr</span>
+                            <span class="widget-49-date-day">{{\App\Models\Section::count()}}</span>
+    
                         </div>
 
                         <div class="widget-49-meeting-info">
                             <span class="widget-49-pro-title"></span>
-                            <span class="widget-49-meeting-time">lsc</span>
+               
                         </div>
                     </div>
                 
 
                     <div class="widget-49-meeting-action">
-                        <a href="" class="btn btn-sm btn-flash-border-primary">View All</a>
+                        <a href="{{route('sections.index')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
                     </div>
                 </div>
             </div>
@@ -125,16 +125,13 @@
     </div>
 
 
-
+@endif
 
     <!-- end row -->
     </div>
 <!-- end contaienr -->
     </div>
 
-    @livewire('calendar')
-    @livewireScripts
-    @stack('scripts')
 
     
  @include('footer')

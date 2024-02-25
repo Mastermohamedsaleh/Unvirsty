@@ -17,7 +17,7 @@
 
 
 
-<h4 class="text-primary text-center">All Course</h4>
+<h3 class="text-primary text-center">All Course</h3>
 
 
 

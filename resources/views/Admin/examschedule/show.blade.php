@@ -7,13 +7,6 @@
  @include('nav')
 
 
-
-
-
-
-
-
-
  <div class="container mt-3">
 
 
@@ -33,6 +26,10 @@
                 @if(Session::has('message'))
 <p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
 @endif
+
+
+
+
 
 
  <table   class="table table-hover table-sm table-bordered p-0"

@@ -37,7 +37,6 @@
 <div class="container mt-5">
 
 
-     <a  href="{{route('fee.create')}}" class="btn btn-primary" >Add Fee</a>
 
 
  <h3 class="text-primary text-center">All Fee</h3>
@@ -48,6 +47,10 @@
 
 
      <div class="card-body">
+
+     <a  href="{{route('fee.create')}}" class="btn btn-primary mb-2" >Add Fee</a>
+
+
 <div class="table-responsive">
                         <table  id="datatable" class="table table-hover key-buttons text-md-nowrap">
                         <thead>
