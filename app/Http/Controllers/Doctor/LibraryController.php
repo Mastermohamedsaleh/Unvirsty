@@ -18,14 +18,14 @@ class LibraryController extends Controller
     public function index()
     {
         $libraries = Library::where('doctor_id',auth()->user()->id)->get();
-        return view('Doctor.My_Library.index',compact('libraries'));
+        return view('Doctor.My_lecture.index',compact('libraries'));
     }
 
 
     public function create()
     {
         $courses = Course::where('doctor_id',auth()->user()->id)->get();
-        return view('Doctor.My_Library.create',compact('courses'));
+        return view('Doctor.My_lecture.create',compact('courses'));
     }
 
 

@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\ProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +33,9 @@ Route::get('/dashboard', function () {
 
 
 Route::post('/change-password', [App\Http\Controllers\ProfileController::class, 'updatePassword'])->name('update-password');
+
+
+Route::controller(ProfileController::class)->group(function() {  
+    Route::get('profile','profile');
+    Route::post('updateprofile/{id}','updateadmin')->name('updateadminprofile');
+});

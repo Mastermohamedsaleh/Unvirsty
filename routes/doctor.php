@@ -9,7 +9,7 @@ use App\Http\Controllers\Auth\DoctorController;
 use App\Http\Controllers\Doctor\QuizzeController;
 use App\Http\Controllers\Doctor\QuestionController;
 use App\Http\Controllers\Doctor\LibraryController;
-use App\Http\Controllers\Doctor\DoctorCollegeController;
+use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController};
 
 /*
 |--------------------------------------------------------------------------
@@ -39,12 +39,13 @@ Route::group(['middleware' => 'auth:doctor'], function(){
     });
     
     Route::resource('attendance',AttendanceController::class);
+    Route::resource('lecture',LectureController::class);
 
-    Route::controller(LibraryController::class)->group(function() {  
-     Route::get('library_index', 'index')->name('library_index');
-     Route::post('library_store', 'store')->name('library_store');
-     Route::get('library_create', 'create')->name('library_create');
-});
+//     Route::controller(LibraryController::class)->group(function() {  
+//      Route::get('lecture_index', 'index')->name('library_index');
+//      Route::post('library_store', 'store')->name('library_store');
+//      Route::get('library_create', 'create')->name('library_create');
+// });
 
 
 

@@ -97,11 +97,11 @@
 
 
 
-  @if(auth('admin')->check()) 
+    @if(auth('admin')->check())
   <a class="btn btn-outline-success btn-sm" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i>  <i class="fas fa-edit"></i></a>
-  @else
-
-  <ul class="dropdown-menu">
+ 
+  @elseif(auth('accountant')->check())
+    <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="{{route('fee_invoices.show',$student->id)}}"> <i class="fa-solid fa-sack-dollar"></i> Add Fee</a></li>
     <li><a class="dropdown-item" href="{{route('receipt.show',$student->id)}}" > <i class="fa-solid fa-hand-holding-dollar"></i> Receipt</a></li>
   </ul>

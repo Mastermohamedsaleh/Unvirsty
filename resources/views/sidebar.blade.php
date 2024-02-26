@@ -104,7 +104,7 @@
                     <a href="{{route('accountant.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Accountant </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{url('adminprofile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile </a>
+                    <a href="{{url('profile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile </a>
                 </li>
         
 

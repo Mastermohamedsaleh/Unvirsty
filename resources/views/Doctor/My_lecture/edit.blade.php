@@ -34,21 +34,21 @@
 
 
 
-<form action="{{route('library_store')}}" method="post"  enctype="multipart/form-data">
+<form action="{{route('lecture.update',$lecture->id)}}" method="post"  enctype="multipart/form-data">
 
 @csrf
-
+@method('PUT')
 
 
 
 <div class="row">
 
 
-<legend><span class="number">1</span> Add New Lecture</legend>
+<legend><span class="number">1</span> Update Lecture</legend>
 <div class="col-12">
 
 <label for="">Title<span class="text-danger">*</span> </label>
-<input type="text" name="title" >
+<input type="text" name="title" value="{{$lecture->title}}" >
 
 </div>
 
@@ -59,7 +59,7 @@
 <select name="course_id" >
         <option value="" >Choose Course</option>
             @foreach($courses as $course) 
-            <option value="{{$course->id}}" >{{$course->name}}</option>
+            <option value="{{$course->id}}" {{ $course->id == $lecture->course_id ? 'selected' : '' }}>{{$course->name}}</option>
             @endforeach
  </select>
 
@@ -69,8 +69,8 @@
 
 <div class="col-12">                               
 <div class="form-group">
-    <label for="academic_year">Attachment : <span class="text-danger">*</span></label>
-    <input type="file" accept="application/pdf" name="file_name" >
+    <label for="">Attachment : <span class="text-danger">*</span></label>
+    <input type="file" accept="application/pdf" name="file_name" value="$lecture->file_name" >
 </div>
                                
 

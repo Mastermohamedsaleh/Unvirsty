@@ -6,7 +6,24 @@
     @include('sidebar')
 
       <div class="main">
- @include('nav')
+
+      
+     <?php if(auth('admin')->check()){
+        echo 'sssssssss';
+ 
+}elseif(auth('doctor')->check()){
+      echo  "saaaascsd";
+}elseif(auth('student')->check()){
+           echo   include 'nav_student.blade.php' ;
+}elseif(auth('accountant')->check()){
+         echo  include('nav_accountant');
+}
+						
+
+?>
+
+
+
 
 
 <div class="mt-2">
@@ -45,7 +62,7 @@
       @if(auth()->user()->image_name == 'default.jpg')
     <img src="{{URL::asset('Assets/images/default.jpg')}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">
     @else
-    <img src="{{asset('/imageAdmins/'.auth()->user()->image_name)}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">         
+    <img src="{{asset('/image/'.auth()->user()->image_name)}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">         
        @endif
 
 

@@ -14,11 +14,12 @@
                     <a href="#" class="sidebar-link"><i class="fa-solid fa-list"></i> Dashboard</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{route('library_index')}}" class="sidebar-link"><i class="fa-solid fa-book"></i> My_Library</a>
+                    <a href="{{route('lecture.index')}}" class="sidebar-link"><i class="fa-solid fa-book"></i> Mylecture</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{URL('my_class')}}" class="sidebar-link"><i class="fa-solid fa-landmark"></i> My_Class</a>
+                    <a href="{{URL('my_class')}}" class="sidebar-link"><i class="fa-solid fa-landmark"></i> MyClass</a>
                 </li>
+       
                 <!-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-lock"></i>Admins</a>
                 </li> -->
@@ -55,22 +56,15 @@
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-header">
-              Multi level menu
-            </li>
+  
+
+
             <li class="sidebar-item">
-              <a href="#" class="sidebar-link collapsed" data-bs-target="#multi" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-share-nodes pe-2"></i> Multi dropdown</a>
-              <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar" >
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" area-expanded="false" data-bs-target="#level-1">level 1</a>
-                    <ul id="level-1" class="sidebar-dropdown list-unstyled collapse">
-                      <li class="sidebar-item">
-                          <a href="#" class="sidebar-link">level 1.1</a>
-                          <a href="#" class="sidebar-link">level 1.2</a>
-                      </li>
-                  </ul>
-            </ul>
-            </li>
+                    <a href="{{URL('profile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile</a>
+                </li>
+
+
+
             </ul>
         </div>    
     </aside>

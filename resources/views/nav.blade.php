@@ -11,8 +11,8 @@
     @if(auth()->user()->image_name == 'default.jpg')
     <img src="{{URL::asset('assets/images/default.jpg')}}" alt="SomeThing Wrong" class="img-fluid " style="width:60px; height:60px;   border-radius:50% ;"><h4 class="d-inline">{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></h4>
     @else
-    <img src="{{asset('/imageAdmins/'.auth()->user()->image_name)}}" alt="" class="img-fluid " style="width:60px; height:60px;   border-radius:50% ;"><h4 class="d-inline">{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></h4>         
-       @endif
+    <img src="{{asset('/image/'.auth()->user()->image_name)}}" alt="" class="img-fluid " style="width:60px; height:60px;   border-radius:50% ;"><h4 class="d-inline">{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></h4>         
+    @endif
 
 
                  

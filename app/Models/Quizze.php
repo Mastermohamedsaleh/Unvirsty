@@ -19,9 +19,9 @@ class Quizze extends Model
 
 
 
-    public function subject()
+    public function Course()
     {
-        return $this->belongsTo('App\Models\Subject', 'subject_id');
+        return $this->belongsTo('App\Models\Course', 'course_id');
     }
 
 

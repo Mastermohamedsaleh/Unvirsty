@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
        
-    public function admin(){
-        return  view('Admin.admins.profile');
+    public function profile(){
+        return  view('profile');
     }
 
     public function updateadmin(Request $request ,$id){
@@ -36,12 +36,12 @@ class ProfileController extends Controller
       $admin = Admin::findOrfail($id);         
         try{
         if (request()->hasFile('image')){
-            $imagePath = public_path('imageAdmins/'.$admin->image_name);
+            $imagePath = public_path('image/'.$admin->image_name);
             if(File::exists($imagePath)){
                 unlink($imagePath);
             }
             $fileName = time().'.'.$request->file('image')->extension();  
-            $request->file('image')->move(public_path('imageAdmins'), $fileName); 
+            $request->file('image')->move(public_path('image'), $fileName); 
             } else {
                 $fileName = $admin->image_name ;
             }
