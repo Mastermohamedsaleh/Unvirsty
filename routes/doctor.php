@@ -7,9 +7,11 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Auth\DoctorController;
 
 use App\Http\Controllers\Doctor\QuizzeController;
+
 use App\Http\Controllers\Doctor\QuestionController;
 use App\Http\Controllers\Doctor\LibraryController;
 use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController};
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +56,14 @@ Route::group(['middleware' => 'auth:doctor'], function(){
    Route::get('student_quizze/{id}',[QuizzeController::class,'student_quizze'])->name('student.quizze');
 
    Route::post('repeat_quizze', [QuizzeController::class,'repeat_quizze'])->name('repeat.quizze');
+
+
+   Route::controller(ProfileController::class)->group(function() {  
+    Route::get('doctorprofile','doctorprofile');
+    Route::post('updateprofile/{id}','updatedoctor')->name('updatedoctorprofile');
+});
+
+
 
 });
 

@@ -8,10 +8,26 @@
               <li class="nav-item dropdown">
                 <a href="#" data-bs-toggle="dropdown" class="navbar-icon pe-md-0">
 
-    @if(auth()->user()->image_name == 'default.jpg')
-    <img src="{{URL::asset('assets/images/default.jpg')}}" alt="SomeThing Wrong" class="img-fluid " style="width:60px; height:60px;   border-radius:50% ;"><h4 class="d-inline">{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></h4>
+    @if(auth('admin')->check())
+      <?php  $name = \Auth::guard('admin')->user(); ?>
+     @elseif(auth('doctor')->check())
+   <?php  $name =  \Auth::guard('doctor')->user();
+   ?>
+     @elseif(auth('student')->check())
+  <?php   $name = \Auth::guard('student')->user(); ?>
+     @else
+   <?php  $name = \Auth::guard('accountant')->user(); ?>
+     @endif
+
+
+
+
+
+
+    @if( $name->image_name == 'default.jpg')
+    <img src="{{URL::asset('assets/images/default.jpg')}}" alt="SomeThing Wrong" class="img-fluid " style="width:60px; height:60px;   border-radius:50% ;"><h4 class="d-inline">{{$name->name}} <i class="fa-solid fa-caret-down"></i></h4>
     @else
-    <img src="{{asset('/image/'.auth()->user()->image_name)}}" alt="" class="img-fluid " style="width:60px; height:60px;   border-radius:50% ;"><h4 class="d-inline">{{auth()->user()->name}} <i class="fa-solid fa-caret-down"></i></h4>         
+    <img src="{{asset('/image/'.$name->image_name)}}" alt="" class="img-fluid " style="width:60px; height:60px;   border-radius:50% ;"><h4 class="d-inline">{{$name->name}} <i class="fa-solid fa-caret-down"></i></h4>         
     @endif
 
 

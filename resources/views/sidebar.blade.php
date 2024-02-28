@@ -19,7 +19,7 @@
                     <a href="{{url('dashboard/admin')}}" class="sidebar-link"><i class="fa-solid fa-list"></i>Dashboard</a>
                 </li>
 
-                @if(auth()->user()->status == 0)
+                @if(\Auth::guard('admin')->user()->status == 0)
 
                 <li class="sidebar-item">
                     <a href="{{route('admins.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-lock"></i>Admins</a>

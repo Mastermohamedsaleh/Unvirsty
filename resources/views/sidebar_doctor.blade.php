@@ -60,7 +60,7 @@
 
 
             <li class="sidebar-item">
-                    <a href="{{URL('profile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile</a>
+                    <a href="{{URL('doctorprofile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile</a>
                 </li>
 
 

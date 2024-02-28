@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @if(auth('admin')->check())
     <title>Admin Dashboard</title>
+     @elseif(auth('doctor')->check())
+    <title>Doctor Dashboard</title>
+     @elseif(auth('student')->check())
+    <title>Student Dashboard</title>
+     @else
+    <title>Accountant Dashboard</title>
+     @endif
+   
 
     <!-- font -->
     <script

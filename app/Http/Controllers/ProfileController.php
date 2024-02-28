@@ -21,7 +21,12 @@ class ProfileController extends Controller
 {
        
     public function profile(){
-        return  view('profile');
+        return  view('Admin.admins.profile');
+    }
+
+
+    public function doctorprofile(){
+        return  view('Admin.doctors.profile');
     }
 
     public function updateadmin(Request $request ,$id){
