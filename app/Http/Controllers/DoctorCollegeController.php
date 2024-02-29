@@ -38,7 +38,7 @@ class DoctorCollegeController extends Controller
     {
                
         
-        $doctor = $request->doctor;
+        $doctor = $request->doctor_id;
         $college = $request->college_id;
         $classroom = $request->classroom_id;
 

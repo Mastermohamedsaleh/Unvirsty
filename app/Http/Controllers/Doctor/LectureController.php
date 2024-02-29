@@ -5,9 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Lecture;
 use App\Models\Course;
-use App\Models\Doctor_college;
 use Illuminate\Support\Facades\Session;
-use App\Http\Requests\LibraryRequest;
+use App\Http\Requests\LectureRequest;
 use Illuminate\Support\Facades\Auth;
 use File;
 
@@ -27,7 +26,7 @@ class LectureController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(LectureRequest $request)
     {
 
      
@@ -82,7 +81,7 @@ try{
     }
 
   
-    public function update(Request $request, $id)
+    public function update(LectureRequest $request, $id)
     {
    
         try{

@@ -2,28 +2,33 @@
       <aside id="sidebar" class="js-sidebar"><!-- side bar content-->
         <div class="h-100">
             <div class="sidebar-logo">
-                <a href="#">My College</a>
+            <a class="navbar-brand ms-4" href="#"
+          ><img
+            src="{{ URL::asset('Assets/images/logo2.png') }}" 
+            alt="Smart Academy logo"
+            class="w-75 h-75"
+        /></a>
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-header">
-                    Admin elements
+                    Student elements
                 </li>
 
 
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"><i class="fa-solid fa-list"></i>Dashboard</a>
+                    <a href="#" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i>Dashboard</a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{route('librarytostudent')}}" class="sidebar-link"><i class="fa-solid fa-list"></i>Library</a>
+                    <a href="{{route('lecturestudent')}}" class="sidebar-link"><i class="fa-solid fa-book" style="padding: 0 10px 0  0"></i> Mylecture</a>
                 </li>
+<!-- 
+                <li class="sidebar-item">
+                    <a href="{{URL('examschedule')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i> My Schedule</a>
+                </li> -->
 
                 <li class="sidebar-item">
-                    <a href="{{URL('examschedule')}}" class="sidebar-link"><i class="fa-solid fa-list"></i>My Schedule</a>
-                </li>
-
-                <li class="sidebar-item">
-                    <a href="{{URL('fee_student')}}" class="sidebar-link"><i class="fa-solid fa-list"></i>My Fee</a>
+                    <a href="{{URL('fee_student')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i>My Fee</a>
                 </li>
                 <!-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-lock"></i>Admins</a>
@@ -53,30 +58,30 @@
                   </ul>
               </li> -->
               <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-regular fa-user pe-2"></i> Quizzes  </a> 
+                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i style="padding: 0 10px 0  0" class="fa-regular fa-user pe-2"></i> Quizzes <i class="fa-solid fa-chevron-down float-end"></i>  </a> 
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="{{route('student_exams.index')}}" class="sidebar-link">My Quizze   </a>
+                        <a href="{{route('student_exams.index')}}" class="sidebar-link">All Quizze </a>
                     
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-header">
-              Multi level menu
+
+              <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed" data-bs-target="#Schedule" data-bs-toggle="collapse" area-expanded="false"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i> My Schedule <i class="fa-solid fa-chevron-down float-end"></i> </a> 
+                <ul id="Schedule" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="{{URL('examschedule')}}" class="sidebar-link">Exam Schedule</a>
+                        <a href="{{URL('examschedule')}}" class="sidebar-link">Studey Schedule</a>
+                    
+                    </li>
+                </ul>
             </li>
+
             <li class="sidebar-item">
-              <a href="#" class="sidebar-link collapsed" data-bs-target="#multi" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-share-nodes pe-2"></i> Multi dropdown</a>
-              <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar" >
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" area-expanded="false" data-bs-target="#level-1">level 1</a>
-                    <ul id="level-1" class="sidebar-dropdown list-unstyled collapse">
-                      <li class="sidebar-item">
-                          <a href="#" class="sidebar-link">level 1.1</a>
-                          <a href="#" class="sidebar-link">level 1.2</a>
-                      </li>
-                  </ul>
-            </ul>
-            </li>
+                    <a href="{{URL('studentprofile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile</a>
+                </li>
+            
             </ul>
         </div>    
     </aside>

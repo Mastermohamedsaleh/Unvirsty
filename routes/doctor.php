@@ -58,10 +58,7 @@ Route::group(['middleware' => 'auth:doctor'], function(){
    Route::post('repeat_quizze', [QuizzeController::class,'repeat_quizze'])->name('repeat.quizze');
 
 
-   Route::controller(ProfileController::class)->group(function() {  
-    Route::get('doctorprofile','doctorprofile');
-    Route::post('updateprofile/{id}','updatedoctor')->name('updatedoctorprofile');
-});
+
 
 
 

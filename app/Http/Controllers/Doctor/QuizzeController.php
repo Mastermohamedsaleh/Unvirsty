@@ -9,9 +9,13 @@ use Illuminate\Http\Request;
 use App\Models\College;
 use App\Models\Quizze;
 use App\Models\Question;
-use App\Models\Course;      // Change All Subject Into Course
+use App\Models\Course;      // Change All Course Into Course
 use App\Models\Doctor;
 use App\Models\Degree;
+use App\Models\Doctor_college;
+
+use Illuminate\Support\Facades\Session;
+
 
 class QuizzeController extends Controller
 {
@@ -24,22 +28,22 @@ class QuizzeController extends Controller
 
     public function create()
     {
-        $data['colleges'] = College::all();
-        $data['subjects'] = Subject::where('doctor_id',auth()->user()->id)->get();
-        $data['doctors'] = Doctor::all();
+        // $data['colleges'] = Doctor_college::where('doctor_id',auth()->user()->id)->get();
+        $data['courses'] = Course::where('doctor_id',auth()->user()->id)->get();
         return view('Doctor.Quizzes.create', $data);
     }
 
 
     public function store(Request $request)
     {
+       $course = Course::where('id' , $request->course_id)->first();
         try {
             $quizzes = new Quizze();
             $quizzes->name = $request->name;
-            $quizzes->subject_id = $request->subject_id;
-            $quizzes->college_id = $request->college_id;
-            $quizzes->classroom_id = $request->classroom_id;
-            $quizzes->section_id = $request->section_id;
+            $quizzes->course_id =  $request->course_id;
+            $quizzes->college_id =  $course->college_id;
+            $quizzes->classroom_id =  $course->classroom_id;
+            $quizzes->section_id =  $course->section_id;
             $quizzes->doctor_id = auth()->user()->id;
             $quizzes->save();
             Session::flash('message', 'Add Success');
@@ -53,9 +57,13 @@ class QuizzeController extends Controller
 
     public function show($id)
     {
+        $quizz = Quizze::where('id',$id)->where('doctor_id',auth()->user()->id)->first();
+        if($quizz){
         $questions = Question::where('quizze_id',$id)->get();
-        $quizz = Quizze::findorFail($id);
         return view('Doctor.Questions.index',compact('questions','quizz'));
+        }else{
+            return redirect()->back();
+        }
     }
 
 
@@ -63,7 +71,7 @@ class QuizzeController extends Controller
     {
         $quizz = Quizze::findorFail($id);
         $data['colleges'] = College::all();
-        $data['subjects'] =  Subject::where('doctor_id',auth()->user()->id)->get();
+        $data['courses'] =  Course::where('doctor_id',auth()->user()->id)->get();
         $data['doctors'] = Doctor::all();
         return view('Doctor.Quizzes.edit', $data, compact('quizz'));
     }
@@ -74,7 +82,7 @@ class QuizzeController extends Controller
         try {
             $quizz = Quizze::findorFail($request->id);
             $quizzes->name = $request->name;
-            $quizzes->subject_id = $request->subject_id;
+            $quizzes->course_id = $request->course_id;
             $quizzes->college_id = $request->college_id;
             $quizzes->classroom_id = $request->classroom_id;
             $quizzes->section_id = $request->section_id;

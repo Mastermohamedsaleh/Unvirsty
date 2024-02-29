@@ -60,7 +60,7 @@
 
       <div class="form-group">
     <label for="exampleFormControlSelect2">Doctor :</label>
-    <select multiple name="doctor[]"  id="exampleFormControlSelect2">
+    <select multiple name="doctor_id[]"  id="exampleFormControlSelect2">
                         @foreach($doctors as $doctor)
                               <option value="{{$doctor->id}}">{{$doctor->name}}</option>
                         @endforeach

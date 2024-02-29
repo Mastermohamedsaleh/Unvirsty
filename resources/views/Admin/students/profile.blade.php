@@ -3,7 +3,7 @@
 
 @include('header')
   <div class="wrapper">
-    @include('sidebar_doctor')
+    @include('sidebar_student')
 
       <div class="main">
  @include('nav')
@@ -38,20 +38,20 @@
               style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
 
           
-      @if(\Auth::guard('doctor')->user()->image_name == 'default.jpg')
+      @if(\Auth::guard('student')->user()->image_name == 'default.jpg')
     <img src="{{URL::asset('Assets/images/default.jpg')}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">
     @else
-    <img src="{{asset('/image/'.\Auth::guard('doctor')->user()->image_name)}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">         
+    <img src="{{asset('/image/'.\Auth::guard('student')->user()->image_name)}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">         
        @endif
 
 
-              <h5>{{\Auth::guard('doctor')->user()->name}} </h5>
+              <h5>{{\Auth::guard('student')->user()->name}} </h5>
               <p>Smart Academy</p>
 
        
 
               
- <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editprofiledoctor{{\Auth::guard('doctor')->user()->id}}" style="width:40px;height:40px">
+ <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editprofilestudent{{\Auth::guard('student')->user()->id}}" style="width:40px;height:40px">
  <i class="far fa-edit mb-5"></i>
 </button><br><br>
 
@@ -64,7 +64,7 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Email</h6>
-                    <p class="text-muted">{{\Auth::guard('doctor')->user()->email}}</p>
+                    <p class="text-muted">{{\Auth::guard('student')->user()->email}}</p>
                   </div>
                   <!-- <div class="col-6 mb-3">
                     <h6>Phone</h6>
@@ -76,12 +76,15 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Info</h6>
-                    <h6>Ssn :</h6>
-                    <p class="text-muted">{{\Auth::guard('doctor')->user()->ssn}}</p>
-                    <h6>Address :</h6>
-                    <p class="text-muted">{{\Auth::guard('doctor')->user()->Address}}</p>
-                    <h6>Joining_Date :</h6>
-                    <p class="text-muted">{{\Auth::guard('doctor')->user()->Joining_Date}}</p>
+                    <hr class="mt-0 mb-4">
+                    <h6>Ssn : <span class="text-muted">{{\Auth::guard('student')->user()->ssn}}</span></h6>
+                    <h6>College :  <span class="text-muted">{{\Auth::guard('student')->user()->college->name}}</span></h6>
+                    <h6>Classroom :  <span class="text-muted">{{\Auth::guard('student')->user()->classroom->name}}</span></h6>
+                    <h6>Section :  <span class="text-muted">{{ (\Auth::guard('student')->user()->section_id ? \Auth::guard('student')->user()->section->name : 'No Section' ) }}</span></h6>
+                    <h6>Gender :  <span class="text-muted">{{\Auth::guard('student')->user()->gender->type}}</span></h6>
+                    <h6>Nationalitie :  <span class="text-muted">{{\Auth::guard('student')->user()->Nationality->nationalitie}}</span></h6>
+
+                   
                   </div>
                   <!-- <div class="col-6 mb-3">
                     <h6>Most Viewed</h6>
@@ -94,7 +97,7 @@
                   <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
                 </div> -->
 
-                <a href="#"  type="button"  data-bs-toggle="modal" data-bs-target="#cheangePass{{\Auth::guard('doctor')->user()->id}}">Change Password</a>
+                <a href="#"  type="button"  data-bs-toggle="modal" data-bs-target="#cheangePass{{\Auth::guard('student')->user()->id}}">Change Password</a>
 
               </div>
             </div>
@@ -112,7 +115,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="editprofiledoctor{{\Auth::guard('doctor')->user()->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editprofilestudent{{\Auth::guard('student')->user()->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -121,13 +124,13 @@
       </div>
       <div class="modal-body">
         
-      <form method="post"  action="{{url('updateprofile',\Auth::guard('doctor')->user()->id)}}" autocomplete="off" enctype="multipart/form-data">
+      <form method="post"  action="{{url('updateprofile',\Auth::guard('student')->user()->id)}}" autocomplete="off" enctype="multipart/form-data">
       @csrf
       <div class="row">
       <div class="col-12">
       <div class="form-group">
         <label>Name: </label>
-        <input type="text"  value="{{\Auth::guard('doctor')->user()->name}}" name="name"  >
+        <input type="text"  value="{{\Auth::guard('student')->user()->name}}" name="name"  >
         </div>
       </div>
 
@@ -135,7 +138,7 @@
       <div class="col-12">
       <div class="form-group">
          <label>Email : </label>
-         <input type="email" value="{{\Auth::guard('doctor')->user()->email}}"  name="email"  >
+         <input type="email" value="{{\Auth::guard('student')->user()->email}}"  name="email"  >
          </div>
       </div>
 
@@ -166,7 +169,7 @@
 
 
 <!-- Change pass -->
-<div class="modal fade" id="cheangePass{{\Auth::guard('doctor')->user()->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="cheangePass{{\Auth::guard('student')->user()->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

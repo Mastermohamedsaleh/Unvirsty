@@ -29,12 +29,22 @@
 <p class="alert alert-info" style="width:300px; margin:0px auto">{{ Session::get('message') }}</p>
 @endif
 
+                @if(Session::has('error'))
+<p class="alert alert-danger" style="width:300px; margin:0px auto">{{ Session::get('error') }}</p>
+@endif
+
 <form action="{{route('questions.store')}}" method="post" autocomplete="off">
 
 
 
 
 @csrf
+
+
+
+<div class="card">
+    <div class="card-body">
+
 
 
 <div class="row">
@@ -44,15 +54,27 @@
 <legend><span class="number">1</span> Write New Question</legend>
 
 
-<div class="col-12">
-<label for="title">Name Question </label>
-    <input type="text" name="title" id="input-name" autofocus>
-    <input type="hidden" value="{{$quizz_id}}" name="quizz_id">
+<div class="col">
+    <label for="">Type Question</label>
+    <select name="typequestion" id="">
+        <option value="trueorfale">True OR False</option>
+        <option value="choose">Choose</option>
+    </select>
 </div>
 
 
+
 <div class="col-12">
-<label for="title">Answers</label>
+<label for="title">Name Question </label>
+    <input type="text" name="title" id="input-name" autofocus>
+    <input type="hidden" value="{{$quizz->id}}" name="quizz_id">
+</div>
+
+
+
+
+<div class="col-12">
+<label for="title">Answers => <span class="text-danger">You must separate each answer with a mark <span class="display-6"> [-] </span> Like Yes - No </span></label>
                                         <textarea name="answers"  id="exampleFormControlTextarea1"
                                                   rows="4"></textarea>
 </div>
@@ -78,9 +100,13 @@
 
 <div class="col">
                                         <div class="form-group">
-                                            <label for="Grade_id">الدرجة : <span class="text-danger">*</span></label>
+                                            <label >الدرجة : <span class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="score">
                                                 <option selected disabled> حدد الدرجة...</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="2.5">2.5</option>
+                                                <option value="3">3</option>
                                                 <option value="5">5</option>
                                                 <option value="10">10</option>
                                                 <option value="15">15</option>
@@ -101,8 +127,11 @@
 
 
 
-<button type="submit" class="btn btn-success">Save</button>
+<button type="submit" class="btn btn-primary">Save</button>
 
+
+</div>
+</div>
 
 
 </form>

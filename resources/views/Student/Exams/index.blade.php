@@ -87,7 +87,7 @@
                             <tr>
                             <td> {{$i++}} </td>
                       <td>{{$quizze->name}}</td>
-                      <td>{{$quizze->subject->name}}</td>
+                      <td>{{$quizze->Course->name}}</td>
                       <td>{{$quizze->doctor->name}}</td>
 
 

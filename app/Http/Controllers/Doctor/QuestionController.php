@@ -10,44 +10,80 @@ use App\Models\Question;
 use App\Models\Quizze;
 use Illuminate\Support\Facades\Session;
 
+use App\Http\Requests\QuestionRequest;
+
+
+
 class QuestionController extends Controller
 {
-    public function index($id)
+    public function index()
     {
-        // $questions = Question::get();
-        // return view('Doctor.Questions.index', compact('questions'));
+        //  
     }
 
 
     public function create()
     {
-        $quizzes = Quizze::get();
-        return view('Doctor.Questions.create',compact('quizzes'));
+       //  
     }
 
 
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {
-        try {
-            $question = new Question();
-            $question->title = $request->title;
-            $question->answers = $request->answers;
-            $question->right_answer = $request->right_answer;
-            $question->score = $request->score;
-            $question->quizze_id =  $request->quizz_id;
-            $question->save();
-            Session::flash('message', 'Add Success');
-            return redirect()->back();
+        try {  
+          $typequestion = $request->typequestion;
+          if($typequestion == 'trueorfale'){
+            $trimmed = trim($request->answers);
+            $numWords = count(explode('-', $trimmed));
+            if($numWords == 2){
+                $question = new Question();
+                $question->title = $request->title;
+                $question->answers =   $trimmed;
+                $question->right_answer = $request->right_answer;
+                $question->score = $request->score;
+                $question->quizze_id =  $request->quizz_id;
+                $question->save();
+                Session::flash('message', 'Add Success');
+                return redirect()->back();
+
+            }else{
+                Session::flash('error', 'Only 1 Sparate between String Please Use -');
+                return redirect()->back();
+            }
+          }else{
+            $trimmed = trim($request->answers);
+            $numWords = count(explode('-', $trimmed));
+            if($numWords == 3){
+                $question = new Question();
+                $question->title = $request->title;
+                $question->answers =   $trimmed;
+                $question->right_answer = $request->right_answer;
+                $question->score = $request->score;
+                $question->quizze_id =  $request->quizz_id;
+                $question->save();
+                Session::flash('message', 'Add Success');
+                return redirect()->back();
+            }else{
+                Session::flash('error', 'Only 2 Sparate between String Please Use -');
+                return redirect()->back();
+            }
+          }  
+
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
+
     }
 
 
     public function show($id)
     {
-        $quizz_id = $id;
-        return view('Doctor.Questions.create', compact('quizz_id'));
+        $quizz = Quizze::where('id', $id)->where('doctor_id',auth()->user()->id)->first(); 
+        if($quizz){
+            return view('Doctor.Questions.create', compact('quizz'));
+        }else{
+            return redirect()->back(); 
+        }
     }
 
     public function edit($id)

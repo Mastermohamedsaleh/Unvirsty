@@ -35,3 +35,10 @@ Route::get('/dashboard', function () {
 Route::post('/change-password', [App\Http\Controllers\ProfileController::class, 'updatePassword'])->name('update-password');
 
 
+
+Route::controller(ProfileController::class)->group(function() {  
+    Route::get('adminprofile','profile');
+    Route::get('doctorprofile','doctorprofile');
+    Route::get('studentprofile','studentprofile');
+    Route::post('updateprofile/{id}','updateprofile')->name('updateprofile');
+});

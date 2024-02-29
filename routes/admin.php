@@ -111,10 +111,6 @@ Route::controller(SearchController::class)->group(function() {
 
 
 
-Route::controller(ProfileController::class)->group(function() {  
-    Route::get('adminprofile','profile');
-    Route::post('updateprofile/{id}','updateadmin')->name('updateadminprofile');
-});
 
 
 

@@ -8,9 +8,9 @@ use App\Http\Controllers\Auth\StudentController;
 use App\Http\Controllers\Student\ExamController;
 use App\Http\Controllers\Student\ExamScheduleStudentController;  
 use App\Http\Controllers\Student\FeeController;  
+use App\Http\Controllers\Student\LectureStudentController;  
 
 
-use App\Http\Controllers\Doctor\LibraryController;  
 
 Route::get('dashboard/student', function () {
     return view('dashboard_student.index');
@@ -22,10 +22,10 @@ Route::get('dashboard/student', function () {
 Route::resource('student_exams', ExamController::class);
 
 
-Route::controller(LibraryController::class)->group(function() {  
+Route::controller(LectureStudentController::class)->group(function() {  
     
-    Route::get('librarytostudent', 'ShowToStudent')->name('librarytostudent');
-    Route::get('viewcourse/{id}', 'ViewCourse')->name('viewcourse');
+    Route::get('lecturestudent', 'LectureStudent')->name('lecturestudent');
+    Route::get('viewlecture/{id}', 'viewLecture')->name('viewlecture');
     
 
 

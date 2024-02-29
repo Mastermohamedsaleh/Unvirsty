@@ -21,6 +21,13 @@
 @csrf
 
 
+
+<div class="card">
+
+<div class="card-body">
+
+
+
 <div class="row">
 
 
@@ -28,18 +35,18 @@
 
 <div class="col-6">
 
-<label > Name Quizze : <span class="text-danger">*</span></label>
+<label > Name Quiz : <span class="text-danger">*</span></label>
 
 <input type="text" name="name" >
 
 </div>
 <div class="col">
                                         <div class="form-group">
-                                            <label > Subject : <span class="text-danger">*</span></label>
-                                            <select class="custom-select mr-sm-2" name="subject_id">
-                                                <option selected disabled>Choose Subject  ...</option>
-                                                @foreach($subjects as $subject)
-                                                    <option  value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                            <label > course : <span class="text-danger">*</span></label>
+                                            <select class="custom-select mr-sm-2" name="course_id">
+                                                <option selected disabled>Choose course  ...</option>
+                                                @foreach($courses as $course)
+                                                    <option  value="{{ $course->id }}">{{ $course->name }}</option>
                                                 @endforeach
                                             </select>
                 </div>
@@ -50,51 +57,16 @@
 
 
 
-        <div class="col-12">
-
-
-
-        <div class="form-group">
-           <label > College : <span class="text-danger">*</span></label>
-           <select class="custom-select mr-sm-2" name="college_id">
-               <option selected disabled>Choose College...</option>
-               @foreach($colleges as $college)
-                   <option  value="{{ $college->id }}">{{ $college->name }}</option>
-               @endforeach
-              </select>
-
-        </div>
-</div>
-
-
-
-<div class="col">
-                                        <div class="form-group">
-                                        <label for="classroom_id">classrooms : <span class="text-danger">*</span></label>
-                                        <select class="custom-select mr-sm-2" name="classroom_id">
-                                       </select>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                       <div class="form-group">
-                                            <label for="section_id">section : </label>
-                                            <select class="custom-select mr-sm-2" name="section_id">
-
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-
-
+     
 
 
 </div>
 
 
+<button type="submit" class="btn btn-primary">Save</button>
+</div>
+</div>
 
-
-<button type="submit" class="btn btn-success">Save</button>
 
 </form>
 

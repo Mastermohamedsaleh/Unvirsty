@@ -40,8 +40,11 @@
 
 
 
+<div class="d-flex justify-content-center">
+<h2 >All Question : </h2>
+<h5  class="mt-2 text-danger">{{$quizz->name}}</h5>
+</div>
 
-<h2>All Question : </h2><h5  class="text-danger">{{$quizz->name}}</h5>
 
 <div class="container mt-3">
 

@@ -29,7 +29,29 @@ class ProfileController extends Controller
         return  view('Admin.doctors.profile');
     }
 
-    public function updateadmin(Request $request ,$id){
+    public function studentprofile(){
+        return  view('Admin.students.profile');
+    }
+
+    public function updateprofile(Request $request ,$id){
+
+
+
+        if(auth('admin')->check()){
+            $guard = 'admin';   
+            $Model=  '\App\Models\Admin' ;   
+          }elseif(auth('student')->check()){
+              $guard = 'student';
+              $Model = '\App\Models\Student';  
+          }elseif(auth('doctor')->check()){
+              $guard = 'doctor'; 
+              $Model = '\App\Models\Doctor';  
+          }else{
+              $guard = 'accountant'; 
+              $Model = '\App\Models\Accountant';
+          }
+
+
 
 
         $validated = $request->validate([
@@ -38,23 +60,23 @@ class ProfileController extends Controller
         ]);
 
 
-      $admin = Admin::findOrfail($id);         
+      $authall =  $Model::findOrfail($id);         
         try{
         if (request()->hasFile('image')){
-            $imagePath = public_path('image/'.$admin->image_name);
+            $imagePath = public_path('image/'.$authall->image_name);
             if(File::exists($imagePath)){
                 unlink($imagePath);
             }
             $fileName = time().'.'.$request->file('image')->extension();  
             $request->file('image')->move(public_path('image'), $fileName); 
             } else {
-                $fileName = $admin->image_name ;
+                $fileName = $authall->image_name ;
             }
           
-       $admin->name = $request->name;
-       $admin->email = $request->email;
-       $admin->image_name =   $fileName;
-       $admin->save();
+       $authall->name = $request->name;
+       $authall->email = $request->email;
+       $authall->image_name =   $fileName;
+       $authall->save();
 
        
        Session::flash('message', 'Udpate Success'); 
@@ -64,6 +86,7 @@ class ProfileController extends Controller
     }catch (\Exception $e) {
         return redirect()->back()->withErrors(['error' => $e->getMessage()]);
     }
+
 
     }
 

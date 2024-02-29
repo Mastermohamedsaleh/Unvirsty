@@ -11,10 +11,9 @@
 
 
 
-
 <div class="container mt-3">
 
-<a href="{{route('lecture.create')}}" class="btn btn-primary">Add</a>
+<a href="{{route('lecture.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add Lecture</a>
 
 @foreach($lectures as $lecture)
 
@@ -84,3 +83,4 @@
 
 
 @include('footer')
+   
