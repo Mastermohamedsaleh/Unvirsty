@@ -102,11 +102,7 @@ Route::controller(SearchController::class)->group(function() {
     Route::get('search_receipt','SearchReceipt');
     });
 
-// Route::controller(ExamScheduleController::class)->group(function() {  
-          
-// Route::get('schedule/{classroom_id}/{college_id}','showschedule');
 
-// });
 
 
 

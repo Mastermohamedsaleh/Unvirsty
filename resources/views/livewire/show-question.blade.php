@@ -11,7 +11,7 @@
                 @foreach(preg_split('/(-)/', $data[$counter]->answers) as $index=>$answer)
                     <div class="custom-control custom-radio d-flex">
                         <input type="radio" id="customRadio{{$index}}" name="customRadio" class="custom-control-input" inh>
-                         <label class="custom-control-label" for="customRadio{{$index}}" wire:click="nextQuestion({{$data[$counter]->id}}, {{$data[$counter]->score}}, '{{$answer}}', '{{$data[$counter]->right_answer}}')"> {{$answer}}</label>
+                        <label class="custom-control-label" for="customRadio{{$index}}" wire:click="nextQuestion({{$data[$counter]->id}}, {{$data[$counter]->score}}, '{{$answer}}', '{{$data[$counter]->right_answer}}')"> {{$answer}}</label>
 
                     </div>
                 @endforeach

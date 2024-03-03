@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Requests\CourseRequest;
 use Illuminate\Support\Facades\DB;
 
+
+
+
 class CourseController extends Controller
 {
 
@@ -32,9 +35,18 @@ class CourseController extends Controller
     }
 
  
-    public function store(CourseRequest $request)
+    public function store(Request $request)
     {
+
+
+
+
+           
+
         try {
+ 
+
+
             $name = $request->name;
             $college = $request->college_id;
             $classroom = $request->classroom_id;
@@ -42,13 +54,19 @@ class CourseController extends Controller
             $doctor = $request->doctor_id;
 
             for($i =0 ; $i < count($name) ; $i++){
+                $fileName[$i] =   $request->file('image')->getClientOriginalExtension();
                   $insert = [
                     'name' => $name[$i],
                     'doctor_id'=>$doctor[$i],
+                    'image_name'=>$fileName[$i],
                     'college_id'=>$college,
                     'classroom_id'=>$classroom,
                     'section_id'=>$section,
                   ];
+
+                  $image[$i]->move(public_path('Course'), $fileName);
+
+
                  DB::table('courses')->insert($insert);
             }  
             Session::flash('message', 'Add Success'); 

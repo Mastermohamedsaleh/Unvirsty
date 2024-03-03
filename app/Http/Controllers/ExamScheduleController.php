@@ -25,8 +25,11 @@ class ExamScheduleController extends Controller
     }
 
  
-    public function store(Request $request)
+    public function store(ExamScheduleRequest $request)
     {
+        
+
+
     try{  
       $course_id = $request->course_id;
       $college_id = $request->college_id;
@@ -125,7 +128,7 @@ class ExamScheduleController extends Controller
  
     public function destroy(ExamSchedule $examSchedule , $id)
     {
-        $doctor = ExamSchedule::findOrFail($id)->delete();
+        $examSchedule = ExamSchedule::findOrFail($id)->delete();
         Session::flash('message', 'Delete Success');
         return redirect()->back();
     }
@@ -133,11 +136,10 @@ class ExamScheduleController extends Controller
 
 
 
-    public function showschedule($college_id , $classroom_id){
-        $examschedule  = ExamSchedule::where('college_id',$college_id)->where('classroom_id',$classroom_id)->get();
-        return view('Admin.examschedule.show',compact('examschedule'));
-
-    }
+    // public function showschedule($college_id , $classroom_id){
+    //     $examschedule  = ExamSchedule::where('college_id',$college_id)->where('classroom_id',$classroom_id)->get();
+    //     return view('Admin.examschedule.show',compact('examschedule'));
+    // }
 
 
 }

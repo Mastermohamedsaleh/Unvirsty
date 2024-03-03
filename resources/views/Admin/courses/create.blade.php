@@ -6,10 +6,14 @@
  @include('nav')
 
 
- <h3 class="text-primary text-center">Add Course</h3>
+ <h3 class="text-primary text-center mt-3">Add Course</h3>
 
 
- <div class="container mt-5">
+ <div class="container ">
+
+
+<form action="{{route('course.store')}}" method="post" enctype="multipart/form-data">
+
 
  <div class="card">
 
@@ -36,7 +40,6 @@
 @endif
 
 
-<form action="{{route('course.store')}}" method="post">
 
 @csrf
  <div class="row">
@@ -82,7 +85,7 @@
 
     <div class="form-group">
 
-<label>Section: <span class="text-danger">*</span> </label>
+<label>Section:  </label>
 <select name="section_id" >
         <option value="" disabled>Choose Classroom</option>
  
@@ -93,11 +96,11 @@
     </div>
 
 
-<hr class="mt-3">
 
 
 
-<div class="create" id="create"></div>
+
+
        
       
 
@@ -109,12 +112,20 @@
 
 
 
-<a href="javascript:void(0)" class="btn btn-danger addrow mt-3" id="addrow">+</a>
 
 
 
-<button type="submit" class="btn btn-primary float-end mt-3">Submit</button>
-</form>
+
+
+
+
+
+
+
+
+
+
+
 <!-- end card-body -->
 
 
@@ -124,8 +135,43 @@
 
 </div>
 
+
+
+
+
+
+
+
+
+<div class="card mt-3">
+
+<div class="card-body">
+
+
+
+<div class="create" id="create"></div>
+
+<a href="javascript:void(0)" class="btn btn-danger addrow mt-3" id="addrow">+</a>
+
+
+
+<button type="submit" class="btn btn-primary float-end mt-3">Submit</button>
+
+
+
+</div>
+</div>
+
+
+
+
+
+</form>
+
+
  <!-- end container -->
  </div>
+
 
 
  @include('footer')
@@ -135,10 +181,12 @@ $(document).ready(function(){
   $(".addrow").click(function(){
     var row = `
     <div class="row mt-2">
-    <div class="col">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+    <label>Name Course: <span class="text-danger">*</span> </label>
     <input type="text" name="name[]" >
     </div>
-    <div class="col">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+    <label>Doctor : <span class="text-danger">*</span> </label>
     <select name="doctor_id[]" >
     <option value="" >Choose Doctor</option>
 @foreach($doctors as $doctor)
@@ -147,7 +195,15 @@ $(document).ready(function(){
 </select>
 
     </div>
-    <div class="col">
+
+   <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
+    <label>Image Course: <span class="text-danger">*</span> </label>
+    <input type="file" name="image[]" class="form-control" >
+    </div>
+
+
+    <div class="col-lg-3 col-md-6 col-sm-6">
+    <label class="text-danger">Delete Row </label>
     <a hreg="javascript:void(0)" class="btn btn-danger deleteRow" >-</a>
     </div>
     </div>

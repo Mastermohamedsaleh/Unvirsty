@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('image_name');
             $table->foreignId('college_id')->references('id')->on('colleges')->onDelete('cascade');
             $table->foreignId('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreignId('section_id')->nullable()->references('id')->on('sections')->onDelete('cascade');

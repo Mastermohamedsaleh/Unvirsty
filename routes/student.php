@@ -5,10 +5,11 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\StudentController;
 
-use App\Http\Controllers\Student\ExamController;
+use App\Http\Controllers\Student\QuizController;
 use App\Http\Controllers\Student\ExamScheduleStudentController;  
 use App\Http\Controllers\Student\FeeController;  
 use App\Http\Controllers\Student\LectureStudentController;  
+use App\Http\Controllers\Student\ScheduleController;  
 
 
 
@@ -19,7 +20,7 @@ Route::get('dashboard/student', function () {
 
 
 
-Route::resource('student_exams', ExamController::class);
+Route::resource('student_quiz', QuizController::class);
 
 
 Route::controller(LectureStudentController::class)->group(function() {  
@@ -31,14 +32,21 @@ Route::controller(LectureStudentController::class)->group(function() {
 
 });
 
+
+Route::controller(ScheduleController::class)->group(function() {  
+    Route::get('search_receipt','SearchReceipt');
+    });
+
+
 Route::controller(FeeController::class)->group(function() {   
     Route::get('fee_student', 'index');
     Route::get('details_fee_student', 'Details');
 });
 
 
-Route::controller(ExamScheduleStudentController::class)->group(function() {  
-    Route::get('examschedule', 'index');
+Route::controller(ScheduleController::class)->group(function() {  
+    Route::get('showexamschedule', 'examschedule');
+    Route::get('showstudychedule', 'studyschedule');
 });
 
 // /////////////////////////////////////// logout student /////////////////////////////////////////////////////////////////

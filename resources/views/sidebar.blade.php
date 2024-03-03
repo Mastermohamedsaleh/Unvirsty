@@ -76,19 +76,16 @@
                   </ul>
               </li>
         
-
-
-              <li class="sidebar-item">
-                    <a href="{{route('course.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>Course</a>
-                </li>
-  
-                <!-- <li class="sidebar-item">
-                    <a href="" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i></a>
-                </li> -->
-
-
-
-                
+                <li class="sidebar-item">
+                  <a href="#" class="sidebar-link collapsed" data-bs-target="#course" data-bs-toggle="collapse" area-expanded="false"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i> Course <i class="fa-solid fa-chevron-down float-end"></i></a>
+                  <ul id="course" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                      <li class="sidebar-item">
+                       <a href="{{route('course.index')}}" class="sidebar-link"> All Course</a>  
+                       <a href="{{route('course.create')}}" class="sidebar-link"> Add Course</a>              
+                      </li>
+                  </ul>
+              </li>
+    
               <li class="sidebar-item">
                   <a href="#" class="sidebar-link collapsed" data-bs-target="#Schedule" data-bs-toggle="collapse" area-expanded="false"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i> Schedule <i class="fa-solid fa-chevron-down float-end"></i></a>
                   <ul id="Schedule" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">

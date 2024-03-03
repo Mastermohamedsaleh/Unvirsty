@@ -250,7 +250,7 @@ $(document).ready(function(){
     <div class="col">
     
  <label>Exam_date: <span class="text-danger">*</span> </label>
-    <input type="date" name="exam_date[]" >
+    <input type="date"  name="exam_date[]" >
     </div>
 
     <div class="col">

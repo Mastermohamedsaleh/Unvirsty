@@ -11,7 +11,7 @@ use App\Models\Quizze;
 use Illuminate\Support\Facades\Auth;
 
 
-class ExamController extends Controller
+class QuizController extends Controller
 {
 
     public function index()
@@ -22,7 +22,7 @@ class ExamController extends Controller
         ->orderBy('id', 'DESC')
         ->get();
 
-    return view('Student.Exams.index', compact('quizzes'));
+    return view('Student.quizzes.index', compact('quizzes'));
     }
 
   
@@ -41,7 +41,7 @@ class ExamController extends Controller
     public function show($quizze_id)
     {
         $student_id = Auth::guard('student')->user()->id;
-       return view('Student.Exams.show',compact('quizze_id','student_id'));        
+       return view('Student.quizzes.show',compact('quizze_id','student_id'));        
     }
 
 

@@ -17,7 +17,7 @@
 
 
 @if ($errors->any())
-                    <div class="alert alert-danger" style="width:500px;   margin: 0 auto ">
+                    <div class="alert alert-danger mb-2" style="width:500px;   margin: 0 auto ">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -29,7 +29,7 @@
 
 
                 @if(Session::has('message'))
-<p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
+<p class="alert alert-info mb-2" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
 @endif
 
 
@@ -249,7 +249,7 @@ $(document).ready(function(){
 
     <div class="col">
    <label>Course_Day: <span class="text-danger">*</span> </label>
-    <select   name="course_day">
+    <select   name="course_day[]">
     <option value="sunday">Sunday</option>
     <option value="monday">Monday</option>
     <option value="tuesday">Tuesday</option>

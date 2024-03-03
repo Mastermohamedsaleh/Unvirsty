@@ -31,6 +31,38 @@
 
 @if( isset( $examschedule ))
 
+
+@foreach($examschedule as $schedule )
+
+
+<div class="row">
+
+
+<div class="col-4">
+<h4 class="text-primary"> Academic Year : {{$schedule->year}}</h4> 
+</div>
+
+   
+<div class="col-4">
+<h4 class="text-primary "> Semester : {{$schedule->semester}}</h4>
+</div>
+
+
+
+
+
+<div class="col-4">
+       
+    <h4 class="text-primary "> College :  {{($schedule->section_id ? $schedule->section->name : "")}} /{{$schedule->classroom->name}}/{{$schedule->college->name}} </h4>
+ 
+</div>
+
+</div>
+
+
+
+@endforeach
+
 <table   class="table table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
                                            style="text-align: center">

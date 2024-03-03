@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\College;
 use App\Models\Doctor;
+use App\Models\StudySchedule;
 
 use App\Http\Requests\StudyScheduleRequest;
 
@@ -21,7 +22,8 @@ class StudyScheduleController extends Controller
 
     public function index()
     {
-        return view('Admin.studyschedule.index');
+        $colleges = College::where('id',auth()->user()->college_id)->get();
+        return view('Admin.studyschedule.index',compact('colleges'));
     }
 
  
@@ -37,61 +39,72 @@ class StudyScheduleController extends Controller
     {
 
         // StudyScheduleRequest
-        // try{  
+        try{  
             $course_id = $request->course_id;
             $college_id = $request->college_id;
             $classroom_id = $request->classroom_id ;
             $section_id = $request->section_id ;
             $doctor_id = $request->doctor_id ;
-            // $course_day = $request->course_day ;
+            $course_day = $request->course_day ;
             $start_time = $request->start_time ;
             $end_time = $request->end_time ;
-          
-
-            
-       
-
+        
             for($i =0 ; $i < count($course_id) ; $i++){
-
-                $course[$i] = $request->course_day;
-               
-
-            //   $insert = [
-            //       'course_id'=>$course_id[$i],
-            //       'start_time'=>$start_time[$i],
-            //       'end_time'=>$end_time[$i],
-            //       'doctor_id'=>$doctor_id[$i],
-            //       'college_id'=>$college_id,
-            //       'classroom_id'=>$classroom_id,
-            //       'section_id'=>$section_id,
-            //       'year' => $request->year,
-            //       'semester'=> $request->semester,
-            //       'location'=>$request->location,
-
-               
-            //   ];
-
-    print_r($course);
-
-            //  DB::table('study_schedules')->insert($insert); 
+              $insert = [
+                  'course_id'=>$course_id[$i],
+                  'start_time'=>$start_time[$i],
+                  'end_time'=>$end_time[$i],
+                  'doctor_id'=>$doctor_id[$i],
+                  'course_day'=>$course_day[$i],
+                  'college_id'=>$college_id,
+                  'classroom_id'=>$classroom_id,
+                  'section_id'=>$section_id,
+                  'year' => $request->year,
+                  'semester'=> $request->semester,
+                  'location'=>$request->location,
+              ];
+             DB::table('study_schedules')->insert($insert); 
           }
-            // Session::flash('message', 'Add Success');
-            // return redirect()->route('studyschedule.index');
-      
- 
-
-      
-      
-      
-        //   }catch (\Exception $e){    
-        //       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        //   }
+            Session::flash('message', 'Add Success');
+            return redirect()->route('studyschedule.index');
+          }catch (\Exception $e){    
+              return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+          }
     }
 
 
-    public function show($id)
+    public function show(Request $request  , $id)
     {
-        //
+        $request->validate([
+            'college_id' => 'required',
+            'classroom_id' => 'required',
+            'year' => 'required',
+            'semester' => 'required',
+        ]);
+
+       if( $request->college_id && $request->classroom_id && $request->section_id && $request->year && $request->semester ){
+
+        if( auth()->user()->college_id != $request->college_id ){
+           return redirect()->back();
+        }else{
+            $studyschedule =   StudySchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->where('year',$request->year)->where('semester',$request->semester)->get();
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+               return view('Admin.studyschedule.index',compact('studyschedule','colleges'));
+        }
+      
+       }elseif($request->college_id && $request->classroom_id && $request->year && $request->semester ){
+          if( auth()->user()->college_id != $request->college_id ){
+           return redirect()->back();
+        }else{
+            $studyschedule = StudySchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('year',$request->year)->where('semester',$request->semester)->get();
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+            return view('Admin.studyschedule.index',compact('studyschedule','colleges'));
+        }
+
+      
+       }else{
+        return redirect()->back(); 
+       }
     }
 
 
@@ -103,12 +116,24 @@ class StudyScheduleController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $studyschedule  = StudySchedule::findOrfail($id);
+            $studyschedule->course_day = $request->course_day;
+            $studyschedule->start_time = $request->start_time;
+            $studyschedule->end_time = $request->end_time;
+            $studyschedule->save();  
+            Session::flash('message', 'Update Success');
+            return redirect()->back(); 
+        }catch (\Exception $e){    
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
  
     public function destroy($id)
     {
-        //
+        $studyschedule = StudySchedule::findOrFail($id)->delete();
+        Session::flash('message', 'Delete Success');
+        return redirect()->back();
     }
 }

@@ -96,7 +96,7 @@
 
 
 
-                      @php $student_exams = route('student_exams.show',$quizze->id)  @endphp
+                      @php $student_exams = route('student_quiz.show',$quizze->id)  @endphp
 
                       <?php
 

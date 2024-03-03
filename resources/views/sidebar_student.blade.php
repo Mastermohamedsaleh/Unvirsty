@@ -61,7 +61,7 @@
                 <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i style="padding: 0 10px 0  0" class="fa-regular fa-user pe-2"></i> Quizzes <i class="fa-solid fa-chevron-down float-end"></i>  </a> 
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="{{route('student_exams.index')}}" class="sidebar-link">All Quizze </a>
+                        <a href="{{route('student_quiz.index')}}" class="sidebar-link">All Quizze </a>
                     
                     </li>
                 </ul>
@@ -71,8 +71,8 @@
                 <a href="#" class="sidebar-link collapsed" data-bs-target="#Schedule" data-bs-toggle="collapse" area-expanded="false"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i> My Schedule <i class="fa-solid fa-chevron-down float-end"></i> </a> 
                 <ul id="Schedule" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="{{URL('examschedule')}}" class="sidebar-link">Exam Schedule</a>
-                        <a href="{{URL('examschedule')}}" class="sidebar-link">Studey Schedule</a>
+                        <a href="{{URL('showexamschedule')}}" class="sidebar-link">Exam Schedule</a>
+                        <a href="{{URL('showstudychedule')}}" class="sidebar-link">Studey Schedule</a>
                     
                     </li>
                 </ul>

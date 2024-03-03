@@ -53,7 +53,7 @@
 <div class="row">
 
 
-<div class="col-2">
+<div class="col-lg-2 col-md-6 col-sm-6">
    
 
 <label>Collge: <span class="text-danger">*</span> </label>
@@ -68,7 +68,7 @@
 </div>
 
 
-<div class="col-2">
+<div class="col-lg-2 col-md-6 col-sm-6">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
 <select name="classroom_id" >
@@ -79,7 +79,7 @@
 </div>
 
 
-<div class="col-2">
+<div class="col-lg-2 col-md-6 col-sm-6">
 <label>Section: <span class="text-danger">*</span> </label>
 <select name="section_id" >
         <option value="" disabled>Choose Classroom</option>
@@ -88,7 +88,7 @@
 
 </div>
 
-<div class="col-2">
+<div class="col-lg-2 col-md-6 col-sm-6">
 <div class="form-group">
 <label> Year: <span class="text-danger">*</span> </label>
 <select class="custom-select mr-sm-2" name="year" >
@@ -102,7 +102,7 @@
 </div> 
 </div>
 
-<div class="col-2">
+<div class="col-lg-2 col-md-6 col-sm-6">
 <div class="form-group">
 <label> Semester: <span class="text-danger">*</span> </label>
 <select class="custom-select mr-sm-2" name="semester" >
@@ -118,7 +118,7 @@
 
 
 
-<div class="col-2">
+<div class="col-lg-2 col-md-6 col-sm-6">
 <label> Search: <span class="text-danger">*</span> </label>
 <button type="submit" class="btn btn-primary">Search</button>
 </div>
@@ -193,7 +193,7 @@
 
 @endforeach
 
-
+<div class="table-responsive">
 <table   class="table table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
                                            style="text-align: center">
@@ -240,7 +240,7 @@
 
 </table>
 
-
+</div>
 
 
 
