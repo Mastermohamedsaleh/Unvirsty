@@ -22,10 +22,10 @@ use App\Http\Controllers\{AdminController,
     SearchController,
     StudyScheduleController,
     AccountantController,
-    ProfileController
+    ProfileController,
+    CalenderController
 };
-use App\Http\Livewire\Calendar;
-use App\Models\Event;
+
 
 use App\Http\Controllers\Auth\AdminAuthController;
 
@@ -105,7 +105,9 @@ Route::controller(SearchController::class)->group(function() {
 
 
 
+    Route::get('full-calender', [CalenderController::class, 'index']);
 
+    Route::post('full-calender/action', [CalenderController::class, 'action']);
 
 
 

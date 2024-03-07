@@ -198,7 +198,7 @@ $(document).ready(function(){
 
    <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
     <label>Image Course: <span class="text-danger">*</span> </label>
-    <input type="file" name="image[]" class="form-control" >
+    <input type="file" name="images[]" class="form-control"  multiple>
     </div>
 
 

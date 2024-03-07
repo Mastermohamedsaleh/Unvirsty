@@ -39,9 +39,15 @@ class CourseController extends Controller
     {
 
 
+    //     if($files = $request->file('images')) {
+    //         foreach ($files as $file) {
+                
+    //         $path = $file->storeAs('courses', md5(rand(1000, 10000)). '.' . $file->getClientOriginalExtension());
+    //         $file->move('courses', $path);    
+    //     }
+    // } 
 
-
-           
+     
 
         try {
  
@@ -54,17 +60,25 @@ class CourseController extends Controller
             $doctor = $request->doctor_id;
 
             for($i =0 ; $i < count($name) ; $i++){
-                $fileName[$i] =   $request->file('image')->getClientOriginalExtension();
+
+                if($files = $request->file('images')) {
+                    foreach ($files as $file) {
+                        
+                    $path = $file->storeAs('courses', md5(rand(1000, 10000)). '.' . $file->getClientOriginalExtension());
+                    $file->move('courses', $path);    
+                }
+            } 
+
+
                   $insert = [
                     'name' => $name[$i],
                     'doctor_id'=>$doctor[$i],
-                    'image_name'=>$fileName[$i],
+                    'image_name'=>$path[$i],
                     'college_id'=>$college,
                     'classroom_id'=>$classroom,
                     'section_id'=>$section,
                   ];
 
-                  $image[$i]->move(public_path('Course'), $fileName);
 
 
                  DB::table('courses')->insert($insert);

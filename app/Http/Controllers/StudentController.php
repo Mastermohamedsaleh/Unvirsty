@@ -13,6 +13,8 @@ use App\Models\Section;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\StudentRequest;
+
 
 
 
@@ -35,7 +37,7 @@ class StudentController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StudentRequest $request)
     {
          
          
@@ -92,7 +94,7 @@ class StudentController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(StudentRequest $request, $id)
     {
         try {
             $students =  Student::findOrfail($id);

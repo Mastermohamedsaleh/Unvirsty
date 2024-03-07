@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->dateTime('start');
+            $table->dateTime('end');
+            $table->foreignId('college_id')->references('id')->on('colleges')->onDelete('cascade');
             $table->timestamps();
         });
     }

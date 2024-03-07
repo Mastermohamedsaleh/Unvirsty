@@ -98,17 +98,26 @@
 
                       @php $student_exams = route('student_quiz.show',$quizze->id)  @endphp
 
-                      <?php
+                     <?php  $question = App\Models\Question::where('quizze_id',$quizze->id)->first(); ?> 
+                      @if($question == null)
+                            No Quetions Until Now
+                      @else 
+@if($quizze->degree->count() > 0 && $quizze->id == $quizze->degree[0]->quizze_id)
+                {{$quizze->degree[0]->score}}
+                           @else
+                               <a href="{{route('student_quiz.show',$quizze->id)}}"
+                                  class="btn btn-outline-success btn-sm" role="button"
+                                  aria-pressed="true" onclick="alertAbuse()">
+                                   <i class="fas fa-person-booth"></i></a>
+                           @endif
 
-            $question =  App\Models\Question::where( 'quizze_id' , $quizze->id )->first();
 
-            if( $question == null){
-                echo "No Quetions Until Now";
-            }else{
-          echo "<a href='$student_exams' class='mb-2 btn btn-outline-success btn-sm' onclick='alertAbuse()'><i class='fa-solid fa-eye'></i></a>";
-     
-            }
-?>
+
+                      @endif
+
+                      
+
+
 
               </td>
 

@@ -13,7 +13,6 @@ class ShowQuestion extends Component
 {
 
 
-
     public $quizze_id, $student_id, $data, $counter = 0, $questioncount = 0;
 
     public function render()
@@ -48,8 +47,7 @@ class ShowQuestion extends Component
                 $stuDegree->score = 0;
                 $stuDegree->abuse = '1';
                 $stuDegree->save();
-              
-                Session::flash('message', 'تم إلغاء الاختبار لإكتشاف تلاعب بالنظام');
+                Session::flash('message','تم إلغاء الاختبار لإكتشاف تلاعب بالنظام');
                 return redirect('student_quiz');
             } else {
 
@@ -66,14 +64,13 @@ class ShowQuestion extends Component
         if ($this->counter < $this->questioncount - 1) {
             $this->counter++;
         } else {
-            toastr()->success;
-            Session::flash('message','تم إجراء الاختبار بنجاح');
-            
+                      
+    
+           Session::flash('message','تم إجراء الاختبار بنجاح');
             return redirect('student_quiz');
         }
 
     }
-
 
 
 }
