@@ -42,7 +42,7 @@ use App\Http\Controllers\Auth\AdminAuthController;
 */
 
 
-define('PAGENATOR_COUNT', 15);
+define('PAGENATOR_COUNT', 1);
 
 
 Route::get('dashboard/admin', function () {
@@ -100,7 +100,8 @@ Route::get('getcourse/{id}','GetCourse');
 
 Route::controller(SearchController::class)->group(function() {  
     Route::get('search_receipt','SearchReceipt');
-    });
+    Route::get('graduated_student','graduated');
+});
 
 
 

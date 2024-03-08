@@ -33,6 +33,24 @@
 
 
 
+<div class="container">
+<div class="card">
+<form action="{{url('students')}}" method="get">
+
+<div class="card-body">
+
+
+    <input type="text" name="search" placeholder="Search Name OR Email">
+
+    <button class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+
+</div>
+</form>
+
+</div>
+
+</div>
 
 
  <div class="container mt-3">
@@ -49,7 +67,7 @@
  
 
  <div class="table-responsive">
-                        <table id="datatable"  class="table table-hover table-bordered">
+                        <table  class="table table-hover table-bordered">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -63,7 +81,7 @@
                             </thead>
                             <tbody>
                                     <?php $i= 1  ?>
-                            @foreach($students as  $student)
+                                    @forelse($students as  $student)
                                 <tr>
                                     <td> {{$i++}} </td>
                                     <td>{{ $student->name }}</td>
@@ -121,10 +139,18 @@
 
                                     </td>
                                 </tr>
-@endforeach
+
+                      </table>
+                      
+                      @empty
+
+<h1 class="text-center text-danger">No Student</h1>
+
+
+@endforelse
+ {{ $students->links() }}
 
  </div>
-
 
 
 

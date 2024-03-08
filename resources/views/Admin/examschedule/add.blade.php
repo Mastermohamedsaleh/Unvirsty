@@ -269,6 +269,7 @@ $(document).ready(function(){
 
 
     <div class="col">
+    <label class="text-danger">Delete Row : </label>
      <a hreg="javascript:void(0)" class="btn btn-danger deleteRow" >-</a>
     </div>
 

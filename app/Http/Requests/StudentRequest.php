@@ -25,7 +25,7 @@ class StudentRequest extends FormRequest
     {
         $rules = [
              'name'=>'required',
-             'email' => "required|email|unique:students,email,$this->id,id",
+             'email' => "required|email|unique:students,email,".$this->id.",id",
              'password'=>'required|string|min:6|max:10',
              'ssn'=>'required',
              'gender_id'=>'required',

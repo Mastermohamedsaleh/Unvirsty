@@ -7,20 +7,6 @@
 
 
 
-
-
- @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-
-
                 @if(Session::has('message'))
 <p class="alert alert-info">{{ Session::get('message') }}</p>
 @endif
@@ -50,7 +36,7 @@
 <div class="form-group">
 
 <label>College: <span class="text-danger">*</span> </label>
-<select name="college_id" class="form-select">
+<select name="college_id" >
         <option value="" >Choose College</option>
             @foreach($colleges as $college) 
           
@@ -74,11 +60,15 @@
    <div class="form-group">
 
 <label>Classroom: <span class="text-danger">*</span> </label>
-<select name="classroom_id" class="form-select">
+<select name="classroom_id">
     <option value="" disabled>Choose Classroom</option>
        
  </select>
 
+ 
+ @error('classroom_id')
+            <div class="alert alert-danger mt-1">{{ $message }}</div>
+         @enderror
 
 </div> 
 
@@ -92,11 +82,14 @@
 <div class="form-group">
 
 <label>Section: <span class="text-danger">*</span> </label>
-<select name="section_id" class="form-select">
+<select name="section_id" >
         <option value="" disabled>Choose Sections</option>
  
  </select>
 
+ @error('section_id')
+            <div class="alert alert-danger mt-1">{{ $message }}</div>
+         @enderror
 
 </div> 
 

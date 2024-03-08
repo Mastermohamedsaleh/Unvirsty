@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\College;
 use App\Models\Student;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\GraduatedRequest;
 
 
 class GraduatedController extends Controller
@@ -15,7 +16,7 @@ class GraduatedController extends Controller
     public function index()
     {
 
-        $students = Student::onlyTrashed()->get();
+        $students = Student::where('college_id',auth()->user()->college_id)->onlyTrashed()->paginate(PAGENATOR_COUNT);
 
         return view('Admin.graduated.index',compact('students'));
     }
@@ -29,7 +30,7 @@ class GraduatedController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(GraduatedRequest $request)
     {
         
  if($request->section_id){

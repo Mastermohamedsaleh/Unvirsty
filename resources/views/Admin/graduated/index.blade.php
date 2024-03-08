@@ -10,6 +10,25 @@
  <h3 class="text-center text-primary mt-3">Graduated Student</h3>
 
 
+ <form action="{{url('graduated_student')}}" method="get">
+
+ <div class="card">
+
+ 
+ <div class="card-body">
+ 
+ 
+     <input type="text" name="search" placeholder="Search Name OR Email">
+
+     <button class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
+ 
+
+ </div>
+
+ </div>
+ </form>
+
+
  <div class="container">
 
 
@@ -22,7 +41,7 @@
 
 
  <div class="table-responsive">
-                        <table id="datatable"  class="table key-buttons text-md-nowrap">
+                        <table   class="table key-buttons text-md-nowrap">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -33,8 +52,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                                   
-                            @foreach($students as  $student)
+                 
+                            
+                
+
+                            @forelse($students as  $student)
                                 <tr>
                                     <td>{{ $loop->index+1 }}</td>
                                     <td>{{ $student->name }}</td>
@@ -46,8 +68,8 @@
 
                
 
-<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#Return_Student{{ $student->id }}" >ارجاع الطالب</button>
-<button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#Delete_Student{{ $student->id }}" >حذف الطالب</button>
+<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#Return_Student{{ $student->id }}" >Return Student</button>
+<button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#Delete_Student{{ $student->id }}" > Delete Student</button>
 
 @include('Admin.graduated.Delete_Student')
 @include('Admin.graduated.Return_Student')
@@ -55,15 +77,24 @@
 
                                     </td>
 
+                          
+
                                         </div>
 
                                     </td>
                                 </tr>
-@endforeach
-
+                      
+                           
 
 </table>
 
+@empty
+
+<h1 class="text-center text-danger">No Student</h1>
+
+
+@endforelse
+                                {{ $students->links() }}
 
 </div>
 

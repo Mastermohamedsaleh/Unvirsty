@@ -27,15 +27,15 @@
 
 
 
-<h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من الغاء عملية التخرج ؟</h5>
-                    <input type="text" readonly value="{{$student->name}}" class="form-control">
+<h5 style="font-family: 'Cairo', sans-serif;"> Are You Sure from Return ? </h5>
+                    <input type="text" readonly value="{{$student->name}}">
 
       
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button  class="btn btn-primary">Udpate</button>
+        <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
+        <button  class="btn btn-success button-mode">Udpate</button>
       </div>
       </form>
     </div>
