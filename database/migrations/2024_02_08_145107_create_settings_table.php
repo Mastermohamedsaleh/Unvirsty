@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('email');
+            $table->string('logo');
             $table->string('link_facebook');
             $table->string('link_linked_in');
             $table->string('link_twitter');

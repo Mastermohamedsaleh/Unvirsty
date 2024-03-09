@@ -81,7 +81,7 @@
 
 <div class="form-group">
 
-<label>Section: <span class="text-danger">*</span> </label>
+<label>Section:  </label>
 <select name="section_id" >
         <option value="" disabled>Choose Sections</option>
  

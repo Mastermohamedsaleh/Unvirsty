@@ -4,6 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Validation\Rule;
+
+
+
+
 class StudentRequest extends FormRequest
 {
     /**
@@ -23,24 +28,41 @@ class StudentRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-             'name'=>'required',
-             'email' => "required|email|unique:students,email,".$this->id.",id",
-             'password'=>'required|string|min:6|max:10',
-             'ssn'=>'required',
-             'gender_id'=>'required',
-             'nationalitie_id'=>'required',
-             'academic_year'=>'required',
-             'college_id'=>'required',
-             'classroom_id'=>'required'
 
-        ];
-
-        if($this->id) {
-            return array_merge($rules, ['password' => 'required|min:6']);
+        switch ($this->method()) {
+            case 'POST':
+            {
+                return [
+                    'name'=>'required',
+                    'email' => 'required|email|unique:admins',
+                    'password'=>'required|string|min:6|max:10',
+                    'ssn'=>'required',
+                    'gender_id'=>'required',
+                    'nationalitie_id'=>'required',
+                    'academic_year'=>'required',
+                    'college_id'=>'required',
+                    'classroom_id'=>'required'
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'name' => 'required',
+                    'ssn'=>'required',
+                    'gender_id'=>'required',
+                    'nationalitie_id'=>'required',
+                    'academic_year'=>'required',
+                    'college_id'=>'required',
+                    'classroom_id'=>'required',
+                    'email' => "unique:students,email,$this->id,id",
+                    'email' => Rule::unique('students')->ignore($this->id),
+                    'email' => Rule::unique('students')->ignore($this->route()->student->id),
+                ];
+            }
+            default: break;
         }
-        
-        return $rules;
+
     }
 
     public function messages()

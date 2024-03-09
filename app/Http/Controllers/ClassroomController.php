@@ -33,23 +33,35 @@ class ClassroomController extends Controller
     public function store(ClassroomRequest $request)
     {
     
+
+        
         try {
 
+            if($request->name != NULL){
 
-            $name = $request->name;
-            $college = $request->college_id;
 
-            for($i =0 ; $i < count($name) ; $i++){
-                  $insert = [
-                    'name' => $name[$i],
-                    'college_id'=>$college[$i]
-                  ];
-                 DB::table('classrooms')->insert($insert);
-            }  
-            return redirect()->route('classrooms.index');
+                $name = $request->name;
+                $college = $request->college_id;
+    
+                for($i =0 ; $i < count($name) ; $i++){
+                      $insert = [
+                        'name' => $name[$i],
+                        'college_id'=>$college[$i]
+                      ];
+                     DB::table('classrooms')->insert($insert);
+                }  
+                return redirect()->route('classrooms.index');
+
+
+        }else{
+            return redirect()->back();
+        }
+                    
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+
+ 
 
     }
 

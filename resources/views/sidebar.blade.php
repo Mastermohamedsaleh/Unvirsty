@@ -2,12 +2,27 @@
       <aside id="sidebar" class="js-sidebar"><!-- side bar content-->
         <div class="h-100">
             <div class="sidebar-logo">
+                <?php   $logo =  \App\Models\Setting::where('id',1)->first() ; ?>
+            @if( $logo->logo  != NULL )
+            <a class="navbar-brand ms-4" href="#"
+          ><img
+            src="{{asset('/logo/'.$logo->logo) }}" 
+            alt="Smart Academy logo"
+            class="w-75 h-75"
+        /></a>
+         
+            @else
             <a class="navbar-brand ms-4" href="#"
           ><img
             src="{{ URL::asset('Assets/images/logo2.png') }}" 
             alt="Smart Academy logo"
             class="w-75 h-75"
         /></a>
+            @endif
+            
+             
+
+
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-header">

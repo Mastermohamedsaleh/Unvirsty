@@ -17,21 +17,19 @@
       <div class="col-6">
       <div class="form-group">
         <label>Name: </label>
-        <input type="text"  value="{{$section->name}}" name="name" class="form-control" >
+        <input type="text"  value="{{$section->name}}" name="name"  >
         </div>
       </div>
 
      
-  <input type="hidden" name="id" value="{{$section->id}}">
-  <input type="hidden" id="college_id" name="college_id" value="{{$section->college_id}}">
 
       <div class="col-6">
-      <label>Classroom: </label>
-               <select name="classroom_id" class="form-select">
-               <option value="" disable>Choose Classroom</option>
-                       @foreach($classrooms as $classroom) 
+      <label>College: </label>
+               <select  name="college_id" >
+               <option value="" disable>Choose College</option>
+                       @foreach($colleges as $college) 
              
-                       <option value="{{$classroom->id}}" {{ $classroom->id == $section->classroom_id ? 'selected' : '' }} >{{$classroom->name}}</option>
+                       <option value="{{$college->id}}" {{ $college->id == $section->college_id_id ? 'selected' : '' }} >{{$college->name}}</option>
                        @endforeach
                </select>
       </div>
@@ -39,19 +37,19 @@
 
 
 
+      <div class="col-12">
+      <label>Classroom: </label>
+               <select name="classroom_id" >
+             
 
-      <div class="col">
+               </select>
+      </div>
 
 
-<label>Status: </label>
-<select name="status" class="form-select">
-<option value="" disable>Choose Status</option>
-<option value="1" >able</option>
-<option value="0" >Disable</option>
-</select>
- 
 
-</div>
+
+
+
 
 
 

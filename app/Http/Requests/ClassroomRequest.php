@@ -34,6 +34,7 @@ class ClassroomRequest extends FormRequest
     {
         return [
             'college_id.exists' => 'Enter College',
+            'college_id.required' => 'Enter College',
         ];
     }
 

@@ -69,11 +69,11 @@ class AdminController extends Controller
     //
     }
 
-    public function update(adminrequest $request, $id)
+    public function update(adminrequest $request, Admin $admin)
     {
         try{
 
-            $admin = Admin::findOrFail($id);
+            $admin = Admin::findOrFail($admin->id);
             $admin->name = $request->name;
             $admin->email =   $request->email;
             $admin->college_id =   $request->college_id;

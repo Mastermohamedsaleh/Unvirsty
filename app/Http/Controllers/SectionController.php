@@ -8,6 +8,8 @@ use App\Models\College;
 use App\Models\Classroom;
 use App\Models\Section;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\SectionRequest;
+
 
 
 class SectionController extends Controller
@@ -70,7 +72,7 @@ class SectionController extends Controller
     }
 
     
-    public function update(SectionRequest $request, $id)
+    public function update(SectionRequest $request, Section $section)
     {
         
 
@@ -78,10 +80,9 @@ class SectionController extends Controller
 
         try {
             
-            $Sections = Section::findOrFail($request->id);
+            $Sections = Section::findOrFail($section->id);
       
             $Sections->name = $request->name;
-            $Sections->status = $request->status;
             $Sections->college_id = $request->college_id;
             $Sections->classroom_id = $request->classroom_id;
          

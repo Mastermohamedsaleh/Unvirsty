@@ -15,7 +15,7 @@
       <div class="col">
       <div class="form-group">
         <label>Name: </label>
-        <input type="text"  name="name" class="form-control" >
+        <input type="text"  name="name"  >
         </div>
       </div>
 
@@ -23,7 +23,7 @@
       <div class="col-12 mt-3">
       <div class="form-group">
          <label>College : </label>
-                   <select name="college_id" class="form-select">    
+                   <select name="college_id" >    
                      <option value="" disable>Chooces College</option>
                         @foreach($colleges as $college)
                               <option value="{{$college->id}}">{{$college->name}}</option>
@@ -34,8 +34,8 @@
 
       <div class="col-12 mt-3">
       <div class="form-group">
-         <label>ٍClassroom : </label>
-                <select name="classroom_id" class="form-select" >
+         <label> Classroom : </label>
+                <select name="classroom_id"  >
 
                 </select>
          </div>

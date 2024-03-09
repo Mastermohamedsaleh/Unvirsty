@@ -4,6 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
+use Illuminate\Validation\Rule;
+
+
+
 class DoctorRequest extends FormRequest
 {
     /**
@@ -23,23 +28,39 @@ class DoctorRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'name'=>'required',
-            'email' => "required|email|unique:doctors,email,$this->id,id",
-             'password'=>'required|string|min:6|max:10',
-             'ssn'=>'required',
-             'address'=>'required',
-             'gender_id'=>'required',
-             'nationalitie_id'=>'required',
-             'Joining_Date'=>'required'
 
-        ];
 
-        if($this->id) {
-            return array_merge($rules, ['password' => 'required|min:6']);
+        switch ($this->method()) {
+            case 'POST':
+            {
+                return [
+                    'name'=>'required',
+                    'email' => 'required|email|unique:doctors',
+                     'password'=>'required|string|min:6|max:10',
+                     'ssn'=>'required',
+                     'address'=>'required',
+                     'gender_id'=>'required',
+                     'nationalitie_id'=>'required',
+                     'Joining_Date'=>'required'
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'name' => 'required',
+                    'ssn'=>'required',
+                    'address'=>'required',
+                    'gender_id'=>'required',
+                    'nationalitie_id'=>'required',
+                    'Joining_Date'=>'required',
+                    'email' => "unique:doctors,email,$this->id,id",
+                    'email' => Rule::unique('doctors')->ignore($this->id),
+                    'email' => Rule::unique('doctors')->ignore($this->route()->doctor->id),
+                ];
+            }
+            default: break;
         }
-        
-        return $rules;
 
 
     }

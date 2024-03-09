@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\College;
 use App\Http\Requests\CollegeRequest;
          
+use Illuminate\Support\Facades\Session;
+
+
 
 class CollegeController extends Controller
 {
@@ -35,6 +38,7 @@ class CollegeController extends Controller
             $college->note = $request->note;
             $college->save();
 
+            Session::flash('message', 'Add Success');  
             return redirect()->route('colleges.index');
         }catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -60,10 +64,12 @@ class CollegeController extends Controller
     {
         try{
 
-            $college = College::findOrFail($id);
+            $college = College::findOrFail( $college->id);
             $college->name = $request->name;        
             $college->note = $request->note;        
             $college->save();
+            
+            Session::flash('message', 'Udpate Success');  
             return redirect()->route('colleges.index');
 
         }catch (\Exception $e) {

@@ -101,10 +101,10 @@ class StudentController extends Controller
     }
 
 
-    public function update(StudentRequest $request, $id)
+    public function update(StudentRequest $request, Student $student)
     {
         try {
-            $students =  Student::findOrfail($id);
+            $students =  Student::findOrfail( $student->id);
             $students->name = $request->name;
             $students->email = $request->email;
             $students->password = $request->password;

@@ -10,9 +10,7 @@
 
 
 <div class="container mt-3">  
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#section">
- <i class="fa-solid fa-plus"></i>  Add New Section
-</button><br><br>
+
   @include('Admin.sections.add')
 </div>
 
@@ -24,40 +22,6 @@
 
 
      <div class="container">
-
- <!-- Message Success -->
-@if(Session::has('message'))
-<p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
-@endif
-<!-- End Success -->
-
- <!-- Message Error -->
-@if ($errors->any())
-                    <div class="alert alert-danger" style="width:500px;   margin: 0 auto ">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-@endif
- <!-- End Message Error -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -108,10 +72,43 @@
 
 
 
+ <!-- Message Success -->
+ @if(Session::has('message'))
+<p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
+@endif
+<!-- End Success -->
+
+ <!-- Message Error -->
+@if ($errors->any())
+                    <div class="alert alert-danger" style="width:500px;   margin: 0 auto ">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+@endif
+ <!-- End Message Error -->
 
 
 
-<table id="datatable" class="table table-striped">
+
+
+
+<div class="card mt-2">
+
+<div class="card-body">
+
+<div class="table-responsive">
+
+<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#section">
+  Add New Section
+</button><br><br>
+
+
+<table id="datatable" class="table table-hover table-sm table-bordered p-0"
+                                           data-page-length="50"
+                                           style="text-align: center">
 
 
 
@@ -123,7 +120,6 @@
       <th scope="col">Name</th>
       <th scope="col">Classroom</th>
       <th scope="col">College</th>
-      <th scope="col">Status</th>
       <th scope="col">Process</th>
     </tr>
   </thead>
@@ -135,19 +131,6 @@
       <td>{{$section->name}}</td>
       <td>{{$section->classroom->name}}</td>
       <td>{{$section->college->name}}</td>
-      <td>  
-        
- {{--    {{ ($section->status  == 1 ? <p class="text-primary"> "able" </p> : <p class="text-danger"> "disable" </p>  )  }}  --}}
-    
-
-      @if($section->status  == 1)
-      <h5 class="text-primary"> able </h5>
-      @else
-      <h5 class="text-danger"> disable </h5>
-      @endif
-
-    </td>
-     
       <td>
 
 <button type="button" class="btn btn-sm btn-danger inline-block" data-bs-toggle="modal" data-bs-target="#deletesection{{$section->id}}">
@@ -171,6 +154,10 @@
 
 </table>
      
+
+</div>
+</div>
+</div>
       
 <!-- end container -->
 </div>

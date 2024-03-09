@@ -12,7 +12,7 @@
       <form method="post"  action="{{route('colleges.store')}}" autocomplete="off" enctype="multipart/form-data">
       @csrf
       <div class="row">
-      <div class="col">
+      <div class="col-12">
       <div class="form-group">
         <label>Name: </label>
         <input type="text"  name="name"  >
@@ -20,10 +20,10 @@
       </div>
 
 
-      <div class="col">
+      <div class="col-12">
       <div class="form-group">
          <label>Note : </label>
-         <input type="text"  name="note"  >
+         <textarea name="note" id="" cols="30" rows="10"></textarea>
          </div>
       </div>
 

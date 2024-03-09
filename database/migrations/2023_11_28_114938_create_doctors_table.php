@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('name');
             $table->string('image_name')->default('default.jpg');
-            $table->string('ssn')->unique();
+            $table->string('ssn');
             $table->bigInteger('gender_id')->unsigned();
             $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
             $table->foreignId('nationalitie_id')->references('id')->on('nationalities')->onDelete('cascade');

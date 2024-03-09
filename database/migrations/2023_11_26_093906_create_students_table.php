@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('ssn')->unique();
+            $table->string('ssn');
             $table->string('image_name')->default('default.jpg');
             $table->string('academic_year');
             $table->foreignId('college_id')->references('id')->on('colleges')->onDelete('cascade');

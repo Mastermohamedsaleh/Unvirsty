@@ -79,11 +79,11 @@ class DoctorController extends Controller
     }
 
  
-    public function update(DoctorRequest $request, $id)
+    public function update(DoctorRequest $request, Doctor $doctor)
     {
         try{
 
-            $doctor =  Doctor::findOrfail($id);
+            $doctor =  Doctor::findOrfail( $doctor->id);
             $doctor->name = $request->name;
             $doctor->email = $request->email;
             $doctor->gender_id = $request->gender_id;

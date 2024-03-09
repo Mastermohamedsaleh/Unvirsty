@@ -3,6 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
+
+
 
 class CollegeRequest extends FormRequest
 {
@@ -23,8 +27,23 @@ class CollegeRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|unique:colleges|max:255,'.$this->id,
-        ];
+        switch ($this->method()) {
+            case 'POST':
+            {
+                return [
+                    'name' => 'required|unique:colleges',
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'name' => "required|unique:colleges,name,$this->id,id",
+                    'name' => Rule::unique('colleges')->ignore($this->id),
+                    'name' => Rule::unique('colleges')->ignore($this->route()->college->id),
+                ];
+            }
+            default: break;
+        }
     }
 }

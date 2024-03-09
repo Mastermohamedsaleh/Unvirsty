@@ -45,7 +45,7 @@
  <div class="card-body">
        
  
- <a href="{{route('doctors.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add New doctor</a>
+ <a href="{{route('doctors.create')}}" class="mb-2 btn btn-primary btn-sm">Add New doctor</a>
  
 
  <div class="table-responsive">
@@ -75,12 +75,12 @@
 
                
 
-<a href="{{route('doctors.edit',$doctor->id)}}" class="mb-2 btn btn-outline-success btn-sm"> <i class="fas fa-edit"></i></a>
+<a href="{{route('doctors.edit',$doctor->id)}}" class="mb-2 btn btn-success btn-sm"> <i class="fas fa-edit"></i></a>
 
 
 
 
-<button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletedoctor{{$doctor->id}}">
+<button type="button" class="mb-2 btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletedoctor{{$doctor->id}}">
 <i class="fas fa-trash"></i>
 </button>
 

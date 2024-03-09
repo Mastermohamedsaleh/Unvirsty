@@ -45,7 +45,15 @@
  <!-- End Message Error --> 
 
 
-<table id="datatable" class="table table-striped">
+ <div class="card">
+
+<div class="card-body">
+
+<div class="table-responsive">
+
+<table id="datatable"  class="table table-hover table-sm table-bordered p-0"
+                                           data-page-length="50"
+                                           style="text-align: center">
 
 
 
@@ -57,7 +65,6 @@
       <th scope="col">Name</th>
       <th scope="col">Classroom</th>
       <th scope="col">College</th>
-      <th scope="col">Status</th>
       <th scope="col">Process</th>
     </tr>
   </thead>
@@ -69,18 +76,7 @@
       <td>{{$section->name}}</td>
       <td>{{$section->classroom->name}}</td>
       <td>{{$section->college->name}}</td>
-      <td>  
-        
- {{--    {{ ($section->status  == 1 ? <p class="text-primary"> "able" </p> : <p class="text-danger"> "disable" </p>  )  }}  --}}
-    
 
-      @if($section->status  == 1)
-      <h5 class="text-primary"> able </h5>
-      @else
-      <h5 class="text-danger"> disable </h5>
-      @endif
-
-    </td>
      
       <td>
 
@@ -105,6 +101,11 @@
 
 </table>
      
+
+
+</div>
+</div>
+</div>
       
 <!-- end container -->
 </div>

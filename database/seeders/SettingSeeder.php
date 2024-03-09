@@ -28,6 +28,7 @@ class SettingSeeder extends Seeder
             'unvirsty_name'=>'Unvirsty',
             'phone'=>'01117861776',
             'address'=>'Cairo',
+            'logo'=>'logo2.png',
             'email'=>'Unvirsty@gmail.com',
             'link_facebook'=>'https://facebook.com/unvirsty',
             'link_linked_in'=>'https://linked_in.com/unvirsty',
