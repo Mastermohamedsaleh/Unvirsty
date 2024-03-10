@@ -37,7 +37,7 @@
 
 
 
-<div class="card">
+<div class="card mt-5">
 
 
 <div class="card-body">
@@ -61,6 +61,7 @@
                                                    <th>College</th>
                                                    <th>Classroom</th>
                                                    <th>Section</th>
+                                                   <th>Course</th>
                                            </tr>
                                           <?php    $i = 0 ; ?>
                                        @foreach($doctor_colleges as $doctor)
@@ -68,15 +69,9 @@
                                             <td>{{++$i}}</td>
                                             <td>{{$doctor->college->name}}</td>
                                             <td>{{$doctor->classroom->name}}</td>
-                                            <td>{{    ( $doctor->section_id  ? $doctor->section->name : 'No Section' ) }}</td>
-                    
-                                            <td>
-
-<button type="button" class="btn btn-sm btn-danger inline-block" data-bs-toggle="modal" data-bs-target="#delete{{$doctor->id}}">
-<i class="fas fa-trash"></i>
-</button>
-@include('Admin.doctor_college.delete')
-                                            </td>
+                                            <td>{{( $doctor->section_id  ? $doctor->section->name : 'No Section' ) }}</td>
+                                            <td>{{$doctor->name}}</td>   <!-- name Course Not name Doctor Look in method Show in controller  -->
+                              
 
                                            </tr>
        @endforeach

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Requests\CourseRequest;
 use Illuminate\Support\Facades\DB;
 
+use File;
 
 
 
@@ -19,8 +20,8 @@ class CourseController extends Controller
 
     public function index()
     {
-        $data['courses'] = Course::all();
-        $data['doctors'] = Doctor::all();
+        $data['courses'] = Course::where('college_id',auth()->user()->college_id)->get();
+        $data['doctors'] = Doctor::where('college_id',auth()->user()->college_id)->get();
         return view('Admin.courses.index',$data);
     }
 
@@ -28,7 +29,7 @@ class CourseController extends Controller
 
     public function create()
     {
-        $data['courses'] = Course::all();
+        $data['courses'] = Course::where('college_id',auth()->user()->college_id)->get();
         $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
         $data['doctors'] = Doctor::where('college_id',auth()->user()->college_id)->get();
         return view('Admin.courses.create',$data);
@@ -38,51 +39,24 @@ class CourseController extends Controller
     public function store(Request $request)
     {
 
-
-    //     if($files = $request->file('images')) {
-    //         foreach ($files as $file) {
-                
-    //         $path = $file->storeAs('courses', md5(rand(1000, 10000)). '.' . $file->getClientOriginalExtension());
-    //         $file->move('courses', $path);    
-    //     }
-    // } 
-
-     
-
         try {
- 
-
-
             $name = $request->name;
             $college = $request->college_id;
             $classroom = $request->classroom_id;
             $section = $request->section_id;
             $doctor = $request->doctor_id;
 
-            for($i =0 ; $i < count($name) ; $i++){
-
-                if($files = $request->file('images')) {
-                    foreach ($files as $file) {
-                        
-                    $path = $file->storeAs('courses', md5(rand(1000, 10000)). '.' . $file->getClientOriginalExtension());
-                    $file->move('courses', $path);    
-                }
-            } 
-
-
-                  $insert = [
+            for($i = 0 ; $i < count($name) ; $i++){
+                $insert = [
                     'name' => $name[$i],
                     'doctor_id'=>$doctor[$i],
-                    'image_name'=>$path[$i],
                     'college_id'=>$college,
                     'classroom_id'=>$classroom,
                     'section_id'=>$section,
                   ];
-
-
-
-                 DB::table('courses')->insert($insert);
-            }  
+            } 
+        
+            DB::table('courses')->insert($insert);
             Session::flash('message', 'Add Success'); 
             return redirect()->route('course.index');
         } catch (\Exception $e) {
@@ -90,19 +64,27 @@ class CourseController extends Controller
         }
     }
 
+
    
     public function show($id)
     {
-        //
+        $course    =  Course::where('id',$id)->where('college_id',auth()->user()->college_id)->first();
+        return view('Admin.courses.show',compact('course'));
     }
 
   
     public function edit($id)
     {
-       $course    =  Course::findorfail($id);
-       $colleges  =  College::all();
-       $doctors   =   Doctor::all();
-       return view('Admin.courses.edit',compact('course','colleges','doctors'));
+       $course    =  Course::where('id',$id)->where('college_id',auth()->user()->college_id)->first();
+       if($course){
+        $colleges  =  College::where('id',auth()->user()->college_id)->get();
+        $doctors   =   Doctor::where('college_id',auth()->user()->college_id)->get();
+        return view('Admin.courses.edit',compact('course','colleges','doctors'));
+       }else{
+        return redirect()->back();
+       }
+               
+     
     }
 
     public function update(CourseRequest $request, $id)
@@ -113,9 +95,22 @@ class CourseController extends Controller
 
             $course = Course::findOrFail($id);
 
+            if (request()->hasFile('image')){
+                $imagePath = public_path('courses/'.  $course->image_name);
+                if(File::exists($imagePath)){
+                    unlink($imagePath);
+                }
+                $fileName = time().'.'.$request->file('image')->extension();  
+                $request->file('image')->move(public_path('courses'), $fileName); 
+                } else {
+                    $fileName =   $course->image_name;
+                }
+
+
           
 
                 $course->name = $request->name;
+                $course->image_name = $fileName;
                 $course->college_id = $request->college_id;
                 $course->classroom_id = $request->classroom_id;
                 $course->section_id = $request->section_id;

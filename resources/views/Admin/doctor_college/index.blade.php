@@ -10,7 +10,6 @@
 
 <div class="container mt-3">
  
-<a href="{{route('doctors_college.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add doctor to class</a>
 
 
 
@@ -27,7 +26,7 @@
 <table id="datatable" class="table table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
                                            style="text-align: center">
-
+                                           <thead>
 
                                            <tr>
                                                    <th>#</th>
@@ -35,6 +34,8 @@
                                                    <th>Email Doctor</th>
                                                    <th>View</th>
                                            </tr>
+                                           </thead>
+                                           <tbody>
                                           <?php    $i = 0 ; ?>
                                        @foreach($doctors as $doctor)
                                            <tr>
@@ -47,7 +48,7 @@
                                             </td>
                                            </tr>
                                     @endforeach
-
+</tbody>
 
                                            <table>
 

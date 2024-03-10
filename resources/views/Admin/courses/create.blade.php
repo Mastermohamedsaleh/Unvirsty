@@ -12,10 +12,10 @@
  <div class="container ">
 
 
-<form action="{{route('course.store')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('course.store')}}" method="post" >
 
 
- <div class="card">
+ <div class="card mt-2">
 
 <div class="card-body">
 
@@ -187,7 +187,7 @@ $(document).ready(function(){
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
     <label>Doctor : <span class="text-danger">*</span> </label>
-    <select name="doctor_id[]" >
+    <select name="doctor_id[]" class="selectpicker" >
     <option value="" >Choose Doctor</option>
 @foreach($doctors as $doctor)
   <option value="{{$doctor->id}}">{{$doctor->name}}</option>
@@ -196,10 +196,7 @@ $(document).ready(function(){
 
     </div>
 
-   <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
-    <label>Image Course: <span class="text-danger">*</span> </label>
-    <input type="file" name="images[]" class="form-control"  multiple>
-    </div>
+
 
 
     <div class="col-lg-3 col-md-6 col-sm-6">
@@ -217,6 +214,10 @@ $(document).ready(function(){
      });
 
 
+
   });
 });
+
+
+
 </script>

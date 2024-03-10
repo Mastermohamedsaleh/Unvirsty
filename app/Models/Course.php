@@ -31,5 +31,8 @@ class Course extends Model
     {
         return $this->belongsTo('App\Models\Doctor', 'doctor_id');
     }
+
+
+
  
 }
