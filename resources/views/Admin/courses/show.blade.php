@@ -22,19 +22,6 @@
 <div class="col-6">
 
 
-<form action="{{route('course.update',$course->id)}}" method="post" enctype="multipart/form-data">
-    @csrf
-    @method('PUT')
-    <label for="">Update Image</label>
-    <input type="file" name="image">
-    <input type="hidden" name="college_id" value="{{$course->college_id}}">
-    <input type="hidden" name="classroom_id" value="{{$course->classroom_id}}">
-    <input type="hidden" name="section_id" value="{{$course->section_id}}">
-    <input type="hidden" name="doctor_id" value="{{$course->doctor_id}}">
-    <input type="hidden" name="name" value="{{$course->name}}">
-    <button>update</button>
-</form>
-
 
 @if($course->image_name == "course_default.jpg")
 <img src="{{URL::asset('assets/images/course_default.jpg')}}" alt="" style="width:300px">
@@ -42,12 +29,55 @@
 <img src="{{URL::asset('courses/'.$course->image_name)}}" alt="" style="width:300px">
 @endif
 
- 
-<p style="font-size:40px;">Course : {{$course->name}}</p>
-<p style="font-size:20px;">College : {{$course->college->name}}</p>
-<p style="font-size:20px;">Classroom : {{$course->classroom->name}}</p>
-<p style="font-size:20px;">Section : {{(  $course->section_id ?  $course->section->name  : 'no Section' )}}</p>
-<p style="font-size:20px;">Doctor : {{$course->doctor->name}}</p>
+
+<form action="{{route('course.update',$course->id)}}" method="post" enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
+    <label for="">Update Image</label>
+    <input type="file" name="image">
+
+   
+
+    <input type="text" name="name" value="{{$course->name}}">
+    <select name="college_id" id="">
+      <option value="">Choose College ...</option>
+       @foreach($colleges as $college)
+             <option value="{{$college->id}}" {{$college->id == $course->college_id ? 'selected':"" }} >{{$college->name}}</option>
+       @endforeach
+    </select>
+
+    <select name="classroom_id" id="">
+      <option value="">Choose Classroom...</option>
+      @foreach($classrooms as $classroom)
+             <option value="{{$classroom->id}}"  {{$classroom->id == $course->classroom_id ? 'selected':"" }}    >{{$classroom->name}}</option>
+       @endforeach
+    </select>
+    <select name="section_id" id="">
+      <option value="">Choose Section...</option>
+      @foreach($sections as $section)
+             <option value="{{$section->id}}"  {{$section->id == $course->section_id ? 'selected':"" }}    >{{$section->name}}</option>
+       @endforeach
+    </select>
+    <select name="doctor_id" id="">
+      <option value="">Choose Doctor...</option>
+      @foreach($doctors as $doctor)
+             <option value="{{$doctor->id}}"  {{$doctor->id == $course->doctor_id ? 'selected':"" }}    >{{$doctor->name}}</option>
+       @endforeach
+    </select>
+
+    <select name="semester" id="">
+      <option value="semester1"  {{  $course->semester == 'semester1'  ? 'selected'  :  ""  }}>semester 1</option>
+      <option value="semester2" {{  $course->semester == 'semester2'  ? 'selected'  :  ""  }}>semester 2</option>
+    </select>
+
+
+
+    <button>update</button>
+</form>
+
+
+
+
 
 
 

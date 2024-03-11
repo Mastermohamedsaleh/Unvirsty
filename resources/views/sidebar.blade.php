@@ -3,18 +3,19 @@
         <div class="h-100">
             <div class="sidebar-logo">
                 <?php   $logo =  \App\Models\Setting::where('id',1)->first() ; ?>
-            @if( $logo->logo  != NULL )
+            @if( $logo->logo  == "logo2.png" )
+     
             <a class="navbar-brand ms-4" href="#"
           ><img
-            src="{{asset('/logo/'.$logo->logo) }}" 
+            src="{{ URL::asset('Assets/images/logo2.png') }}" 
             alt="Smart Academy logo"
             class="w-75 h-75"
         /></a>
          
             @else
-            <a class="navbar-brand ms-4" href="#"
+        <a class="navbar-brand ms-4" href="#"
           ><img
-            src="{{ URL::asset('Assets/images/logo2.png') }}" 
+            src="{{URL::asset('/logo/'.$logo->logo) }}" 
             alt="Smart Academy logo"
             class="w-75 h-75"
         /></a>
@@ -116,7 +117,7 @@
                     <a href="{{route('accountant.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Accountant </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{url('profile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile </a>
+                    <a href="{{url('adminprofile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile </a>
                 </li>
         
 

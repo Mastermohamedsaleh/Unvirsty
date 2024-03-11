@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Doctor;
 use App\Models\College;
+use App\Models\Section;
+use App\Models\Classroom;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\CourseRequest;
 use Illuminate\Support\Facades\DB;
@@ -45,6 +47,7 @@ class CourseController extends Controller
             $classroom = $request->classroom_id;
             $section = $request->section_id;
             $doctor = $request->doctor_id;
+            $semester = $request->semester;
 
             for($i = 0 ; $i < count($name) ; $i++){
                 $insert = [
@@ -53,6 +56,7 @@ class CourseController extends Controller
                     'college_id'=>$college,
                     'classroom_id'=>$classroom,
                     'section_id'=>$section,
+                    'semester'=>$semester,
                   ];
             } 
         
@@ -69,22 +73,23 @@ class CourseController extends Controller
     public function show($id)
     {
         $course    =  Course::where('id',$id)->where('college_id',auth()->user()->college_id)->first();
-        return view('Admin.courses.show',compact('course'));
+        if($course){
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+            $classrooms = Classroom::where('college_id',auth()->user()->college_id)->get();
+            $sections = Section::where('college_id',auth()->user()->college_id)->get();
+            $doctors = Doctor::where('college_id',auth()->user()->college_id)->get();
+            return view('Admin.courses.show',compact('course','colleges','classrooms','sections','doctors'));
+
+        }else{
+            return redirect()->back();
+        }
+
     }
 
   
     public function edit($id)
-    {
-       $course    =  Course::where('id',$id)->where('college_id',auth()->user()->college_id)->first();
-       if($course){
-        $colleges  =  College::where('id',auth()->user()->college_id)->get();
-        $doctors   =   Doctor::where('college_id',auth()->user()->college_id)->get();
-        return view('Admin.courses.edit',compact('course','colleges','doctors'));
-       }else{
-        return redirect()->back();
-       }
-               
-     
+    {                
+    //   
     }
 
     public function update(CourseRequest $request, $id)
@@ -111,6 +116,7 @@ class CourseController extends Controller
 
                 $course->name = $request->name;
                 $course->image_name = $fileName;
+                $course->semester = $request->semester;
                 $course->college_id = $request->college_id;
                 $course->classroom_id = $request->classroom_id;
                 $course->section_id = $request->section_id;

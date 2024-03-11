@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LectureRequest extends FormRequest
+class QuizRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,11 @@ class LectureRequest extends FormRequest
     public function rules()
     {
         return [
-            'file_name' => 'required|mimes:pdf|max:2048',
-            'title'=>'required',
+            'name'=>'required',
             'course_id'=>'required|exists:courses,id',
         ];
     }
 
-    
     public function messages()
     {
         return [
@@ -38,7 +36,6 @@ class LectureRequest extends FormRequest
             'course_id.required' => 'Enter Course',
         ];
     }
-
 
 
 }

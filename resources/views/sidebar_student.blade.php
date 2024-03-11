@@ -16,7 +16,7 @@
 
 
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i>Dashboard</a>
+                    <a href="{{url('dashboard/student')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i>Dashboard</a>
                 </li>
 
                 <li class="sidebar-item">

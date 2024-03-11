@@ -51,7 +51,7 @@
 
 
 
-<a href="{{route('quizzes.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add New Quizze</a>
+<a href="{{route('quizzes.create')}}" class="mb-2 btn btn-primary btn-sm">Add New Quizze</a>
 
 
 
@@ -68,7 +68,9 @@
 
 
 <div class="table-responsive">
-                        <table id="datatable"  class="table table-hover table-bordered">
+                        <table id="datatable"  class="table table-hover table-sm table-bordered p-0"
+                                           data-page-length="50"
+                                           style="text-align: center">
 
 
                         <thead>
@@ -91,15 +93,7 @@
                       <td>{{$quizze->doctor->name}}</td>
                       <td>{{$quizze->college->name}}</td>
                       <td>{{$quizze->classroom->name}}</td>
-                      <td>                    
-                                  <?php
-                                 if($quizze->section_id){
-                                  echo $quizze->section->name;
-                                 }else{
-                                echo 'no Section';
-                                 }
-                                ?>
-                            </td>
+                      <td>{{ ( $quizze->section_id  ? $quizze->section->name  :  'No Section' ) }}</td>
                 
                             <td>
 <button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#Delete_quizze{{ $quizze->id }}" >  <i class="fas fa-trash"></i></button>

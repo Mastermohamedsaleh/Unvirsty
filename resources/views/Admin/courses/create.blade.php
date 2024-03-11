@@ -99,6 +99,16 @@
 
 
 
+    <div class="col">
+
+    <select name="semester" id="">
+      <option value="semester1">semester 1</option>
+      <option value="semester2">semester 2</option>
+    </select>
+
+
+    </div>
+
 
 
        

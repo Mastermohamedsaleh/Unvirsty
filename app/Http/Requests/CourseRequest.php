@@ -24,6 +24,7 @@ class CourseRequest extends FormRequest
             'classroom_id'=>'required|exists:classrooms,id',
             'doctor_id'=>'required|exists:doctors,id',
             'name'=>'required',
+            'semester'=>'required|in:semester1,semester2'
         ];
     }
 

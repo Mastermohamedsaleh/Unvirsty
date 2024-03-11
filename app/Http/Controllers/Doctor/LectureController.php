@@ -31,7 +31,10 @@ class LectureController extends Controller
 
      
 $course = Course::where('id' , $request->course_id)->first();
+  
 
+
+ 
 try{
 
 

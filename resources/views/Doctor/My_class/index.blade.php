@@ -21,7 +21,8 @@
                                                    <th>#</th>
                                                    <th>College</th>
                                                    <th>Classroom</th>
-                                                   <th>Section</th>
+                                                   <th>Section</th> 
+                                                   <th>Course</th> 
                                            
                                            </tr>
                                           <?php    $i = 0 ; ?>
@@ -31,7 +32,7 @@
                                             <td>{{$doctor->college->name}}</td>
                                             <td>{{$doctor->classroom->name}}</td>
                                             <td>{{( $doctor->section_id  ? $doctor->section->name : 'No Section' )}}</td>
-                    
+                                           <td>{{$doctor->name}}</td>
 
                                           
 

@@ -21,8 +21,8 @@ class ProfileController extends Controller
 {
        
     public function profile(){
-        return  view('Admin.admins.profile');
-    }
+        return  view('Admin.admins.profile');  
+     }
 
 
     public function doctorprofile(){

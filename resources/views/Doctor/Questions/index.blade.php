@@ -54,7 +54,7 @@
 
 
 
-<a href="{{route('questions.show',$quizz->id)}}" class="mb-2 btn btn-outline-primary btn-sm">Add New questions</a>
+<a href="{{route('questions.show',$quizz->id)}}" class="mb-2 btn btn-primary btn-sm">Add New questions</a>
 
 
 

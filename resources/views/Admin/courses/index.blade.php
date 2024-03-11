@@ -64,9 +64,6 @@
                                             <th>#</th>
                                             <th>Name</th>
                                             <th> College</th>
-                                            <!-- <th>Classroom</th>
-                                            <th>Section</th>
-                                            <th>Doctor</th> -->
                                             <th>Proccess</th>
                                            </tr>
                                            </thead>
@@ -76,9 +73,7 @@
                                         <td>{{$loop->index + 1}}</td>
                                         <td><a href="{{route('course.show',$course->id)}}">{{$course->name}}</a></td>
                                      <td>  {{$course->college->name}}</td>
-                                      {{--     <td>{{$course->classroom->name}}</td>
-                                        <td>  {{(  $course->section_id ?  $course->section->name  : 'no Section' )}}</td>
-                                        <td>{{$course->doctor->name}}</td>  --}}
+   
                                         <td>
 <button type="button" class="btn btn-outline-danger btn-sm inline-block" data-bs-toggle="modal" data-bs-target="#deletecourse{{$course->id}}">
 <i class="fas fa-trash"></i>
@@ -88,7 +83,6 @@
 
 
 
-<a href="{{route('course.edit',$course->id)}}" class="btn btn-outline-primary btn-sm" ><i class="fas fa-edit"></i></a>
 
                                         </td>
                                            </tr>

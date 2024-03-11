@@ -12,9 +12,10 @@ use App\Models\Question;
 use App\Models\Course;      // Change All Course Into Course
 use App\Models\Doctor;
 use App\Models\Degree;
-use App\Models\Doctor_college;
-
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\QuizRequest;
+
+
 
 
 class QuizzeController extends Controller
@@ -28,13 +29,12 @@ class QuizzeController extends Controller
 
     public function create()
     {
-        // $data['colleges'] = Doctor_college::where('doctor_id',auth()->user()->id)->get();
         $data['courses'] = Course::where('doctor_id',auth()->user()->id)->get();
         return view('Doctor.Quizzes.create', $data);
     }
 
 
-    public function store(Request $request)
+    public function store(QuizRequest $request)
     {
        $course = Course::where('id' , $request->course_id)->first();
         try {

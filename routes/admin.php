@@ -74,18 +74,6 @@ Route::resource('examsschedule',ExamScheduleController::class);
 Route::resource('studyschedule',StudyScheduleController::class);
 Route::resource('accountant',AccountantController::class);
 
-
-
-
-// Livewire::component('calendar', Calendar::class);
-
-
-// Route::controller(ProfileController::class)->group(function() {  
-//     Route::get('adminprofile','admin');
-//     Route::post('updateadminprofile/{id}','updateadmin')->name('updateadminprofile');
-// });
-
-
 Route::controller(SettingController::class)->group(function() {  
     Route::get('setting','index');
     Route::post('setting_update','update');

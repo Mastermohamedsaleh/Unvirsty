@@ -66,17 +66,16 @@
 
 <div class="col-12">
 <label for="title">Name Question </label>
-    <input type="text" name="title" id="input-name" autofocus>
+    <input type="text" name="title" id="input-name"  value =" {{ old('title') }} " autofocus>
     <input type="hidden" value="{{$quizz->id}}" name="quizz_id">
 </div>
 
 
-
+ 
 
 <div class="col-12">
 <label for="title">Answers => <span class="text-danger">You must separate each answer with a mark <span class="display-6"> [-] </span> Like Yes - No </span></label>
-                                        <textarea name="answers"  id="exampleFormControlTextarea1"
-                                                  rows="4"></textarea>
+<textarea name="answers"  id="exampleFormControlTextarea1" rows="4">{{ old('answers') }} </textarea>
 </div>
 
 
@@ -85,24 +84,15 @@
 <div class="col-6">
       <label for="title"> Right Answer</label>
       <input type="text" name="right_answer" id="input-name"
-            autofocus>
+      value =" {{ old('right_answer') }} "     autofocus>
 </div>
-
-
-
-
-
-
-
-
-
 
 
 <div class="col">
                                         <div class="form-group">
-                                            <label >الدرجة : <span class="text-danger">*</span></label>
-                                            <select class="custom-select mr-sm-2" name="score">
-                                                <option selected disabled> حدد الدرجة...</option>
+                                            <label >Degree : <span class="text-danger">*</span></label>
+                                            <select class="custom-select mr-sm-2" name="score" >
+                                                <option selected disabled>  Choose Degree...</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="2.5">2.5</option>
