@@ -30,33 +30,56 @@
 
 
 
-    <div class="container-fluid text-center">
-        <div class="row no-gutter">
-            <!-- The image half -->
-            <div class="col-md-6 col-lg-6 col-xl-7 d-none d-md-flex bg-primary-transparent">
-                <div class="row wd-100p mx-auto text-center">
-                    <div class="col-md-12 col-lg-12 col-xl-12 my-auto mx-auto wd-100p">
-                        
-                    
-                </div>
-                </div>
-            </div>
-            <!-- The content half -->
-            <div class="col-md-6 col-lg-6 col-xl-5 bg-white">
-                <div class="login d-flex align-items-center py-2">
-                    <!-- Demo content-->
-                    <div class="container p-0">
-                        <div class="row">
-                            <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
-                                <div class="card-sigin">
-                                    
-                                
+      <script
+        src="https://kit.fontawesome.com/c1ef89d5e0.js"
+        crossorigin="anonymous"
+        defer
+      ></script>
 
-                                <div class="card-sigin">
-                                        <div class="main-signup-header">
-                                            <h2>Welcome</h2>
+
+
+      <section class="vh-100" style="background-color: #0062cc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="{{ URL::asset('assets/images/startingcollege-58d177633df78c3c4ff303ba.jpg') }}" style="height: 100%;"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                
+
+                    
+
+
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="fas fa-cubes fa-2x me-3" style="color:#0062cc;"></i>
+                      <span class="h1 fw-bold mb-0">Login</span>
+                    </div>
+
+
+                    
+
+                    <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Enter</label>
+                    <select class="form-control" id="sectionChooser">
+                        <option value="" selected disabled>Choose list</option>
+                        <option value="student">Student</option>
+                        <option value="admin">Admin</option>
+                        <option value="doctor">Doctor</option>
+                     
+                    </select>
+                  </div>
+
+                  <div class="main-signup-header">
+                                         
                                             @if ($errors->any())
-                                                <div class="alert alert-danger">
+                                                <div class="alert alert-danger mt-3">
                                                     <ul>
                                                         @foreach ($errors->all() as $error)
                                                             <li>{{ $error }}</li>
@@ -64,53 +87,13 @@
                                                     </ul>
                                                 </div>
                                             @endif
-
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Select Enter</label>
-                                                <select class="form-control" id="sectionChooser">
-                                                    <option value="" selected disabled>Choose list</option>
-                                                    <option value="student">Student</option>
-                                                    <option value="admin">Admin</option>
-                                                    <option value="doctor">Doctor</option>
-                                                 
-                                                </select>
-                                            </div>
-
-
-                                            {{--form user--}}
-                                            <div class="panel" id="student">
-
-
-                                        
-
-
-                                                <h2>الدخول طالب</h2>
-                                                <form method="POST" action="{{route('student.login')}}">
-                                                    @csrf
-                                                    <div class="form-group">
-                                                        <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
-                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
-                                                    <div class="row row-xs">
-                                                        <div class="col-sm-6">
-                                                            <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
-                                                        </div>
-                                                        <div class="col-sm-6 mg-t-10 mg-sm-t-0">
-                                                            <button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> Signup with Twitter</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <div class="main-signin-footer mt-5">
-                                                    <p><a href="">Forgot password?</a></p>
-                                                    <p>Don't have an account? <a href="{{ url('/' . $page='signup') }}">Create an Account</a></p>
-                                                </div>
-                                            </div>
+</div>
+  
+         
 
                                             {{--form admin--}}
                                             <div class="panel" id="admin">
-                                                <h2>الدخول ادمن</h2>
+                                                <h2> Enter  as Admin</h2>
                                                 <form method="POST" action="{{route('admin.login')}}">
                                                     @csrf
                                                     <div class="form-group">
@@ -118,26 +101,14 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
-                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
-                                                    <div class="row row-xs">
-                                                        <div class="col-sm-6">
-                                                            <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
-                                                        </div>
-                                                        <div class="col-sm-6 mg-t-10 mg-sm-t-0">
-                                                            <button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> Signup with Twitter</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <div class="main-signin-footer mt-5">
-                                                    <p><a href="">Forgot password?</a></p>
-                                                    <p>Don't have an account? <a href="{{ url('/' . $page='signup') }}">Create an Account</a></p>
-                                                </div>
+                                                    </div><button type="submit" class="btn btn-primary mt-3">Login</button>
+                                                  
                                             </div>
-
-
+                                            </form>
+                                         
                                             {{--form Doctor--}}
                                             <div class="panel" id="doctor">
-                                                <h2>الدخول دكتور</h2>
+                                                <h2>Enter  as Doctor</h2>
                                                 <form method="POST" action="{{route('doctor.login')}}">
                                                     @csrf
                                                     <div class="form-group">
@@ -145,35 +116,54 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
-                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
-                                                    <div class="row row-xs">
-                                                        <div class="col-sm-6">
-                                                            <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
-                                                        </div>
-                                                        <div class="col-sm-6 mg-t-10 mg-sm-t-0">
-                                                            <button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> Signup with Twitter</button>
-                                                        </div>
-                                                    </div>
+                                                    </div><button type="submit" class="btn btn-primary mt-3">Login</button>
+
                                                 </form>
-                                                <div class="main-signin-footer mt-5">
-                                                    <p><a href="">Forgot password?</a></p>
-                                                    <p>Don't have an account? <a href="{{ url('/' . $page='signup') }}">Create an Account</a></p>
-                                                </div>
+
                                             </div>
 
+
+                                            {{--form user--}}
+                  <div class="panel" id="student">
+                                                <h2> Enter  as Student</h2>
+                                                <form method="POST" action="{{route('student.login')}}">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
+                                                    </div><button type="submit" class="btn btn-primary mt-3">Login</button>
+                                                  
+                                            </div>
+                                            </form> 
+
+
+
+
+
+  
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+   
                                             
 
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End -->
-                </div>
-            </div><!-- End -->
-        </div>
-    </div>
 
 
 

@@ -6,24 +6,37 @@ use Livewire\Component;
 
 use App\Models\Question;
 use App\Models\Degree;
+use App\Models\Quizze;
 use Illuminate\Support\Facades\Session;
 
+Use Carbon\Carbon;
 
 class ShowQuestion extends Component
 {
 
 
-    public $quizze_id, $student_id, $data, $counter = 0, $questioncount = 0;
+    public   $quiz , $quizze_id, $student_id, $data, $counter = 0, $questioncount = 0;
 
     public function render()
     {
         $this->data = Question::where('quizze_id', $this->quizze_id)->get();
         $this->questioncount = $this->data->count();
+        $this->quiz = Quizze::where('id', $this->quizze_id)->first();
         return view('livewire.show-question', ['data']);
     }
 
     public function nextQuestion($question_id, $score, $answer, $right_answer)
     {
+
+
+        $mytime = Carbon::now();
+       $mytime = $mytime->toDateTimeString();
+        $start_time = $this->quiz->start_time;
+        $end_time = $this->quiz->end_time;
+        while($mytime <= $end_time){
+             
+    
+      
         $stuDegree = Degree::where('student_id', $this->student_id)
             ->where('quizze_id', $this->quizze_id)
             ->first();
@@ -70,6 +83,8 @@ class ShowQuestion extends Component
             return redirect('student_quiz');
         }
 
+        } 
+        return redirect('student_quiz');
     }
 
 

@@ -200,11 +200,12 @@
 
                         <div class="col-12">
                         <label for="newPasswordInput" class="form-label">New Password</label>
-                                <input name="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" id="newPasswordInput"
+                                <input name="new_password" type="password" id="password" class="form-control @error('new_password') is-invalid @enderror" id="newPasswordInput"
                                     placeholder="New Password">
                                 @error('new_password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
+
 
                         </div>
 

@@ -36,6 +36,7 @@ class QuizzeController extends Controller
 
     public function store(QuizRequest $request)
     {
+        
        $course = Course::where('id' , $request->course_id)->first();
         try {
             $quizzes = new Quizze();
@@ -44,6 +45,8 @@ class QuizzeController extends Controller
             $quizzes->college_id =  $course->college_id;
             $quizzes->classroom_id =  $course->classroom_id;
             $quizzes->section_id =  $course->section_id;
+            $quizzes->start_time =  $request->start_time;
+            $quizzes->end_time =  $request->end_time;
             $quizzes->doctor_id = auth()->user()->id;
             $quizzes->save();
             Session::flash('message', 'Add Success');
@@ -52,6 +55,9 @@ class QuizzeController extends Controller
         catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
+
+    
+
     }
 
 
@@ -111,7 +117,14 @@ class QuizzeController extends Controller
 
     public function student_quizze($quizze_id)
     {
-        $degrees = Degree::where('quizze_id', $quizze_id)->get();
-        return view('Doctor.Quizzes.student_quizze', compact('degrees'));
+            $degrees = Degree::where('quizze_id', $quizze_id)->get();
+            return view('Doctor.Quizzes.student_quizze', compact('degrees'));
     }
+
+     public function  repeatquiz(Request $request ,$id){
+        Degree::where('student_id',$request->student_id)->where('quizze_id',$request->quizze_id)->delete();
+        Session::flash('message', 'Repeat Success');
+        return redirect()->back();       
+    } 
+
 }

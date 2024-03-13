@@ -43,6 +43,9 @@ Route::group(['middleware' => 'auth:doctor'], function(){
     Route::resource('attendance',AttendanceController::class);
     Route::resource('lecture',LectureController::class);
 
+    Route::post(' repeat_quizze/{id}',[QuizzeController::class , 'repeatquiz']);
+
+   
 //     Route::controller(LibraryController::class)->group(function() {  
 //      Route::get('lecture_index', 'index')->name('library_index');
 //      Route::post('library_store', 'store')->name('library_store');

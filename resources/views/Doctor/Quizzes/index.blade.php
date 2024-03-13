@@ -96,12 +96,11 @@
                       <td>{{ ( $quizze->section_id  ? $quizze->section->name  :  'No Section' ) }}</td>
                 
                             <td>
-<button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#Delete_quizze{{ $quizze->id }}" >  <i class="fas fa-trash"></i></button>
-<a href="{{route('quizzes.show',$quizze->id)}}" class="mb-2 btn btn-outline-primary btn-sm"><i class="fa-solid fa-circle-question"></i></a>
+<button type="button" class="mb-2 btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#Delete_quizze{{ $quizze->id }}" >  <i class="fas fa-trash"></i></button>
+<a href="{{route('quizzes.show',$quizze->id)}}" class="mb-2 btn btn-success btn-sm"  title="Add Questions" ><i class="fa-solid fa-circle-question"></i></a>
 
 
-<a href="{{route('student.quizze',$quizze->id)}}"
-                                                       class="btn btn-primary btn-sm" title="عرض الطلاب المختبرين" role="button" aria-pressed="true"><i
+<a href="{{route('student.quizze',$quizze->id)}}" class="btn btn-primary btn-sm mb-2" title="Show Degree Students"  role="button" aria-pressed="true"><i
                                                             class="fa fa-street-view"></i></a>
 @include('Doctor.Quizzes.delete')
 

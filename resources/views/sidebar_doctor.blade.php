@@ -18,45 +18,31 @@
                 <li class="sidebar-item">
                     <a href="{{url('dashboard/doctor')}}" class="sidebar-link"><i class="fa-solid fa-list"></i> Dashboard</a>
                 </li>
+
+
                 <li class="sidebar-item">
-                    <a href="{{route('lecture.index')}}" class="sidebar-link"><i class="fa-solid fa-book"></i> Mylecture</a>
-                </li>
+                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-book"></i> Mylecture <i class="fa-solid fa-chevron-down float-end"></i></a>
+                <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="{{route('lecture.index')}}" class="sidebar-link">lecture</a>
+                        <a href="{{route('lecture.create')}}" class="sidebar-link">Add lecture</a>
+                    </li>
+                </ul>
+            </li>
+
+
+
                 <li class="sidebar-item">
                     <a href="{{URL('my_class')}}" class="sidebar-link"><i class="fa-solid fa-landmark"></i> MyClass</a>
                 </li>
        
-                <!-- <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-lock"></i>Admins</a>
-                </li> -->
-         
-
-<!-- 
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-graduation-cap"></i> Students</a>
-                    <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">All Student</a>
-                      
-                        </li>
-                    </ul>
-                </li> -->
-
-
-<!-- 
+               
               <li class="sidebar-item">
-                  <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-person-chalkboard"></i> Doctors</a>
-                  <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                      <li class="sidebar-item">
-                          <a href="{{route('doctors.index')}}" class="sidebar-link">All Doctors</a>
-                          <a href="{{route('doctors.create')}}" class="sidebar-link">Add Doctor</a>
-                      </li>
-                  </ul>
-              </li> -->
-              <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-regular fa-user pe-2"></i> Quizzes <i class="fa-solid fa-chevron-down float-end"></i></a>
-                <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#quiz" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-regular fa-user pe-2"></i> Quiz <i class="fa-solid fa-chevron-down float-end"></i></a>
+                <ul id="quiz" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="{{route('quizzes.index')}}" class="sidebar-link">Quizze</a>
+                        <a href="{{route('quizzes.index')}}" class="sidebar-link">Quiz</a>
+                        <a href="{{route('quizzes.create')}}" class="sidebar-link">Add Quiz</a>
                     </li>
                 </ul>
             </li>

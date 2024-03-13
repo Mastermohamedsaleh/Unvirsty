@@ -105,10 +105,24 @@
 @if($quizze->degree->count() > 0 && $quizze->id == $quizze->degree[0]->quizze_id)
                 {{$quizze->degree[0]->score}}
                            @else
+
+
+                    <?php       $mytime = \Carbon\Carbon::now();
+       $mytime = $mytime->toDateTimeString();
+        $start_time = $quizze->start_time;
+        $end_time = $quizze->end_time;
+      ?>
+                           @if($mytime <= $end_time)
                                <a href="{{route('student_quiz.show',$quizze->id)}}"
                                   class="btn btn-outline-success btn-sm" role="button"
-                                  aria-pressed="true" onclick="alertAbuse()">
+                                   aria-pressed="true" onclick="alertAbuse()">
                                    <i class="fas fa-person-booth"></i></a>
+
+                        @else
+                                  {{  "No man" }}          
+                        @endif
+
+
                            @endif
 
 

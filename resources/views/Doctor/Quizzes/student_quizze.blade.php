@@ -16,8 +16,29 @@
 
 
 
-<div class="container">
+<div class="container mt-5">
 
+
+<h3 class="text-primary text-center">Degree Student</h3>
+
+
+
+
+@if ($errors->any())
+                    <div class="alert alert-danger" style="width:300px; margin:0px auto">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+
+
+                @if(Session::has('message'))
+<p class="alert alert-info" style="width:300px; margin:0px auto">{{ Session::get('message') }}</p>
+@endif
 
 
 
@@ -34,7 +55,6 @@
                                         <tr>
                                             <th>#</th>
                                             <th>اسم الطالب</th>
-                                            <th>اخر سؤال</th>
                                             <th>الدرجة</th>
                                             <th>تلاعب</th>
                                             <th>تاريخ اجراء الاختبار</th>
@@ -46,28 +66,42 @@
                                             <tr>
                                                 <td>{{ $loop->iteration}}</td>
                                                 <td>{{$degree->student->name}}</td>
-                                                <td>{{$degree->question_id}}</td>
                                                 <td>{{$degree->score}}</td>
                                                 @if($degree->abuse == 0)
                                                     <td style="color: green">لا يوجد تلاعب</td>
-                                                @else
+                                                    @else
                                                     <td style="color: red"> يوجد تلاعب</td>
                                                 @endif
                                                 <td>{{$degree->date}}</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-info btn-sm"
-                                                            data-toggle="modal"
-                                                            data-target="#repeat_quizze{{ $degree->quizze_id }}" title="إعادة">
-                                                        <i class="fas fa-repeat"></i></button>
+                                                  @if($degree->abuse == 1) 
+                                                <td> 
+                                    <button type="button" class="btn btn-info btn-sm"
+                                     data-bs-toggle="modal"
+                                     data-bs-target="#repeat_quizze{{ $degree->quizze_id }}" title="إعادة">
+                                    <i class="fas fa-repeat"></i></button>    
                                                 </td>
+                                                   @else 
+                                                <td>No Play</td>
+                                         @endif 
                                             </tr>
 
-                                 <div class="modal fade" id="repeat_quizze{{$degree->quizze_id}}" tabindex="-1"
-                              role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                             <div class="modal-dialog" role="document">
-                                 <form action="{{route('repeat.quizze', $degree->quizze_id)}}" method="post">
+
+                                      
+                                            
+                                            <!-- Modal -->
+<div class="modal fade" id="repeat_quizze{{$degree->quizze_id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Repeat Quiz</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+ 
+
+      <form action="{{url('repeat_quizze', $degree->quizze_id)}}" method="post">
                                      {{method_field('post')}}
-                                     {{csrf_field()}}
+                                      @csrf
                                      <div class="modal-content">
                              <div class="modal-header">
                       <h5 style="font-family: 'Cairo', sans-serif;"
@@ -82,26 +116,24 @@
                                   <input type="hidden" name="student_id" value="{{$degree->student_id}}">
                                   <input type="hidden" name="quizze_id" value="{{$degree->quizze_id}}">
                               </div>
-                              <div class="modal-footer">
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary"
-                                              data-dismiss="modal">Close</button>
-                                                                    <button type="submit"
-                                          class="btn btn-info">submit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            @endforeach
-                                    </table>
-                                </div>
+                           
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary button-mode">Save</button>
+      </div>
+   
+</form>
+
+@endforeach 
+    </div>
+
+  </div>
+</div>
 
 
 
-
-
+</tbody>
+</table>
 
 
 
@@ -113,6 +145,16 @@
 
 
 </div>
+
+
+</div>
+
+
+
+
+
+
+
 
 
 

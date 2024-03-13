@@ -226,6 +226,7 @@ a.sidebar-link:hover{
   input[type="tel"],
   input[type="time"],
   input[type="url"],
+  input[type="datetime-local"],
 
   textarea,
   select {

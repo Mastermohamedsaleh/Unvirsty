@@ -63,6 +63,15 @@
 
 
 
+        <div class="col-6">
+        <label > Start_time : <span class="text-danger">*</span></label>
+         <input type="datetime-local" name="start_time">
+        </div>
+        <div class="col-6">
+        <label > End_time : <span class="text-danger">*</span></label>
+         <input type="datetime-local" name="end_time">
+        </div>
+
 
 
      
