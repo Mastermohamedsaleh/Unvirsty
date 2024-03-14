@@ -43,6 +43,7 @@
                     <li class="sidebar-item">
                         <a href="{{route('quizzes.index')}}" class="sidebar-link">Quiz</a>
                         <a href="{{route('quizzes.create')}}" class="sidebar-link">Add Quiz</a>
+                        <a href="{{route('total_degree')}}" class="sidebar-link">Total Degree Quiz</a>
                     </li>
                 </ul>
             </li>

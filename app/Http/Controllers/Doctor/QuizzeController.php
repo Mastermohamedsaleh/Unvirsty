@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-
 use App\Models\College;
 use App\Models\Quizze;
 use App\Models\Question;
@@ -117,8 +115,8 @@ class QuizzeController extends Controller
 
     public function student_quizze($quizze_id)
     {
-            $degrees = Degree::where('quizze_id', $quizze_id)->get();
-            return view('Doctor.Quizzes.student_quizze', compact('degrees'));
+        $degrees = Degree::where('quizze_id', $quizze_id)->get();
+        return view('Doctor.Quizzes.student_quizze', compact('degrees'));
     }
 
      public function  repeatquiz(Request $request ,$id){

@@ -77,6 +77,7 @@
                         <tr>
                                 <th>#</th>
                                 <th>Name</th>
+                                <th>Course</th>
                                 <th>Name Doctor</th>
                                 <th>College</th>
                                 <th>Classroom</th>
@@ -90,6 +91,7 @@
                             <tr>
                             <td> {{$i++}} </td>
                       <td>{{$quizze->name}}</td>
+                      <td>{{$quizze->course->name}}</td>
                       <td>{{$quizze->doctor->name}}</td>
                       <td>{{$quizze->college->name}}</td>
                       <td>{{$quizze->classroom->name}}</td>

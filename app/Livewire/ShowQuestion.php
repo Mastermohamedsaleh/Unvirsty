@@ -29,14 +29,14 @@ class ShowQuestion extends Component
     {
 
 
-        $mytime = Carbon::now();
-       $mytime = $mytime->toDateTimeString();
+        $mytime = Carbon::now('Africa/Cairo');
+        $mytime = $mytime->toDateTimeString();
         $start_time = $this->quiz->start_time;
         $end_time = $this->quiz->end_time;
-        while($mytime <= $end_time){
-             
+
     
-      
+    if($mytime <= $end_time){
+
         $stuDegree = Degree::where('student_id', $this->student_id)
             ->where('quizze_id', $this->quizze_id)
             ->first();
@@ -77,14 +77,14 @@ class ShowQuestion extends Component
         if ($this->counter < $this->questioncount - 1) {
             $this->counter++;
         } else {
-                      
-    
            Session::flash('message','تم إجراء الاختبار بنجاح');
             return redirect('student_quiz');
         }
-
-        } 
+    }else{
         return redirect('student_quiz');
+    }
+    
+
     }
 
 

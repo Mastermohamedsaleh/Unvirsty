@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Quizze;
-
-
+use App\Models\Degree;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -21,8 +20,7 @@ class QuizController extends Controller
         ->where('section_id', Auth::guard('student')->user()->section_id)
         ->orderBy('id', 'DESC')
         ->get();
-
-    return view('Student.quizzes.index', compact('quizzes'));
+     return view('Student.quizzes.index', compact('quizzes'));
     }
 
   

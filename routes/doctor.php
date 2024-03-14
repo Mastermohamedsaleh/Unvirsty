@@ -10,7 +10,7 @@ use App\Http\Controllers\Doctor\QuizzeController;
 
 use App\Http\Controllers\Doctor\QuestionController;
 use App\Http\Controllers\Doctor\LibraryController;
-use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController};
+use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController , TotalDegreeController};
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -39,29 +39,23 @@ Route::group(['middleware' => 'auth:doctor'], function(){
     Route::controller(DoctorCollegeController::class)->group(function() {  
              Route::get('my_class','index');
     });
+
     
     Route::resource('attendance',AttendanceController::class);
     Route::resource('lecture',LectureController::class);
 
-    Route::post(' repeat_quizze/{id}',[QuizzeController::class , 'repeatquiz']);
-
-   
-//     Route::controller(LibraryController::class)->group(function() {  
-//      Route::get('lecture_index', 'index')->name('library_index');
-//      Route::post('library_store', 'store')->name('library_store');
-//      Route::get('library_create', 'create')->name('library_create');
-// });
-
-
-
-
+   Route::post(' repeat_quizze/{id}',[QuizzeController::class , 'repeatquiz']);
 
    Route::get('student_quizze/{id}',[QuizzeController::class,'student_quizze'])->name('student.quizze');
 
    Route::post('repeat_quizze', [QuizzeController::class,'repeat_quizze'])->name('repeat.quizze');
 
 
-
+   Route::controller(TotalDegreeController::class)->group(function() {  
+    Route::get('total_degree','index')->name('total_degree');
+    Route::get('show_student_to_degree','show')->name('show_student_to_degree');
+    Route::get('allstudent_to_degree/{param1}/{param2}/{param3}/{param4?}','allstudent')->name('allstudent_to_degree');
+});
 
 
 
