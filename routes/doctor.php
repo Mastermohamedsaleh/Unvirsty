@@ -68,13 +68,6 @@ Route::group(['middleware' => 'auth:doctor'], function(){
 
 
 // /////////////////////////////////////// logout student /////////////////////////////////////////////////////////////////
-
 Route::post('logout/doctor', [DoctorController::class, 'destroy'])->middleware('auth:doctor')->name('doctor.logout');
-
-
 //#############################################################################################
-
-
-
-
 require __DIR__.'/auth.php';

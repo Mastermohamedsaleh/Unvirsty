@@ -23,13 +23,24 @@ class StudentController extends Controller
  
     public function index(Request $request)
     {
-
-        $search = $request->input('search');          
-        if ($search) {  
-            $students = Student::where('college_id',auth()->user()->college_id)->where('name', 'like', "%$search%")->orwhere('email', 'like', "%$search%")->paginate(PAGENATOR_COUNT);
+        if(auth()->user()->status == 0 ){
+            $search = $request->input('search');          
+            if ($search) {  
+                $students = Student::where('name', 'like', "%$search%")->orwhere('email', 'like', "%$search%")->paginate(PAGENATOR_COUNT);
+            }else{
+                $students = Student::paginate(PAGENATOR_COUNT);  
+            } 
         }else{
-            $students = Student::where('college_id',auth()->user()->college_id)->paginate(PAGENATOR_COUNT);  
+            $search = $request->input('search');          
+            if ($search) {  
+                $students = Student::where('college_id',auth()->user()->college_id)->where('name', 'like', "%$search%")->orwhere('email', 'like', "%$search%")->paginate(PAGENATOR_COUNT);
+            }else{
+                $students = Student::where('college_id',auth()->user()->college_id)->paginate(PAGENATOR_COUNT);  
+            }
         }
+
+
+
 
         return view('Admin.students.index',compact('students'));
     }
@@ -39,7 +50,13 @@ class StudentController extends Controller
     {
       $data['genders'] = Gender::all();
       $data['nationalities']  = Nationalitie::all();
-      $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
+
+      if(auth()->user()->status == 0 ){
+        $data['colleges'] = College::all();
+      }else{
+        $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
+      }
+
     return view('Admin.students.add',$data);
     }
 
@@ -85,18 +102,19 @@ class StudentController extends Controller
     public function edit($id)
     {
         
-        
-         $student = Student::where('id',$id )->where('college_id',auth()->user()->college_id)->first();
-
+        if(auth()->user()->status == 0 ){
+            $student = Student::where('id',$id )->first();
+            $data['colleges'] = College::all();
+         }else{
+            $student = Student::where('id',$id )->where('college_id',auth()->user()->college_id)->first();
+            $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
+        }
+       
          if( !$student  ){
             return redirect()->back();
          }
-
-
          $data['genders'] = Gender::all();
          $data['nationalities']  = Nationalitie::all();
-         $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
-
         return view('Admin.students.edit',compact('student') , $data);
     }
 

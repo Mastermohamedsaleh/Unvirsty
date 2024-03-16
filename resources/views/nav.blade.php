@@ -48,6 +48,8 @@
 									<form method="POST" action="{{ route('student.logout') }}">
 									@elseif(auth('doctor')->check())
 									<form method="POST" action="{{ route('doctor.logout') }}">
+									@elseif(auth('accountant')->check())
+									<form method="POST" action="{{ route('accountant.logout') }}">
 									@endif
 									@csrf
                                        <a class="dropdown-item" href="#"

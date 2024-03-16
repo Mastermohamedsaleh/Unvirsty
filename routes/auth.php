@@ -8,7 +8,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\Auth\{AdminAuthController,StudentController,DoctorController};
+use App\Http\Controllers\Auth\{AdminAuthController,StudentController,DoctorController,AccountantController};
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -41,6 +41,11 @@ Route::middleware('guest')->group(function () {
 
     // /////////////////////////////// login student ///////////////////////////////////////////////
     Route::post('login/doctor', [DoctorController::class, 'store'])->name('doctor.login');
+    // /////////////////////////////// login student ///////////////////////////////////////////////
+
+
+    // /////////////////////////////// login student ///////////////////////////////////////////////
+    Route::post('login/accountant', [AccountantController::class, 'store'])->name('accountant.login');
     // /////////////////////////////// login student ///////////////////////////////////////////////
 
 

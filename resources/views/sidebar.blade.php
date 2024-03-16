@@ -58,6 +58,25 @@
                 <li class="sidebar-item">
                     <a href="{{url('adminprofile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile </a>
                 </li>
+                
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-graduation-cap"></i> Students <i class="fa-solid fa-chevron-down float-end"></i> </a>
+                    <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="{{route('students.index')}}" class="sidebar-link">All Student</a>
+                            <a href="{{route('students.create')}}" class="sidebar-link">Add Student</a>
+                            <a href="{{route('promotion.create')}}" class="sidebar-link">Promotion Students</a>
+                            <a href="{{route('promotion.index')}}" class="sidebar-link">Mangment Promotion Students</a>
+                            <a href="{{route('graduated.index')}}" class="sidebar-link">Graduated Students</a>
+                            <a href="{{route('graduated.create')}}" class="sidebar-link">Add Graduated Students</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="sidebar-item">
+                    <a href="{{route('accountant.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Accountant </a>
+                </li>
 
               <li class="sidebar-item">
                     <a href="{{url('setting')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-gears"></i>Setting</a>
@@ -122,17 +141,6 @@
         
 
          @endif
-
-
-
-                   
-         <!-- <li class="sidebar-item">
-                    <a href="{{route('receipt.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-comment-dollar"></i>Receipt</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{route('attendance.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Attendance</a>
-                </li> -->
-
 
 
             </ul>

@@ -19,8 +19,14 @@ class AccountantController extends Controller
 
     public function index()
     {
-        $accountants = Accountant::where('college_id',auth()->user()->college_id)->get();
-        $colleges = College::where('id',auth()->user()->college_id)->get();
+        if(auth()->user()->status == 0 ){
+            $accountants = Accountant::all();
+            $colleges = College::all();
+        }else{
+            $accountants = Accountant::where('college_id',auth()->user()->college_id)->get();
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+        }
+
         return view('Admin.accountants.index',compact('accountants','colleges'));
     }
 

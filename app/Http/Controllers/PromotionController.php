@@ -19,14 +19,26 @@ class PromotionController extends Controller
  
     public function index()
     {
-        $promotions = Promotion::where('id',auth()->user()->college_id)->get();
+
+
+        if(auth()->user()->status == 0 ){ 
+            $promotions = Promotion::all();
+         }else{
+            $promotions = Promotion::where('id',auth()->user()->college_id)->get();
+        }
+
         return view('Admin.promotion.mangment',compact('promotions'));
     }
 
    
     public function create()
     {
-        $colleges =  College::where('id',auth()->user()->college_id)->get();
+
+        if(auth()->user()->status == 0 ){  
+            $colleges =  College::all();
+        }else{
+            $colleges =  College::where('id',auth()->user()->college_id)->get();
+        }
         return view('Admin.promotion.create' , compact('colleges'));
     }
 
@@ -103,8 +115,11 @@ class PromotionController extends Controller
 
             // التراجع عن الكل
             if($request->page_id ==1){
-
-             $Promotions = Promotion::where('id',auth()->user()->college_id)->get();;
+                if(auth()->user()->status == 0 ){ 
+                    $Promotions = Promotion::all();  
+                }else{
+                    $Promotions = Promotion::where('to_college',auth()->user()->college_id)->get();
+                }
              foreach($Promotions as $Promotion){
 
                  //التحديث في جدول الطلاب

@@ -25,6 +25,8 @@ class RouteServiceProvider extends ServiceProvider
 
     public const DOCTOR = '/dashboard/doctor';
 
+    public const ACCOUNTANT = '/dashboard/accountant';
+
     /**
      * The controller namespace for the application.
      *
@@ -65,6 +67,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/doctor.php'));
+
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/accountant.php'));
         });
     }
 

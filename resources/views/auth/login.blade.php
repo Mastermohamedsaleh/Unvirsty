@@ -72,6 +72,7 @@
                         <option value="student">Student</option>
                         <option value="admin">Admin</option>
                         <option value="doctor">Doctor</option>
+                        <option value="accountant">Accountant</option>
                      
                     </select>
                   </div>
@@ -95,6 +96,21 @@
                                             <div class="panel" id="admin">
                                                 <h2> Enter  as Admin</h2>
                                                 <form method="POST" action="{{route('admin.login')}}">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
+                                                    </div><button type="submit" class="btn btn-primary mt-3">Login</button>
+                                                  
+                                            </div>
+                                            </form>
+
+                                            {{--form Accountant--}}
+                                            <div class="panel" id="accountant">
+                                                <h2> Enter  as Accountant</h2>
+                                                <form method="POST" action="{{route('accountant.login')}}">
                                                     @csrf
                                                     <div class="form-group">
                                                         <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>

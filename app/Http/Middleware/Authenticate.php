@@ -23,6 +23,9 @@ class Authenticate extends Middleware
             elseif(Request::is('/dashboard/doctor')) {
                 return route('login');
             }
+            elseif(Request::is('/dashboard/accountant')) {
+                return route('login');
+            }
             else {
                 return route('login');
             }

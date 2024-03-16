@@ -15,16 +15,22 @@ class GraduatedController extends Controller
  
     public function index()
     {
-
+     if(auth()->user()->status == 0 ){ 
+        $students = Student::onlyTrashed()->paginate(PAGENATOR_COUNT);
+     }else{
         $students = Student::where('college_id',auth()->user()->college_id)->onlyTrashed()->paginate(PAGENATOR_COUNT);
-
+    }
         return view('Admin.graduated.index',compact('students'));
     }
 
 
     public function create()
     {
-        $colleges = College::where('id',auth()->user()->college_id)->get();
+        if(auth()->user()->status == 0 ){ 
+            $colleges = College::all();
+         }else{
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+        }
         return view('Admin.graduated.create',compact('colleges'));
         
     }
