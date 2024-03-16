@@ -41,6 +41,7 @@ Route::controller(ProfileController::class)->group(function() {
     Route::get('adminprofile','profile');
     Route::get('doctorprofile','doctorprofile');
     Route::get('studentprofile','studentprofile');
+    Route::get('accountantprofile','studentprofile');
     Route::post('updateprofile/{id}','updateprofile')->name('updateprofile');
 });
 

@@ -46,6 +46,7 @@ class ShowQuestion extends Component
             $degree->quizze_id = $this->quizze_id;
             $degree->student_id = $this->student_id;
             $degree->question_id = $question_id;
+            $degree->course_id = $this->quiz->course_id;
             if (strcmp(trim($answer), trim($right_answer)) === 0) {
                 $degree->score += $score;
             } else {

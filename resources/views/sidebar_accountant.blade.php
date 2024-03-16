@@ -24,6 +24,18 @@
                     <a href="{{url('studentswithaccount')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i> Students </a>
                 </li>
 
+                <li class="sidebar-item">
+                    <a href="{{route('fee_invoices.index')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i> fee_invoices </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="{{route('receipt.index')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i> Receipt </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="{{url('accountantprofile')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i> MyProfile </a>
+                </li>
+
                
             
             </ul>

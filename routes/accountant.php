@@ -8,6 +8,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AccountantController;
 
 use App\Http\Controllers\Accountant\StudentController;
+use App\Http\Controllers\Accountant\FeeInvoicesController;
+use App\Http\Controllers\Accountant\ReceiptStudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,11 @@ Route::group(['middleware' => 'auth:accountant'], function(){
     Route::controller(StudentController::class)->group(function() {  
         Route::get('studentswithaccount','index');
       });
+
+      Route::resource('fee_invoices',FeeInvoicesController::class);
+
+     Route::resource('receipt',ReceiptStudentController::class);
+
 
 });
 

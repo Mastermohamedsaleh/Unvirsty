@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Course;
 use App\Models\Student;
+use App\Models\Quizze;
+use App\Models\Degree;
 
 class TotalDegreeController extends Controller
 {
@@ -38,18 +40,28 @@ class TotalDegreeController extends Controller
 
 
 
-    public function show(Request $request){         
-    
-            $course = Course::where('id',$request->course_id)->where('doctor_id',auth()->user()->id)->first();
-
-             $students = Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
-
-             $courses = Course::where('doctor_id',auth()->user()->id)->get();
-             return   view('Doctor.Degree.allstudentcourse',compact('students','courses')); 
-
-
-
+    public function show(Request $request){ 
+           
+        $course =  Course::where('id',$request->course_id)->where('doctor_id',auth()->user()->id)->first();
+        $students =  Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
+        $courses = Course::where('doctor_id',auth()->user()->id)->get();
+        return   view('Doctor.Degree.allstudentcourse',compact('students','courses')); 
     }
      
+
+    public function viewallquiz($id , $course_id){
+
+      // $courses = Course::where('doctor_id',auth()->user()->id)->get(); 
+   
+
+       $score =  Degree::where('course_id',$course_id)->where('student_id',$id)->sum('score');
+       
+      $quizzes =  Degree::where('course_id',$course_id)->where('student_id',$id)->get();
+  
+
+       
+
+       return view('Doctor.Degree.viewquizzes',compact('score','quizzes'));
+    }
      
 }
