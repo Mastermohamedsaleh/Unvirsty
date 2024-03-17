@@ -19,7 +19,14 @@ class DoctorCollegeController extends Controller
  
     public function index()
     {
-        $doctors =  Doctor::where('college_id',auth()->user()->college_id)->get();   
+ 
+        if(auth()->user()->status == 0){ 
+            $doctors =  Doctor::all(); 
+         }else{
+            $doctors =  Doctor::where('college_id',auth()->user()->college_id)->get(); 
+        }
+         
+         
         return view('Admin.doctor_college.index',compact('doctors')); 
     }
 
@@ -37,7 +44,15 @@ class DoctorCollegeController extends Controller
   
     public function show($id)
     {
-        $doctor_colleges =  Course::where('doctor_id',$id)->where('college_id',auth()->user()->college_id)->get();
+
+        if(auth()->user()->status == 0){ 
+            $doctor_colleges =  Course::where('doctor_id',$id)->get();
+         }else{
+            $doctor_colleges =  Course::where('doctor_id',$id)->where('college_id',auth()->user()->college_id)->get();
+        }
+
+
+     
 
          if(  !$doctor_colleges){
             return redirect()->back();

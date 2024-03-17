@@ -191,6 +191,19 @@
 </div>
 
 
+   
+<div class="col-12">
+  
+
+<select name="college_id" id="">
+  
+  @foreach($colleges as $college)
+<option value="{{$college->id}}">{{$college->name}}</option>
+ @endforeach
+</select>
+
+</div>
+
 
 
 

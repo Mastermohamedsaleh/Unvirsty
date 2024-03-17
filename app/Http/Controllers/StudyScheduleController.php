@@ -22,15 +22,28 @@ class StudyScheduleController extends Controller
 
     public function index()
     {
-        $colleges = College::where('id',auth()->user()->college_id)->get();
+
+        if(auth()->user()->status == 0){ 
+            $colleges = College::all();
+         }else{
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+        }
+     
         return view('Admin.studyschedule.index',compact('colleges'));
     }
 
  
     public function create()
     {
-        $colleges = College::where('id',auth()->user()->college_id)->get();
-        $doctors = Doctor::where('college_id',auth()->user()->college_id)->get();
+
+        if(auth()->user()->status == 0){  
+            $colleges = College::all();
+            $doctors = Doctor::all();
+        }else{
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+            $doctors = Doctor::where('college_id',auth()->user()->college_id)->get();
+        }
+
         return view('Admin.studyschedule.add',compact('colleges','doctors'));
     }
 

@@ -29,7 +29,7 @@
         <div class="card card-margin">
 
             <div class="card-header no-border">
-                <h5 class="card-title">Students</h5>
+                <h5 class="card-title">Lecture</h5>
             </div>
 
             <div class="card-body pt-0">
@@ -38,7 +38,9 @@
                     <div class="widget-49-title-wrapper">
                         
                         <div class="widget-49-date-success">
-                            <span class="widget-49-date-day">1</span>
+                            <span class="widget-49-date-day">{{ App\Models\Lecture::where('college_id',  Auth::guard('student')->user()->college_id)
+        ->where('classroom_id',  Auth::guard('student')->user()->classroom_id)
+        ->where('section_id', Auth::guard('student')->user()->section_id)->count()  }}</span>
                          
                         </div>
 
@@ -50,7 +52,7 @@
                 
 
                     <div class="widget-49-meeting-action">
-                        <a href="{{route('students.index')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
+                        <a href="{{route('lecturestudent')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
                     </div>
                 </div>
             </div>
@@ -60,7 +62,7 @@
         <div class="card card-margin">
 
             <div class="card-header no-border">
-                <h5 class="card-title">Doctors</h5>
+                <h5 class="card-title">Quizzes</h5>
             </div>
 
             <div class="card-body pt-0">
@@ -69,7 +71,9 @@
                     <div class="widget-49-title-wrapper">
                         
                         <div class="widget-49-date-success">
-                            <span class="widget-49-date-day">5</span>
+                            <span class="widget-49-date-day">{{ App\Models\Quizze::where('college_id',  Auth::guard('student')->user()->college_id)
+        ->where('classroom_id',  Auth::guard('student')->user()->classroom_id)
+        ->where('section_id', Auth::guard('student')->user()->section_id)->count() }}</span>
                  
                         </div>
 
@@ -81,7 +85,7 @@
                 
 
                     <div class="widget-49-meeting-action">
-                        <a href="{{route('doctors.index')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
+                        <a href="{{url('student_quiz')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
                     </div>
                 </div>
             </div>

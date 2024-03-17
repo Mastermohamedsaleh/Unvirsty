@@ -170,6 +170,19 @@
 
 
 
+<div class="col">
+  
+<label for="">College: <span class="text-danger">*</span></label>
+
+<select name="college_id" id="">
+  
+  @foreach($colleges as $college)
+<option value="{{$college->id}}">{{$college->name}}</option>
+ @endforeach
+</select>
+
+</div>
+
 
 <!-- end Row -->
 </div>

@@ -75,6 +75,38 @@
 
 
                 <li class="sidebar-item">
+                  <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-person-chalkboard"></i> Doctors <i class="fa-solid fa-chevron-down float-end"></i></a>
+                  <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                      <li class="sidebar-item">
+                          <a href="{{route('doctors.index')}}" class="sidebar-link">All Doctors</a>
+                          <a href="{{route('doctors.create')}}" class="sidebar-link">Add Doctor</a>
+                          <a href="{{route('doctors_college.index')}}" class="sidebar-link">Doctor With College</a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="sidebar-item">
+                  <a href="#" class="sidebar-link collapsed" data-bs-target="#course" data-bs-toggle="collapse" area-expanded="false"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i> Course <i class="fa-solid fa-chevron-down float-end"></i></a>
+                  <ul id="course" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                      <li class="sidebar-item">
+                       <a href="{{route('course.index')}}" class="sidebar-link"> All Course</a>  
+                       <a href="{{route('course.create')}}" class="sidebar-link"> Add Course</a>              
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="sidebar-item">
+                  <a href="#" class="sidebar-link collapsed" data-bs-target="#Schedule" data-bs-toggle="collapse" area-expanded="false"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i> Schedule <i class="fa-solid fa-chevron-down float-end"></i></a>
+                  <ul id="Schedule" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                      <li class="sidebar-item">
+                       <a href="{{route('studyschedule.index')}}" class="sidebar-link"> StudySchedule</a>  
+                       <a href="{{route('examsschedule.index')}}" class="sidebar-link"> ExamSchedule</a>              
+                      </li>
+                  </ul>
+              </li>
+
+
+                <li class="sidebar-item">
                     <a href="{{route('accountant.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Accountant </a>
                 </li>
 

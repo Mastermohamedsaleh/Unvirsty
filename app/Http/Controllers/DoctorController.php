@@ -18,15 +18,27 @@ class DoctorController extends Controller
 
     public function index()
     {
-        $doctors = Doctor::where('college_id',auth()->user()->college_id)->get();
+
+        if(auth()->user()->status == 0){
+            $doctors = Doctor::all(); 
+        }else{
+            $doctors = Doctor::where('college_id',auth()->user()->college_id)->get();
+        }
+         
         return view('Admin.doctors.index',compact('doctors'));
     }
 
 
     public function create()
     {
+
+        if(auth()->user()->status == 0){ 
+            $data['colleges'] = College::all();
+        }else{
+            $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
+        }
+
         $data['genders'] = Gender::all();
-        $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
         $data['sections'] = Section::all();
         $data['nationalities']  = Nationalitie::all();
 
@@ -44,7 +56,7 @@ class DoctorController extends Controller
           $doctor->gender_id = $request->gender_id;
           $doctor->nationalitie_id = $request->nationalitie_id;
           $doctor->ssn = $request->ssn;
-          $doctor->college_id = auth()->user()->college_id;
+          $doctor->college_id =  $request->college_id;
           $doctor->Address = $request->address;
           $doctor->Joining_Date = $request->Joining_Date;
           $doctor->save();
@@ -65,16 +77,33 @@ class DoctorController extends Controller
  
     public function edit($id)
     {
-     $doctor = Doctor::where('id',$id )->where('college_id',auth()->user()->college_id)->first();
-     if( !$doctor  ){
-        return redirect()->back();
-     }
+
+       
+
+     if(auth()->user()->status == 0){ 
+        $data['colleges'] = College::all();
         $data['genders'] = Gender::all();
+        $data['sections'] = Section::all();
+        $data['nationalities']  = Nationalitie::all();
+        $doctor = Doctor::findorfail($id);
+     return view('Admin.doctors.edit', compact('doctor') ,$data);
+    }else{
+
+        $doctor = Doctor::where('id',$id )->where('college_id',auth()->user()->college_id)->first();
+       
+        if( !$doctor  ){
+           return redirect()->back();
+        }
         $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
+        $data['genders'] = Gender::all();
         $data['sections'] = Section::all();
         $data['nationalities']  = Nationalitie::all();
 
-        return view('Admin.doctors.edit', compact('doctor') ,$data);
+    return view('Admin.doctors.edit', compact('doctor') ,$data);
+
+
+    }
+
          
     }
 
@@ -91,7 +120,7 @@ class DoctorController extends Controller
             $doctor->ssn = $request->ssn;
             $doctor->Address = $request->address;
             $doctor->Joining_Date = $request->Joining_Date;
-            $doctor->college_id = auth()->user()->college_id;
+            $doctor->college_id = $request->college_id;
             $doctor->save();
             Session::flash('message', 'Update Success');
             return redirect()->route('doctors.index');

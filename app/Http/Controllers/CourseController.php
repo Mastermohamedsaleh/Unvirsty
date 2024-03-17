@@ -22,8 +22,16 @@ class CourseController extends Controller
 
     public function index()
     {
-        $data['courses'] = Course::where('college_id',auth()->user()->college_id)->get();
-        $data['doctors'] = Doctor::where('college_id',auth()->user()->college_id)->get();
+  
+        if(auth()->user()->status == 0){
+            $data['courses'] = Course::all();
+            $data['doctors'] = Doctor::all();
+        }else{
+            $data['courses'] = Course::where('college_id',auth()->user()->college_id)->get();
+            $data['doctors'] = Doctor::where('college_id',auth()->user()->college_id)->get();
+        }
+         
+
         return view('Admin.courses.index',$data);
     }
 
@@ -31,9 +39,18 @@ class CourseController extends Controller
 
     public function create()
     {
-        $data['courses'] = Course::where('college_id',auth()->user()->college_id)->get();
-        $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
-        $data['doctors'] = Doctor::where('college_id',auth()->user()->college_id)->get();
+
+        if(auth()->user()->status == 0){
+            $data['courses'] = Course::all();
+            $data['colleges'] = College::all();
+            $data['doctors'] = Doctor::all();
+         }else{
+            $data['courses'] = Course::where('college_id',auth()->user()->college_id)->get();
+            $data['colleges'] = College::where('id',auth()->user()->college_id)->get();
+            $data['doctors'] = Doctor::where('college_id',auth()->user()->college_id)->get();
+        }
+
+ 
         return view('Admin.courses.create',$data);
     }
 
@@ -72,7 +89,12 @@ class CourseController extends Controller
    
     public function show($id)
     {
-        $course    =  Course::where('id',$id)->where('college_id',auth()->user()->college_id)->first();
+
+        if(auth()->user()->status == 0 ){
+            $course    =  Course::where('id',$id)->first();
+        }else{
+            $course    =  Course::where('id',$id)->where('college_id',auth()->user()->college_id)->first();
+        }
         if($course){
             $colleges = College::where('id',auth()->user()->college_id)->get();
             $classrooms = Classroom::where('college_id',auth()->user()->college_id)->get();
