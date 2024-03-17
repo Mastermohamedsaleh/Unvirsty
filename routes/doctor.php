@@ -53,9 +53,9 @@ Route::group(['middleware' => 'auth:doctor'], function(){
 
    Route::controller(TotalDegreeController::class)->group(function() {  
     Route::get('total_degree','index')->name('total_degree');
-    Route::get('viewallquiz/{id}/{course_id}','viewallquiz');
-    Route::get('show_student_to_degree','show')->name('show_student_to_degree');
-    Route::get('allstudent_to_degree/{param1}/{param2}/{param3}/{param4?}','allstudent')->name('allstudent_to_degree');
+    Route::get('viewdegree/{student_id}/{course_id}','viewdegree');
+     Route::get('viewstudentincourse/{course_id}','show')->name('viewstudentincourse');
+
 });
 
 

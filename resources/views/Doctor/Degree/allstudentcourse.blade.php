@@ -7,54 +7,18 @@
 
 
  
- <div class="container">
-
-
-
-   <div class="card">
-
-   <div class="card-body">
-
-      
-   <div class="row mt-2">
-
-
-<div class="col">
-
-<form  action="{{route('show_student_to_degree')}}" method="get">
-<label>Course: <span class="text-danger">*</span> </label>
-<select name="course_id" >
-    <option value="">Choose Course ...</option>
- @foreach($courses as $course)
- <option value="{{$course->id}}">{{$course->name}}</option>
-@endforeach
-</select>
-
-<button type="submit">Search</button>
-
-</form>
-
-
-</div>
-
-</div>
-    
-
-   </div>
-
-   </div>
-
-
-
-
-
-
- </div>
  
 
 
 
- @if( isset( $students ))
+
+
+
+ 
+
+
+
+
 
  <div class="container">
 
@@ -91,35 +55,18 @@
                                     <td>{{  (  $student->section_id  ?  $student->section->name   : 'No Section' ) }}</td>
                                     <td>
                                         
-                              <a href="{{url('viewallquiz', [ $student->id  , $course->id ] )}}" class="btn btn-primary">view</a>
-
+                              <a href="{{url('viewdegree', [ $student->id , $course->id ] )}}" class="btn btn-primary">view</a>
+                           
                                     </td>
-
+                                 @endforeach
                                         </div>
-
+                                 
                                     </td>
                                 </tr>
-
+                           
                       </table>
-                      
-                      @empty
+                 
 
-<h1 class="text-center text-danger">No Student</h1>
-
-
-
-
-
-
-
-
-
-
-@endforelse
-
-
-
-@endif
 
 
 

@@ -15,53 +15,32 @@ class TotalDegreeController extends Controller
       
 
     public function index(){
-
-
-
-
-
-
- 
-        // $colleges = Course::where('doctor_id',auth()->user()->id)->select('id','name','college_id','classroom_id','section_id')->get();
-        $courses = Course::where('doctor_id',auth()->user()->id)->get();
- 
-       
-        // $allstudent =  Student::where('college_id',$students->college_id)->where('classroom_id',$students->classroom_id)->where('section_id',$students->section_id)->get();
-        return   view('Doctor.Degree.allstudentcourse',compact('courses')); 
+       $courses = Course::where('doctor_id',auth()->user()->id)->get();
+       return view('Doctor.Degree.course',compact('courses'));
     }
 
-    public function allstudent($college_id , $classroom_id , $section_id = null , $course_id){
-      $allstudent =  Student::where('college_id',$college_id)->where('classroom_id',$classroom_id)->where('section_id',$section_id)->get();
-    //   return view('Doctor.Degree.allstudent',compact('allstudent','course_id'));
-    return $course_id;
-  
-
-    }
-
-
-
-    public function show(Request $request){ 
-           
-        $course =  Course::where('id',$request->course_id)->where('doctor_id',auth()->user()->id)->first();
-        $students =  Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
-        $courses = Course::where('doctor_id',auth()->user()->id)->get();
-        return   view('Doctor.Degree.allstudentcourse',compact('students','courses')); 
+    public function show($course_id){      
+        $course =  Course::where('id',$course_id)->where('doctor_id',auth()->user()->id)->first();
+         $students =  Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
+        return   view('Doctor.Degree.allstudentcourse',compact('students','course'));
     }
      
 
-    public function viewallquiz($id , $course_id){
+    public function viewdegree($student_id , $course_id){
 
-      // $courses = Course::where('doctor_id',auth()->user()->id)->get(); 
-   
+       $id_course = Course::where('doctor_id',auth()->user()->id)->where('id',$course_id)->pluck('id')->first(); 
 
-       $score =  Degree::where('course_id',$course_id)->where('student_id',$id)->sum('score');
+       if($id_course == $course_id){
+     
+        $score =  Degree::where('course_id',$course_id)->where('student_id',$student_id)->sum('score');
        
-      $quizzes =  Degree::where('course_id',$course_id)->where('student_id',$id)->get();
+        $quizzes =  Degree::where('course_id',$course_id)->where('student_id',$student_id)->get();
   
+         return view('Doctor.Degree.viewquizzes',compact('score','quizzes'));
+       }else{
+        return redirect()->back();
+       }
 
-       
-
-       return view('Doctor.Degree.viewquizzes',compact('score','quizzes'));
     }
      
 }
