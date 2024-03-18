@@ -120,10 +120,11 @@ class FeeController extends Controller
 
     public function update(FeeRequest $request, $id)
     {
-        
+
+        DB::beginTransaction();
 
         try{
-            $fee =  Fee::findOrfail($request->id);
+            $fee =  Fee::findOrfail($id);
             $fee->amount = $request->amount;
             $fee->title = $request->title;
             $fee->college_id = $request->college_id;
@@ -132,9 +133,56 @@ class FeeController extends Controller
             $fee->academic_year = $request->academic_year;
             $fee->save();
 
+
+         if($request->section_id){
+              $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->get();       
+           }else{
+              $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('academic_year',$request->academic_year)->get();
+           }
+       
+
+
+           
+           if($students->count() < 1){
+               return redirect()->back()->with('error','No Students');
+           }
+       
+           foreach($students as $student){  
+  
+               $fee_invoice = Fee_invoice::where('fee_id',$id)->update([
+                'invoice_date'=> date('Y-m-d'),
+                'student_id'=>$student->id,
+                'college_id'=>$student->college_id,
+                'classroom_id'=>$student->classroom_id,
+                'section_id'=> $student->section_id,
+                'fee_id'=>$fee->id,
+                'amount'=>$request->amount,
+               ]);
+
+
+            
+
+
+      
+   
+        //    $StudentAccount = StudentAccount::where('student',$student->id)->update([
+        //     'date'=>date('Y-m-d'),
+        //      'fee_invoice_id'=>$fee_invoice->id,
+        //      'student_id'=>$student->id,
+        //      'Debit'=>$request->amount,
+        //      'credit'=> 0.00
+        //    ]);
+
+        
+       
+           }
+   
+           DB::commit();
+
         Session::flash('message', 'update Success');
         return redirect()->route('fee.index');
         }catch (\Exception $e) {
+            DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
 
@@ -145,7 +193,7 @@ class FeeController extends Controller
 
     public function destroy(Request $request,$id)
     {
-        $fee = Fee::findOrFail($request->id)->delete();
+        $fee = Fee::findOrFail($id)->delete();
         Session::flash('message', 'Delete Success');
         return redirect()->route('fee.index');
     }

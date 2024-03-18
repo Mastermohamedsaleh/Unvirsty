@@ -22,7 +22,7 @@
 
 
      <div class="table-responsive">
-                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
+                                    <table  class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
                                            style="text-align: center">
                                         <thead>
@@ -42,10 +42,19 @@
                                              
 
 @endforeach
-   <th>{{$score}}</th>
+   
 
 </table>
 
+
+
+
+ <h3 class="text-center">Sum : {{$score}}</h3>
+ 
+
+
+  
+ 
 
 
 

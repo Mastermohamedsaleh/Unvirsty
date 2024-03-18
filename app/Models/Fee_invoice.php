@@ -10,6 +10,8 @@ class Fee_invoice extends Model
     use HasFactory;
 
 
+    protected $fillable = ['invoice_date','student_id','amount','college_id','classroom_id','section_id','fee_id'];
+
     protected $guard = [];
 
     public function fee()

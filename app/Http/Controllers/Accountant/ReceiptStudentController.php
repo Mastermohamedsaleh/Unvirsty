@@ -101,7 +101,7 @@ class ReceiptStudentController extends Controller
         
         DB::beginTransaction();
         try {
-            // حفظ البيانات في جدول سندات القبض
+            // تعديل البيانات في جدول سندات القبض
             $receipt_students = ReceiptStudent::findorfail($request->id);
             $receipt_students->date = date('Y-m-d');
             $receipt_students->student_id = $request->student_id;
@@ -109,7 +109,10 @@ class ReceiptStudentController extends Controller
             $receipt_students->description = $request->description;
             $receipt_students->save();
 
-            // حفظ البيانات في جدول الصندوق
+
+     
+
+            // تعديل البيانات في جدول الصندوق
             $fund_accounts = FundAccount::where('receipt_id',$request->id)->first();
             $fund_accounts->date = date('Y-m-d');
             $fund_accounts->receipt_id = $receipt_students->id;
@@ -118,7 +121,7 @@ class ReceiptStudentController extends Controller
             $fund_accounts->description = $request->description;
             $fund_accounts->save();
 
-            // حفظ البيانات في جدول حساب الطالب
+            // تعديل البيانات في جدول حساب الطالب
             $student_accounts = StudentAccount::where('receipt_id',$request->id)->first();
             $student_accounts->date = date('Y-m-d');
             $student_accounts->student_id = $request->student_id;
@@ -136,7 +139,7 @@ class ReceiptStudentController extends Controller
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-
+        
 
 
 

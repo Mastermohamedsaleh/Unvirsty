@@ -33,7 +33,7 @@
 
  <div class="card-body">
 
- <form action="{{route('fee.update','test')}}" method="post">
+ <form action="{{route('fee.update',$fee->id)}}" method="post">
  
  @csrf
  @method('PUT')
@@ -47,7 +47,7 @@
 
 <div class="form-group">
    <label>Title: <span class="text-danger">*</span> </label>
-    <input type="text"  name="amount" value="{{$fee->title}}"  >
+    <input type="text"  name="title" value="{{$fee->title}}"  >
 </div>
 
 </div>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->foreignId('fee_invoice_id')->nullable()->references('id')->on('fee_invoices')->onDelete('cascade');
+            $table->foreignId('receipt_id')->nullable()->references('id')->on('fee_invoices')->onDelete('cascade');
             $table->decimal('Debit',8,2)->nullable();
             $table->decimal('credit',8,2)->nullable();
             $table->timestamps();

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->decimal('Debit',8,2)->nullable();
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

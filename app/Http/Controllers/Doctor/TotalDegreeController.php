@@ -20,9 +20,14 @@ class TotalDegreeController extends Controller
     }
 
     public function show($course_id){      
-        $course =  Course::where('id',$course_id)->where('doctor_id',auth()->user()->id)->first();
-         $students =  Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
-        return   view('Doctor.Degree.allstudentcourse',compact('students','course'));
+         $course =    Course::where('id',$course_id)->where('doctor_id',auth()->user()->id)->first();
+         if($course){
+            $students =  Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
+            return   view('Doctor.Degree.allstudentcourse',compact('students','course'));
+         }else{
+            return redirect()->back();
+         }
+       
     }
      
 

@@ -37,15 +37,14 @@
  <div class="container mt-3">
 
 
-
+ <h3 class="text-primary text-center">Fee Invoices</h3>
 
  <div class="card">
 
  <div class="card-body">
-<h3 class="text-primary text-center">Fee Invoices</h3>
+
        
  
- <a href="{{route('students.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add New Student</a>
  
 
  <div class="table-responsive">

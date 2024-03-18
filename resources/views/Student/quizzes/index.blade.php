@@ -93,25 +93,28 @@
 
                       <td>
 
-
-
-
-                      @php $student_exams = route('student_quiz.show',$quizze->id)  @endphp
-
-                     <?php  $question = App\Models\Question::where('quizze_id',$quizze->id)->first(); ?> 
-                      @if($question == null)
-                            No Quetions Until Now
-                      @else 
-@if($quizze->degree->count() > 0 && $quizze->id == $quizze->degree[0]->quizze_id)
-                {{$quizze->degree[0]->score}}
-                           @else
-
-
-      <?php   $mytime = \Carbon\Carbon::now('Africa/Cairo');
+   
+                      <?php $mytime = \Carbon\Carbon::now('Africa/Cairo');
         $mytime = $mytime->toDateTimeString();
         $end_time = $quizze->end_time;
+        $start_time = $quizze->start_time;
+       
       ?>
-                           @if($mytime <= $end_time)
+          @if(  $mytime <= $start_time  )                 
+              <p>No Start Unit</p>
+          @else 
+
+                @php $student_exams = route('student_quiz.show',$quizze->id)  @endphp
+               <?php  $question = App\Models\Question::where('quizze_id',$quizze->id)->first(); ?> 
+                @if($question == null)
+                      No Quetions Until Now
+                @else 
+                @if($quizze->degree->count() > 0 && $quizze->id == $quizze->degree[0]->quizze_id)
+                {{$quizze->degree[0]->score}}
+                @else
+
+
+                    @if($mytime <= $end_time)
                         <a href="{{route('student_quiz.show',$quizze->id)}}"
                                 class="btn btn-outline-success btn-sm" role="button"
                                 aria-pressed="true" onclick="alertAbuse()">
@@ -129,7 +132,7 @@
 
                       
 
-
+           @endif
 
               </td>
 

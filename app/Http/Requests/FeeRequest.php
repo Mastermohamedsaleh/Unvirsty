@@ -28,6 +28,7 @@ class FeeRequest extends FormRequest
             'classroom_id'=>'required|exists:classrooms,id',
             'amount'=>'required|numeric|min:1',
             'academic_year'=>'required',
+            'title'=>'required',
         ];
 
     }
