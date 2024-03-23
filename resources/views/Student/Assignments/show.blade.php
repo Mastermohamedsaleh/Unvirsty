@@ -24,7 +24,7 @@
 
 <div class="col">
  
-<a href="">
+<a href="{{url('show_pdf',$assignment->id)}}">
     <img src="{{URL::asset('assets/images/unnamed.png')}}" alt="" width="20px"> {{$assignment->name}}
 </a>
 
@@ -47,9 +47,16 @@
     <tr>
         <td>End Time</td><td style=" background-color: #e9ecef;">{{$assignment->end_time}}</td>
     </tr>
+    <form action="{{url('uploadassignment',$assignment->course_id)}}" method="post" enctype="multipart/form-data">
+        @csrf
     <tr>
-        <td>Choose File</td><td><input type="file" name="file_name" id=""></td>
+        <td>Choose File</td><td><input type="file"  accept="application/pdf" name="file_name" id=""></td>
     </tr>
+    <input type="hidden" value="{{$assignment->id}}" name="id">
+    <tr>
+        <td><input type="submit" name="insert_button" value="Submit" /></td><td><input type="submit" name="update_button" value="Update" /></td>
+    </tr>
+    </form>
 </table>
 
 <!-- end container -->

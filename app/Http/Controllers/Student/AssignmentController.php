@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 
 use App\Models\Assignment;
+use App\Models\ViewAssignment;
 
+use Illuminate\Support\Facades\Session;
 
 use Illuminate\Support\Facades\Auth;
+
+use File;
 
 class AssignmentController extends Controller
 {
@@ -28,11 +32,67 @@ class AssignmentController extends Controller
       $assignment = Assignment::where('id',$id)->where('college_id',  Auth::guard('student')->user()->college_id)
       ->where('classroom_id', Auth::guard('student')->user()->classroom_id)
       ->where('section_id', Auth::guard('student')->user()->section_id)->first();
-      if($assignment ){
+      if($assignment){
         return view('Student.Assignments.show',compact('assignment'));
       }else{
         return redirect()->back();
       }
+    }
+
+
+
+    public function show_pdf($id){
+      $assignment = Assignment::where('id',$id)->where('college_id',  Auth::guard('student')->user()->college_id)
+      ->where('classroom_id', Auth::guard('student')->user()->classroom_id)
+      ->where('section_id', Auth::guard('student')->user()->section_id)->pluck('file_name')->first();
+      if($assignment){
+        return view('Student.Assignments.show_pdf',compact('assignment'));
+      }else{
+        return redirect()->back();
+      }
+    }
+
+    public function uploadassignment(Request $request ,$course_id){
+       
+       
+      try{
+
+        if($request->insert_button){
+          $fileName = time().'.'.$request->file('file_name')->extension();  
+          $request->file('file_name')->move(public_path('Assignment_Student'), $fileName);
+          $assignment =  new  ViewAssignment();
+          $assignment->file_name =  $fileName ;
+          $assignment->student_id = auth()->user()->id;
+          // $assignment->course_id = $course_id;
+          $assignment->save();
+          Session::flash('message', 'Submit Success');
+          return redirect()->route('view_assignment');
+        }else{
+              $Assignment = Assignment::findOrfail($request->id);         
+              $file_name = public_path('Assignment_Student/'.$Assignment->file_name);
+              if(File::exists($file_name)){
+                  unlink($file_name);
+              }
+              $file_name = time().'.'.$request->file('file_name')->extension();  
+              $request->file('file_name')->move(public_path('$Assignment_Student'), $file_name); 
+      
+              $Assignment->file_name =  $fileName ;
+              $Assignment->student_id = auth()->user()->id;
+              // $assignment->course_id = $course_id;
+              $Assignment->save();
+
+              Session::flash('message', 'Update Success');
+              return redirect()->route('view_assignment');
+        }
+
+   
+
+
+
+      }catch (\Exception $e) {
+          return redirect()->back()->with(['error' => $e->getMessage()]);
+      }
+       
     }
      
 }
