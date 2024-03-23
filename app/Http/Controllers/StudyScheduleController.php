@@ -96,28 +96,41 @@ class StudyScheduleController extends Controller
         ]);
 
        if( $request->college_id && $request->classroom_id && $request->section_id && $request->year && $request->semester ){
-
-        if( auth()->user()->college_id != $request->college_id ){
-           return redirect()->back();
+        if(auth()->user()->status == 0) {
+         $studyschedule =   StudySchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->where('year',$request->year)->where('semester',$request->semester)->get();
+         $colleges = College::all();
+         return view('Admin.studyschedule.index',compact('studyschedule','colleges'));
         }else{
-            $studyschedule =   StudySchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->where('year',$request->year)->where('semester',$request->semester)->get();
-            $colleges = College::where('id',auth()->user()->college_id)->get();
-               return view('Admin.studyschedule.index',compact('studyschedule','colleges'));
+            if( auth()->user()->college_id != $request->college_id ){
+                return redirect()->back();
+             }else{
+                 $studyschedule =   StudySchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->where('year',$request->year)->where('semester',$request->semester)->get();
+                 $colleges = College::where('id',auth()->user()->college_id)->get();
+                    return view('Admin.studyschedule.index',compact('studyschedule','colleges'));
+             }
         }
-      
        }elseif($request->college_id && $request->classroom_id && $request->year && $request->semester ){
-          if( auth()->user()->college_id != $request->college_id ){
-           return redirect()->back();
-        }else{
-            $studyschedule = StudySchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('year',$request->year)->where('semester',$request->semester)->get();
-            $colleges = College::where('id',auth()->user()->college_id)->get();
-            return view('Admin.studyschedule.index',compact('studyschedule','colleges'));
-        }
 
-      
-       }else{
+
+        if(auth()->user()->status == 0) { 
+            $studyschedule = StudySchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('year',$request->year)->where('semester',$request->semester)->get();
+            $colleges = College::all();
+            return view('Admin.studyschedule.index',compact('studyschedule','colleges'));
+        }else{
+            if( auth()->user()->college_id != $request->college_id ){
+                return redirect()->back();
+             }else{
+                 $studyschedule = StudySchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('year',$request->year)->where('semester',$request->semester)->get();
+                 $colleges = College::where('id',auth()->user()->college_id)->get();
+                 return view('Admin.studyschedule.index',compact('studyschedule','colleges'));
+             }     
+       
+        }
+    }else{
         return redirect()->back(); 
        }
+
+   
     }
 
 

@@ -13,14 +13,25 @@ class ExamScheduleController extends Controller
   
     public function index()
     {
-        $colleges = College::where('id',auth()->user()->college_id)->get();
+
+        if(auth()->user()->status == 0) {  
+            $colleges = College::all();
+        }else{
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+        }
+
         return view('Admin.examschedule.index',compact('colleges'));
     }
 
  
     public function create()
     {
-        $colleges = College::where('id',auth()->user()->college_id)->get();
+
+        if(auth()->user()->status == 0) {   
+            $colleges = College::all();
+        }else{
+            $colleges = College::where('id',auth()->user()->college_id)->get();
+        }
         return view('Admin.examschedule.add',compact('colleges'));
     }
 
@@ -77,24 +88,38 @@ class ExamScheduleController extends Controller
 
        if( $request->college_id && $request->classroom_id && $request->section_id && $request->year && $request->semester ){
 
-        if( auth()->user()->college_id != $request->college_id ){
-           return redirect()->back();
-        }else{
+
+        if(auth()->user()->status == 0) {  
             $examschedule =   ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->where('year',$request->year)->where('semester',$request->semester)->get();
-            $colleges = College::where('id',auth()->user()->college_id)->get();
-               return view('Admin.examschedule.index',compact('examschedule','colleges'));
-        }
-      
-       }elseif($request->college_id && $request->classroom_id && $request->year && $request->semester ){
-          if( auth()->user()->college_id != $request->college_id ){
-           return redirect()->back();
-        }else{
-            $examschedule = ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('year',$request->year)->where('semester',$request->semester)->get();
-            $colleges = College::where('id',auth()->user()->college_id)->get();
+            $colleges = College::all();
             return view('Admin.examschedule.index',compact('examschedule','colleges'));
-        }
+        }else{
+            if( auth()->user()->college_id != $request->college_id ){
+                return redirect()->back();
+             }else{
+                 $examschedule =   ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->where('year',$request->year)->where('semester',$request->semester)->get();
+                 $colleges = College::where('id',auth()->user()->college_id)->get();
+                    return view('Admin.examschedule.index',compact('examschedule','colleges'));
+             }
+        }          
+
 
       
+       }elseif($request->college_id && $request->classroom_id && $request->year && $request->semester ){
+
+        if(auth()->user()->status == 0) {  
+            $examschedule = ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('year',$request->year)->where('semester',$request->semester)->get();
+            $colleges = College::all();
+            return view('Admin.examschedule.index',compact('examschedule','colleges'));
+            }else{
+                if( auth()->user()->college_id != $request->college_id ){
+                    return redirect()->back();
+                 }else{
+                     $examschedule = ExamSchedule::where('college_id', $request->college_id)->where('classroom_id',$request->classroom_id)->where('year',$request->year)->where('semester',$request->semester)->get();
+                     $colleges = College::where('id',auth()->user()->college_id)->get();
+                     return view('Admin.examschedule.index',compact('examschedule','colleges'));
+                 }
+            }
        }else{
         return redirect()->back(); 
        }

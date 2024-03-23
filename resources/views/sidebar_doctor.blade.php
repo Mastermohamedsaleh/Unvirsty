@@ -47,6 +47,17 @@
                     </li>
                 </ul>
             </li>
+
+              <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#Assignment" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-pen"></i> Assignment <i class="fa-solid fa-chevron-down float-end"></i></a>
+                <ul id="Assignment" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="{{route('assignments.index')}}" class="sidebar-link">Assignment</a>
+                        <a href="{{route('assignments.create')}}" class="sidebar-link">Add Assignment</a>
+                        <a href="" class="sidebar-link">Total Degree Assignment</a>
+                    </li>
+                </ul>
+            </li>
   
 
 

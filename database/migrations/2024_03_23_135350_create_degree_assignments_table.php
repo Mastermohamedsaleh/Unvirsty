@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('degrees', function (Blueprint $table) {
+        Schema::create('degree_assignments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('quizze_id')->references('id')->on('quizzes')->onDelete('cascade');
+            $table->foreignId('assignment_id')->references('id')->on('assignments')->onDelete('cascade');
             $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->foreignId('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->foreignId('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->float('score');
-            $table->enum('abuse',['0', '1'])->default(0);
-            $table->date('date');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('degrees');
+        Schema::dropIfExists('degree_assignments');
     }
 };

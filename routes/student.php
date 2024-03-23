@@ -10,6 +10,7 @@ use App\Http\Controllers\Student\ExamScheduleStudentController;
 use App\Http\Controllers\Student\FeeController;  
 use App\Http\Controllers\Student\LectureStudentController;  
 use App\Http\Controllers\Student\ScheduleController;  
+use App\Http\Controllers\Student\AssignmentController;  
 use App\Http\Controllers\CalenderController;  
 
 
@@ -38,9 +39,14 @@ Route::middleware(['auth:student'])->group(function () {
     });
     
     
-    Route::controller(ScheduleController::class)->group(function() {  
+       Route::controller(ScheduleController::class)->group(function() {  
         Route::get('search_receipt','SearchReceipt');
         });
+
+       Route::controller(AssignmentController::class)->group(function() {  
+           Route::get('view_assignment','index');
+           Route::get('show_assignment/{id}','show');
+       });
     
     
     Route::controller(FeeController::class)->group(function() {   

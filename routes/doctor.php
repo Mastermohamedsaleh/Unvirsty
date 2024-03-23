@@ -10,7 +10,7 @@ use App\Http\Controllers\Doctor\QuizzeController;
 
 use App\Http\Controllers\Doctor\QuestionController;
 use App\Http\Controllers\Doctor\LibraryController;
-use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController , TotalDegreeController};
+use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController , TotalDegreeController,AssignmentController};
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth:doctor'], function(){
     
     Route::resource('attendance',AttendanceController::class);
     Route::resource('lecture',LectureController::class);
+    Route::resource('assignments',AssignmentController::class);
 
    Route::post(' repeat_quizze/{id}',[QuizzeController::class , 'repeatquiz']);
 
