@@ -29,6 +29,9 @@
                 @if(Session::has('message'))
 <p class="alert alert-info" style="width:300px; margin:0px auto">{{ Session::get('message') }}</p>
 @endif
+        @if(Session::has('danger'))
+<p class="alert alert-danger" style="width:300px; margin:0px auto">{{ Session::get('danger') }}</p>
+@endif
 
 
 
@@ -94,12 +97,7 @@
                       <td>
 
    
-    <?php $mytime = \Carbon\Carbon::now('Africa/Cairo');
-        $mytime = $mytime->toDateTimeString();
-        $end_time = $assignment->end_time;
-        $start_time = $assignment->start_time;
-       
-      ?>
+
 
 
                         <a href="{{url('show_assignment',$assignment->id)}}"

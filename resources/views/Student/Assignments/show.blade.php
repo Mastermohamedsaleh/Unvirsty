@@ -8,7 +8,19 @@
 
 
 
+@if(Session::has('message'))
+<p class="alert alert-danger" style="width:300px; margin:0px auto">{{ Session::get('message') }}</p>
+@endif
 
+@if ($errors->any())
+                    <div class="alert alert-danger" style="width:300px; margin:0px auto">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
 
 
@@ -38,15 +50,25 @@
 
 <h5 class="mt-3">Submission Status</h5>
 
-
+<?php   $mytime = \Carbon\Carbon::now('Africa/Cairo');
+        $mytime = $mytime->toDateTimeString();
+        $end_time = $assignment->end_time;
+        $start_time = $assignment->start_time;
+ ?>
 
 <table class="table table-striped">
-    <tr >
-        <td>Start Time</td><td style=" background-color:#e9ecef ;">{{$assignment->start_time}}</td>
+    <tr>
+        <td>Start Time</td><td style=" background-color: #e9ecef;">{{  date('l' , strtotime($assignment->start_time ) )}} {{ date('h:i A' , strtotime( $assignment->start_time ) )}}</td>
     </tr>
     <tr>
-        <td>End Time</td><td style=" background-color: #e9ecef;">{{$assignment->end_time}}</td>
+        <td>End Time</td><td style=" background-color: #e9ecef;">{{  date('l' , strtotime($assignment->end_time ) )}} {{  date('h:i A' , strtotime($assignment->end_time ) )}}</td>
     </tr>
+
+    @if(  $mytime <= $start_time  )                 
+            <tr>  <td>No Start Unit</td> </tr>
+    @else 
+
+    @if($mytime <= $end_time)
     <form action="{{url('uploadassignment',$assignment->course_id)}}" method="post" enctype="multipart/form-data">
         @csrf
     <tr>
@@ -57,6 +79,11 @@
         <td><input type="submit" name="insert_button" value="Submit" /></td><td><input type="submit" name="update_button" value="Update" /></td>
     </tr>
     </form>
+    @else 
+       <tr><td>Assignment End</td></tr>
+    @endif
+    @endif
+
 </table>
 
 <!-- end container -->

@@ -44,7 +44,7 @@ Route::middleware(['auth:student'])->group(function () {
         });
 
        Route::controller(AssignmentController::class)->group(function() {  
-           Route::get('view_assignment','index');
+           Route::get('view_assignment','index')->name('view_assignment');
            Route::get('show_assignment/{id}','show');
            Route::get('show_pdf/{id}','show_pdf');
            Route::post('uploadassignment/{course_id}','uploadassignment');

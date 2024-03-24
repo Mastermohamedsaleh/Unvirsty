@@ -10,7 +10,7 @@ use App\Http\Controllers\Doctor\QuizzeController;
 
 use App\Http\Controllers\Doctor\QuestionController;
 use App\Http\Controllers\Doctor\LibraryController;
-use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController , TotalDegreeController,AssignmentController};
+use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController , TotalDegreeController,AssignmentController,StudentAssignmentController};
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -32,7 +32,7 @@ Route::get('dashboard/doctor', function () {
 
 
 
-Route::group(['middleware' => 'auth:doctor'], function(){
+    Route::group(['middleware' => 'auth:doctor'], function(){
     Route::resource('quizzes',QuizzeController::class);
     Route::resource('questions',QuestionController::class);
 
@@ -41,9 +41,9 @@ Route::group(['middleware' => 'auth:doctor'], function(){
     });
 
     
-    Route::resource('attendance',AttendanceController::class);
-    Route::resource('lecture',LectureController::class);
-    Route::resource('assignments',AssignmentController::class);
+   Route::resource('attendance',AttendanceController::class);
+   Route::resource('lecture',LectureController::class);
+   Route::resource('assignments',AssignmentController::class);
 
    Route::post(' repeat_quizze/{id}',[QuizzeController::class , 'repeatquiz']);
 
@@ -51,12 +51,19 @@ Route::group(['middleware' => 'auth:doctor'], function(){
 
    Route::post('repeat_quizze', [QuizzeController::class,'repeat_quizze'])->name('repeat.quizze');
 
-
+// Total Degree Quiz 
    Route::controller(TotalDegreeController::class)->group(function() {  
-    Route::get('total_degree','index')->name('total_degree');
-    Route::get('viewdegree/{student_id}/{course_id}','viewdegree');
+     Route::get('total_degree','index')->name('total_degree');
+     Route::get('viewdegree/{student_id}/{course_id}','viewdegree');
      Route::get('viewstudentincourse/{course_id}','show')->name('viewstudentincourse');
+});
 
+   Route::controller(StudentAssignmentController::class)->group(function() {  
+     Route::get('studentassignment','index');
+     Route::get('viewastudentssignment/{student_id}/{course_id}','viewastudentssignment');
+     Route::get('assignmentstudentincourse/{course_id}','show')->name('assignmentstudentincourse');
+     Route::get('show_pdf_student/{viewassignment_id}/{course_id}','show_pdf_student');
+     Route::post('degreeassignment','degreestudentassignment');
 });
 
 

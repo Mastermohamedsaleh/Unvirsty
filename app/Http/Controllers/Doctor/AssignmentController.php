@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Assignment;
 use App\Models\Course;
+ 
+use App\Http\Requests\AssignmentRequest;
 
 use Illuminate\Support\Facades\Session;
 
@@ -31,7 +33,7 @@ class AssignmentController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(AssignmentRequest $request)
     {
 
 
@@ -83,7 +85,7 @@ class AssignmentController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(AssignmentRequest $request, $id)
     {
 
         try{

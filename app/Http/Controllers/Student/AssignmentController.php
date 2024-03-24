@@ -53,42 +53,75 @@ class AssignmentController extends Controller
     }
 
     public function uploadassignment(Request $request ,$course_id){
-       
-       
       try{
 
+
+       
         if($request->insert_button){
+
+          $assignment = Assignment::where('id' ,$request->id)->first();
+          $mytime = \Carbon\Carbon::now('Africa/Cairo');
+          $mytime = $mytime->toDateTimeString();
+          $end_time = $assignment->end_time;
+          $start_time = $assignment->start_time;
+         if( $mytime <= $end_time ){
+          $Assignment = ViewAssignment::where('assignment_id' ,$request->id)->first(); 
+          if($Assignment){
+            return redirect()->back()->withErrors(['message' => 'This Pdp submit Before']);
+         }else{
+
+          $validated = $request->validate([
+            'file_name' => 'required|mimes:pdf|max:10000',
+        ]);
           $fileName = time().'.'.$request->file('file_name')->extension();  
           $request->file('file_name')->move(public_path('Assignment_Student'), $fileName);
           $assignment =  new  ViewAssignment();
           $assignment->file_name =  $fileName ;
           $assignment->student_id = auth()->user()->id;
-          // $assignment->course_id = $course_id;
+          $assignment->course_id = $course_id;
+          $assignment->assignment_id = $request->id;
           $assignment->save();
           Session::flash('message', 'Submit Success');
           return redirect()->route('view_assignment');
+      }
+    }else{
+      return redirect()->back();
+    }
         }else{
-              $Assignment = Assignment::findOrfail($request->id);         
-              $file_name = public_path('Assignment_Student/'.$Assignment->file_name);
-              if(File::exists($file_name)){
-                  unlink($file_name);
-              }
-              $file_name = time().'.'.$request->file('file_name')->extension();  
-              $request->file('file_name')->move(public_path('$Assignment_Student'), $file_name); 
-      
-              $Assignment->file_name =  $fileName ;
-              $Assignment->student_id = auth()->user()->id;
-              // $assignment->course_id = $course_id;
-              $Assignment->save();
 
-              Session::flash('message', 'Update Success');
-              return redirect()->route('view_assignment');
+
+          if( $mytime <= $end_time ){ 
+
+          $validated = $request->validate([
+            'file_name' => 'required|mimes:pdf|max:10000',
+        ]);
+              $Assignment = ViewAssignment::where('assignment_id' ,$request->id)->first();
+              if($Assignment){
+                $file_name = public_path('Assignment_Student/'.$Assignment->file_name);
+                if(File::exists($file_name)){
+                    unlink($file_name);
+                }
+                $file_name = time().'.'.$request->file('file_name')->extension();  
+                $request->file('file_name')->move(public_path('Assignment_Student'), $file_name); 
+        
+                $Assignment->file_name = $file_name;
+                $Assignment->student_id = auth()->user()->id;
+                $Assignment->course_id = $course_id;
+                $Assignment->assignment_id = $request->id;
+                $Assignment->save();
+                Session::flash('message', 'Update Success');
+                return redirect()->route('view_assignment');
+
+              } else{
+                Session::flash('danger', 'You must first Submit');
+                return redirect()->route('view_assignment');
+              } 
+                  
+            }else{
+              return redirect()->back();
+            }
         }
-
-   
-
-
-
+      
       }catch (\Exception $e) {
           return redirect()->back()->with(['error' => $e->getMessage()]);
       }
