@@ -36,13 +36,10 @@ class StudentAssignmentController extends Controller
    public function viewastudentssignment($student_id , $course_id){
     
       $id_course = Course::where('doctor_id',auth()->user()->id)->where('id',$course_id)->pluck('id')->first(); 
-
        if($id_course == $course_id){
-     
-        $viewassignments =  ViewAssignment::where('course_id',$course_id)->where('student_id',$student_id)->get();
-       
-  
-         return view('Doctor.Assignments.viewassignment',compact('viewassignments'));
+         $viewassignments =  ViewAssignment::where('course_id',$course_id)->where('student_id',$student_id)->get();
+         $score =  DegreeAssignment::where('course_id',$course_id)->where('student_id',$student_id)->sum('score');
+         return view('Doctor.Assignments.viewassignment',compact('viewassignments','score'));
        }else{
         return redirect()->back();
        }
@@ -61,33 +58,71 @@ class StudentAssignmentController extends Controller
         }
     }
 
+
+    public function pdfstudentassignment($viewassignment_id , $coure_id){
+      $viewassignment = ViewAssignment::where('id',$viewassignment_id)->where('course_id',$coure_id)->first();
+      if($viewassignment){
+        return view('Doctor.Assignments.studentassignment',compact('viewassignment'));
+      }else{
+        return redirect()->back();
+      }
+    }
+
     public function degreestudentassignment(Request $request){
         
 
-        if($request->insert_button){ 
+      
+
+          try {
 
 
-            $score = $request->score;
-            $assignment_id = $request->assignment_id;
-            $course_id = $request->course_id;
-            $student_id = $request->student_id;
-    
-            for($i =0 ; $i < count($score) ; $i++){
-                  $insert = [
-                    'score' =>  $score[$i],
-                    'assignment_id'=>$assignment_id[$i],
-                    'student_id'=>$student_id,
-                    'course_id'=>$course_id
-                  ];
-                 DB::table('degree_assignments')->insert($insert);
-            }  
-            Session::flash('message', 'Add Success'); 
-            return redirect()->back();
-    
-        }else{
+
+            if($request->insert_button){  
+ 
+            $Assignment = DegreeAssignment::where('assignment_id' ,$request->id)->first(); 
+          if($Assignment){
+            return redirect()->back()->withErrors(['message' => 'This Degree submit Before']);
+         }else{
+
+          $validated = $request->validate([
+            'score' => 'required|numeric|max:100',
+        ]);
+
+        $assignment =  new  DegreeAssignment();
+        $assignment->score =  $request->score ;
+        $assignment->assignment_id = $request->assignment_id;
+        $assignment->course_id = $request->course_id;
+        $assignment->student_id = $request->student_id;
+        $assignment->save();
+        Session::flash('message', 'Submit Success');
+        return redirect()->back();
+  }
+ 
+             
+          }else{
+
+            $validated = $request->validate([
+              'score' => 'required|numeric|max:100',
+          ]);
+  
+          $assignment =  DegreeAssignment::where('assignment_id' ,$request->assignment_id)->first();
+          $assignment->score =  $request->score ;
+          $assignment->assignment_id = $request->assignment_id;
+          $assignment->course_id = $request->course_id;
+          $assignment->student_id = $request->student_id;
+          $assignment->save();
+          Session::flash('message', 'Update Success');
+          return redirect()->back();
+          }
+
+          }catch (\Exception $e) {
+              return redirect()->back()->with(['error' => $e->getMessage()]);
+          }
+
+
+
 
         }
-       
-    }
+     
 
 }

@@ -63,6 +63,10 @@
     <tr>
         <td>End Time</td><td style=" background-color: #e9ecef;">{{  date('l' , strtotime($assignment->end_time ) )}} {{  date('h:i A' , strtotime($assignment->end_time ) )}}</td>
     </tr>
+    {{ $score = \App\Models\DegreeAssignment::where('assignment_id',$assignment->id)->where('student_id',auth()->user()->id)->pluck('score')->first()}}
+    <tr>
+        <td>Degree</td><td>{{  ($score ? $score : 'No Socre') }}</td>
+    </tr>
 
     @if(  $mytime <= $start_time  )                 
             <tr>  <td>No Start Unit</td> </tr>

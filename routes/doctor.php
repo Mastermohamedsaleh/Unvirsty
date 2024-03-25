@@ -61,6 +61,7 @@ Route::get('dashboard/doctor', function () {
    Route::controller(StudentAssignmentController::class)->group(function() {  
      Route::get('studentassignment','index');
      Route::get('viewastudentssignment/{student_id}/{course_id}','viewastudentssignment');
+     Route::get('pdfstudentassignment/{viewassignment_id}/{course_id}','pdfstudentassignment');
      Route::get('assignmentstudentincourse/{course_id}','show')->name('assignmentstudentincourse');
      Route::get('show_pdf_student/{viewassignment_id}/{course_id}','show_pdf_student');
      Route::post('degreeassignment','degreestudentassignment');

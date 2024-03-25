@@ -55,7 +55,7 @@
                                     <td>{{  (  $student->section_id  ?  $student->section->name   : 'No Section' ) }}</td>
                                     <td>
                                         
-                              <a href="{{url('viewastudentssignment', [ $student->id , $course->id ] )}}" class="btn btn-primary">view</a>
+                              <a href="{{url('viewastudentssignment', [ $student->id , $course->id ] )}}" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                            
                                     </td>
                                  @endforeach
