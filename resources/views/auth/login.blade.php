@@ -38,7 +38,7 @@
 
 
 
-      <section class="vh-100" style="background-color: #0062cc;">
+      <section class="vh-100" style="background-color:#002db3;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-xl-10">

@@ -55,9 +55,7 @@
                 </li>
 
 
-                <li class="sidebar-item">
-                    <a href="{{url('adminprofile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile </a>
-                </li>
+          
                 
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-graduation-cap"></i> Students <i class="fa-solid fa-chevron-down float-end"></i> </a>
@@ -108,6 +106,10 @@
 
                 <li class="sidebar-item">
                     <a href="{{route('accountant.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Accountant </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="{{url('adminprofile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile </a>
                 </li>
 
               <li class="sidebar-item">

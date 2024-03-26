@@ -24,7 +24,7 @@ class ClassroomRequest extends FormRequest
     public function rules()
     {
         return [
-            "name"    => "required",
+            "name.*"    => "required",
             'college_id'=>'required|exists:colleges,id',
         ];
     }
