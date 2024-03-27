@@ -16,10 +16,27 @@
 
 
 
+<div class="row">
 
+
+<div class="col-3">
 <a href="{{route('lecture.create')}}" class="mb-2 btn btn-primary btn-sm">Add Lecture</a>
+</div>
 
-@foreach($lectures as $lecture)
+
+<div class="col-lg-5 col-md-5 col-sm-12">
+
+<form action="{{route('lecture.index')}}" method="get">
+<div class="search-container">  
+<input type="text" name="search" placeholder = "Name Lecture">
+  <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+</form>
+</div>
+
+
+
+
 
 
 
@@ -28,6 +45,8 @@
 
 
 <div class="row">
+@forelse($lectures as $lecture)
+
 <div class="alert alert text-light" role="alert" style="padding:5px; background: #E6EDFB ;   border-radius: 10px;">
 
 
@@ -71,13 +90,18 @@
  
             <!-- end col -->
         </div>
+        @empty
 
-        @endforeach
-
+<div class="alert alert text-light" role="alert" style="padding:5px; background: #E6EDFB ;   border-radius: 10px;">
+  <h4 class="text-center">No Leacture</h4> 
+</div>
+      
+        @endforelse
+ {{ $lectures->links() }}
 </div>
 
 
-</div>
+
 
 
 

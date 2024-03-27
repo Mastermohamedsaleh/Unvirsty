@@ -723,3 +723,33 @@ text-transform: uppercase;
   background-color: #00D084;
 }
 /* end profile */
+
+/*  Button search  */
+
+
+.search-container {
+  position: relative;
+  border-radius: 30px;
+}
+.search-box {
+  background-color: transparent;
+  outline: none;
+  height: 35px;
+  font-size: 15px;
+  border: 0;
+  width: 100%;
+}
+.search-button {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  background-color: #C00;
+  border-radius: 50%;
+  border: 0;
+  color: #FFF;
+  width: 35px;
+  height: 35px;
+  outline: 0;
+}
+
+/* End Button Search */

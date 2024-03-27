@@ -12,9 +12,16 @@ use File;
 
 class LectureController extends Controller
 {
-    public function index()
-    {
-        $lectures = Lecture::where('doctor_id',auth()->user()->id)->orderBy('id', 'DESC')->get();
+    public function index(Request $request)  
+     {
+ 
+        $search = $request->input('search');          
+        if ($search) {  
+             $lectures = Lecture::where('title', 'like', "%$search%")->paginate(PAGENATOR_COUNT);
+        }else{
+            $lectures = Lecture::where('doctor_id',auth()->user()->id)->orderBy('id', 'DESC')->paginate(PAGENATOR_COUNT);  
+        }      
+        // $lectures = Lecture::where('doctor_id',auth()->user()->id)->orderBy('id', 'DESC')->get();
         return view('Doctor.My_lecture.index',compact('lectures'));
     }
 
@@ -89,8 +96,8 @@ try{
    
         try{
 
-     $course = Course::where('id' , $request->course_id)->first();     
-      $lecture = Lecture::findOrfail($id);         
+         $course = Course::where('id' , $request->course_id)->first();     
+         $lecture = Lecture::findOrfail($id);         
         if (request()->hasFile('file_name')){
             $file_name = public_path('Lecture_Doctor/'.$lecture->file_name);
             if(File::exists($file_name)){

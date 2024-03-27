@@ -24,13 +24,11 @@ class QuizzeController extends Controller
         return view('Doctor.Quizzes.index', compact('quizzes'));
     }
 
-
     public function create()
     {
         $data['courses'] = Course::where('doctor_id',auth()->user()->id)->get();
         return view('Doctor.Quizzes.create', $data);
     }
-
 
     public function store(QuizRequest $request)
     {
@@ -58,7 +56,6 @@ class QuizzeController extends Controller
 
     }
 
-
     public function show($id)
     {
         $quizz = Quizze::where('id',$id)->where('doctor_id',auth()->user()->id)->first();
@@ -70,7 +67,6 @@ class QuizzeController extends Controller
         }
     }
 
-
     public function edit($id)
     {
         $quizz = Quizze::findorFail($id);
@@ -79,7 +75,6 @@ class QuizzeController extends Controller
         $data['doctors'] = Doctor::all();
         return view('Doctor.Quizzes.edit', $data, compact('quizz'));
     }
-
 
     public function update(Request $request, $id)
     {
@@ -99,7 +94,6 @@ class QuizzeController extends Controller
         }
     }
 
-
     public function destroy(Request $request ,$id)
     {
         try {
@@ -111,12 +105,19 @@ class QuizzeController extends Controller
         }
     }
 
-
-
     public function student_quizze($quizze_id)
     {
-        $degrees = Degree::where('quizze_id', $quizze_id)->get();
-        return view('Doctor.Quizzes.student_quizze', compact('degrees'));
+        $quizz = Quizze::where('id',$quizze_id)->where('doctor_id',auth()->user()->id)->first();
+        if( $quizz ){
+            if($quizz->id == $quizze_id){
+                $degrees = Degree::where('quizze_id', $quizze_id)->get();
+                return view('Doctor.Quizzes.student_quizze', compact('degrees'));
+            }else{
+                return redirect()->back();
+            }
+        }else{
+            return redirect()->back();
+        }
     }
 
      public function  repeatquiz(Request $request ,$id){

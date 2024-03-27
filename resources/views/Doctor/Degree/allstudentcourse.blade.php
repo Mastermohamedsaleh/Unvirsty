@@ -23,6 +23,17 @@
  <div class="container">
 
 
+
+ <div class="col-lg-5 col-md-5 col-sm-12">
+
+<form action="{{route('viewstudentincourse',$course->id)}}" method="get">
+<div class="search-container">  
+<input type="text" name="search" placeholder = "Name Student Or Email">
+  <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+</form>
+</div>
+
 <div class="card">
 
 
@@ -55,10 +66,12 @@
                                     <td>{{  (  $student->section_id  ?  $student->section->name   : 'No Section' ) }}</td>
                                     <td>
                                         
-                              <a href="{{url('viewdegree', [ $student->id , $course->id ] )}}" class="btn btn-primary">view</a>
+                              <a href="{{url('viewdegree', [ $student->id , $course->id ] )}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
                            
                                     </td>
-                                 @endforeach
+                                 @empty
+                                   <h4 class="text-center text-danger"> No Student</h4> 
+                                 @endforelse
                                         </div>
                                  
                                     </td>

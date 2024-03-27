@@ -23,11 +23,33 @@ class LectureRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'file_name' => 'required|mimes:pdf|max:2048',
-            'title'=>'required',
-            'course_id'=>'required|exists:courses,id',
-        ];
+
+
+
+
+
+
+        switch ($this->method()) {
+            case 'POST':
+            {
+                return [
+                    'file_name' => 'required|mimes:pdf|max:2048',
+                    'title'=>'required',
+                    'course_id'=>'required|exists:courses,id',
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'title'=>'required',
+                    'course_id'=>'required|exists:courses,id',
+                ];
+            }
+            default: break;
+        }
+
+
     }
 
     

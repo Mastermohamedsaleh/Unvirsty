@@ -13,7 +13,7 @@
 <h3 class="text-center text-primary mt-3">My Course</h3>
 
 
-<table   class="table table-hover table-bordered">
+<table id="datatable"  class="table table-hover table-bordered">
 
 
 <thead>

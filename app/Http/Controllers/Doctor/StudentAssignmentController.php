@@ -22,10 +22,16 @@ class StudentAssignmentController extends Controller
         return view('Doctor.Assignments.course',compact('courses'));
     }
 
-    public function show($course_id){      
+    public function show(Request $request ,$course_id){      
         $course =    Course::where('id',$course_id)->where('doctor_id',auth()->user()->id)->first();
         if($course){
-           $students =  Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
+
+          $search = $request->input('search');          
+          if ($search) {  
+             $students = Student::where('name', 'like', "%$search%")->orwhere('email', 'like', "%$search%")->where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->paginate(PAGENATOR_COUNT);
+          }else{
+             $students =  Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->paginate(PAGENATOR_COUNT);  
+          } 
            return   view('Doctor.Assignments.allstudentcourse',compact('students','course'));
         }else{
            return redirect()->back();

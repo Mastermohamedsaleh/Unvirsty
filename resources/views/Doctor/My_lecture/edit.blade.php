@@ -86,7 +86,7 @@
 </div>
 
 
-<button type="submit" class="btn btn-primary mt-2">Add</button>
+<button type="submit" class="btn btn-primary mt-2">Update</button>
 
 </form>
 
