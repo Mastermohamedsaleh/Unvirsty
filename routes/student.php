@@ -11,6 +11,7 @@ use App\Http\Controllers\Student\FeeController;
 use App\Http\Controllers\Student\LectureStudentController;  
 use App\Http\Controllers\Student\ScheduleController;  
 use App\Http\Controllers\Student\AssignmentController;  
+use App\Http\Controllers\Student\SpecialQuizController;  
 use App\Http\Controllers\CalenderController;  
 
 
@@ -38,8 +39,10 @@ Route::middleware(['auth:student'])->group(function () {
     
     });
     
-    
-       Route::controller(ScheduleController::class)->group(function() {  
+    Route::get('special_quiz' , [SpecialQuizController::class , 'index'])->name('special_quiz');
+    Route::get('viewspecialquiz/{quiz_id}' , [SpecialQuizController::class , 'show'])->name('viewspecialquiz');
+
+        Route::controller(ScheduleController::class)->group(function() {  
         Route::get('search_receipt','SearchReceipt');
         });
 

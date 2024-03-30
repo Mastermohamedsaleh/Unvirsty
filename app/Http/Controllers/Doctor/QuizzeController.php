@@ -10,9 +10,10 @@ use App\Models\Question;
 use App\Models\Course;      // Change All Course Into Course
 use App\Models\Doctor;
 use App\Models\Degree;
+use App\Models\Student;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\QuizRequest;
-
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -121,6 +122,22 @@ class QuizzeController extends Controller
     }
 
      public function  repeatquiz(Request $request ,$id){
+        $validated = $request->validate([
+            'start_time' => 'required',
+            'end_time' => 'required',
+        ]);
+        $student  = Student::where('id',$request->student_id)->first();
+        DB::table('special_quizzes')->insert([
+          'quizze_id'=>$request->quizze_id,
+          'student_id'=>$request->student_id,
+          'college_id'=>$student->college_id,
+          'classroom_id'=>$student->classroom_id,
+          'section_id'=>$student->section_id,
+          'course_id'=>$request->course_id,
+          'start_time'=>$request->start_time,
+          'end_time'=>$request->end_time,
+        ]);
+
         Degree::where('student_id',$request->student_id)->where('quizze_id',$request->quizze_id)->delete();
         Session::flash('message', 'Repeat Success');
         return redirect()->back();       

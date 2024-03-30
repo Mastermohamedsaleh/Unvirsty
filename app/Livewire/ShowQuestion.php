@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\Question;
 use App\Models\Degree;
 use App\Models\Quizze;
+use App\Models\SpecialQuiz;
 use Illuminate\Support\Facades\Session;
 
 Use Carbon\Carbon;
@@ -29,10 +30,21 @@ class ShowQuestion extends Component
     {
 
 
+       $specialquiz = SpecialQuiz::where('student_id',$this->student_id)->where('quizze_id',$this->quizze_id)->first();
+
+       if($specialquiz){
+        $mytime = Carbon::now('Africa/Cairo');
+        $mytime = $mytime->toDateTimeString();
+        $start_time = $specialquiz->start_time;
+        $end_time = $specialquiz->end_time;
+       }else{
         $mytime = Carbon::now('Africa/Cairo');
         $mytime = $mytime->toDateTimeString();
         $start_time = $this->quiz->start_time;
         $end_time = $this->quiz->end_time;
+       }
+
+
 
     
     if($mytime <= $end_time){
@@ -61,6 +73,9 @@ class ShowQuestion extends Component
                 $stuDegree->score = 0;
                 $stuDegree->abuse = '1';
                 $stuDegree->save();
+                if($specialquiz){
+                    $specialquiz->delete();
+                }
                 Session::flash('message','تم إلغاء الاختبار لإكتشاف تلاعب بالنظام');
                 return redirect('student_quiz');
             } else {
@@ -78,6 +93,9 @@ class ShowQuestion extends Component
         if ($this->counter < $this->questioncount - 1) {
             $this->counter++;
         } else {
+            if($specialquiz){
+                $specialquiz->delete();
+            }
            Session::flash('message','تم إجراء الاختبار بنجاح');
             return redirect('student_quiz');
         }

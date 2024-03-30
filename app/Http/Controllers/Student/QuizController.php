@@ -38,7 +38,7 @@ class QuizController extends Controller
 
     public function show($quizze_id)
     {
-        $student_id = Auth::guard('student')->user()->id;
+       $student_id = Auth::guard('student')->user()->id;
        return view('Student.quizzes.show',compact('quizze_id','student_id'));        
     }
 

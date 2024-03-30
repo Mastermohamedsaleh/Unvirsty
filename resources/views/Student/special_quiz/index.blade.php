@@ -10,7 +10,7 @@
 
 
 
-<h3 class="text-primary text-center">Quizze</h3>
+<h3 class="text-primary text-center">Special Quizze</h3>
 
 
 
@@ -40,8 +40,7 @@
                         <tr>
                                 <th>#</th>
                                 <th>Name Quizze</th>
-                                <th>Name Subject</th>
-                                <th>Name Doctor</th>
+                                <th>Course</th>
                                 <th>Processes</th>
                             </tr>
                             </thead>
@@ -50,9 +49,9 @@
              @foreach($quizzes as $quizze)
                             <tr>
                             <td> {{$i++}} </td>
-                      <td>{{$quizze->name}}</td>
-                      <td>{{$quizze->Course->name}}</td>
-                      <td>{{$quizze->doctor->name}}</td>
+                          <td>{{$quizze->quiz->name}}</td>
+                          <td>{{$quizze->Course->name}}</td>
+                     
                       <td>
 
    
@@ -63,24 +62,18 @@
           @if(  $mytime <= $start_time  )                 
               <p>No Start Unit</p>
           @else 
-                @php $student_exams = route('student_quiz.show',$quizze->id)  @endphp
-               <?php  $question = App\Models\Question::where('quizze_id',$quizze->id)->first(); ?> 
-                @if($question == null)
-                      No Quetions Until Now
-                @else 
-                @if($quizze->degree->count() > 0 && $quizze->id == $quizze->degree[0]->quizze_id)
-                {{$quizze->degree[0]->score}}
-                @else
+
+          
                     @if($mytime <= $end_time)
-                        <a href="{{route('student_quiz.show',$quizze->id)}}"
+                        <a href="{{route('student_quiz.show',$quizze->quizze_id)}}"
                                 class="btn btn-outline-success btn-sm" role="button"
                                 aria-pressed="true" onclick="alertAbuse()">
                                 <i class="fas fa-person-booth"></i></a>
                         @else
                         {{  "Quiz  End" }}  
                         @endif
-                           @endif
-                      @endif
+    
+               
            @endif
               </td>
                     </tr>

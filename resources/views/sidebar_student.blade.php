@@ -34,8 +34,8 @@
                 <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i style="padding: 0 10px 0  0" class="fa-regular fa-user pe-2"></i> Quizzes <i class="fa-solid fa-chevron-down float-end"></i>  </a> 
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="{{route('student_quiz.index')}}" class="sidebar-link">All Quizze </a>
-                    
+                        <a href="{{route('student_quiz.index')}}" class="sidebar-link">All Quiz</a>
+                        <a href="{{route('special_quiz')}}" class="sidebar-link">Speical Quiz</a>
                     </li>
                 </ul>
             </li>

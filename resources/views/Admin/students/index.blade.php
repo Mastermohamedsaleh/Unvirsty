@@ -34,24 +34,16 @@
 
 
 <div class="container">
-<div class="card">
+
+<div class="col-lg-5 col-md-5 col-sm-12">
+
 <form action="{{url('students')}}" method="get">
-
-<div class="card-body">
-
-
-    <input type="text" name="search" placeholder="Search Name OR Email">
-
-    <button class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
-
-
+<div class="search-container">  
+<input type="text" name="search" placeholder="Search Name OR Email">
+  <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
 </div>
 </form>
-
 </div>
-
-</div>
-
 
  <div class="container mt-3">
 
@@ -100,25 +92,28 @@
 
 
         
-<button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletestudent{{$student->id}}" title="Delete Student">
-<i class="fas fa-trash"></i>
-</button>
 
 
 
 
 <!-- Example single danger button -->
 <div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-    Action
-  </button>
+
 
 
 
     @if(auth('admin')->check())
-  <a class="btn btn-outline-success btn-sm" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i>  <i class="fas fa-edit"></i></a>
- 
+    <button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletestudent{{$student->id}}" title="Delete Student">
+<i class="fas fa-trash"></i>
+</button>
+
+  <a class="btn btn-outline-success btn-sm" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i></a>
+
+
   @elseif(auth('accountant')->check())
+  <button type="button" class="btn btn-danger dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+    Action
+  </button>
     <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="{{route('fee_invoices.show',$student->id)}}"> <i class="fa-solid fa-sack-dollar"></i> Add Fee</a></li>
     <li><a class="dropdown-item" href="{{route('receipt.show',$student->id)}}" > <i class="fa-solid fa-hand-holding-dollar"></i> Receipt</a></li>
