@@ -9,19 +9,20 @@
 
 
 
-<div class="cantainer mt-2">
+<div class="container mt-3">
+
+<h3 class="text-primary text-center">Student</h3>
 
 
-<h3 class="text-primary text-center">Add Student</h3>
 
 
-
-<div class="card m-5">
+<div class="card">
 
 
 
 <div class="card-body">
 
+<legend><span class="number">1</span> Write info Student</legend>
 
  <!-- Message Success -->
  @if(Session::has('message'))

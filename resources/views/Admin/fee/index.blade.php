@@ -81,7 +81,7 @@
 
 
                             <td>
-                               <a href="{{route('fee.edit',$f->id)}}"class="mb-2 btn btn-outline-success btn-sm"> <i class="fas fa-edit"></i></a>
+                               <!-- <a href="{{route('fee.edit',$f->id)}}"class="mb-2 btn btn-outline-success btn-sm"> <i class="fas fa-edit"></i></a> -->
 
 
 

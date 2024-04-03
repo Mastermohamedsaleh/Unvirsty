@@ -55,7 +55,7 @@
  <div class="card-body">
        
  
- <a href="{{route('students.create')}}" class="mb-2 btn btn-outline-primary btn-sm">Add New Student</a>
+ <a href="{{route('students.create')}}" class="mb-2 btn btn-primary btn-sm">Add New Student</a>
  
 
  <div class="table-responsive">
@@ -103,11 +103,11 @@
 
 
     @if(auth('admin')->check())
-    <button type="button" class="mb-2 btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletestudent{{$student->id}}" title="Delete Student">
+    <button type="button" class="mb-2 btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletestudent{{$student->id}}" title="Delete Student">
 <i class="fas fa-trash"></i>
 </button>
 
-  <a class="btn btn-outline-success btn-sm" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i></a>
+  <a class="btn btn-success btn-sm" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i></a>
 
 
   @elseif(auth('accountant')->check())

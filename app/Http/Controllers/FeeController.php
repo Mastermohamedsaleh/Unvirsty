@@ -68,7 +68,7 @@ class FeeController extends Controller
    if($request->section_id){
          $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->get();       
     }else{
-       $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('academic_year',$request->academic_year)->get();
+         $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('academic_year',$request->academic_year)->get();
     }
 
     if($students->count() < 1){
@@ -87,26 +87,19 @@ class FeeController extends Controller
         $fee_invoice->save();  
         
         
-    $StudentAccount = new StudentAccount();
-    $StudentAccount->date = date('Y-m-d');
-    $StudentAccount->fee_invoice_id = $fee_invoice->id;
-    $StudentAccount->student_id = $student->id;
-    $StudentAccount->Debit = $request->amount;
-    $StudentAccount->credit = 0.00;
-    $StudentAccount->save();
-
-
+       $StudentAccount = new StudentAccount();
+       $StudentAccount->date = date('Y-m-d');
+       $StudentAccount->fee_invoice_id = $fee_invoice->id;
+       $StudentAccount->student_id = $student->id;
+       $StudentAccount->Debit = $request->amount;
+       $StudentAccount->credit = 0.00;
+       $StudentAccount->save();
     }
 
-
-
-
-    DB::commit();
-
+        DB::commit();
         Session::flash('message', 'Add Success');
         return redirect()->route('fee.index');
         }catch (\Exception $e) {
-            
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -121,43 +114,66 @@ class FeeController extends Controller
     public function update(FeeRequest $request, $id)
     {
 
-        DB::beginTransaction();
+        // DB::beginTransaction();
 
-        try{
-            $fee =  Fee::findOrfail($id);
-            $fee->amount = $request->amount;
-            $fee->title = $request->title;
-            $fee->college_id = $request->college_id;
-            $fee->classroom_id = $request->classroom_id;
-            $fee->section_id = $request->section_id;
-            $fee->academic_year = $request->academic_year;
-            $fee->save();
-
-
-         if($request->section_id){
-              $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->get();       
-           }else{
-              $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('academic_year',$request->academic_year)->get();
-           }
-       
+        // try{
+        //     $fee =  Fee::findOrfail($id);
+        //     $fee->amount = $request->amount;
+        //     $fee->title = $request->title;
+        //     $fee->college_id = $request->college_id;
+        //     $fee->classroom_id = $request->classroom_id;
+        //     $fee->section_id = $request->section_id;
+        //     $fee->academic_year = $request->academic_year;
+        //     $fee->save();
 
 
+        //  if($request->section_id){
+        //       $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->get();       
+        //    }else{
+        //       $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('academic_year',$request->academic_year)->get();
+        //    }
+        //    foreach($students as $student){ 
+        //    Fee_invoice::whereIn('student_id', $students->id)
+        //    ->update([
+        //     'invoice_date'=> date('Y-m-d'),
+        //     'student_id'=>$student->id,
+        //     'college_id'=>$student->college_id,
+        //     'classroom_id'=>$student->classroom_id,
+        //     'section_id'=> $student->section_id,
+        //     'fee_id'=>$fee->id,
+        //     'amount'=>$request->amount, // Add as many as you need
+        //    ]);
+        // }
+
+    // return $students;
+
+    // foreach($students as $student){
+    //     $fee_invoice = Fee_invoice::where('fee_id',$id)->update([
+    //                 'invoice_date'=> date('Y-m-d'),
+    //                 'student_id'=>$student->id,
+    //                 'college_id'=>$student->college_id,
+    //                 'classroom_id'=>$student->classroom_id,
+    //                 'section_id'=> $student->section_id,
+    //                 'fee_id'=>$fee->id,
+    //                 'amount'=>$request->amount,
+    //                ]);
+    // }
            
-           if($students->count() < 1){
-               return redirect()->back()->with('error','No Students');
-           }
+        //    if($students->count() < 1){
+        //        return redirect()->back()->with('error','No Students');
+        //    }
        
-           foreach($students as $student){  
+        //    foreach($students as $student){  
   
-               $fee_invoice = Fee_invoice::where('fee_id',$id)->update([
-                'invoice_date'=> date('Y-m-d'),
-                'student_id'=>$student->id,
-                'college_id'=>$student->college_id,
-                'classroom_id'=>$student->classroom_id,
-                'section_id'=> $student->section_id,
-                'fee_id'=>$fee->id,
-                'amount'=>$request->amount,
-               ]);
+        //        $fee_invoice = Fee_invoice::where('fee_id',$id)->update([
+        //         'invoice_date'=> date('Y-m-d'),
+        //         'student_id'=>$student->id,
+        //         'college_id'=>$student->college_id,
+        //         'classroom_id'=>$student->classroom_id,
+        //         'section_id'=> $student->section_id,
+        //         'fee_id'=>$fee->id,
+        //         'amount'=>$request->amount,
+        //        ]);
 
 
             
@@ -175,16 +191,16 @@ class FeeController extends Controller
 
         
        
-           }
+        //    }
    
-           DB::commit();
+        //    DB::commit();
 
-        Session::flash('message', 'update Success');
-        return redirect()->route('fee.index');
-        }catch (\Exception $e) {
-            DB::rollback();
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        // Session::flash('message', 'update Success');
+        // return redirect()->route('fee.index');
+        // }catch (\Exception $e) {
+        //     DB::rollback();
+        //     return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        // }
 
 
 

@@ -8,7 +8,6 @@
 
 
 
-
  <div class="container mt-5">
  
   <h3 class="text-center text-primary">All Details</h3>
@@ -28,7 +27,29 @@
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div class="tab-pane container active" id="home">...</div>
+  <div class="tab-pane container active" id="home">
+
+
+  <table class="table">
+    <tr>
+      <th>csa</th>
+    </tr>
+
+    <tr>
+      <td>cas</td>
+    </tr>
+  </table>
+ 
+
+  @foreach($studentAccounts as $studentAccount)
+                  <h1>{{$studentAccount->date}}</h1>  
+          @endforeach 
+         
+  </div>
+
+
+
+
   <div class="tab-pane container fade" id="menu1">...</div>
   <div class="tab-pane container fade" id="menu2">...</div>
 </div>

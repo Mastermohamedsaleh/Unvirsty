@@ -33,27 +33,18 @@
 
 
 
-<div class="container">
-<div class="card">
-<form action="{{url('studentswithaccount')}}" method="get">
-
-<div class="card-body">
-
-
-    <input type="text" name="search" placeholder="Search Name OR Email">
-
-    <button class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
-
-
-</div>
-</form>
-
-</div>
-
-</div>
 
 
  <div class="container mt-3">
+ <div class="col-lg-5 col-md-5 col-sm-12">
+
+<form action="{{url('studentswithaccount')}}" method="get">
+<div class="search-container">  
+<input type="text" name="search" placeholder="Search Name OR Email">
+  <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+</form>
+</div>
 
 
 

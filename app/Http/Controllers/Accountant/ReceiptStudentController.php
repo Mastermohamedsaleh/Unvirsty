@@ -56,6 +56,7 @@ class ReceiptStudentController extends Controller
             $student_accounts->student_id = $request->student_id;
             $student_accounts->Debit = 0.00;
             $student_accounts->credit = $request->Debit;
+            $student_accounts->receipt_id  =  $receipt_students->id;
             $student_accounts->save();
 
             DB::commit();

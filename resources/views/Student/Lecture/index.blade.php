@@ -9,46 +9,64 @@
 
 
 <div class="container">
-
 <h3 class="text-center text-primary mt-3">My Course</h3>
 
 
-<table id="datatable"  class="table table-hover table-bordered">
+<div class="col-lg-5 col-md-5 col-sm-12">
 
-
-<thead>
-<tr>
-
-  <td>#</td>
-  <td>Title</td>
-  <td>Course</td>
-  <td>Doctor</td>
-  <td>View</td>
-  
-</tr>
-</thead>
-
-<tbody>
-
-<?php  $i = 0 ; ?>
-@foreach($lectures as $lecture)
-<tr>
-    <td>{{++$i}}</td>
-    <td>{{$lecture->title}}</td>
-    <td>{{$lecture->course->name}}</td>
-    <td>{{$lecture->doctor->name}}</td>
-    <td>
-        <a href="{{route('viewlecture',$lecture->id)}}" class="btn btn-outline-success"><i class="fa-solid fa-eye"></i></a>
-    </td>
-</tr>
-
-@endforeach
-
-</tbody>
+<form action="{{route('lecturestudent')}}" method="get">
+<div class="search-container">  
+<input type="text" name="search" placeholder = "Name Lecture">
+  <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+</form>
+</div>
 
 
 
-</table>
+
+@forelse($lectures as $lecture)
+<div  class="alert alert text-light" role="alert" style="padding:5px; background: #E6EDFB ;   border-radius: 10px;">
+
+
+<div class="d-flex ">
+                                
+  @if($lecture->course->image_name == "course_default.jpg")
+  <img src="{{URL::asset('assets/images/course_default.jpg')}}" alt="" style="width:150px">
+  @else
+  <img src="{{URL::asset('courses/'.$lecture->course->image_name)}}" alt="" style="width:150px">
+  @endif      
+                          <ul>
+                           <a href="{{route('viewlecture',$lecture->id)}}"><li> <h3>{{$lecture->title}}</h3></li></a>
+                              <li> <span class=" text-muted">{{$lecture->course->name}}</span></li>
+                              <li> <span class=" text-muted">{{$lecture->college->name}}</span></li>
+                              <li> <span class=" text-muted">{{$lecture->classroom->name}}</span></li>
+                              <li> <span class=" text-muted">{{  (  $lecture->section_id ? $lecture->section->name : '' ) }}</span></li>
+                          </ul>
+                          
+                      </div>
+               
+
+</div>
+
+@empty
+
+<div class="alert alert text-light" role="alert" style="padding:5px; background: #E6EDFB ;   border-radius: 10px;">
+  <h4 class="text-center">No Leacture</h4> 
+</div>
+      
+        @endforelse
+ {{ $lectures->links() }}
+
+
+
+
+
+
+
+
+
+
 
 </div>
 

@@ -15,11 +15,22 @@ class LectureStudentController extends Controller
     
 
 
-    public function LectureStudent(){
-        $lectures = Lecture::where('college_id',  Auth::guard('student')->user()->college_id)
-        ->where('classroom_id',  Auth::guard('student')->user()->classroom_id)
-        ->where('section_id', Auth::guard('student')->user()->section_id)
-        ->orderBy('id', 'DESC')->get();
+    public function LectureStudent(Request $request){
+
+
+
+        $search = $request->input('search');          
+        if ($search) {  
+            $lectures = Lecture::where('title', 'like', "%$search%")->where('college_id',  Auth::guard('student')->user()->college_id)
+            ->where('classroom_id',  Auth::guard('student')->user()->classroom_id)
+            ->where('section_id', Auth::guard('student')->user()->section_id)
+            ->orderBy('id', 'DESC')->paginate(PAGENATOR_COUNT);
+        }else{
+            $lectures = Lecture::where('college_id',  Auth::guard('student')->user()->college_id)
+            ->where('classroom_id',  Auth::guard('student')->user()->classroom_id)
+            ->where('section_id', Auth::guard('student')->user()->section_id)
+            ->orderBy('id', 'DESC')->paginate(PAGENATOR_COUNT); 
+        }  
         if( $lectures){
         return view('Student.Lecture.index',compact('lectures'));
         }else{
