@@ -100,7 +100,7 @@
 
 
 
-<h4 class="text-center text-primary mt-3"> سندات القبض</h4>
+<h4 class="text-center text-primary mt-3">Receipt</h4>
 
 <div class="caed-body">
 
@@ -117,10 +117,10 @@
                                         <thead>
                                         <tr class="alert-success">
                                             <th>#</th>
-                                            <th>الاسم</th>
-                                            <th>المبلغ</th>
-                                            <th>البيان</th>
-                                            <th>العمليات</th>
+                                            <th>Name</th>
+                                            <th>Amount</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>

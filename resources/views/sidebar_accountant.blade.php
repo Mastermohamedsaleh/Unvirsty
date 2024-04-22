@@ -21,19 +21,19 @@
 
 
                 <li class="sidebar-item">
-                    <a href="{{url('studentswithaccount')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i> Students </a>
+                    <a href="{{url('studentswithaccount')}}" class="sidebar-link"><i class="fa-solid fa-graduation-cap" style="padding: 0 10px 0  0"></i> Students </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{route('fee_invoices.index')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i> fee_invoices </a>
+                    <a href="{{route('fee_invoices.index')}}" class="sidebar-link"> <i class="fa-solid fa-file-invoice-dollar" style="padding: 0 10px 0  0"></i> fee_invoices </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{route('receipt.index')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i> Receipt </a>
+                    <a href="{{route('receipt.index')}}" class="sidebar-link"><i class="fa-solid fa-comments-dollar" style="padding: 0 10px 0  0"></i> Receipt </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{url('accountantprofile')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i> MyProfile </a>
+                    <a href="{{url('accountantprofile')}}" class="sidebar-link"><i class="fa-solid fa-user" style="padding: 0 10px 0  0"></i> MyProfile </a>
                 </li>
 
                
