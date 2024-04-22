@@ -70,4 +70,11 @@ class Student extends Authenticatable
     {
         return $this->belongsTo('App\Models\Nationalitie', 'nationalitie_id');
     }
+
+
+    public function attendance()
+    {
+        return $this->hasMany('App\Models\Attendance', 'student_id');
+    }
+
 }
