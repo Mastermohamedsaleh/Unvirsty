@@ -55,11 +55,18 @@ class CourseController extends Controller
     }
 
  
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
 
         try {
+
             $name = $request->name;
+
+            if($name == NULL) {
+                Session::flash('danger', 'Add name Course'); 
+                return redirect()->back();
+            }
+
             $college = $request->college_id;
             $classroom = $request->classroom_id;
             $section = $request->section_id;

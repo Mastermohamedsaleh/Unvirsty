@@ -20,10 +20,10 @@ class CourseRequest extends FormRequest
     public function rules()
     {
         return [
+            'name.*'=>'required',
             'college_id'=>'required|exists:colleges,id',
             'classroom_id'=>'required|exists:classrooms,id',
-            'doctor_id'=>'required|exists:doctors,id',
-            'name'=>'required',
+            'doctor_id.*'=>'required|exists:doctors,id',
             'semester'=>'required|in:semester1,semester2'
         ];
     }
@@ -36,7 +36,8 @@ class CourseRequest extends FormRequest
             'classroom_id.exists' => 'Enter Classroom',
             'classroom_id.required' => 'Enter Classroom',
             'college_id.required' => 'Enter College',
-            'doctor_id.exists' => 'Enter Doctor',
+            'name.*' => 'Enter Name Course',
+            'doctor_id.*' => 'Enter Doctor',
             'doctor_id.required' => 'Enter Doctor',
         ];
     }

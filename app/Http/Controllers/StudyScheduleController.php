@@ -48,12 +48,18 @@ class StudyScheduleController extends Controller
     }
 
 
-    public function store( Request $request)
+    public function store( StudyScheduleRequest $request)
     {
 
         // StudyScheduleRequest
         try{  
             $course_id = $request->course_id;
+ 
+            if(  $course_id == NULL) {
+                Session::flash('danger', 'Add name Course'); 
+                return redirect()->back();
+            }
+
             $college_id = $request->college_id;
             $classroom_id = $request->classroom_id ;
             $section_id = $request->section_id ;

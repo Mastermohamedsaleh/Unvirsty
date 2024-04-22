@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Accountant;
 use App\Models\College;
+use App\Http\Requests\AccountantRequest;
+
 
 
 use Illuminate\Support\Facades\Session;
@@ -39,7 +41,7 @@ class AccountantController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(AccountantRequest $request)
     {
         try{
 
@@ -70,7 +72,7 @@ class AccountantController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(AccountantRequest $request, $id)
     {
         try{
 
