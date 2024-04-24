@@ -22,7 +22,7 @@ class AttendanceController extends Controller
 
     public function create(Request $request)
     {
-       $course = Course::where('id',$request->course_id)->select('college_id','classroom_id','section_id')->first();
+       $course = Course::where('id',$request->course_id)->first();
        $students = Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
        $courses_doctors = Course::where('doctor_id',auth()->user()->id)->get();
 

@@ -1,6 +1,6 @@
 @include('header')
   <div class="wrapper">
-    @include('sidebar')
+    @include('sidebar_doctor')
 
       <div class="main">
 @include('nav')

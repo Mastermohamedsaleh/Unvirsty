@@ -59,12 +59,19 @@
                 </ul>
             </li>
 
+          
+            <li class="sidebar-item">
+                    <a href="{{route('attendance.index')}}" class="sidebar-link"><i class="fa-solid fa-clipboard-user" style="padding: 0 10px 0  0"></i> Attendance</a>
+            </li>
+       
+
+
               <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#Attendances" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-clipboard-user" style="padding: 0 10px 0  0"></i> Attendances <i class="fa-solid fa-chevron-down float-end"></i></a>
-                <ul id="Attendances" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#onlinecourse" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-clipboard-user" style="padding: 0 10px 0  0"></i> Online Course <i class="fa-solid fa-chevron-down float-end"></i></a>
+                <ul id="onlinecourse" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="{{route('attendance.index')}}" class="sidebar-link">Attendances</a>
-                        <a href="{{route('assignments.create')}}" class="sidebar-link">Add Assignment</a>
+                        <a href="{{route('onlinecourse.index')}}" class="sidebar-link">OnlineCourse</a>
+                        <a href="{{route('onlinecourse.create')}}" class="sidebar-link">Add OnlineCourse</a>
                     </li>
                 </ul>
             </li>
