@@ -174,20 +174,7 @@
 
 @foreach($examschedule as $schedule)
 
-<div class="row">
 
-
-<div class="col">
-<h4 class="text-primary"> Academic Year : {{$schedule->year}}</h4> 
-</div>
-
-   
-<div class="col">
-<h4 class="text-primary float-end"> Semester : {{$schedule->semester}}</h4>
-</div>
-
-
-</div>
 
 
 

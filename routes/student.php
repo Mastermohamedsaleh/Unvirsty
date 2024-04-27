@@ -12,6 +12,7 @@ use App\Http\Controllers\Student\LectureStudentController;
 use App\Http\Controllers\Student\ScheduleController;  
 use App\Http\Controllers\Student\AssignmentController;  
 use App\Http\Controllers\Student\SpecialQuizController;  
+use App\Http\Controllers\Student\DetailsQuizController;  
 use App\Http\Controllers\CalenderController;  
 
 
@@ -59,6 +60,7 @@ Route::middleware(['auth:student'])->group(function () {
         Route::get('details_fee_student', 'Details');
     });
     
+    Route::get('Detailsquizanddedegree/{quizze_id}',[DetailsQuizController::class,'index']);
     
     Route::controller(ScheduleController::class)->group(function() {  
         Route::get('showexamschedule', 'examschedule');

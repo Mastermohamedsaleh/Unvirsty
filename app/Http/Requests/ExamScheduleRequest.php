@@ -27,9 +27,9 @@ class ExamScheduleRequest extends FormRequest
             'college_id'=>'required|exists:colleges,id',
             'classroom_id'=>'required|exists:classrooms,id',
             'course_id'=>'required|exists:courses,id',
-            // 'exam_date'=>'required|date_format:Y-m-d',
-            // 'start_time' => 'required|date_format:H:i',
-            // 'end_time' => 'required|date_format:H:i'
+            'exam_date.*'=>'required',
+            'start_time.*' => 'required',
+            'end_time.*' => 'required'
         ];
     }
 

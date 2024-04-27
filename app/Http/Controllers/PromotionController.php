@@ -24,10 +24,12 @@ class PromotionController extends Controller
         if(auth()->user()->status == 0 ){ 
             $promotions = Promotion::all();
          }else{
-            $promotions = Promotion::where('id',auth()->user()->college_id)->get();
+            $promotions = Promotion::where('from_college',auth()->user()->college_id)->get();
         }
 
         return view('Admin.promotion.mangment',compact('promotions'));
+
+    
     }
 
    
@@ -124,7 +126,7 @@ class PromotionController extends Controller
 
                  //التحديث في جدول الطلاب
                  $ids = explode(',',$Promotion->student_id);
-                 student::whereIn('id', $ids)
+                 Student::whereIn('id', $ids)
                  ->update([
                  'college_id'=>$Promotion->from_college,
                  'classroom_id'=>$Promotion->from_classroom,
@@ -142,25 +144,31 @@ class PromotionController extends Controller
 
 
             }else{
-                $Promotion = Promotion::findorfail($request->id);
-                student::where('id', $Promotion->student_id)
-                    ->update([
-                        'college_id'=>$Promotion->from_grade,
-                        'classroom_id'=>$Promotion->from_Classroom,
-                        'section_id'=> $Promotion->from_section,
-                        'academic_year'=>$Promotion->academic_year,
-                    ]);
 
+                $Promotion = Promotion::findorfail($id);
+                // Student::where('id', $Promotion->student_id)->update([
+                //         'college_id'=>1,
+                //         'classroom_id'=>1,
+                //         'section_id'=>  NULL,
+                //         'academic_year'=>2024,
+                //     ]);
 
-                Promotion::destroy($id);
-                DB::commit();
+                    $student = Student::where('id', $Promotion->student_id)->first();
+                     $student->college_id = $Promotion->from_college;
+                     $student->classroom_id = $Promotion->from_classroom;
+                     $student->section_id = $Promotion->from_section;
+                     $student->academic_year = $Promotion->academic_year;
+                     $student->save();
+                    $Promotion->delete();
+
                 Session::flash('message', 'Return Success');
                 return redirect()->back();
+               
+
+              
             }
 
-        }
-
-        catch (\Exception $e) {
+        }catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }

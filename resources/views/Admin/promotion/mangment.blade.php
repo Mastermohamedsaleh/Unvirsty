@@ -38,10 +38,8 @@
                                             <th >academic_year</th>
                                             <th >From Classroom</th>
                                             <th >From Section</th>
-
                                             <th >To College</th>
                                             <th >academic_year_new  </th>
-
                                             <th >To Classroom</th>
                                             <th >To Section</th>
                                             <th>Processes</th>

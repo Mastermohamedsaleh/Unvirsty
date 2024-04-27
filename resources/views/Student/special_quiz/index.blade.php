@@ -55,7 +55,7 @@
                       <td>
 
    
-        <?php $mytime = \Carbon\Carbon::now('Africa/Cairo');
+        <?php $mytime = \Carbon\Carbon::now('Africa/Cairo')->addHours(1);
         $mytime = $mytime->toDateTimeString();
         $end_time = $quizze->end_time;
         $start_time = $quizze->start_time;?>

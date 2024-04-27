@@ -56,7 +56,7 @@
                       <td>
 
    
-        <?php $mytime = \Carbon\Carbon::now('Africa/Cairo');
+        <?php $mytime = \Carbon\Carbon::now('Africa/Cairo')->addHours(1);
         $mytime = $mytime->toDateTimeString();
         $end_time = $quizze->end_time;
         $start_time = $quizze->start_time;?>
@@ -68,8 +68,19 @@
                 @if($question == null)
                       No Quetions Until Now
                 @else 
-                @if($quizze->degree->count() > 0 && $quizze->id == $quizze->degree[0]->quizze_id)
-                {{$quizze->degree[0]->score}}
+
+                @if( \App\Models\SpecialQuiz::where('quizze_id',$quizze->id)->where('student_id',\Auth::guard('student')->user()->id)->first() )
+                {{"Special Quizze"}}
+             @else
+
+             @php $degree =  \App\Models\Degree::where('student_id',\Auth::guard('student')->user()->id)->where('quizze_id',$quizze->id)->first() @endphp
+
+             @if(isset($degree))
+               <a href="{{URL('Detailsquizanddedegree', $quizze->id)}}"
+                                class="btn btn-outline-success btn-sm" role="button"
+                                aria-pressed="true" >
+                                <i class="fa-solid fa-d"></i></a>
+            
                 @else
                     @if($mytime <= $end_time)
                         <a href="{{route('student_quiz.show',$quizze->id)}}"
@@ -80,6 +91,10 @@
                         {{  "Quiz  End" }}  
                         @endif
                            @endif
+
+                @endif
+
+
                       @endif
            @endif
               </td>
