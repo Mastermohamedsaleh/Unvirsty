@@ -61,8 +61,8 @@ class SectionController extends Controller
     {
         $sections =  Section::where('college_id',$id)->get();
         $classrooms =  Classroom::where('college_id',$id)->get();
-
-        return view("Admin.sections.show",compact('sections','classrooms'));
+        $colleges = College::all();
+        return view("Admin.sections.show",compact('sections','classrooms','colleges'));
     }
 
   

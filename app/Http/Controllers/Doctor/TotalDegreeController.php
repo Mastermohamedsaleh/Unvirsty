@@ -26,7 +26,7 @@ class TotalDegreeController extends Controller
             if ($search) {  
                $students = Student::where('name', 'like', "%$search%")->orwhere('email', 'like', "%$search%")->where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->paginate(PAGENATOR_COUNT);
             }else{
-               $students =  Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->paginate(PAGENATOR_COUNT);  
+               $students =  Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();  
             } 
             return   view('Doctor.Degree.allstudentcourse',compact('students','course'));
          }else{

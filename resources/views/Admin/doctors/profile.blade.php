@@ -35,13 +35,13 @@
         <div class="card mb-3" style="border-radius: .5rem;">
           <div class="row g-0">
             <div class="col-md-4 gradient-custom text-center text-white"
-              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; background-color:#1f60dd">
 
           
       @if(\Auth::guard('doctor')->user()->image_name == 'default.jpg')
-    <img src="{{URL::asset('Assets/images/default.jpg')}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">
+    <img src="{{URL::asset('Assets/images/default.jpg')}}" alt="" class="img-fluid my-5" style="width:150px; height:150px;   border-radius:50% ;">
     @else
-    <img src="{{asset('/image/'.\Auth::guard('doctor')->user()->image_name)}}" alt="" class="img-fluid my-5" style="width:60px; height:60px;   border-radius:50% ;">         
+    <img src="{{asset('/image/'.\Auth::guard('doctor')->user()->image_name)}}" alt="" class="img-fluid my-5" style="width:150px; height:150px;   border-radius:50% ;">         
        @endif
 
 
@@ -124,20 +124,14 @@
       <form method="post"  action="{{url('updateprofile',\Auth::guard('doctor')->user()->id)}}" autocomplete="off" enctype="multipart/form-data">
       @csrf
       <div class="row">
-      <div class="col-12">
-      <div class="form-group">
-        <label>Name: </label>
-        <input type="text"  value="{{\Auth::guard('doctor')->user()->name}}" name="name"  >
-        </div>
-      </div>
+
+        <input type="hidden"  value="{{\Auth::guard('doctor')->user()->name}}" name="name"  >
+ 
 
   
-      <div class="col-12">
-      <div class="form-group">
-         <label>Email : </label>
-         <input type="email" value="{{\Auth::guard('doctor')->user()->email}}"  name="email"  >
-         </div>
-      </div>
+
+         <input type="hidden" value="{{\Auth::guard('doctor')->user()->email}}"  name="email"  >
+  
 
 
 

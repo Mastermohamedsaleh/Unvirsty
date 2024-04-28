@@ -40,57 +40,59 @@
 
 
 
+<div class="container">
 
 
 
 
-<div class="row">
+
+
+
 @forelse($lectures as $lecture)
+<div  class="alert alert text-light" role="alert" style="padding:5px; background: #E6EDFB ;   border-radius: 10px;">
 
-<div class="alert alert text-light" role="alert" style="padding:5px; background: #E6EDFB ;   border-radius: 10px;">
 
-
-        <div class="col-lg-10 col-md-9 col-sm-6 py-1">
-                    <div class="d-flex ">
-                
-                    
+<div class="d-flex ">
+                                
 @if($lecture->course->image_name == "course_default.jpg")
 <img src="{{URL::asset('assets/images/course_default.jpg')}}" alt="" style="width:150px">
 @else
 <img src="{{URL::asset('courses/'.$lecture->course->image_name)}}" alt="" style="width:150px">
-@endif      
-                        <ul>
-                            <li> <h4 class=" text-muted">{{$lecture->title}}</h4></li>
+@endif     
+<ul>
+                            <li><a href="{{route('lecture.show',$lecture->id)}}"><h4 >{{$lecture->title}}</h4></a> </li>
                             <li> <span class=" text-muted">{{$lecture->course->name}}</span></li>
                             <li> <span class=" text-muted">{{$lecture->college->name}}</span></li>
                             <li> <span class=" text-muted">{{$lecture->classroom->name}}</span></li>
                             <li> <span class=" text-muted">{{  (  $lecture->section_id ? $lecture->section->name : '' ) }}</span></li>
                         </ul>
-                        
-                    </div>
- 
-                    <div class="mt-2">
-                    <a href="{{route('lecture.show',$lecture->id)}}" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
-<a href="{{route('lecture.edit',$lecture->id)}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                          
+                      </div>
+          
+                      <div class="mt-2">
 
+                    <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fa-solid fa-share"></i>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
 
-
-
-
-<button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletelecture{{$lecture->id}}">
-<i class="fa-solid fa-trash"></i>
-</button><br><br>
+    <li><button type="button" class="btn btn-danger btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#deletelecture{{$lecture->id}}">
+<i class="fa-solid fa-trash"></i>Delete
+</button></li>
+     <li><a href="{{route('lecture.edit',$lecture->id)}}" class="btn btn-success btn-sm dropdown-item"><i class="fa-solid fa-pen-to-square"></i>Edit</a></li>
+      <li><a href="{{route('lecture.show',$lecture->id)}}" class="btn btn-primary btn-sm dropdown-item"><i class="fa-solid fa-eye"></i>Show</a></li>
+    </ul>
+  </div>
 </div>
 
-@include('Doctor.My_lecture.delete')
 
 
 
 
- 
-            <!-- end col -->
-        </div>
-        @empty
+</div>
+
+@empty
 
 <div class="alert alert text-light" role="alert" style="padding:5px; background: #E6EDFB ;   border-radius: 10px;">
   <h4 class="text-center">No Leacture</h4> 
@@ -98,7 +100,23 @@
       
         @endforelse
  {{ $lectures->links() }}
+
+
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
 
 
 

@@ -146,25 +146,20 @@ class PromotionController extends Controller
             }else{
 
                 $Promotion = Promotion::findorfail($id);
-                // Student::where('id', $Promotion->student_id)->update([
-                //         'college_id'=>1,
-                //         'classroom_id'=>1,
-                //         'section_id'=>  NULL,
-                //         'academic_year'=>2024,
-                //     ]);
+                Student::where('id', $Promotion->student_id)
+                    ->update([
+                        'college_id'=>$Promotion->from_college,
+                        'classroom_id'=>$Promotion->from_classroom,
+                        'section_id'=> $Promotion->from_section,
+                        'academic_year'=>$Promotion->academic_year,
+                    ]);
 
-                    $student = Student::where('id', $Promotion->student_id)->first();
-                     $student->college_id = $Promotion->from_college;
-                     $student->classroom_id = $Promotion->from_classroom;
-                     $student->section_id = $Promotion->from_section;
-                     $student->academic_year = $Promotion->academic_year;
-                     $student->save();
+
                     $Promotion->delete();
-
+           
+                DB::commit();
                 Session::flash('message', 'Return Success');
                 return redirect()->back();
-               
-
               
             }
 

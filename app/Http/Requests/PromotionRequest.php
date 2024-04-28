@@ -37,9 +37,10 @@ class PromotionRequest extends FormRequest
     public function messages()
     {
         return [
-            'college_id.required|exists:students' => 'The College is required.',
-            'classroom_id.required|exists:students' => 'classroom is required .',
-            'classroom_id.exists:students' => 'classroom is required .',
+            'college_id.required' => 'The College is required.',
+            'college_id.exists' => 'The College is required.',
+            'classroom_id.required' => 'classroom is required .',
+            'classroom_id.exists' => 'classroom is required .',
             'section_id.exists:students' => 'section is required .',
             'college_id_new.required'=>'new college is required ',
             'classroom_id_new.required'=>'new classroom is required ',

@@ -82,9 +82,10 @@ class CourseController extends Controller
                     'section_id'=>$section,
                     'semester'=>$semester,
                   ];
+            DB::table('courses')->insert($insert);
+
             } 
         
-            DB::table('courses')->insert($insert);
             Session::flash('message', 'Add Success'); 
             return redirect()->route('course.index');
         } catch (\Exception $e) {

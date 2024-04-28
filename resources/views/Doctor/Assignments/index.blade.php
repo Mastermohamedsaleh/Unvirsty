@@ -100,7 +100,7 @@
 <a href="{{route('assignments.edit',$assignment->id)}}" class="mb-2 btn btn-success btn-sm"  title="Add Questions" ><i class="fa-solid fa-edit"></i></a>
 
 
-<a href="" class="btn btn-primary btn-sm mb-2" title="Show Degree Students"  role="button" aria-pressed="true">
+<a href="{{route('assignments.show',$assignment->id)}}" class="btn btn-primary btn-sm mb-2" title="Show Degree Students"  role="button" aria-pressed="true">
 <i class="fa-solid fa-eye"></i></a>
 
 @include('Doctor.Assignments.delete')

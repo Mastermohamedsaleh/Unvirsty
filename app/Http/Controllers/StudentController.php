@@ -149,7 +149,8 @@ class StudentController extends Controller
 
     public function destroy(Request $request  , $id)
     {
-        $student = Student::findOrFail($request->id)->delete();
+        student::where('id', $id)->forceDelete();
+        // $student = Student::findOrFail($id)->delete();
         Session::flash('message', 'Delete Success');
         return redirect()->route('students.index');
     }

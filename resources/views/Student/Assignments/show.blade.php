@@ -50,7 +50,7 @@
 
 <h5 class="mt-3">Submission Status</h5>
 
-<?php   $mytime = \Carbon\Carbon::now('Africa/Cairo');
+<?php   $mytime = \Carbon\Carbon::now('Africa/Cairo')->addHours(1);
         $mytime = $mytime->toDateTimeString();
         $end_time = $assignment->end_time;
         $start_time = $assignment->start_time;
@@ -75,13 +75,20 @@
     @if($mytime <= $end_time)
     <form action="{{url('uploadassignment',$assignment->course_id)}}" method="post" enctype="multipart/form-data">
         @csrf
+
+        @if(\App\Models\DegreeAssignment::where('student_id',auth()->user()->id)->where('assignment_id',$assignment->id)->first())
+ {{"Assignment End"}}
+ @else 
     <tr>
         <td>Choose File</td><td><input type="file"  accept="application/pdf" name="file_name" id=""></td>
     </tr>
     <input type="hidden" value="{{$assignment->id}}" name="id">
+ 
+
     <tr>
         <td><input type="submit" name="insert_button" value="Submit" /></td><td><input type="submit" name="update_button" value="Update" /></td>
     </tr>
+@endif
     </form>
     @else 
        <tr><td>Assignment End</td></tr>
