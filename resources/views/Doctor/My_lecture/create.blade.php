@@ -44,7 +44,7 @@
 <div class="row">
 
 
-<legend><span class="number">1</span> Add New Lecture</legend>
+<legend><span class="number bg-color2">1</span> Add New Lecture</legend>
 <div class="col-12">
 
 <label for="">Title<span class="text-danger">*</span> </label>
@@ -86,7 +86,7 @@
 </div>
 
 
-<button type="submit" class="btn btn-primary mt-2">Add</button>
+<button type="submit" class="btn bg-color2 mt-2">Add</button>
 
 </form>
 

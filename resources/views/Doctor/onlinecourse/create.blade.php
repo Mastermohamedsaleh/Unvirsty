@@ -55,49 +55,49 @@
 
 <div class="col-md-4">
     <div class="form-group">
-        <label>عنوان الحصة : <span class="text-danger">*</span></label>
-        <input class="form-control" name="topic" type="text">
+        <label> Title Lecuter : <span class="text-danger">*</span></label>
+        <input  name="topic" type="text">
     </div>
 </div>
 
 <div class="col-md-4">
     <div class="form-group">
-        <label>تاريخ ووقت الحصة : <span class="text-danger">*</span></label>
-        <input class="form-control" type="datetime-local" name="start_time">
+        <label>  Date : <span class="text-danger">*</span></label>
+        <input  type="datetime-local" name="start_time">
     </div>
 </div>
 <div class="col-md-4">
     <div class="form-group">
-        <label>مدة الحصة بالدقائق : <span class="text-danger">*</span></label>
-        <input class="form-control" name="duration" type="text">
+        <label>  Duration of the class in minutes : <span class="text-danger">*</span></label>
+        <input  name="duration" type="text">
     </div>
 </div>
 
 
 <div class="col-4">
    
- <label for="">رقم الاجتماع</label>
+ <label for=""> Number meeting</label>
  <input type="text" name="meeting_id" id="">
 </div>
 
 <div class="col-4">
-    <label for="">كلمه مرور الاجتماع</label>
+    <label for=""> Password meeting</label>
     <input type="text" name="password" >
 </div>
 
 <div class="col-4">
-    <label for="">لينك البدء</label>
+    <label for=""> Link Start</label>
     <input type="text" name="start_url">
 </div>
 
 <div class="col-14">
-    <label for="">لينك دخول الطالب</label>
+    <label for=""> Link Enter Student </label>
     <input type="text" name="join_url">
 </div>
 
 </div>
 <button 
-type="submit" class="btn btn-primary btn-sm">submit</button>
+type="submit" class="btn  btn-sm bg-color2">submit</button>
 
 
 </div>

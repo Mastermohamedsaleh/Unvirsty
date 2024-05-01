@@ -39,7 +39,7 @@
 <div class="row">
 
 
-<legend><span class="number">1</span> Write basic info</legend>
+<legend><span class="number bg-color2">1</span> Write basic info</legend>
 
 <div class="col-6">
 
@@ -80,7 +80,7 @@
 </div>
 
 
-<button type="submit" class="btn btn-primary">Save</button>
+<button type="submit" class="btn bg-color2">Save</button>
 </div>
 </div>
 

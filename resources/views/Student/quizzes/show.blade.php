@@ -13,4 +13,11 @@
 @livewireScripts 
 
 
+
+
+
+
+
+
+
 @include('footer')

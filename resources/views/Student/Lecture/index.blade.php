@@ -9,7 +9,7 @@
 
 
 <div class="container">
-<h3 class="text-center text-primary mt-3">My Course</h3>
+<h3 class="text-center txt-green mt-3">My Lecture</h3>
 
 
 <div class="col-lg-5 col-md-5 col-sm-12">
@@ -26,7 +26,7 @@
 
 
 @forelse($lectures as $lecture)
-<div  class="alert alert text-light" role="alert" style="padding:5px; background: #E6EDFB ;   border-radius: 10px;">
+<div  class="alert alert text-light" role="alert" style="padding:5px; background: #EBFCF6 ;   border-radius: 10px;">
 
 
 <div class="d-flex ">

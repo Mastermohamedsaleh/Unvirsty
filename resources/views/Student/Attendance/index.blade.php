@@ -8,28 +8,26 @@
   
 
   <div class="container mt-2">
-  
+  <form action="{{route('attendance.create')}}" method="get">
 
-   <div class="card">
+   <div class="card" >
   
    <div class="card-body">
 
      
-   <form action="{{route('attendance.create')}}" method="get">
+   
   
-     <select name="course_id" id="">
+     <select name="course_id" id="" style="width:300px">
        @foreach($courses_doctors as $course)
         <option value="{{$course->id}}">{{$course->name}}</option>
         @endforeach
      </select>
 
-     <button type="submit" class="btn-sm btn btn-success">Search</button>
+     <button type="submit" class="btn-sm btn bg-color2 float-end">View</button>
    </form>
  
 
-   </div>
-    
-   </div>
+
  
 
  
@@ -61,25 +59,25 @@
 
 
 
-
+<form method="post" action="{{ route('attendance.store') }}">
   <div class="container mt-2">
 
 @if( isset($students))
 
 
-<h5 style="font-family: 'Cairo', sans-serif;color: red" class="text-center"> Date  : {{ date('Y-m-d') }}</h5>
-    <form method="post" action="{{ route('attendance.store') }}">
+<h5  > {{  date('l' , strtotime(date('Y-m-d') ) )}} </h5>
+   
         @csrf
   <div class="table-responsive">
-                        <table   class="table key-buttons text-md-nowrap">
+                        <table   class="table  table-striped">
                             <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Name</th>
+                                <th class="txt-green">#</th>
+                                <th class="txt-green">Name</th>
                                
-                                <th>College</th>
-                                <th>Classroom</th>
-                                <th>Processes</th>
+                                <th class="txt-green">College</th>
+                                <th class="txt-green">Classroom</th>
+                                <th class="txt-green">Processes</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -97,16 +95,16 @@
                                     <td>
 
 
-    <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
+    <!-- <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4"> -->
         <input name="attendences[{{ $student->id }}]" 
          @foreach($student->attendance()->where('attendence_date',date('Y-m-d'))->get() as $attentance)
              {{ $attentance->attendence_status == 1 ? 'checked' : '' }}
          @endforeach
          value="presence"   class="leading-tight" type="radio" >
-        <span class="text-success">حضور</span>
-    </label>
+        <span class="text-success">Present</span>
+    <!-- </label> -->
 
-    <label class="ml-4 block text-gray-500 font-semibold">
+    <!-- <label class="ml-4 block text-gray-500 font-semibold"> -->
         <input name="attendences[{{ $student->id }}]" 
   
                @foreach($student->attendance()->where('attendence_date',date('Y-m-d'))->get() as $attentance)
@@ -114,8 +112,8 @@
             
          @endforeach
          class="leading-tight" type="radio" value="absent" >
-        <span class="text-danger">غياب</span>
-    </label>
+        <span class="text-danger">Absent</span>
+    <!-- </label> -->
 
 
 
@@ -139,9 +137,14 @@
 </tbody>
 </table>
 
-<button class="btn-sm btn btn-success" type="submit">submit</button>
+<button class="btn-sm btn bg-color2" type="submit">submit</button>
 </div>
 </div>
+
+</div>
+    
+    </div>
+
 @endif
   
 

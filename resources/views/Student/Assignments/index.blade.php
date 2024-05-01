@@ -10,7 +10,7 @@
 
 
 
-<h3 class="text-primary text-center">assignment</h3>
+<h3 class="txt-green text-center">assignment</h3>
 
 
 

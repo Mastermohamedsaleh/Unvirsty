@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Academy</title>
-    <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ URL::asset('Styles/home.css')}}" />
+    <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
+    <link rel="stylesheet" href="{{ URL::asset('Styles/style.css') }} " />
+    <link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
+
     <script defer src="{{URL::asset('Script/bootstrap.bundle.min.js')}}"></script>
     <script defer src="{{URL::asset('Script/index.js')}} "></script>
   </head>
@@ -35,26 +37,36 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 fs-5">
             <li class="nav-item">
               <a
-                class="nav-link active text-success"
+                class="nav-link active"
+                style="color: #00d084"
                 aria-current="page"
-                href="#"
+                href="{{url('/')}}"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">About</a>
+              <a class="nav-link active" aria-current="page" href="{{url('about')}}"
+                >About</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Fields</a>
+              <a class="nav-link active" aria-current="page" href="{{url('fields')}}"
+                >Fields</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Events</a>
+              <a class="nav-link active" aria-current="page" href="{{url('event')}}"
+                >Events</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{{url('contact_us')}}"
                 >Contact us</a
               >
             </li>
@@ -76,7 +88,9 @@
             </li>
           </ul>
 
-          <a  href="{{route('login')}}" class="button mx-5 px-5 py-2" type="submit">Sign in</a>
+          <a href="{{url('login')}}" class="button fs-5 mx-5 px-5 py-1" type="submit">
+            Sign in
+</a>
         </div>
       </div>
     </nav>
@@ -97,7 +111,14 @@
     </div>
     <!-- Wide card -->
     <div class="d-flex flex-column align-items-center">
-      <div class="container border border-0 shadow rounded-top-3 my-3 w-75">
+      <div
+        class="container border border-0 rounded-top-3 my-3 w-75"
+        style="
+          box-shadow: 0px 5px 7px 0px #192f5934, 5px 0px 7px 0px #192f5934,
+            -5px 0px 7px 0px #192f5934;
+          top: -60px;
+        "
+      >
         <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card border border-0 p-3 d-flex flex-row">
@@ -174,7 +195,9 @@
                 innovation, and personal growth, while safeguarding the health
                 and security of every student
               </p>
-              <button class="button2 fw-semibold">Learn More</button>
+              <a href="about.html"
+                ><button class="button2 fw-semibold">Learn More</button></a
+              >
             </div>
           </div>
         </div>
@@ -199,7 +222,9 @@
                 classroom. Additionally, we are committed to providing
                 sufficient and well-equipped classrooms
               </p>
-              <button class="button2 fw-semibold">Learn More</button>
+              <a href="about.html"
+                ><button class="button2 fw-semibold">Learn More</button></a
+              >
             </div>
           </div>
         </div>
@@ -227,7 +252,9 @@
                 through Innovative Lessons and Fostering Physical Well-being
                 with State-of-the-Art Sports Facilities.
               </p>
-              <button class="button2 fw-semibold">Learn More</button>
+              <a href="about.html"
+                ><button class="button2 fw-semibold">Learn More</button></a
+              >
             </div>
           </div>
         </div>
@@ -352,12 +379,11 @@
           >
             <div class="card2 card-body my-3 mx-3 p-2" style="display: none">
               <span class="span1 fs-1 txt-darkblue fw-semibold">
-                Electric Engineering
+                Computer Science
               </span>
               <p class="mt-5 fs-4 w-75 fw-semibold text-white">
-                Electrical engineers are responsible for creating innovative
-                solutions in areas such as power generation, distribution,
-                communication, control systems, and electronic circuits.
+                Computer Science is a field that encompasses the study of
+                computation, algorithms, data structures.
               </p>
               <button
                 class="button1 mb-3 bg-white txt-green fw-semibold position-absolute bottom-0"
@@ -368,7 +394,7 @@
 
             <div class="card1 card-body position-absolute bottom-0">
               <span class="px-2 my-3 fs-1 text-white fw-semibold"
-                >Electric Engineering</span
+                >Computer Science</span
               >
             </div>
           </div>
@@ -386,12 +412,12 @@
           >
             <div class="card2 card-body my-3 mx-3 p-2" style="display: none">
               <span class="span1 fs-1 txt-darkblue fw-semibold">
-                Electric Engineering
+                Architectural engineering
               </span>
               <p class="mt-5 fs-4 w-75 fw-semibold text-white">
-                Electrical engineers are responsible for creating innovative
-                solutions in areas such as power generation, distribution,
-                communication, control systems, and electronic circuits.
+                Architectural engineering is a multidisciplinary field that
+                integrates principles from architecture and engineering to
+                design and create buildings and other structures.
               </p>
               <button
                 class="button1 mb-3 bg-white txt-green fw-semibold position-absolute bottom-0"
@@ -402,7 +428,7 @@
 
             <div class="card1 card-body position-absolute bottom-0">
               <span class="px-2 my-3 fs-1 text-white fw-semibold"
-                >Electric Engineering</span
+                >Architectural engineering</span
               >
             </div>
           </div>
@@ -418,12 +444,12 @@
           >
             <div class="card2 card-body my-3 mx-3 p-2" style="display: none">
               <span class="span1 fs-1 txt-darkblue fw-semibold">
-                Electric Engineering
+                Business Administration
               </span>
               <p class="mt-5 fs-4 w-75 fw-semibold text-white">
-                Electrical engineers are responsible for creating innovative
-                solutions in areas such as power generation, distribution,
-                communication, control systems, and electronic circuits.
+                Business Administration is a broad field of study and practice
+                that encompasses various principles, strategies, and activities
+                related to the management and operation of organizations.
               </p>
               <button
                 class="button1 mb-3 bg-white txt-green fw-semibold position-absolute bottom-0"
@@ -434,7 +460,7 @@
 
             <div class="card1 card-body position-absolute bottom-0">
               <span class="px-2 my-3 fs-1 text-white fw-semibold"
-                >Electric Engineering</span
+                >Business Administration</span
               >
             </div>
           </div>
@@ -557,8 +583,8 @@
         background-size: cover;
       "
     >
-      <div class="container">
-        <div class="row py-4 text-center">
+      <div class="container py-3">
+        <div class="row pb-4 text-center">
           <h1 class="fw-semibold text-white">Our Events</h1>
           <p class="txt-gray fs-4 fw-semibold py-2 px-5">
             We are excited to announce a series of upcoming events at
@@ -700,15 +726,15 @@
         </div>
       </div>
     </div>
-    <!-- aboutUs -->
+    <!-- Students says about Us -->
     <div class="container py-3">
       <div class="row">
         <h1 class="fw-semibold txt-darkblue text-center">
-          Student Says About Us
+          Students Say About Us
         </h1>
       </div>
-      <div class="row">
-        <div class="col-12 w-50 mx-auto">
+      <div class="row w-100">
+        <div class="col-lg-6 mx-lg-auto col-sm-12">
           <div
             id=" carouselExampleAutoPlaying"
             class="carousel carousel-dark slide"
@@ -717,18 +743,14 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div
-                  class="d-flex align-items-center justify-content-center py-4"
+                  class="d-flex flex-row align-items-center justify-content-center py-4"
                 >
-                  <div
-                    class="rounded-circle bg-black"
-                    style="
-                      height: 80px;
-                      width: 25%;
-                      background-image: url(Assets/images/27.jpg);
-                      background-position: center;
-                      background-size: cover;
-                    "
-                  ></div>
+                  <div>
+                    <img
+                      style="border-radius: 50%; height: 117px; width: 117px"
+                      src="Assets/images/27.jpg"
+                    />
+                  </div>
                   <div class="mx-5 d-flex flex-column">
                     <p>
                       The academic challenges are intense but rewarding The
@@ -741,6 +763,48 @@
                 </div>
               </div>
               <div class="carousel-item">
+                <div
+                  class="d-flex flex-row align-items-center justify-content-center py-4"
+                >
+                  <div>
+                    <img
+                      style="border-radius: 50%; height: 117px; width: 117px"
+                      src="Assets/images/27.jpg"
+                    />
+                  </div>
+                  <div class="mx-5 d-flex flex-column">
+                    <p>
+                      The academic challenges are intense but rewarding The
+                      professors are approachable and genuinely care about your
+                      success.
+                    </p>
+                    <span class="fs-5">Henry Dee</span>
+                    <span class="txt-green">Student</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div
+                  class="d-flex flex-row align-items-center justify-content-center py-4"
+                >
+                  <div>
+                    <img
+                      style="border-radius: 50%; height: 117px; width: 117px"
+                      src="Assets/images/27.jpg"
+                    />
+                  </div>
+                  <div class="mx-5 d-flex flex-column">
+                    <p>
+                      The academic challenges are intense but rewarding The
+                      professors are approachable and genuinely care about your
+                      success.
+                    </p>
+                    <span class="fs-5">Henry Dee</span>
+                    <span class="txt-green">Student</span>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="carousel-item">
                 <div
                   class="d-flex align-items-center justify-content-center py-4"
                 >
@@ -789,7 +853,7 @@
                     <span class="txt-green">Student</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="carousel-indicators carousel-custom-indicators">
               <button
@@ -832,7 +896,7 @@
             <div class="container">
               <a class="navbar-brand" href="#"
                 ><img
-                  src="Assets/images/logo2.png"
+                  src="Assets/images/logo3.png"
                   alt="Smart Academy logo"
                   class="w-100 h-100 py-2"
               /></a>
@@ -863,9 +927,15 @@
                     d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"
                   />
                 </svg>
-                info@cis.edu.eg
+                <a
+                  class="text-decoration-none"
+                  style="color: #fdfdfd"
+                  href="mailto:info@cis.edu.eg"
+                  target="_blank"
+                  >info@cis.edu.eg</a
+                >
               </div>
-              <div class="fs-5 color text-white fw-bold py-1">
+              <div class="fs-5 color fw-bold py-1" style="color: #fdfdfd">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="22"
@@ -938,7 +1008,12 @@
                       d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"
                     />
                   </svg>
-                  info@cis.edu.eg
+                  <a
+                    class="text-decoration-none txt-gray"
+                    href="mailto:info@cis.edu.eg"
+                    target="_blank"
+                    >info@cis.edu.eg</a
+                  >
                 </li>
                 <li>
                   <svg
@@ -963,7 +1038,10 @@
           </div>
         </div>
       </div>
-      <div class="row w-100 text-white m-0 py-3 px-2" style="background-color: #272727">
+      <div
+        class="row w-100 text-white m-0 py-3 px-2"
+        style="background-color: #272727"
+      >
         <div class="container d-flex flex-row justify-content-between">
           <p class="m-0 mx-3 fs-5">Copyright &#169;2024 All rights reserved</p>
           <div class="">
@@ -986,7 +1064,6 @@
             ></a>
             <a
               class="text-decoration-none txt-green"
-              style="text-decoration: none"
               target="_blank"
               href="https://www.linkedin.com/school/new-cairo-academy-nca/"
               ><svg
@@ -999,6 +1076,22 @@
               >
                 <path
                   d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                /></svg
+            ></a>
+            <a
+              href="https://www.youtube.com/channel/UCoRUJ2St0Bx7WjKdbTqOvkQ"
+              class="text-decoration-none txt-green"
+              target="_blank"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-youtube mx-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"
                 /></svg
             ></a>
           </div>

@@ -655,6 +655,14 @@ text-transform: uppercase;
 .bg-color1{
   background-color: #192F59;
 }
+.bg-color2{
+  background-color:  #00D084;
+  color: #fff;
+}
+.bg-color2:hover{
+  background-color:  #00D084;
+  color: #fff;
+}
 .dark-layer{
   box-shadow: inset 0 0 0 1000px rgba(25, 47, 89,0.8);
 }
@@ -663,7 +671,10 @@ text-transform: uppercase;
   border-left: 10px solid #192F59;
   width: 150px;
   height: 50px;
+ 
 }
+
+
 
 /*-----shortcuts------*/
 
@@ -754,7 +765,7 @@ text-transform: uppercase;
   position: absolute;
   right: 4px;
   top: 4px;
-  background-color: #C00;
+  background-color: #00D084;
   border-radius: 50%;
   border: 0;
   color: #FFF;

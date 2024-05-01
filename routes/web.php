@@ -23,6 +23,26 @@ Route::get('/', function () {
 });
 
 
+Route::get('about', function () {
+    return view('about');
+});
+
+
+Route::get('fields', function () {
+    return view('fields');
+});
+
+
+Route::get('contact_us', function () {
+    return view('contactus');
+});
+
+
+Route::get('event', function () {
+    return view('events');
+});
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

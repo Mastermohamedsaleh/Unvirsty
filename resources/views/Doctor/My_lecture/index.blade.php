@@ -20,7 +20,7 @@
 
 
 <div class="col-3">
-<a href="{{route('lecture.create')}}" class="mb-2 btn btn-primary btn-sm">Add Lecture</a>
+<a href="{{route('lecture.create')}}" class="mb-2 btn bg-color2 btn-sm">Add Lecture</a>
 </div>
 
 
@@ -49,7 +49,7 @@
 
 
 @forelse($lectures as $lecture)
-<div  class="alert alert text-light" role="alert" style="padding:5px; background: #E6EDFB ;   border-radius: 10px;">
+<div  class="alert alert text-light" role="alert" style="padding:5px;background:#EBFCF6;border-radius: 10px;">
 
 
 <div class="d-flex ">
@@ -72,7 +72,7 @@
                       <div class="mt-2">
 
                     <div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+    <button id="btnGroupDrop1" type="button" class="btn bg-color2 dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fa-solid fa-share"></i>
     </button>
     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -99,7 +99,7 @@
 </div>
       
         @endforelse
- {{ $lectures->links() }}
+  {{ $lectures->links() }}
 
 
 

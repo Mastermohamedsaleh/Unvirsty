@@ -43,9 +43,9 @@ class QuizController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit($quizze_id)
     {
-        //
+  
     }
 
   

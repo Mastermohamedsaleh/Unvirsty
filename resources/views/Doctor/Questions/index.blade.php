@@ -10,7 +10,7 @@
 
 
 
-<h3 class="text-primary text-center">Quizze</h3>
+<h3 class="txt-green text-center">Quizze</h3>
 
 
 
@@ -42,7 +42,7 @@
 
 <div class="d-flex justify-content-center">
 <h2 >All Question : </h2>
-<h5  class="mt-2 text-danger">{{$quizz->name}}</h5>
+<h5  class="mt-2 ">{{$quizz->name}}</h5>
 </div>
 
 
@@ -54,7 +54,7 @@
 
 
 
-<a href="{{route('questions.show',$quizz->id)}}" class="mb-2 btn btn-primary btn-sm">Add New questions</a>
+<a href="{{route('questions.show',$quizz->id)}}" class="mb-2 btn bg-color2 btn-sm">Add New questions</a>
 
 
 

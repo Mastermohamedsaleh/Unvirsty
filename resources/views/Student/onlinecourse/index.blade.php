@@ -1,6 +1,6 @@
 @include('header')
   <div class="wrapper">
-  @include('sidebar_doctor')
+  @include('sidebar_student')
 
       <div class="main">
 @include('nav')
@@ -25,8 +25,7 @@
 <p class="alert alert-info" style="width:300px; margin:0px auto">{{ Session::get('message') }}</p>
 @endif
 
-<a href="{{route('onlinecourse.create')}}" class="btn  btn-sm bg-color2" role="button"
-                                   aria-pressed="true"> Add New Lecuter </a><br><br>
+
 
 <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
@@ -42,7 +41,7 @@
         <th> Date</th>
         <th> Time Lecuter</th>
         <th> Link </th>
-        <th>Action</th>
+    
     </tr>
     </thead>
     <tbody>
@@ -57,17 +56,7 @@
             <td>{{$c->start_at}}</td>
             <td>{{$c->duration}}</td>
             <td class="text-danger"><a href="{{$c->join_url}}" target="_blank"> Join Now</a></td>
-            <td>
-
-<button type="button"
- class="mb-2 btn btn-outline-danger btn-sm" 
- data-bs-toggle="modal"
-  data-bs-target="#Delete{{$c->id}}">
-  <i class="fas fa-trash"></i>
-</button>
-@include('Doctor.onlinecourse.delete')
-
-            </td>
+   
         </tr>
                                         @endforeach
                                     </table>

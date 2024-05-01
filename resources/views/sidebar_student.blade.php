@@ -25,13 +25,13 @@
 
 
                 <li class="sidebar-item">
-                    <a href="{{URL('fee_student')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i>My Fee</a>
+                    <a href="{{URL('fee_student')}}" class="sidebar-link"><i class="fa-solid fa-comments-dollar"  style="padding: 0 10px 0  0"></i>My Fee</a>
                 </li>
    
 
 
               <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i><i style="padding: 0 10px 0  0" class="fa-regular fa-user pe-2"></i> Quizzes <i class="fa-solid fa-chevron-down float-end"></i>  </a> 
+                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i></i><i class="fa-regular fa-file-lines" style="padding: 0 10px 0  0" ></i> Quizzes <i class="fa-solid fa-chevron-down float-end"></i>  </a> 
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
                         <a href="{{route('student_quiz.index')}}" class="sidebar-link">All Quiz</a>
@@ -41,7 +41,7 @@
             </li>
 
             <li class="sidebar-item">
-                    <a href="{{URL('view_assignment')}}" class="sidebar-link"><i class="fa-solid fa-list" style="padding: 0 10px 0  0"></i>My Assignment</a>
+                    <a href="{{URL('view_assignment')}}" class="sidebar-link"> <i class="fa-solid fa-book-open-reader" style="padding: 0 10px 0  0"></i>My Assignment</a>
              </li>
  
               <li class="sidebar-item">
@@ -54,6 +54,12 @@
                     </li>
                 </ul>
             </li>
+
+
+            
+            <li class="sidebar-item">
+                    <a href="{{URL('student_online')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-globe"></i>Online Course</a>
+                </li>
 
             <li class="sidebar-item">
                     <a href="{{URL('studentprofile')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user"></i>MyProfile</a>

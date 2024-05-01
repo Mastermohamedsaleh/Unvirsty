@@ -12,7 +12,7 @@
 
 
 
- <h4 class="text-primary text-center mt-3"> My Fee</h4>
+ <h4 class="txt-green text-center mt-3"> My Fee</h4>
 
 
 

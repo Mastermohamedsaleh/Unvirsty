@@ -1,6 +1,6 @@
 
 <!-- Modal -->
-<div class="modal fade" id="Delete{{$c->meeting_id}}{{$c->meeting_id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Delete{{$c->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -15,7 +15,7 @@
 
       
                         <div class="col">
-                            <p class="h5 text-danger"> Do You Want Delete This {{$c->topic}}</p>
+                            <p class="h5 text-danger"> Do You Want Delete This Meeting</p>
                         </div>
                 
 
@@ -35,6 +35,10 @@
 
 
 
+
+        
+
+              
 
         
 

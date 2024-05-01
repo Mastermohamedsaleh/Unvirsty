@@ -10,7 +10,7 @@
 
 
 
-<h3 class="text-primary text-center">Assignment</h3>
+<h3 class=" txt-green text-center">Assignment</h3>
 
 
 
@@ -51,7 +51,7 @@
 
 
 
-<a href="{{route('assignments.create')}}" class="mb-2 btn btn-primary btn-sm">Add New Assignment</a>
+<a href="{{route('assignments.create')}}" class="mb-2 btn  bg-color2 btn-sm">Add New Assignment</a>
 
 
 

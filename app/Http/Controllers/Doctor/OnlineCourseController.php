@@ -9,6 +9,9 @@ use App\Models\OnlineCourse;
 use App\Models\Course;
 use Illuminate\Support\Facades\Session;
 
+
+use App\Http\Requests\OnlineCourseRequest;
+
 class OnlineCourseController extends Controller
 {
     
@@ -27,7 +30,7 @@ class OnlineCourseController extends Controller
     }
 
    
-    public function store(Request $request)
+    public function store(OnlineCourseRequest $request)
     {
 
 
@@ -81,6 +84,9 @@ class OnlineCourseController extends Controller
    
     public function destroy($id)
     {
-        //
+      $online = OnlineCourse::findOrFail('id',$id)->delete();
+       Session::flash('message', 'Delete Success');
+       return redirect()->route('onlinecourse.index');
+
     }
 }
