@@ -95,7 +95,7 @@
 <input type="text" value="{{$setting->link_linked_in}}" name="link_linked_in">
 @endforeach
 
-<button class="btn btn-primary">Update</button>
+<button class="btn bg-color2 btn-sm">Update</button>
 
 <!-- end col -->
     </div>

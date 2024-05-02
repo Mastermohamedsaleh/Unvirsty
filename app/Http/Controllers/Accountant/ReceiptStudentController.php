@@ -78,7 +78,7 @@ class ReceiptStudentController extends Controller
     public function show($id)
     {
         $student = Student::findorfail($id);
-        $fee_invoices = Fee_Invoice::where('student_id',$id)->first();
+        $fee_invoices = Fee_Invoice::where('student_id',$id)->where('college_id',$student->college_id)->where('classroom_id',$student->classroom_id)->where('section_id',$student->section_id)->first();
         return view('Accountant.receipt.add',compact('student','fee_invoices'));
 
     }

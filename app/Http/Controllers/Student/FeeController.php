@@ -22,7 +22,8 @@ class FeeController extends Controller
           
     }
 
-    public function Details(){
+    public function Details()
+    {
         
         $studentAccounts = StudentAccount::where('student_id',Auth::guard('student')->user()->id)->get();
         $studenDebit =   StudentAccount::where('student_id',Auth::guard('student')->user()->id)->sum('Debit');
@@ -30,8 +31,6 @@ class FeeController extends Controller
         $total = $studenDebit - $studentCredit;
 
         return view('Student.Fee.details',compact('studentAccounts','total'));
-
-   
 
     }
  

@@ -127,6 +127,118 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+    <div class="col-lg-4">
+        <div class="card card-margin">
+
+            <div class="card-header no-border">
+                <h5 class="card-title">Student</h5>
+            </div>
+
+            <div class="card-body pt-0">
+
+                <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        
+                        <div class="widget-49-date-success">
+                            <span class="widget-49-date-day">{{\App\Models\Student::count()}}</span>
+                         
+                        </div>
+
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title"></span>
+                   
+                        </div>
+                    </div>
+                
+
+                    <div class="widget-49-meeting-action">
+                        <a href="{{route('students.index')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-lg-4">
+        <div class="card card-margin">
+
+            <div class="card-header no-border">
+                <h5 class="card-title">Doctor</h5>
+            </div>
+
+            <div class="card-body pt-0">
+
+                <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        
+                        <div class="widget-49-date-success">
+                            <span class="widget-49-date-day">{{\App\Models\Doctor::count()}}</span>
+                         
+                        </div>
+
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title"></span>
+                   
+                        </div>
+                    </div>
+                
+
+                    <div class="widget-49-meeting-action">
+                        <a href="{{route('doctors.index')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-4">
+        <div class="card card-margin">
+
+            <div class="card-header no-border">
+                <h5 class="card-title">Course</h5>
+            </div>
+
+            <div class="card-body pt-0">
+
+                <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        
+                        <div class="widget-49-date-success">
+                            <span class="widget-49-date-day">{{\App\Models\Course::count()}}</span>
+                         
+                        </div>
+
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title"></span>
+                   
+                        </div>
+                    </div>
+                
+
+                    <div class="widget-49-meeting-action">
+                        <a href="{{route('course.index')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
 @else 
 
 

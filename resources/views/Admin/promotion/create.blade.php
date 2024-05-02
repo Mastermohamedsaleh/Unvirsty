@@ -12,7 +12,7 @@
 
 
 
-   <h3 class="text-primary text-center mt-4"  >Promotion</h3>
+   <h3 class="txt-green text-center mt-4"  >Promotion</h3>
 
 
    @if ($errors->any())
@@ -237,7 +237,7 @@
  
 
 
- <button   type="submit" class="btn btn-primary mt-3">Save</button>
+ <button   type="submit" class="btn bg-color2 btn-sm mt-3">Save</button>
 
 
 

@@ -8,7 +8,7 @@
 
 
 
-<h3 class="text-primary text-center">Classroom</h3>
+<h3 class="txt-green text-center">Classroom</h3>
 
 
 
@@ -40,7 +40,7 @@
                         
                         <div class="widget-49-date-success">
                             <span class="widget-49-date-day">0{{$i++}}</span>
-                            <span class="widget-49-date-month">apr</span>
+                         
                         </div>
 
                         <div class="widget-49-meeting-info">
@@ -105,7 +105,7 @@
 
 
 
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#classroom">
+ <button type="button" class="btn bg-color2 btn-sm" data-bs-toggle="modal" data-bs-target="#classroom">
  Add New classroom
 </button><br><br>
       @include('Admin.classrooms.add')

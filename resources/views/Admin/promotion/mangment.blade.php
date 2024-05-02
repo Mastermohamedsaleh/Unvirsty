@@ -6,7 +6,7 @@
  @include('nav')
 
 
-<h3 class="text-primary text-center mt-4">Mangment Promotion</h3>
+<h3 class="txt-green text-center mt-4">Mangment Promotion</h3>
 
 <div class="container mt-5">
 

@@ -22,7 +22,9 @@
 
 
      <div class="container">
-
+ 
+      
+      <h3 class="txt-green text-center">Section</h3>
 
 
  <div class="container">
@@ -44,7 +46,7 @@
                         
                         <div class="widget-49-date-success">
                             <span class="widget-49-date-day">0{{$i++}}</span>
-                            <span class="widget-49-date-month">apr</span>
+                        
                         </div>
 
                         <div class="widget-49-meeting-info">
@@ -101,7 +103,7 @@
 
 <div class="table-responsive">
 
-<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#section">
+<button type="button" class="btn bg-color2 btn-sm" data-bs-toggle="modal" data-bs-target="#section">
   Add New Section
 </button><br><br>
 

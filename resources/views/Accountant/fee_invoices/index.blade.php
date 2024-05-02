@@ -37,7 +37,7 @@
  <div class="container mt-3">
 
 
- <h3 class="text-primary text-center">Fee Invoices</h3>
+ <h3 class="txt-green text-center">Fee Invoices</h3>
 
  <div class="card">
 

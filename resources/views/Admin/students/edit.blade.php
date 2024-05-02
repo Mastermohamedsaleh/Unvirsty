@@ -7,7 +7,7 @@
 
 
 
-<h3 class="text-primary text-center mt-4">Update Student</h3>
+<h3 class="txt-green text-center mt-4">Update Student</h3>
 
 
 <div class="cantainer">
@@ -217,7 +217,7 @@
 
 
  
-<button type="submit" class="btn btn-primary m-3">Update</button>
+<button type="submit" class="btn bg-color2 btn-sm m-3">Update</button>
  
 
 

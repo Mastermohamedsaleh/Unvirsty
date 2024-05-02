@@ -39,7 +39,7 @@
 
 
 
- <h3 class="text-primary text-center">All Fee</h3>
+ <h3 class="txt-green text-center">All Fee</h3>
 
 
 
@@ -48,7 +48,7 @@
 
      <div class="card-body">
 
-     <a  href="{{route('fee.create')}}" class="btn btn-primary mb-2" >Add Fee</a>
+     <a  href="{{route('fee.create')}}" class="btn bg-color2 btn-sm mb-2" >Add Fee</a>
 
 
 <div class="table-responsive">

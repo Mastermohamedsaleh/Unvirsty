@@ -6,7 +6,7 @@
  @include('nav')
 
 
- <h3 class="text-primary text-center mt-3">Add Course</h3>
+ <h3 class="txt-green text-center mt-3">Add Course</h3>
 
 
  <div class="container ">
@@ -164,11 +164,11 @@
 
 <div class="create" id="create"></div>
 
-<a href="javascript:void(0)" class="btn btn-danger addrow mt-3" id="addrow">+</a>
+<a href="javascript:void(0)" class="btn  bg-color2 addrow mt-3" id="addrow">+</a>
 
 
 
-<button type="submit" class="btn btn-primary float-end mt-3">Submit</button>
+<button type="submit" class="btn bg-color2  float-end mt-3">Add</button>
 
 
 

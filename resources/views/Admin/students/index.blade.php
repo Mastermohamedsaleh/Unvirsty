@@ -8,7 +8,7 @@
 
 
 
-<h3 class="text-primary text-center">students</h3>
+<h3 class="txt-green text-center">students</h3>
 
 
 
@@ -55,7 +55,7 @@
  <div class="card-body">
        
  
- <a href="{{route('students.create')}}" class="mb-2 btn btn-primary btn-sm">Add New Student</a>
+ <a href="{{route('students.create')}}" class="mb-2 btn bg-color2 btn-sm">Add New Student</a>
  
 
  <div class="table-responsive">
@@ -97,31 +97,21 @@
 
 
 <!-- Example single danger button -->
-<div class="btn-group">
 
 
 
 
-    @if(auth('admin')->check())
-    <button type="button" class="mb-2 btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletestudent{{$student->id}}" title="Delete Student">
+
+   
+    <button type="button" class=" btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletestudent{{$student->id}}" title="Delete Student">
 <i class="fas fa-trash"></i>
 </button>
 
   <a class="btn btn-success btn-sm" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i></a>
 
 
-  @elseif(auth('accountant')->check())
-  <button type="button" class="btn btn-danger dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-    Action
-  </button>
-    <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="{{route('fee_invoices.show',$student->id)}}"> <i class="fa-solid fa-sack-dollar"></i> Add Fee</a></li>
-    <li><a class="dropdown-item" href="{{route('receipt.show',$student->id)}}" > <i class="fa-solid fa-hand-holding-dollar"></i> Receipt</a></li>
-  </ul>
 
-  @endif
 
-</div>
 
 
 

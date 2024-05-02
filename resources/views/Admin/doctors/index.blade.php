@@ -8,7 +8,7 @@
 
 
 
-<h3 class="text-primary text-center">doctors</h3>
+<h3 class="txt-green text-center">doctors</h3>
 
 
 
@@ -45,7 +45,7 @@
  <div class="card-body">
        
  
- <a href="{{route('doctors.create')}}" class="mb-2 btn btn-primary btn-sm">Add New doctor</a>
+ <a href="{{route('doctors.create')}}" class="mb-2 btn  bg-color2 btn-sm">Add New doctor</a>
  
 
  <div class="table-responsive">

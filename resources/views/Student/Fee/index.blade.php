@@ -65,7 +65,7 @@
                             <td>{{$f->classroom->name}}</td>
                             <td>{{ ($f->section_id  ? $f->section->name : 'no Section' ) }}</td>
                             <td>{{$f->academic_year}}</td>
-                             <td> <a href="{{url('details_fee_student')}}" class="btn btn-primary btn-sm">Details</a>  </td>
+                             <td> <a href="{{url('details_fee_student')}}" class="btn bg-color2 btn-sm">Details</a>  </td>
                            </tr>
 
                          @endforeach

@@ -7,37 +7,38 @@
 
 
 
- <h3 class="text-center text-primary mt-3">Graduated Student</h3>
+ <h3 class="text-center txt-green mt-3">Graduated Student</h3>
 
-
- <form action="{{url('graduated_student')}}" method="get">
-
- <div class="card">
 
  
- <div class="card-body">
- 
- 
-     <input type="text" name="search" placeholder="Search Name OR Email">
-
-     <button class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
- 
-
- </div>
-
- </div>
- </form>
 
 
  <div class="container">
 
 
+
+ 
+
+
  <div class="card">
 
 
  <div class="card-body">
 
 
+
+ <form action="{{url('graduated_student')}}" method="get">
+
+
+
+
+    <input type="text" name="search" placeholder="Search Name OR Email" style="width:300px">
+
+    <button class="btn bg-color2 btn-sm float-end mt-2"><i class="fa-solid fa-magnifying-glass "></i></button>
+
+
+
+</form>
 
 
  <div class="table-responsive">

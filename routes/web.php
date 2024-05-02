@@ -61,7 +61,7 @@ Route::controller(ProfileController::class)->group(function() {
     Route::get('adminprofile','profile');
     Route::get('doctorprofile','doctorprofile');
     Route::get('studentprofile','studentprofile');
-    Route::get('accountantprofile','studentprofile');
+    Route::get('accountantprofile','accountantprofile');
     Route::post('updateprofile/{id}','updateprofile')->name('updateprofile');
 });
 

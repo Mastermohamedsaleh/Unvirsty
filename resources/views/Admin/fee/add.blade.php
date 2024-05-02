@@ -34,7 +34,7 @@
 
  <div class="card-body">
 
- <h4 class="text-primary text-center">Add Fee</h4>
+ <h4 class="txt-green text-center">Add Fee</h4>
 
 
 
@@ -169,7 +169,7 @@
 
 
 
-  <button class="btn btn-primary mt-3" type="submit">Save</button>
+  <button class="btn bg-color2 btn-sm mt-3" type="submit">Save</button>
 
 
 </form>

@@ -10,7 +10,7 @@
 
  <div class="container mt-5">
  
-  <h3 class="text-center text-primary">All Details</h3>
+  <h3 class="text-center txt-green">All Details</h3>
 
 
 

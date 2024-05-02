@@ -34,73 +34,11 @@
 
 
 
-
-
-
-
-<div class="card mb-3">
-
-
-
-<div class="card-body">
-
-
-<form action="{{url('search_receipt')}}" method="get">
-<div class="row">
-
-
-
-<div class="col-4">
-<label for="">Name<span class="text-danger">*</span></label>
-<input type="text" name="name">
-<!-- end col -->
-</div>
-
-<div class="col-4">
-<label for="">Amount<span class="text-danger">*</span></label>
-<input type="number" name="amount">
-<!-- end col -->
-</div>
-
-<div class="col-4" style="margin:auto">
-<button type="submit" class="btn btn-primary">Search</button>
-<!-- end col -->
-</div>
-
-
-
-
-
-
-<!-- end Row -->
-</div>
-
-</form>
-
-
-
-<!-- end car-body search -->
-</div>
-
-
-
-<!-- end card seach -->
-</div>
-
-
-
-
-
-
-
-
-
-
 <div class="card">
 
 
 
-<h4 class="text-center text-primary mt-3">Receipt</h4>
+<h4 class="txt-green text-center mt-3">Receipt</h4>
 
 <div class="caed-body">
 
@@ -120,6 +58,7 @@
                                             <th>Name</th>
                                             <th>Amount</th>
                                             <th>Description</th>
+                                            <th>Date</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -130,6 +69,7 @@
                                             <td>{{$receipt_student->student->name}}</td>
                                             <td>{{ number_format($receipt_student->Debit, 2) }}</td>
                                             <td>{{$receipt_student->description}}</td>
+                                            <td>{{$receipt_student->date}}</td>
                                                 <td>
                 <a href="{{route('receipt.edit',$receipt_student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                                 </td>

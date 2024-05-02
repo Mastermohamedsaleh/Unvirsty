@@ -12,6 +12,7 @@ use App\Http\Controllers\Doctor\QuestionController;
 use App\Http\Controllers\Doctor\LibraryController;
 use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController , TotalDegreeController,AssignmentController,StudentAssignmentController,OnlineCourseController};
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AjaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,15 @@ Route::get('dashboard/doctor', function () {
 
     
    Route::resource('attendance',AttendanceController::class);
+
+
+   Route::get('attendance_report',[AttendanceController::class , 'attendanceReport'])->name('attendance.report');
+   Route::post('attendance_report',[AttendanceController::class , 'attendanceSearch'])->name('attendance.search');
+
+ 
+   Route::get('report_student_search/{id}',[AjaxController::class , 'report_student']);
+    
+     
    Route::resource('lecture',LectureController::class);
    Route::resource('onlinecourse',OnlineCourseController::class);
    Route::resource('assignments',AssignmentController::class);

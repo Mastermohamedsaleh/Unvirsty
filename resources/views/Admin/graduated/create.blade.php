@@ -11,7 +11,7 @@
 <p class="alert alert-info">{{ Session::get('message') }}</p>
 @endif
 
-<h3 class="text-center text-primary">Add Graduated Students</h3>
+<h3 class="text-center txt-green">Add Graduated Students</h3>
 
 
 
@@ -101,7 +101,7 @@
 </div>
 
 </div>
-<button type="submit" class="btn btn-primary m-4" >Submit</button>
+<button type="submit" class="btn bg-color2 btn-sm m-4" >Submit</button>
 
 </form>
 

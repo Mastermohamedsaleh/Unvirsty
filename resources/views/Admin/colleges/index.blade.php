@@ -8,7 +8,7 @@
 
 
 
-<h3 class="text-primary text-center">Colleges</h3>
+<h3 class="txt-green text-center">Colleges</h3>
 
 
 
@@ -48,7 +48,7 @@
 
 
 
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#college">
+ <button type="button" class="btn bg-color2 btn-sm" data-bs-toggle="modal" data-bs-target="#college">
  Add New College
 </button><br><br>
       @include('Admin.colleges.add')

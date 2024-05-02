@@ -11,7 +11,7 @@
 
 
 
-<a href="{{route('examsschedule.create')}}" class="btn btn-primary mb-3">Add Schedule</a>
+<a href="{{route('examsschedule.create')}}" class="btn bg-color2 btn-sm mb-3">Add Schedule</a>
 
 
 
@@ -120,7 +120,7 @@
 
 <div class="col-lg-2 col-md-6 col-sm-6">
 <label> Search: <span class="text-danger">*</span> </label>
-<button type="submit" class="btn btn-primary">Search</button>
+<button type="submit" class="btn bg-color2 btn-sm">Search</button>
 </div>
 
 

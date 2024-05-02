@@ -33,6 +33,10 @@ class ProfileController extends Controller
         return  view('Admin.students.profile');
     }
 
+    public function accountantprofile(){
+        return  view('Admin.accountants.profile');
+    }
+
     public function updateprofile(Request $request ,$id){
 
 

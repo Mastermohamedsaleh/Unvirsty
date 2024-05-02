@@ -23,6 +23,7 @@ use App\Http\Controllers\{AdminController,
     StudyScheduleController,
     AccountantController,
     ProfileController,
+    FundAccountController,
     CalenderController
 };
 
@@ -73,6 +74,10 @@ Route::resource('setting',SettingController::class);
 Route::resource('examsschedule',ExamScheduleController::class);
 Route::resource('studyschedule',StudyScheduleController::class);
 Route::resource('accountant',AccountantController::class);
+
+
+Route::get('fund_account',[FundAccountController::class  , 'index']);
+Route::get('fund_account_search',[FundAccountController::class , 'fundaccount']);
 
 Route::controller(SettingController::class)->group(function() {  
     Route::get('setting','index');

@@ -22,7 +22,7 @@
 
 
 
- <h3 class="text-primary text-center">Sections</h3>
+ <h3 class="txt-green text-center">Sections</h3>
          
 
 

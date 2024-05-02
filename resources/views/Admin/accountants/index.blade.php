@@ -8,7 +8,7 @@
 
 
 
-<h3 class="text-primary text-center">accountants</h3>
+<h3 class="txt-green text-center">accountants</h3>
 
 
 
@@ -43,7 +43,7 @@
 
 
 
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#accountant">
+ <button type="button" class="btn bg-color2 btn-sm" data-bs-toggle="modal" data-bs-target="#accountant">
  Add New accountant
 </button><br><br>
       @include('Admin.accountants.add')

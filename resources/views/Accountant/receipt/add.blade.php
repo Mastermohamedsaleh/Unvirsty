@@ -23,9 +23,9 @@
 
 
 
-<h4 class="text-primary text-center">Receipt</h4>
+<h4 class="txt-green text-center">Receipt</h4>
 
-
+@isset($fee_invoices)
 <form action="{{route('receipt.store')}}" method="post">
 
 
@@ -56,10 +56,10 @@
 </div>
 
 
-<button type="submit" class="btn btn-primary mt-3">Submit</button>
+<button type="submit" class="btn bg-color2 btn-sm mt-3">Submit</button>
 
 </form>
-
+@endisset
 
 
 </div>

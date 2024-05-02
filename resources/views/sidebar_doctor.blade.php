@@ -60,10 +60,21 @@
             </li>
 
           
-            <li class="sidebar-item">
-                    <a href="{{route('attendance.index')}}" class="sidebar-link"><i class="fa-solid fa-clipboard-user" style="padding: 0 10px 0  0"></i> Attendance</a>
-            </li>
+ 
        
+
+           
+
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#attendance" data-bs-toggle="collapse" area-expanded="false"></i> <i class="fa-solid fa-file-pen" style="padding: 0 10px 0  0"></i>  Attendance <i class="fa-solid fa-chevron-down float-end"></i></a>
+                <ul id="attendance" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="{{route('attendance.index')}}" class="sidebar-link">Attendance</a>
+                        <a href="{{url('attendance_report')}}" class="sidebar-link">Attendance Report</a>
+                    </li>
+                </ul>
+            </li>
+
 
 
               <li class="sidebar-item">

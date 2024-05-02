@@ -12,7 +12,7 @@
 <div class="container mt-3">
 
 
-<h3 class="text-primary text-center">Doctor</h3>
+<h3 class="txt-green text-center">Doctor</h3>
 
 <div class="card">
 
@@ -55,7 +55,7 @@
 <div class="row">
 
 
-<legend><span class="number">1</span> Edit info Doctor</legend>
+<legend><span class="number bg-color2">1</span> Edit info Doctor</legend>
 
 
 
@@ -190,7 +190,7 @@
 
 
  
-<button type="submit" class="btn btn-primary m-3">update</button>
+<button type="submit" class="btn  bg-color2 btn-sm m-3">update</button>
  
 
 

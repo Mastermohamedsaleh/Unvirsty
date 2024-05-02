@@ -184,10 +184,10 @@
 
 
 
-<a href="javascript:void(0)" class="btn btn-danger addrow mt-3 float-start" id="addrow">+</a>
+<a href="javascript:void(0)" class="btn bg-color2 addrow mt-3 float-start" id="addrow">+</a>
 
 
-<button type="submit" class="btn btn-primary float-end">Add</button>
+<button type="submit" class="btn  bg-color2  float-end mt-3">Add</button>
 
 
 

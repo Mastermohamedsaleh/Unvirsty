@@ -23,7 +23,7 @@
 
 
 
-<h4 class="text-primary text-center">Update Receipt</h4>
+<h4 class="txt-green text-center">Update Receipt</h4>
 
 
 <form action="{{route('receipt.update','test')}}" method="post">
@@ -63,7 +63,7 @@
 </div>
 
 
-<button type="submit" class="btn btn-primary mt-3">Update</button>
+<button type="submit" class="btn bg-color2 btn-sm mt-3">Update</button>
 
 </form>
 

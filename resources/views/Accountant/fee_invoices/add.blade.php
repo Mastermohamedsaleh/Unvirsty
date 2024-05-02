@@ -15,7 +15,7 @@
 
  <div class="card-body">
 
- <h4 class="text-primary text-center">Add Invoice</h4>
+ <h4 class="txt-green text-center">Add Invoice</h4>
  
  <form action="{{route('fee_invoices.store')}}" method="POST">
 
@@ -95,7 +95,7 @@
  @if($student_fee)
 
  @else
- <button type="submit" class="btn btn-primary mt-3" >Submit</button>
+ <button type="submit" class="btn bg-color2 btn-sm mt-3" >Submit</button>
 @endif
 
  </form>

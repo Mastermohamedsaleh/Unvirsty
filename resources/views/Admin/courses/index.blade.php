@@ -17,7 +17,7 @@
 
 
 
-<h3 class="text-primary text-center">All Course</h3>
+<h3 class="txt-green text-center">All Course</h3>
 
 
 
@@ -51,7 +51,7 @@
  <div class="card-body">
 
 
-<a href="{{route('course.create')}}" class="btn btn-primary mb-2 btn-sm">Add Course</a>
+<a href="{{route('course.create')}}" class="btn  bg-color2 mb-2 btn-sm">Add Course</a>
 
 
  <table id="datatable" class="table table-hover table-sm table-bordered p-0"

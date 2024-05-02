@@ -8,7 +8,7 @@
 
 
 
-<h3 class="text-primary text-center">students</h3>
+<h3 class="txt-green text-center">students</h3>
 
 
 

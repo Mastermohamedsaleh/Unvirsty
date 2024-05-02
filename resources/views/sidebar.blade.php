@@ -50,10 +50,19 @@
                     <a href="{{route('sections.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i>Sections</a>
                 </li>
             
-                <li class="sidebar-item">
-                    <a href="{{route('fee.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-comment-dollar"></i>Fee</a>
-                </li>
+    
 
+
+                <li class="sidebar-item">
+                  <a href="#" class="sidebar-link collapsed" data-bs-target="#fee" data-bs-toggle="collapse" area-expanded="false"><i style="padding: 0 10px 0  0" class="fa-solid fa-comment-dollar"></i> Fee <i class="fa-solid fa-chevron-down float-end"></i></a>
+                  <ul id="fee" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                      <li class="sidebar-item">
+                          <a href="{{route('fee.index')}}" class="sidebar-link">Fee</a>
+                          <a href="{{url('fund_account')}}" class="sidebar-link">FundAccount</a>
+                       
+                      </li>
+                  </ul>
+              </li>
 
           
                 

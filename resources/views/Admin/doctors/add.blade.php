@@ -14,7 +14,7 @@
 
 <div class="container mt-3" >
 
-<h3 class="text-center text-primary">Doctor</h3>
+<h3 class="txt-green text-center">Doctor</h3>
 
 
 
@@ -45,7 +45,7 @@
 <div class="row">
 
 
-<legend><span class="number">1</span> Write info Doctor</legend>
+<legend><span class="number  bg-color2">1</span> Write info Doctor</legend>
 
 
 <div class="col-md-6">
@@ -213,7 +213,7 @@
 
 
  
-<button type="submit" class="btn mt-3 btn-primary ">Save</button>
+<button type="submit" class="btn mt-3  bg-color2 btn-sm ">Save</button>
  
 
 

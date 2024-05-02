@@ -11,7 +11,7 @@
 
 <div class="container mt-3">
 
-<h3 class="text-primary text-center">Student</h3>
+<h3 class="txt-green text-center">Student</h3>
 
 
 
@@ -22,7 +22,7 @@
 
 <div class="card-body">
 
-<legend><span class="number">1</span> Write info Student</legend>
+<legend><span class="number bg-color2">1</span> Write info Student</legend>
 
  <!-- Message Success -->
  @if(Session::has('message'))
@@ -228,7 +228,7 @@
 
 
  
-<button type="submit" class="btn btn-primary m-3">Save</button>
+<button type="submit" class="btn bg-color2 btn-sm m-3">Save</button>
  
 
 
