@@ -26,6 +26,8 @@ class QuizRequest extends FormRequest
         return [
             'name'=>'required',
             'course_id'=>'required|exists:courses,id',
+            'start_time'  =>'required|date',
+            'end_time'=> 'required|date|after_or_equal:start_time'
         ];
     }
 
@@ -34,6 +36,8 @@ class QuizRequest extends FormRequest
         return [
             'course_id.exists' => 'Enter Course',
             'course_id.required' => 'Enter Course',
+            'end_time.after_or_equal' => 'The end date must be greater than or equal to the start date ',
+
         ];
     }
 

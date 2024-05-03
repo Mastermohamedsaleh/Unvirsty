@@ -75,7 +75,7 @@
          </div>
 
         
-         <button class="btn btn-sm bg-color2">Search</button>
+         <button type="submit" class="btn btn-sm bg-color2">Search</button>
 
 </form>
 
@@ -87,17 +87,18 @@
 
 
 @isset($Students)
-                <div class="table-responsive">
+                <div class="table-responsive mt-2">
                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0" data-page-length="50"
                            style="text-align: center">
                         <thead>
                         <tr>
                             <th class="alert-success">#</th>
-                            <th class="alert-success">{{trans('Students_trans.name')}}</th>
-                            <th class="alert-success">{{trans('Students_trans.Grade')}}</th>
-                            <th class="alert-success">{{trans('Students_trans.section')}}</th>
-                            <th class="alert-success">التاريخ</th>
-                            <th class="alert-warning">الحالة</th>
+                            <th class="alert-success">Name</th>
+                            <th class="alert-success">College</th>
+                            <th class="alert-success">Classroom</th>
+                            <th class="alert-success">Section</th>
+                            <th class="alert-success">Date</th>
+                            <th class="alert-warning">Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -105,19 +106,20 @@
                             <tr>
                                 <td>{{ $loop->index+1 }}</td>
                                 <td>{{$student->students->name}}</td>
-                                <td>{{$student->grade->Name}}</td>
-                                <td>{{$student->section->Name_Section}}</td>
+                                <td>{{$student->college->name}}</td>
+                                <td>{{$student->classroom->name}}</td>
+                                <td>{{  ( $student->section_id  ? $student->section->name : 'No section'  )}}</td>
                                 <td>{{$student->attendence_date}}</td>
                                 <td>
 
                                     @if($student->attendence_status == 0)
-                                        <span class="btn-danger">غياب</span>
+                                        <span class="text-danger">Absent</span>
                                     @else
-                                        <span class="btn-success">حضور</span>
+                                        <span class="text-success">Present</span>
                                     @endif
                                 </td>
                             </tr>
-                        @include('pages.Students.Delete')
+              
                         @endforeach
                     </table>
                 </div>
@@ -163,7 +165,7 @@ $('select[name="course_id"]').on('change', function () {
 
           success: function(data) {
              $('select[name="student_id"]').empty();
-             $('select[name="student_id"]').append('<option value="0" selected  > All...</option>');
+             $('select[name="student_id"]').append('<option value="0" selected  > All </option>');
              $.each(data, function (key, value) { 
                 $('select[name="student_id"]').append('<option value="' + key + '">' + value + '</option>')   
              });

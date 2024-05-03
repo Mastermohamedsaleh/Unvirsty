@@ -99,9 +99,7 @@ class AttendanceController extends Controller
 
    public function attendanceReport(){
 
-    //  $ids = DB::table('teacher_section')->where('teacher_id', auth()->user()->id)->pluck('section_id');
-    //  $students = Student::whereIn('section_id', $ids)->get();
-    //  return view('pages.Teachers.dashboard.students.attendance_report', compact('students'));
+  
 
           $courses_doctors = Course::where('doctor_id',auth()->user()->id)->get();
         return view('Student.Attendance.report',compact('courses_doctors'));
@@ -116,28 +114,24 @@ class AttendanceController extends Controller
             'from'  =>'required|date|date_format:Y-m-d',
             'to'=> 'required|date|date_format:Y-m-d|after_or_equal:from'
         ],[
-            'to.after_or_equal' => 'تاريخ النهاية لابد ان اكبر من تاريخ البداية او يساويه',
-            'from.date_format' => 'صيغة التاريخ يجب ان تكون yyyy-mm-dd',
-            'to.date_format' => 'صيغة التاريخ يجب ان تكون yyyy-mm-dd',
+            'to.after_or_equal' => 'The end date must be greater than or equal to the start date ',
+            'from.date_format' => 'yyyy-mm-dd',
+            'to.date_format' => 'yyyy-mm-dd',
         ]);
 
-        $courses_doctors = Course::where('doctor_id',auth()->user()->id)->get();
-        return view('Student.Attendance.report',compact('courses_doctors'));
-
    if($request->student_id == 0){
+       $courses_doctors = Course::where('doctor_id',auth()->user()->id)->get();
+       $course = Course::where('id',$request->course_id)->first();
+       $Students = Attendance::whereBetween('attendence_date', [$request->from, $request->to])->where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
+       return view('Student.Attendance.report',compact('courses_doctors','Students'));
 
-       $Students = Attendance::whereBetween('attendence_date', [$request->from, $request->to])->get();
-    //    return view('Student.Attendance.report',compact('courses_doctors','Students'));
-    return  $Students;
    }
 
    else{
-
+       $courses_doctors = Course::where('doctor_id',auth()->user()->id)->get();
        $Students = Attendance::whereBetween('attendence_date', [$request->from, $request->to])
        ->where('student_id',$request->student_id)->get();
-    //    return view('Student.Attendance.report',compact('courses_doctors','Students'));
-    return $Students;
-
+       return view('Student.Attendance.report',compact('courses_doctors','Students'));
 
    }
     }
