@@ -23,14 +23,44 @@ class AssignmentRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'=>'required',
-            'course_id'=>'required|exists:courses,id',
-            'start_time'=>'required',
-            'end_time'=>'required',
-            'file_name' => 'required|mimes:pdf|max:10000',
-        ];
+
+
+
+        switch ($this->method()) {
+            case 'POST':
+            {
+                return [
+                    'name'=>'required',
+                    'course_id'=>'required|exists:courses,id',
+                    'start_time'=>'required',
+                    'end_time'=>'required',
+                    'file_name' => 'required|mimes:pdf|max:10000',
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'name'=>'required',
+                    'course_id'=>'required|exists:courses,id',
+                    'start_time'=>'required',
+                    'end_time'=>'required',
+                ];
+            }
+            default: break;
+        }
+
+
+
+
+
+
+
+
     }
+
+
+
 
     
     public function messages()

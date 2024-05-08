@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Academy</title>
     <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
-    <link rel="stylesheet" href="{{ URL::asset('Styles/style.css') }} " />
+    <!-- <link rel="stylesheet" href="{{ URL::asset('Styles/style.css') }} " /> -->
     <link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
 
     <script defer src="{{ URL::asset('script/bootstrap.bundle.min.js') }}  "></script>
@@ -42,7 +42,7 @@
                 class="nav-link active"
                 style="color: #00d084"
                 aria-current="page"
-                href="{{url('/')}}"
+                href="index.html"
                 >Home</a
               >
             </li>
@@ -65,7 +65,7 @@
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="{{url('contact_us')}}"
+                href="{{url('contactus')}}"
                 >Contact us</a
               >
             </li>
@@ -87,9 +87,10 @@
             </li>
           </ul>
 
-          <a  href="{{url('login')}}" class="button fs-5 mx-5 px-5 py-1" type="submit">
+          <a href="{{url('login')}}">
+          <button class="button fs-5 mx-5 px-5 py-1" type="submit">
             Sign in
-</a>
+          </button></a>
         </div>
       </div>
     </nav>
@@ -121,6 +122,9 @@
     </div>
     <!-- middle -->
     <div class="container py-5">
+      <div class="row fs-1 fw-bold txt-darkblue my-4 mx-auto">
+        <div class="fs-1 fw-bold txt-darkblue text-center">Discover Our Fields</div>
+      </div>
       <div class="row">
         <div
           class="col-lg-5"
@@ -482,5 +486,6 @@
         </div>
       </div>
     </footer>
+    
   </body>
 </html>

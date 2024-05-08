@@ -12,3 +12,5 @@ for (let index = 0; index < 4; index++) {
     card2[index].style.display = "none";
   });
 }
+
+

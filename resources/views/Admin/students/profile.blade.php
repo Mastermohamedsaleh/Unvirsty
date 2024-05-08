@@ -26,7 +26,90 @@
 <p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
 @endif
 
+
+
+@if(\Auth::guard('student')->user()->image_name == 'default.jpg')
+  <?php   $image  = 'Assets/images/default.jpg'; ?>
+    @else
+    <?php   $image  = '/image/'.\Auth::guard('student')->user()->image_name; ?>          
+    @endif
+
 </div>
+
+ <!-- acount img -->
+ <div
+                            class="rounded-3 border border-2"
+                            style="
+                              height: 100px;
+                              width: 100px;
+                              background-image: url({{$image}});
+                              background-position: center;
+                              background-size: cover;
+                              border-color: #00d084 !important;
+                            "
+                          ></div>
+
+                     <div class="col d-flex flex-column justify-content-around">
+                            <span class="fw-semibold fs-6">  {{\Auth::guard('student')->user()->email}}</span>
+                            
+               
+                <ul class="list-group list-group-horizontal w-100 rounded-0">
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 bg-light-green"
+                  >
+                  Name
+                  </li>
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 txt-green bg-light-green"
+                  >
+                  {{\Auth::guard('student')->user()->name}}         
+                  </li>
+                </ul>
+                <ul class="list-group list-group-horizontal w-100 rounded-0">
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6"
+                  >
+                    Email
+                  </li>
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 txt-green"
+                  >
+                  {{\Auth::guard('student')->user()->email}}
+                  </li>
+                </ul>
+                <ul class="list-group list-group-horizontal w-100 rounded-0">
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 bg-light-green"
+                  >
+                  College
+                  </li>
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 txt-green bg-light-green"
+                  >
+                  {{\Auth::guard('student')->user()->college->name}}
+                  </li>
+                </ul>
+                <ul class="list-group list-group-horizontal w-100 rounded-0">
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6"
+                  >
+                    Choose File
+                  </li>
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 txt-green"
+                  >
+                    <input
+                      class="form-control txt-green"
+                      style="border-color: #00d084; max-width: fit-content"
+                      type="file"
+                      id="formFile"
+                    />
+                  </li>
+                </ul>
+              </div>
+
+
+
 
 <section class="vh-100" style="background-color: #f4f5f7;">
   <div class="container py-5 h-100">
@@ -38,11 +121,11 @@
               style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; background-color:#1f60dd">
 
           
-      @if(\Auth::guard('student')->user()->image_name == 'default.jpg')
+    @if(\Auth::guard('student')->user()->image_name == 'default.jpg')
     <img src="{{URL::asset('Assets/images/default.jpg')}}" alt="" class="img-fluid my-5" style="width:150px; height:150px;   border-radius:50% ;">
     @else
     <img src="{{asset('/image/'.\Auth::guard('student')->user()->image_name)}}" alt="" class="img-fluid my-5" style="width:150px; height:150px;   border-radius:50% ;">         
-       @endif
+    @endif
 
 
               <h5>{{\Auth::guard('student')->user()->name}} </h5>

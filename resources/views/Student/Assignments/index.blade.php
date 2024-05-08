@@ -79,7 +79,7 @@
                         <tr>
                                 <th>#</th>
                                 <th>Name assignment</th>
-                                <th>Name Subject</th>
+                                <th>Name Course</th>
                                 <th>Name Doctor</th>
                                 <th>Processes</th>
                             </tr>

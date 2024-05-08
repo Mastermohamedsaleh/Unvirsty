@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Academy</title>
     <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
-    <link rel="stylesheet" href="{{ URL::asset('Styles/style.css') }} " />
+    <!-- <link rel="stylesheet" href="{{ URL::asset('Styles/style.css') }} " /> -->
     <link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
 
     <script defer src="{{URL::asset('Script/bootstrap.bundle.min.js')}}"></script>
@@ -43,7 +43,7 @@
                 class="nav-link active"
                 style="color: #00d084"
                 aria-current="page"
-                href="{{url('/')}}"
+                href="index.html"
                 >Home</a
               >
             </li>
@@ -66,7 +66,7 @@
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="{{url('contact_us')}}"
+                href="{{url('contactus')}}"
                 >Contact us</a
               >
             </li>
@@ -88,9 +88,11 @@
             </li>
           </ul>
 
-          <a href="{{url('login')}}" class="button fs-5 mx-5 px-5 py-1" type="submit">
-            Sign in
-</a>
+          <a href="{{url('login')}}">
+            <button class="button fs-5 mx-5 px-5 py-1" type="submit">
+              Sign in
+            </button></a
+          >
         </div>
       </div>
     </nav>
@@ -100,81 +102,213 @@
       class="carousel slide"
       data-bs-ride="carousel"
     >
-      <div class="carousel-inner">
-        <div class="carousel-item active c-item">
-          <img src="Assets/images/1.jpg" class="d-block w-100 c-img" alt="1" />
+      <div class="carousel-inner h-100">
+        <div
+          class="carousel-item c-item active"
+          style="
+            background: linear-gradient(
+                to right,
+                rgba(25, 47, 89, 0.9),
+                rgba(0, 0, 0, 0)
+              ),
+              url(Assets/images/0.jpg) no-repeat center;
+            background-size: cover;
+          "
+        >
+          <div class="container h-100">
+            <div class="h-100 w-50 d-flex flex-column justify-content-center">
+              <h1 class="text-white fw-bold" style="font-size: 56px">
+                University and College Education
+              </h1>
+              <p class="fs-3 txt-green">
+                Empower Your Future at Smart Academy: Where Knowledge Meets
+                Innovation
+              </p>
+              <a href="about.html" style="width: fit-content"
+                ><button class="button2 h-100 w-100 mt-4 px-4 fw-semibold fs-5">
+                  Learn More
+                </button></a
+              >
+            </div>
+          </div>
         </div>
-        <div class="carousel-item c-item">
-          <img src="Assets/images/2.jpg" class="d-block w-100 c-img" alt="1" />
+        <div
+          class="carousel-item c-item"
+          style="
+            background: linear-gradient(
+                to right,
+                rgba(25, 47, 89, 0.9),
+                rgba(0, 0, 0, 0)
+              ),
+              url(Assets/images/2.jpg) no-repeat center;
+            background-size: cover;
+          "
+        >
+          <div class="container h-100">
+            <div class="h-100 w-50 d-flex flex-column justify-content-center">
+              <h1 class="text-white fw-bold" style="font-size: 56px">
+                A community that helps you learn
+              </h1>
+              <p class="fs-3 txt-green">
+                Teaching Staff that helps you learn with ease and with high
+                quality
+              </p>
+              <a href="about.html" style="width: fit-content"
+                ><button class="button2 h-100 w-100 mt-4 px-4 fw-semibold fs-5">
+                  Learn More
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="carousel-item c-item"
+          style="
+            background: linear-gradient(
+                to right,
+                rgba(25, 47, 89, 0.9),
+                rgba(0, 0, 0, 0)
+              ),
+              url(Assets/images/1.jpg) no-repeat center;
+            background-size: cover;
+          "
+        >
+          <div class="container h-100">
+            <div class="h-100 w-50 d-flex flex-column justify-content-center">
+              <h1 class="text-white fw-bold" style="font-size: 56px">
+                Huge library and more books
+              </h1>
+              <p class="fs-3 txt-green">
+                Books on all fields to increase students' information
+              </p>
+              <a href="about.html" style="width: fit-content"
+                ><button class="button2 h-100 w-100 mt-4 px-4 fw-semibold fs-5">
+                  Learn More
+                </button></a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <!-- Wide card -->
-    <div class="d-flex flex-column align-items-center">
-      <div
-        class="container border border-0 rounded-top-3 my-3 w-75"
-        style="
-          box-shadow: 0px 5px 7px 0px #192f5934, 5px 0px 7px 0px #192f5934,
-            -5px 0px 7px 0px #192f5934;
-          top: -60px;
-        "
-      >
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <div class="card border border-0 p-3 d-flex flex-row">
-              <div class="icon mx-3 my-1">
-                <img src="Assets/images/3.png" alt="" />
+    <div
+      class="container w-75 position-relative"
+      style="
+        box-shadow: 0px 5px 7px 0px #192f5912, 5px 0px 7px 0px #192f5912,
+          -5px 0px 7px 0px #192f5912;
+        top: -15px;
+      "
+    >
+      <div class="row bg-white py-3 rounded-top-3">
+        <div class="col-lg-3 col-md-6 col-sm-12 p-0">
+          <div class="p-3 d-flex flex-row">
+            <div class="h-100 w-auto d-flex mx-auto">
+              <!-- img -->
+              <div class="h-75 my-auto">
+                <div
+                  class="mx-3"
+                  style="
+                    height: 40px;
+                    width: 40px;
+                    background-image: url(Assets/images/3.png);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                  "
+                ></div>
               </div>
-              <div class="txt d-flex flex-column">
-                <span class="s1 fw-bold">University Life</span>
-                <span class="s2">Over in Here</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <div class="card border border-0 p-3 d-flex flex-row">
-              <div class="icon mx-3 my-1">
-                <img src="Assets/images/4.png" alt="" />
-              </div>
-              <div class="txt d-flex flex-column">
-                <span class="s1 fw-bold">University Life</span>
-                <span class="s2">Over in Here</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <div class="card border border-0 p-3 d-flex flex-row">
-              <div class="icon mx-3 my-1">
-                <img src="Assets/images/5.png" alt="" />
-              </div>
-              <div class="txt d-flex flex-column">
-                <span class="s1 fw-bold">University Life</span>
-                <span class="s2">Over in Here</span>
+              <!-- info -->
+              <div class="d-flex flex-column">
+                <span class="fw-bold">University Life</span>
+                <span class="txt-gray">Over in Here</span>
               </div>
             </div>
           </div>
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <div class="card border border-0 p-3 d-flex flex-row">
-              <div class="icon mx-3 my-1">
-                <img src="Assets/images/6.png" alt="" />
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 p-0">
+          <div class="p-3 d-flex flex-row">
+            <div class="h-100 w-auto d-flex mx-auto">
+              <!-- img -->
+              <div class="h-75 my-auto">
+                <div
+                  class="mx-3"
+                  style="
+                    height: 40px;
+                    width: 40px;
+                    background-image: url(Assets/images/4.png);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                  "
+                ></div>
               </div>
-              <div class="txt d-flex flex-column">
-                <span class="s1 fw-bold">University Life</span>
-                <span class="s2">Over in Here</span>
+              <!-- info -->
+              <div class="d-flex flex-column">
+                <span class="fw-bold">Athletics</span>
+                <span class="txt-gray">Sports Club</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 p-0">
+          <div class="p-3 d-flex flex-row">
+            <div class="h-100 w-auto d-flex mx-auto">
+              <!-- img -->
+              <div class="h-75 my-auto">
+                <div
+                  class="mx-3"
+                  style="
+                    height: 40px;
+                    width: 40px;
+                    background-image: url(Assets/images/5.png);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                  "
+                ></div>
+              </div>
+              <!-- info -->
+              <div class="d-flex flex-column">
+                <span class="fw-bold">Social</span>
+                <span class="txt-gray">Overall in here</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 p-0">
+          <div class="p-3 d-flex flex-row">
+            <div class="h-100 w-auto d-flex mx-auto">
+              <!-- img -->
+              <div class="h-75 my-auto">
+                <div
+                  class="mx-3"
+                  style="
+                    height: 40px;
+                    width: 40px;
+                    background-image: url(Assets/images/6.png);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                  "
+                ></div>
+              </div>
+              <!-- info -->
+              <div class="d-flex flex-column">
+                <span class="fw-bold">Graduation</span>
+                <span class="txt-gray">Getting Diploma</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="heading h1 fw-bold txt-darkblue my-4">What We Offer</div>
-      <div class="row">
-        <div class="col-sm-6 p-0"></div>
-        <div class="col-sm-6 p-0"></div>
-      </div>
     </div>
     <!-- what we offer cards -->
     <div class="container">
-      <div class="row m-0">
+      <div class="row fs-1 fw-bold txt-darkblue my-4 mx-auto">
+        <div class="fs-1 fw-bold txt-darkblue text-center">What We Offer</div>
+      </div>
+      <div class="row">
         <div class="col-lg-6 p-0">
           <img class="w-100" src="Assets/images/7.png" alt="" />
         </div>
@@ -202,7 +336,7 @@
           </div>
         </div>
       </div>
-      <div class="row m-0">
+      <div class="row">
         <div class="col-lg-6 p-0">
           <div
             class="card-body dark-layer h-100"
@@ -233,7 +367,7 @@
           <img class="w-100 h-100" src="Assets/images/18.jpg" alt="" />
         </div>
       </div>
-      <div class="row m-0">
+      <div class="row">
         <div class="col-lg-6 p-0">
           <img class="w-100" src="Assets/images/19.jpg" alt="" />
         </div>
@@ -296,7 +430,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green">22</div>
+                <div class="span fs-1 fw-semibold txt-green">{{App\Models\Doctor::count()}}</div>
                 <div class="span fs-3 text-white">Certified Professors</div>
               </div>
             </div>
@@ -304,7 +438,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green">2000</div>
+                <div class="span fs-1 fw-semibold txt-green">{{App\Models\Student::count()}}</div>
                 <div class="span fs-3 text-white">Students</div>
               </div>
             </div>
@@ -312,7 +446,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green">4</div>
+                <div class="span fs-1 fw-semibold txt-green">{{App\Models\College::count()}}</div>
                 <div class="span fs-3 text-white">Education Fields</div>
               </div>
             </div>
@@ -345,20 +479,25 @@
               height: 500px;
             "
           >
-            <div class="card2 card-body my-3 mx-3 p-2" style="display: none">
+            <div
+              class="card2 card-body my-3 mx-3 px-2 py-5"
+              style="display: none"
+            >
               <span class="span1 fs-1 txt-darkblue fw-semibold">
                 Electric Engineering
               </span>
-              <p class="mt-5 fs-4 w-75 fw-semibold text-white">
+              <p class="mt-4 fs-4 w-75 fw-semibold text-white">
                 Electrical engineers are responsible for creating innovative
                 solutions in areas such as power generation, distribution,
                 communication, control systems, and electronic circuits.
               </p>
-              <button
-                class="button1 mb-3 fw-semibold position-absolute bottom-0"
+              <a href="fields.html">
+                <button
+                  class="button1 mb-3 fw-semibold position-absolute bottom-25"
+                >
+                  Read More
+                </button></a
               >
-                Read More
-              </button>
             </div>
 
             <div class="card1 card-body position-absolute bottom-0">
@@ -370,26 +509,32 @@
         </div>
         <div class="col-lg-6 col-sm-12 p-0">
           <div
-            class="hover1 card rounded-0"
+            class="hover1 hover2 card rounded-0"
             style="
               background-image: url(./Assets/images/13.png);
               background-size: cover;
               height: 500px;
             "
           >
-            <div class="card2 card-body my-3 mx-3 p-2" style="display: none">
-              <span class="span1 fs-1 txt-darkblue fw-semibold">
+            <div
+              class="card2 card-body my-3 mx-3 px-2 py-5"
+              style="display: none"
+            >
+              <span class="span1 fs-1 txt-green fw-semibold">
                 Computer Science
               </span>
-              <p class="mt-5 fs-4 w-75 fw-semibold text-white">
+              <p class="mt-4 fs-4 w-75 fw-semibold text-white">
                 Computer Science is a field that encompasses the study of
                 computation, algorithms, data structures.
               </p>
-              <button
-                class="button1 mb-3 bg-white txt-green fw-semibold position-absolute bottom-0"
+
+              <a href="fields.html">
+                <button
+                  class="button1 mb-3 fw-semibold position-absolute bottom-25"
+                >
+                  Read More
+                </button></a
               >
-                Read More
-              </button>
             </div>
 
             <div class="card1 card-body position-absolute bottom-0">
@@ -403,27 +548,32 @@
       <div class="row">
         <div class="col-lg-6 col-sm-12 p-0">
           <div
-            class="hover1 card rounded-0"
+            class="hover1 hover2 card rounded-0"
             style="
               background-image: url(./Assets/images/14.png);
               background-size: cover;
               height: 500px;
             "
           >
-            <div class="card2 card-body my-3 mx-3 p-2" style="display: none">
-              <span class="span1 fs-1 txt-darkblue fw-semibold">
+            <div
+              class="card2 card-body my-3 mx-3 px-2 py-5"
+              style="display: none"
+            >
+              <span class="span1 fs-1 txt-green fw-semibold">
                 Architectural engineering
               </span>
-              <p class="mt-5 fs-4 w-75 fw-semibold text-white">
+              <p class="mt-4 fs-4 w-75 fw-semibold text-white">
                 Architectural engineering is a multidisciplinary field that
                 integrates principles from architecture and engineering to
                 design and create buildings and other structures.
               </p>
-              <button
-                class="button1 mb-3 bg-white txt-green fw-semibold position-absolute bottom-0"
+              <a href="fields.html">
+                <button
+                  class="button1 mb-3 fw-semibold position-absolute bottom-25"
+                >
+                  Read More
+                </button></a
               >
-                Read More
-              </button>
             </div>
 
             <div class="card1 card-body position-absolute bottom-0">
@@ -442,20 +592,25 @@
               height: 500px;
             "
           >
-            <div class="card2 card-body my-3 mx-3 p-2" style="display: none">
+            <div
+              class="card2 card-body my-3 mx-3 px-2 py-5"
+              style="display: none"
+            >
               <span class="span1 fs-1 txt-darkblue fw-semibold">
                 Business Administration
               </span>
-              <p class="mt-5 fs-4 w-75 fw-semibold text-white">
+              <p class="mt-4 fs-4 w-75 fw-semibold text-white">
                 Business Administration is a broad field of study and practice
                 that encompasses various principles, strategies, and activities
                 related to the management and operation of organizations.
               </p>
-              <button
-                class="button1 mb-3 bg-white txt-green fw-semibold position-absolute bottom-0"
+              <a href="fields.html">
+                <button
+                  class="button1 mb-3 fw-semibold position-absolute bottom-25"
+                >
+                  Read More
+                </button></a
               >
-                Read More
-              </button>
             </div>
 
             <div class="card1 card-body position-absolute bottom-0">
@@ -467,49 +622,11 @@
         </div>
       </div>
     </div>
-    <!-- <div>
-      <div class="container">
-        <div class="row">
-          <span class="fs-1 fw-semibold txt-darkblue text-center py-5"
-            >Be One Of Our Community</span
-          >
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-lg-4 col p-0 m-0">
-          <img class="w-100" src="Assets/images/16.png" alt="" />
-        </div>
-        <div
-          class="col-lg-7 p-0 m-0 dark-layer"
-          style="
-            background-image: url(./Assets/images/17.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-          "
-        >
-          <div class="container p-5 m-0">
-            <div class="pb-3 heading fs-1 fw-semibold text-white">
-              Apply for Admission
-            </div>
-            <p class="pb-3 fs-4 fw-medium txt-green">Fall 2025 are now open</p>
-            <p class="pb-3 fs-5 fw-normal txt-gray w-75">
-              We don't just give students an education and experiences that set
-              them up for success in a career. We help them succeed in their
-              career—to discover a field they're passionate about and dare to
-              lead it.
-            </p>
-            <button
-              class="px-5 py-3 rounded-pill border-0 text-white"
-              style="background-color: #00d084"
-            >
-              Apply now
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
+
+
+
+    <!-- certified professors -->
     <div class="container">
       <div class="row">
         <span class="fw-semibold fs-1 txt-darkblue text-center py-4"
@@ -517,11 +634,23 @@
         >
       </div>
       <div class="row py-4">
+
+      <?php $doctors = App\Models\Doctor::take(3)->get(); ?>
+
+
+@foreach($doctors as $doctor)
+
+@if( $doctor->image_name == 'default.jpg')
+<?php $image="assets/images/default.jpg"; ?>
+@else
+<?php  $image = '/image/'.$doctor->image_name ;?>         
+@endif
+
         <div class="col-lg-4 col-md-6 col-sm-12 py-3">
           <div
-            class="hover2 card-body rounded-4 position-relative"
+            class="hover2 hover0 card-body rounded-4 position-relative"
             style="
-              background-image: url(Assets/images/20.jpg);
+              background-image: url({{$image}});
               background-size: cover;
               background-repeat: no-repeat;
               background-position: bottom 75% right 0px;
@@ -529,53 +658,21 @@
             "
           >
             <div class="position-absolute bottom-0 p-3">
-              <span class="fs-3 fw-semibold text-white"> Bianca Wilson </span>
+              <span class="fs-3 fw-semibold text-white"> {{$doctor->name}} </span>
               <p class="hover2e fs-5 fw-normal txt-green">
-                Professor of Computer Science
+             @php $course = \App\Models\Course::Where('doctor_id',$doctor->id)->first(); @endphp
+             Professor of {{$course->college->name}}
               </p>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 py-3">
-          <div
-            class="hover2 card-body rounded-4 position-relative"
-            style="
-              background-image: url(Assets/images/21.jpg);
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-              height: 370px;
-            "
-          >
-            <div class="position-absolute bottom-0 p-3">
-              <span class="fs-3 fw-semibold text-white"> Bianca Wilson </span>
-              <p class="hover2e fs-5 fw-normal txt-green">
-                Professor of Architectural Engineering
-              </p>
+
+@endforeach
             </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 py-3">
-          <div
-            class="hover2 card-body rounded-4 position-relative"
-            style="
-              background-image: url(Assets/images/22.jpg);
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-              height: 370px;
-            "
-          >
-            <div class="position-absolute bottom-0 p-3">
-              <span class="fs-3 fw-semibold text-white"> Bianca Wilson </span>
-              <p class="hover2e fs-5 fw-normal txt-green">
-                Professor of Electric Engineering
-              </p>
+
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+    <!-- our events -->
     <div
       class="dark-layer py-2"
       style="
@@ -593,134 +690,125 @@
             cater to the diverse interests and passions of our students,
             faculty, and staff. Please find below the details for each event:
           </p>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-4 col-md-12">
-                <div class="card card-body border-0 bg-transparent">
-                  <div
-                    class="rounded-4 position-relative"
-                    style="
-                      background-image: url(Assets/images/24.jpg);
-                      background-repeat: no-repeat;
-                      background-size: cover;
-                      background-position: center;
-                      height: 400px;
-                      width: 400px;
-                    "
-                  >
-                    <div
-                      class="text-white p-2 position-absolute bottom-0"
-                      style="
-                        background-color: #00d084;
-                        width: min-content;
-                        border-bottom-left-radius: 16px;
-                      "
-                    >
-                      <span class=""
-                        >13 <br />
-                        JUN <br />2023</span
-                      >
-                    </div>
-                  </div>
-                  <div class="pt-3">
-                    <h2 class="text-white text-start mt-3">Technology Event</h2>
-                    <p class="txt-gray fw-semibold text-start">
-                      Lectures on technology, its development and its impact on
-                      modern society, and talk about the development of
-                      artificial intelligence
-                    </p>
-                    <button
-                      class="button2 ms-3 fw-bold position-absolute start-0"
-                    >
-                      Learn More
-                    </button>
-                  </div>
-                </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-12 my-4">
+            <!-- image -->
+            <div
+              class="rounded-4 position-relative w-100 my-4"
+              style="
+                width: 410px;
+                height: 410px;
+                background-image: url(Assets/images/24.jpg);
+                background-position: center;
+                background-size: cover;
+              "
+            >
+              <div
+                class="text-white text-center fs-4 px-2 py-4 position-absolute bottom-0"
+                style="
+                  background-color: #00d084;
+                  width: fit-content;
+                  height: fit-content;
+                  border-bottom-left-radius: inherit;
+                "
+              >
+                13 <br />
+                JUN <br />
+                2023
               </div>
-              <div class="col-lg-4 col-md-12">
-                <div class="card card-body border-0 bg-transparent">
-                  <div
-                    class="rounded-4 position-relative"
-                    style="
-                      background-image: url(Assets/images/25.jpg);
-                      background-repeat: no-repeat;
-                      background-size: cover;
-                      background-position: center;
-                      height: 400px;
-                      width: 400px;
-                    "
-                  >
-                    <div
-                      class="text-white p-2 position-absolute bottom-0"
-                      style="
-                        background-color: #00d084;
-                        width: min-content;
-                        border-bottom-left-radius: 16px;
-                      "
-                    >
-                      <span class=""
-                        >13 <br />
-                        JUN <br />2023</span
-                      >
-                    </div>
-                  </div>
-                  <div class="pt-3">
-                    <h2 class="text-white text-start mt-3">Technology Event</h2>
-                    <p class="txt-gray fw-semibold text-start">
-                      Lectures on technology, its development and its impact on
-                      modern society, and talk about the development of
-                      artificial intelligence
-                    </p>
-                    <button
-                      class="button2 ms-3 fw-bold position-absolute start-0"
-                    >
-                      Learn More
-                    </button>
-                  </div>
-                </div>
+            </div>
+            <!-- info -->
+            <div class="">
+              <span class="fs-2 text-white"> Technology Event</span>
+              <p class="fs-5 fw-bold txt-gray w-100">
+                Lectures on technology, its development and its impact on modern
+                society, and talk about the development of artificial
+                intelligence
+              </p>
+              <a href="events.html"
+                ><button class="button2 fw-semibold">Learn More</button></a
+              >
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 my-4">
+            <!-- image -->
+            <div
+              class="rounded-4 position-relative w-100 my-4"
+              style="
+                width: 410px;
+                height: 410px;
+                background-image: url(Assets/images/25.jpg);
+                background-position: center;
+                background-size: cover;
+              "
+            >
+              <div
+                class="text-white text-center fs-4 px-2 py-4 position-absolute bottom-0"
+                style="
+                  background-color: #00d084;
+                  width: fit-content;
+                  height: fit-content;
+                  border-bottom-left-radius: inherit;
+                "
+              >
+                23 <br />
+                JUN <br />
+                2023
               </div>
-              <div class="col-lg-4 col-md-12">
-                <div class="card card-body border-0 bg-transparent">
-                  <div
-                    class="rounded-4 position-relative"
-                    style="
-                      background-image: url(Assets/images/26.jpg);
-                      background-repeat: no-repeat;
-                      background-size: cover;
-                      background-position: center;
-                      height: 400px;
-                      width: 400px;
-                    "
-                  >
-                    <div
-                      class="text-white p-2 position-absolute bottom-0"
-                      style="
-                        background-color: #00d084;
-                        width: min-content;
-                        border-bottom-left-radius: 16px;
-                      "
-                    >
-                      <span class=""
-                        >13 <br />
-                        JUN <br />2023</span
-                      >
-                    </div>
-                  </div>
-                  <div class="pt-3">
-                    <h2 class="text-white text-start mt-3">Technology Event</h2>
-                    <p class="txt-gray fw-semibold text-start">
-                      Lectures on technology, its development and its impact on
-                      modern society, and talk about the development of
-                      artificial intelligence
-                    </p>
-                    <button
-                      class="button2 ms-3 fw-bold position-absolute start-0"
-                    >
-                      Learn More
-                    </button>
-                  </div>
-                </div>
+            </div>
+            <!-- info -->
+            <div class="">
+              <span class="fs-2 text-white"> Free Palestine</span>
+              <p class="fs-5 fw-bold txt-gray w-100">
+                Gatherings to stop what is happening in Palestine and support
+                the Palestinian cause
+                <br />
+                <span class="txt-gray">
+                  #Palestine will remain a free Arab state</span
+                >
+              </p>
+              <a href="events.html"
+                ><button class="button2 fw-semibold">Learn More</button></a
+              >
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 my-4">
+            <!-- image -->
+            <div
+              class="rounded-4 position-relative w-100 my-4"
+              style="
+                width: 410px;
+                height: 410px;
+                background-image: url(Assets/images/26.jpg);
+                background-position: center;
+                background-size: cover;
+              "
+            >
+              <div
+                class="text-white text-center fs-4 px-2 py-4 position-absolute bottom-0"
+                style="
+                  background-color: #00d084;
+                  width: fit-content;
+                  height: fit-content;
+                  border-bottom-left-radius: inherit;
+                "
+              >
+                30 <br />
+                JUN <br />
+                2023
               </div>
+            </div>
+            <!-- info -->
+            <div class="">
+              <span class="fs-2 text-white"> Musical party</span>
+              <p class="fs-5 fw-bold txt-gray w-100">
+                A music party to entertain students and enjoy some great music
+                with your friends at the university With various musical bands
+              </p>
+              <a href="events.html"
+                ><button class="button2 fw-semibold">Learn More</button></a
+              >
             </div>
           </div>
         </div>
@@ -734,126 +822,66 @@
         </h1>
       </div>
       <div class="row w-100">
-        <div class="col-lg-6 mx-lg-auto col-sm-12">
+        <div class="col-lg-12 col-sm-12">
           <div
             id=" carouselExampleAutoPlaying"
-            class="carousel carousel-dark slide"
+            class="carousel slide carousel-dark mx-auto"
             data-bs-ride="carousel"
           >
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div
-                  class="d-flex flex-row align-items-center justify-content-center py-4"
+                  class="d-flex flex-wrap align-items-center justify-content-center"
                 >
-                  <div>
-                    <img
-                      style="border-radius: 50%; height: 117px; width: 117px"
-                      src="Assets/images/27.jpg"
-                    />
-                  </div>
-                  <div class="mx-5 d-flex flex-column">
-                    <p>
-                      The academic challenges are intense but rewarding The
-                      professors are approachable and genuinely care about your
-                      success.
-                    </p>
-                    <span class="fs-5">Henry Dee</span>
-                    <span class="txt-green">Student</span>
+                  <div class="d-flex align-items-center py-4 w-50">
+                    <div>
+                      <img
+                        class="mx-2"
+                        style="border-radius: 50%; height: 117px; width: 117px"
+                        src="Assets/images/27.jpg"
+                      />
+                    </div>
+                    <div class="w-auto d-flex flex-column">
+                      <p>
+                        The academic challenges are intense but rewarding The
+                        professors are approachable and genuinely care about
+                        your success.
+                      </p>
+                      <span class="fs-5">Henry Dee</span>
+                      <span class="txt-green">Student</span>
+                    </div>
                   </div>
                 </div>
+
+                <!--  -->
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item active">
                 <div
-                  class="d-flex flex-row align-items-center justify-content-center py-4"
+                  class="d-flex flex-wrap align-items-center justify-content-center"
                 >
-                  <div>
-                    <img
-                      style="border-radius: 50%; height: 117px; width: 117px"
-                      src="Assets/images/27.jpg"
-                    />
-                  </div>
-                  <div class="mx-5 d-flex flex-column">
-                    <p>
-                      The academic challenges are intense but rewarding The
-                      professors are approachable and genuinely care about your
-                      success.
-                    </p>
-                    <span class="fs-5">Henry Dee</span>
-                    <span class="txt-green">Student</span>
+                  <div class="d-flex align-items-center py-4 w-50">
+                    <div>
+                      <img
+                        class="mx-2"
+                        style="border-radius: 50%; height: 117px; width: 117px"
+                        src="Assets/images/27.jpg"
+                      />
+                    </div>
+                    <div class="w-auto d-flex flex-column">
+                      <p>
+                        The academic challenges are intense but rewarding The
+                        professors are approachable and genuinely care about
+                        your success.
+                      </p>
+                      <span class="fs-5">Henry Dee</span>
+                      <span class="txt-green">Student</span>
+                    </div>
                   </div>
                 </div>
+
+                <!--  -->
               </div>
-              <div class="carousel-item">
-                <div
-                  class="d-flex flex-row align-items-center justify-content-center py-4"
-                >
-                  <div>
-                    <img
-                      style="border-radius: 50%; height: 117px; width: 117px"
-                      src="Assets/images/27.jpg"
-                    />
-                  </div>
-                  <div class="mx-5 d-flex flex-column">
-                    <p>
-                      The academic challenges are intense but rewarding The
-                      professors are approachable and genuinely care about your
-                      success.
-                    </p>
-                    <span class="fs-5">Henry Dee</span>
-                    <span class="txt-green">Student</span>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="carousel-item">
-                <div
-                  class="d-flex align-items-center justify-content-center py-4"
-                >
-                  <div
-                    class="rounded-circle bg-black"
-                    style="
-                      height: 80px;
-                      width: 25%;
-                      background-image: url(Assets/images/27.jpg);
-                      background-position: center;
-                      background-size: cover;
-                    "
-                  ></div>
-                  <div class="mx-5 d-flex flex-column">
-                    <p>
-                      The academic challenges are intense but rewarding The
-                      professors are approachable and genuinely care about your
-                      success.
-                    </p>
-                    <span class="fs-5">Zeyad</span>
-                    <span class="txt-green">Student</span>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div
-                  class="d-flex align-items-center justify-content-center py-4"
-                >
-                  <div
-                    class="rounded-circle bg-black"
-                    style="
-                      height: 80px;
-                      width: 25%;
-                      background-image: url(Assets/images/27.jpg);
-                      background-position: center;
-                      background-size: cover;
-                    "
-                  ></div>
-                  <div class="mx-5 d-flex flex-column">
-                    <p>
-                      The academic challenges are intense but rewarding The
-                      professors are approachable and genuinely care about your
-                      success.
-                    </p>
-                    <span class="fs-5">Mohamed</span>
-                    <span class="txt-green">Student</span>
-                  </div>
-                </div>
-              </div> -->
+              <!-- indicators -->
             </div>
             <div class="carousel-indicators carousel-custom-indicators">
               <button
@@ -880,8 +908,8 @@
           </div>
         </div>
       </div>
-      <!-- Footer -->
     </div>
+    <!-- Footer -->
     <footer
       class="w-100"
       style="

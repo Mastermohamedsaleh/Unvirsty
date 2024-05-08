@@ -10,7 +10,7 @@
 
 
 
-<h3 class="txt-green text-center">Special Quizze</h3>
+<h3 class="txt-green text-center">Special Quiz</h3>
 
 
 
@@ -39,7 +39,7 @@
                         <thead>
                         <tr>
                                 <th>#</th>
-                                <th>Name Quizze</th>
+                                <th>Name Quiz</th>
                                 <th>Course</th>
                                 <th>Processes</th>
                             </tr>

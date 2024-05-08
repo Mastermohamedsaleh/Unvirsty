@@ -6,6 +6,12 @@
 @include('nav')
 
 
+<style>
+.bg-light-green{
+    background-color:#00d08418;
+}
+
+</style>
 
 
 @if(Session::has('message'))
@@ -26,65 +32,101 @@
 
 
 
-<div class="container mt-2">
 
 
-<h5 class="mb-3">{{$viewassignment->name}}</h5>
-
-<div class="row">
 
 
-<div class="col">
- 
-<a href="{{url('show_pdf_student',[$viewassignment->id , $viewassignment->course_id ])}}">
+
+
+<div class="container mt-5">
+
+
+
+
+  <!-- title -->
+  <div class="fs-5 fw-bold">
+  <a href="{{url('show_pdf_student',[$viewassignment->id , $viewassignment->course_id ])}}" style="color:#00d084">
     <img src="{{URL::asset('assets/images/unnamed.png')}}" alt="" width="20px"> {{$viewassignment->assignment->name}}
 </a>
+  </div>
+                <!-- assignment info -->
+                <ul class="list-group list-group-horizontal w-100 rounded-0">
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 bg-light-green"
+                  >
+                  Send Time
+                  </li>
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 txt-green bg-light-green"
+                  >
+                  {{  date('l' , strtotime($viewassignment->created_at ) )}} {{ date('h:i A' , strtotime( $viewassignment->start_time ) )}}
+                  </li>
+                </ul>
+                <ul class="list-group list-group-horizontal w-100 rounded-0">
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6"
+                  >
+                    Udpate Time
+                  </li>
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 txt-green"
+                  >
+                  {{  date('l' , strtotime($viewassignment->udpated_at ) )}} {{  date('h:i A' , strtotime($viewassignment->end_time ) )}}
+                  </li>
+                </ul>
+                <ul class="list-group list-group-horizontal w-100 rounded-0">
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 bg-light-green"
+                  >
+                    Degree
+                  </li>
+                  
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 txt-green bg-light-green"
+                  >
+    @php $score = \App\Models\DegreeAssignment::where('assignment_id',$viewassignment->assignment_id)->where('student_id',$viewassignment->student_id)->pluck('score')->first() @endphp
+                  
+                  {{  ($score ? $score : '-') }} 
+                  </li>
+                </ul>
+                <ul class="list-group list-group-horizontal w-100 rounded-0">
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6"
+                  >
+                   Add Degree
+                  </li>
+</ul>
+        <form action="{{url('degreeassignment')}}" method="post"  style="margin:0px;padding:0px">
+        @csrf  
+        <ul class="list-group list-group-horizontal w-100 rounded-0">  
+        <li class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6">
+                  <input type="number" name="score">
+      <button type="submit"  class="btn btn-success btn-sm" >Submit</button>
 
-</div>
-
-<div class="col">
-    {{$viewassignment->assignment->start_time}}
-</div>
-
-</div>
-
-<h5 class="mt-3">Submission Status</h5>
-
-<table class="table table-striped">
-    <tr>
-        <td>Send Time</td><td style=" background-color: #e9ecef;">{{  date('l' , strtotime($viewassignment->created_at ) )}} {{ date('h:i A' , strtotime( $viewassignment->start_time ) )}}</td>
-    </tr>
-    <tr>
-        <td>Update Time</td><td style=" background-color: #e9ecef;">{{  date('l' , strtotime($viewassignment->udpated_at ) )}} {{  date('h:i A' , strtotime($viewassignment->end_time ) )}}</td>
-    </tr>
-
-    {{ $score = \App\Models\DegreeAssignment::where('assignment_id',$viewassignment->assignment_id)->pluck('score')->first()}}
-    <tr>
-        <td>Degree</td><td>{{  ($score ? $score : 'No Socre') }}</td>
-    </tr>
+         </li>
+  
+         </ul>
    
-    <form action="{{url('degreeassignment')}}" method="post" >
-        @csrf
-    <tr>
-        <td>Add Degree</td><td><input type="number"   name="score" id=""></td>
-    </tr>
-    <input type="hidden" value="{{$viewassignment->assignment_id}}" name="assignment_id">
+     <input type="hidden" value="{{$viewassignment->assignment_id}}" name="assignment_id">
     <input type="hidden" value="{{$viewassignment->student_id}}" name="student_id">
     <input type="hidden" value="{{$viewassignment->course_id}}" name="course_id">
-    <tr>
-        <td><input type="submit" name="insert_button" value="Submit" /></td><td><input type="submit" name="update_button" value="Update" /></td>
-    </tr>
-    </form>
+
+             </form>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
 
 
 
-</table>
 
-<!-- end container -->
+
+
+
+
 </div>
-
-
-
 
 
 

@@ -85,10 +85,12 @@
               </button>
             </li>
           </ul>
-
-          <button class="button fs-5 mx-5 px-5 py-1" type="submit">
+<a href="{{url('login')}}">
+<button class="button fs-5 mx-5 px-5 py-1" type="submit">
             Sign in
           </button>
+</a>
+      
         </div>
       </div>
     </nav>

@@ -14,7 +14,7 @@
 
 <div class="col-lg-5 col-md-5 col-sm-12">
 
-<form action="{{route('lecturestudent')}}" method="get">
+<form action="{{route('lecturestudent',$id)}}" method="get">
 <div class="search-container">  
 <input type="text" name="search" placeholder = "Name Lecture">
   <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>

@@ -15,27 +15,49 @@ class LectureStudentController extends Controller
     
 
 
-    public function LectureStudent(Request $request){
+    public function courses(){
+
+        $courses = Course::where('college_id',  Auth::guard('student')->user()->college_id)
+        ->where('classroom_id',    Auth::guard('student')->user()->classroom_id)
+        ->where('section_id', Auth::guard('student')->user()->section_id)
+        ->orderBy('id', 'DESC')
+        ->get();
+
+        return view('Student.Lecture.courses',compact('courses'));
+    }
 
 
+    public function LectureStudent(Request $request, $id){
 
-        $search = $request->input('search');          
-        if ($search) {  
-            $lectures = Lecture::where('title', 'like', "%$search%")->where('college_id',  Auth::guard('student')->user()->college_id)
-            ->where('classroom_id',  Auth::guard('student')->user()->classroom_id)
-            ->where('section_id', Auth::guard('student')->user()->section_id)
-            ->orderBy('id', 'DESC')->paginate(PAGENATOR_COUNT);
-        }else{
-            $lectures = Lecture::where('college_id',  Auth::guard('student')->user()->college_id)
-            ->where('classroom_id',  Auth::guard('student')->user()->classroom_id)
-            ->where('section_id', Auth::guard('student')->user()->section_id)
-            ->orderBy('id', 'DESC')->paginate(PAGENATOR_COUNT); 
-        }  
-        if( $lectures){
-        return view('Student.Lecture.index',compact('lectures'));
-        }else{
-            return redirect()->back();
-        }
+        $courses = Course::where('id',$id)->where('college_id',  Auth::guard('student')->user()->college_id)
+        ->where('classroom_id',    Auth::guard('student')->user()->classroom_id)
+        ->where('section_id', Auth::guard('student')->user()->section_id)
+        ->first();
+if( $courses){
+    $search = $request->input('search');          
+    if ($search) {  
+        $lectures = Lecture::where('course_id',$id)->where('title', 'like', "%$search%")->where('college_id',  Auth::guard('student')->user()->college_id)
+        ->where('classroom_id',  Auth::guard('student')->user()->classroom_id)
+        ->where('section_id', Auth::guard('student')->user()->section_id)
+        ->orderBy('id', 'DESC')->paginate(PAGENATOR_COUNT);
+    }else{
+        $lectures = Lecture::where('course_id',$id)->where('college_id',  Auth::guard('student')->user()->college_id)
+        ->where('classroom_id',  Auth::guard('student')->user()->classroom_id)
+        ->where('section_id', Auth::guard('student')->user()->section_id)
+        ->orderBy('id', 'DESC')->paginate(PAGENATOR_COUNT); 
+    }  
+    if( $lectures){
+    return view('Student.Lecture.index',compact('lectures','id'));
+    }else{
+        return redirect()->back();
+    }
+
+}else{
+    return redirect()->back();
+
+}
+
+
 
     }
 

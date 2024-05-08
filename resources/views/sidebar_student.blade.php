@@ -20,7 +20,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{route('lecturestudent')}}" class="sidebar-link"><i class="fa-solid fa-book" style="padding: 0 10px 0  0"></i> Mylecture</a>
+                    <a href="{{route('lecturestudentcourse')}}" class="sidebar-link"><i class="fa-solid fa-book" style="padding: 0 10px 0  0"></i> Mylecture</a>
                 </li>
 
 
@@ -31,7 +31,7 @@
 
 
               <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i></i><i class="fa-regular fa-file-lines" style="padding: 0 10px 0  0" ></i> Quizzes <i class="fa-solid fa-chevron-down float-end"></i>  </a> 
+                <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"></i></i><i class="fa-regular fa-file-lines" style="padding: 0 10px 0  0" ></i> Quiz <i class="fa-solid fa-chevron-down float-end"></i>  </a> 
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
                         <a href="{{route('student_quiz.index')}}" class="sidebar-link">All Quiz</a>

@@ -1,16 +1,17 @@
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Academy</title>
 
+    <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
+    <link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
+    <script defer src="{{ URL::asset('Script/bootstrap.bundle.min.js') }}  "></script>
+    <script defer src="{{ URL::asset('Script/signin.js') }}"></script>
 
-
-
-
-
-
-
-
-
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
 
@@ -18,154 +19,570 @@
         .panel {display: none;}
     </style>
 
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0 z-1"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand ms-4" href="#"
+          ><img
+            src="Assets/images/logo.png"
+            alt="Smart Academy logo"
+            class="w-75 h-75"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- Sidemenu-respoansive-tabs css -->
-    <link href="{{ URL::asset('Styles/sidemenu-responsive-tabs') }}" rel="stylesheet">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 fs-5">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="about.html"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="fields.html"
+                >Fields</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="events.html"
+                >Events</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="contactus.html"
+                >Contact us</a
+              >
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                  ></path>
+                </svg>
+              </button>
+            </li>
+          </ul>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
-
-
-
-      <script
-        src="https://kit.fontawesome.com/c1ef89d5e0.js"
-        crossorigin="anonymous"
-        defer
-      ></script>
+          <button
+            class="button fs-5 mx-5 px-5 py-1"
+            onclick="location.href='signin.html'"
+            type="submit"
+          >
+            Sign in
+          </button>
+        </div>
+      </div>
+    </nav>
 
 
 
-      <section class="vh-100" style="background-color:#002db3;">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-xl-10">
-          <div class="card" style="border-radius: 1rem;">
-            <div class="row g-0">
-              <div class="col-md-6 col-lg-5 d-none d-md-block">
-                <img src="{{ URL::asset('assets/images/startingcollege-58d177633df78c3c4ff303ba.jpg') }}" style="height: 100%;"
-                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+    <!-- signin form -->
+    <div class="container-fluid h-100">
+      <div class="row h-100">
+        <div class="col-lg-4 px-0 bg-table h-100">
+          <div class="h-75 mx-auto py-5" style="width: 85%">
+            <div class="fw-bold fs-3 my-3" style="color: #1e1e1e">Sign in</div>
+            <!-- account type selector -->
+            <div
+              class="py-1 px-1 my-3 rounded-pill d-flex"
+              style="border: 3px solid #192f59"
+            >
+              <button
+                type="button"
+                id="mybtn1"
+                class="bg-green txt-darkblue w-50 py-1 px-2 fs-4 fw-semibold border-0 rounded-pill"
+                style="color: white"
+              >
+                Student
+              </button>
+
+
+              <button
+                type="button"
+                id="mybtn2"
+                class="txt-darkblue w-50 py-1 fs-4 fw-semibold border-0 rounded-pill"
+                style="background-color: transparent"
+              >
+                Staff
+              </button>
+
+
+
+            </div>
+
+
+
+            <div class="main-signup-header">
+                                         
+                 @if ($errors->any())
+                     <div class="alert alert-danger mt-3">
+                         <ul>
+                             @foreach ($errors->all() as $error)
+                                 <li>{{ $error }}</li>
+                             @endforeach
+                         </ul>
+                     </div>
+                 @endif 
+          </div>
+
+            <select
+                class="form-select my-1 pb-3 px-0 pt-0 border-0 rounded-0 txt-gray fw-bold frmslct"
+                style="
+                  border-bottom: 1px solid black !important;
+                  visibility: hidden;
+                "
+                aria-label="Default select example"
+
+                id="sectionChooser"
+              >
+                <option selected>Type of the account</option>
+                <option value="admin">Admin</option>
+                <option value="doctor">Doctor</option>
+                <option value="accountant">Accountant</option>
+              </select>
+
+
+
+
+              <div class="panel" id="admin">
+                <h2> Enter  as Admin</h2>
+                <form method="POST" action="{{route('admin.login')}}">
+                    @csrf
+                    <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                />
+                <label class="fw-bold txt-gray" for="floatingInput"
+                  >Email address</label
+                >
               </div>
-              <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                <div class="card-body p-4 p-lg-5 text-black">
-  
-                
+              <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                type="password"name="password"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingName"
+                  placeholder="Namee"
+                />
+                <label class="fw-bold txt-gray" for="floatingName"
+                  >Password</label
+                >
+              </div>
 
-                    
+              <button
+                type="submit"
+                class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
+              >
+                Sign in
+              </button>
+            </form>
 
 
-  
-                    <div class="d-flex align-items-center mb-3 pb-1">
-                    <i class="fas fa-cubes fa-2x me-3" style="color:#0062cc;"></i>
-                      <span class="h1 fw-bold mb-0">Login</span>
-                    </div>
 
-
-                    
-
-                    <div class="form-group">
-                    <label for="exampleFormControlSelect1">Select Enter</label>
-                    <select class="form-control" id="sectionChooser">
-                        <option value="" selected disabled>Choose list</option>
-                        <option value="student">Student</option>
-                        <option value="admin">Admin</option>
-                        <option value="doctor">Doctor</option>
-                        <option value="accountant">Accountant</option>
-                     
-                    </select>
-                  </div>
-
-                  <div class="main-signup-header">
-                                         
-                                            @if ($errors->any())
-                                                <div class="alert alert-danger mt-3">
-                                                    <ul>
-                                                        @foreach ($errors->all() as $error)
-                                                            <li>{{ $error }}</li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            @endif
 </div>
-  
-         
+              <div class="panel" id="accountant">
+                <h2> Enter  as Accountant</h2>
+                <form method="POST" action="{{route('accountant.login')}}">
+                    @csrf
+                    <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                />
+                <label class="fw-bold txt-gray" for="floatingInput"
+                  >Email address</label
+                >
+              </div>
+              <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                type="password"name="password"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingName"
+                  placeholder="Namee"
+                />
+                <label class="fw-bold txt-gray" for="floatingName"
+                  >Password</label
+                >
+              </div>
 
-                                            {{--form admin--}}
-                                            <div class="panel" id="admin">
-                                                <h2> Enter  as Admin</h2>
-                                                <form method="POST" action="{{route('admin.login')}}">
-                                                    @csrf
-                                                    <div class="form-group">
-                                                        <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
-                                                    </div><button type="submit" class="btn btn-primary mt-3">Login</button>
-                                                  
-                                            </div>
-                                            </form>
-
-                                            {{--form Accountant--}}
-                                            <div class="panel" id="accountant">
-                                                <h2> Enter  as Accountant</h2>
-                                                <form method="POST" action="{{route('accountant.login')}}">
-                                                    @csrf
-                                                    <div class="form-group">
-                                                        <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
-                                                    </div><button type="submit" class="btn btn-primary mt-3">Login</button>
-                                                  
-                                            </div>
-                                            </form>
-                                         
-                                            {{--form Doctor--}}
-                                            <div class="panel" id="doctor">
-                                                <h2>Enter  as Doctor</h2>
-                                                <form method="POST" action="{{route('doctor.login')}}">
-                                                    @csrf
-                                                    <div class="form-group">
-                                                        <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
-                                                    </div><button type="submit" class="btn btn-primary mt-3">Login</button>
-
-                                                </form>
-
-                                            </div>
-
-
-                                            {{--form user--}}
-                  <div class="panel" id="student">
-                                                <h2> Enter  as Student</h2>
-                                                <form method="POST" action="{{route('student.login')}}">
-                                                    @csrf
-                                                    <div class="form-group">
-                                                        <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
-                                                    </div><button type="submit" class="btn btn-primary mt-3">Login</button>
-                                                  
-                                            </div>
-                                            </form> 
+              <button
+                type="submit"
+                class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
+              >
+                Sign in
+              </button>
+            </form>
 
 
 
+</div>
+              <div class="panel" id="doctor">
+                <h2> Enter  as Doctor</h2>
+                <form method="POST" action="{{route('doctor.login')}}">
+                    @csrf
+                    <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                />
+                <label class="fw-bold txt-gray" for="floatingInput"
+                  >Email address</label
+                >
+              </div>
+              <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                type="password"name="password"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingName"
+                  placeholder="Namee"
+                />
+                <label class="fw-bold txt-gray" for="floatingName"
+                  >Password</label
+                >
+              </div>
+
+              <button
+                type="submit"
+                class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
+              >
+                Sign in
+              </button>
+            </form>
 
 
-  
-                
+
+</div>
+
+
+
+            <!-- form -->
+            <form method="POST" action="{{route('student.login')}}" class="student-form">
+                @csrf
+              <div
+                class="form-floating mb-3 "
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                />
+                <label class="fw-bold txt-gray" for="floatingInput"
+                  >Email address</label
+                >
+              </div>
+              <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                type="password"name="password"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingName"
+                  placeholder="Namee"
+                />
+                <label class="fw-bold txt-gray" for="floatingName"
+                  >Password</label
+                >
+              </div>
+
+              <button
+                type="submit"
+                class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
+              >
+                Sign in
+              </button>
+
+
+            </form>
+          </div>
+          <!-- footer -->
+          <footer
+            class="h-25"
+            style="
+              background-image: url(Assets/images/Vector.png);
+              background-color: #192f59;
+            "
+          >
+            <div class="container h-25">
+              <div class="row">
+                <!-- logo -->
+                <div class="m-3 w-50 h-50">
+                  <img
+                    class="h-100 w-100"
+                    src="Assets/images/logo2.png"
+                    alt=""
+                  />
+                </div>
+                <!-- copyright -->
+                <div
+                  class="container py-4 d-flex flex-row justify-content-between"
+                >
+                  <p class="m-0 mx-3 fs-6 text-white">
+                    Copyright &#169;2024 All rights reserved
+                  </p>
+                  <!-- links -->
+                  <div class="">
+                    <a
+                      class="text-decoration-none txt-green"
+                      style="text-decoration: none"
+                      target="_blank"
+                      href="https://www.facebook.com/CIS.EDU1"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        fill="currentColor"
+                        class="bi bi-facebook mx-2"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                        /></svg
+                    ></a>
+                    <a
+                      class="text-decoration-none txt-green"
+                      target="_blank"
+                      href="https://www.linkedin.com/school/new-cairo-academy-nca/"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        fill="currentColor"
+                        class="bi bi-linkedin mx-2"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                        /></svg
+                    ></a>
+                    <a
+                      href="https://www.youtube.com/channel/UCoRUJ2St0Bx7WjKdbTqOvkQ"
+                      class="text-decoration-none txt-green"
+                      target="_blank"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        fill="currentColor"
+                        class="bi bi-youtube mx-2"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"
+                        /></svg
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+
+        <!-- carousel -->
+        <div class="col-lg-8 px-0">
+          <div
+            id="carouselExampleDark"
+            class="carousel carousel-dark slide h-100"
+            data-bs-ride="carousel"
+          >
+            <!-- indicators -->
+            <div class="carousel-indicators carousel-custom-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="0"
+                class="active"
+                style="background-color: #00d084"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <!-- items -->
+            <div class="carousel-inner h-100">
+              <div
+                class="carousel-item active h-100 w-100"
+                data-bs-interval="4000"
+              >
+                <!-- img -->
+                <div
+                  class="h-100 w-100 position-relative"
+                  style="
+                    background-image: url(/Assets/images/33.jpg);
+                    background-position: center;
+                    background-size: cover;
+                  "
+                ></div>
+                <!-- info -->
+                <div
+                  class="carousel-caption d-none d-md-block position-absolute p-5 m-3 text-start"
+                  style="top: 0px; left: 0px"
+                >
+                  <h1
+                    class="txt-darkblue fw-bold w-75"
+                    style="font-size: 55.62px"
+                  >
+                    University, College and Education
+                  </h1>
+                  <p class="text-white fs-5 w-75">
+                    a small river named duden flows by their place and supplies
+                    it with the necessary regeliali
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item h-100 w-100" data-bs-interval="2000">
+                <!-- img -->
+                <div
+                  class="h-100 w-100 position-relative"
+                  style="
+                    background-image: url(/Assets/images/34.jpg);
+                    background-position: center;
+                    background-size: cover;
+                  "
+                ></div>
+                <!-- info -->
+                <div
+                  class="carousel-caption d-none d-md-block position-absolute p-5 m-3 text-start"
+                  style="top: 0px; left: 0px"
+                >
+                  <h1 class="txt-darkblue fw-bold w-50">
+                    A community that helps you learn
+                  </h1>
+                  <p class="text-white fs-5 w-75">
+                    Teaching Staff that helps you learn with ease and with high
+                    quality
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item h-100 w-100" data-bs-interval="2000">
+                <!-- img -->
+                <div
+                  class="h-100 w-100 position-relative"
+                  style="
+                    background-image: url(/Assets/images/35.jpg);
+                    background-position: center;
+                    background-size: cover;
+                  "
+                ></div>
+                <!-- info -->
+                <div
+                  class="carousel-caption d-none d-md-block position-absolute p-5 m-3 text-start"
+                  style="top: 0px; left: 0px"
+                >
+                  <h1 class="txt-darkblue fw-bold w-50">
+                    Huge library and more books
+                  </h1>
+                  <p class="text-white fs-5 w-75">
+                    Books on all fields to increase students' information
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+    <script>
+$(document).ready(function () {
+    $('#sectionChooser').change(function(){
+  var myID = $(this).val();
+  $('.panel').each(function(){
+      myID === $(this).attr('id') ? $(this).show() : $(this).hide();
+  });
+});
+});
+
+</script>
+
+
+
+  </body>
+</html>
+
+
+
+
+
 
 
 
@@ -178,18 +595,11 @@
 
 
    
+   
                                             
 
 
 
 
 
-    <script>
-        $('#sectionChooser').change(function(){
-            var myID = $(this).val();
-            $('.panel').each(function(){
-                myID === $(this).attr('id') ? $(this).show() : $(this).hide();
-            });
-        });
-    </script>
 

@@ -10,7 +10,7 @@
 
 
 
-<h3 class="txt-green text-center">Quizze</h3>
+<h3 class="txt-green text-center">Quiz</h3>
 
 
 
@@ -39,7 +39,7 @@
                         <thead>
                         <tr>
                                 <th>#</th>
-                                <th>Name Quizze</th>
+                                <th>Name Quiz</th>
                                 <th>Name Course</th>
                                 <th>Name Doctor</th>
                                 <th>Start Time</th>

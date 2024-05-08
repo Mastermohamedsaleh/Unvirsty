@@ -29,7 +29,7 @@
         <div class="card card-margin">
 
             <div class="card-header no-border">
-                <h5 class="card-title">Lecture</h5>
+                <h5 class="card-title">Assignment</h5>
             </div>
 
             <div class="card-body pt-0">
@@ -38,7 +38,7 @@
                     <div class="widget-49-title-wrapper">
                         
                         <div class="widget-49-date-success">
-                            <span class="widget-49-date-day">{{ App\Models\Lecture::where('college_id',  Auth::guard('student')->user()->college_id)
+                            <span class="widget-49-date-day">{{ App\Models\Assignment::where('college_id',  Auth::guard('student')->user()->college_id)
         ->where('classroom_id',  Auth::guard('student')->user()->classroom_id)
         ->where('section_id', Auth::guard('student')->user()->section_id)->count()  }}</span>
                          
@@ -49,11 +49,10 @@
                    
                         </div>
                     </div>
-                
-
                     <div class="widget-49-meeting-action">
-                        <a href="{{route('lecturestudent')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
+                        <a href="{{url('view_assignment')}}" class="btn btn-sm btn-flash-border-primary">View All</a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -62,7 +61,7 @@
         <div class="card card-margin">
 
             <div class="card-header no-border">
-                <h5 class="card-title">Quizzes</h5>
+                <h5 class="card-title">Quiz</h5>
             </div>
 
             <div class="card-body pt-0">

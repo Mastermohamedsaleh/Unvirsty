@@ -35,7 +35,8 @@ Route::middleware(['auth:student'])->group(function () {
     
     Route::controller(LectureStudentController::class)->group(function() {  
         
-        Route::get('lecturestudent', 'LectureStudent')->name('lecturestudent');
+        Route::get('lecturestudentcourse', 'courses')->name('lecturestudentcourse');
+        Route::get('lecturestudent/{id}', 'lecturestudent')->name('lecturestudent');
         Route::get('viewlecture/{id}', 'viewLecture')->name('viewlecture');
         
     
