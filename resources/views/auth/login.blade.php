@@ -174,8 +174,8 @@
 
 
               <div class="panel" id="admin">
-                <h2> Enter  as Admin</h2>
-                <form method="POST" action="{{route('admin.login')}}">
+                
+                <form method="POST" action="{{route('admin.login')}}" class="admin-form">
                     @csrf
                     <div
                 class="form-floating mb-3"
@@ -221,8 +221,8 @@
 
 </div>
               <div class="panel" id="accountant">
-                <h2> Enter  as Accountant</h2>
-                <form method="POST" action="{{route('accountant.login')}}">
+               
+                <form method="POST" action="{{route('accountant.login')}}" class="accountant-form">
                     @csrf
                     <div
                 class="form-floating mb-3"
@@ -267,8 +267,8 @@
 
 
 </div>
-              <div class="panel" id="doctor">
-                <h2> Enter  as Doctor</h2>
+              <div class="panel" id="doctor" class="doctor-form">
+               
                 <form method="POST" action="{{route('doctor.login')}}">
                     @csrf
                     <div

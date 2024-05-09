@@ -509,3 +509,12 @@ input::-webkit-inner-spin-button {
     color: #192F59;
     background-color: white;
 }
+
+.nav-item .nav-link{
+    transition: .5s;
+}
+
+.nav-item .nav-link:hover{
+    color: #00d084;
+    transform: scale(1.1);
+}

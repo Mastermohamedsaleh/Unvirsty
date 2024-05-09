@@ -19,6 +19,14 @@ body{
   background-color:#00d08418;
 }
 
+.bg-green{
+  background-color:#00d084;
+  color: #fff;
+}
+.bg-green:hover{
+  color: #fff;
+  background-color: #00D084;
+}
 a{
     cursor: pointer;
     text-decoration: none;

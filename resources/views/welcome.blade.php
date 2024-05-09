@@ -14,6 +14,9 @@
 
   <body>
     <!-- navbar -->
+
+
+
     <nav
       class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0 z-1"
     >
@@ -41,14 +44,13 @@
             <li class="nav-item">
               <a
                 class="nav-link active"
-                style="color: #00d084"
                 aria-current="page"
-                href="index.html"
+                href="{{url('/')}}"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{url('about')}}"
+              <a class="nav-link active"  aria-current="page" href="{{url('about')}}"
                 >About</a
               >
             </li>
@@ -124,7 +126,7 @@
                 Empower Your Future at Smart Academy: Where Knowledge Meets
                 Innovation
               </p>
-              <a href="about.html" style="width: fit-content"
+              <a href="{{url('about')}}" style="width: fit-content"
                 ><button class="button2 h-100 w-100 mt-4 px-4 fw-semibold fs-5">
                   Learn More
                 </button></a
@@ -153,7 +155,7 @@
                 Teaching Staff that helps you learn with ease and with high
                 quality
               </p>
-              <a href="about.html" style="width: fit-content"
+              <a href="{{url('about')}}" style="width: fit-content"
                 ><button class="button2 h-100 w-100 mt-4 px-4 fw-semibold fs-5">
                   Learn More
                 </button></a
@@ -329,7 +331,7 @@
                 innovation, and personal growth, while safeguarding the health
                 and security of every student
               </p>
-              <a href="about.html"
+              <a href="{{url('about')}}"
                 ><button class="button2 fw-semibold">Learn More</button></a
               >
             </div>
@@ -356,8 +358,8 @@
                 classroom. Additionally, we are committed to providing
                 sufficient and well-equipped classrooms
               </p>
-              <a href="about.html"
-                ><button class="button2 fw-semibold">Learn More</button></a
+              <a href="{{url('about')}}"
+                ><button class="button2 fw-semibold mb-2">Learn More</button></a
               >
             </div>
           </div>
@@ -386,7 +388,7 @@
                 through Innovative Lessons and Fostering Physical Well-being
                 with State-of-the-Art Sports Facilities.
               </p>
-              <a href="about.html"
+              <a href="{{url('about')}}"
                 ><button class="button2 fw-semibold">Learn More</button></a
               >
             </div>
@@ -491,7 +493,7 @@
                 solutions in areas such as power generation, distribution,
                 communication, control systems, and electronic circuits.
               </p>
-              <a href="fields.html">
+              <a href="{{url('fields')}}">
                 <button
                   class="button1 mb-3 fw-semibold position-absolute bottom-25"
                 >
@@ -528,7 +530,7 @@
                 computation, algorithms, data structures.
               </p>
 
-              <a href="fields.html">
+              <a href="{{url('fields')}}">
                 <button
                   class="button1 mb-3 fw-semibold position-absolute bottom-25"
                 >
@@ -567,7 +569,7 @@
                 integrates principles from architecture and engineering to
                 design and create buildings and other structures.
               </p>
-              <a href="fields.html">
+              <a href="{{url('fields')}}">
                 <button
                   class="button1 mb-3 fw-semibold position-absolute bottom-25"
                 >
@@ -604,7 +606,7 @@
                 that encompasses various principles, strategies, and activities
                 related to the management and operation of organizations.
               </p>
-              <a href="fields.html">
+              <a href="{{url('fields')}}">
                 <button
                   class="button1 mb-3 fw-semibold position-absolute bottom-25"
                 >
@@ -726,7 +728,7 @@
                 society, and talk about the development of artificial
                 intelligence
               </p>
-              <a href="events.html"
+              <a href="{{url('event')}}"
                 ><button class="button2 fw-semibold">Learn More</button></a
               >
             </div>
@@ -768,7 +770,7 @@
                   #Palestine will remain a free Arab state</span
                 >
               </p>
-              <a href="events.html"
+              <a href="{{url('event')}}"
                 ><button class="button2 fw-semibold">Learn More</button></a
               >
             </div>
@@ -806,7 +808,7 @@
                 A music party to entertain students and enjoy some great music
                 with your friends at the university With various musical bands
               </p>
-              <a href="events.html"
+              <a href="{{url('event')}}"
                 ><button class="button2 fw-semibold">Learn More</button></a
               >
             </div>
@@ -909,7 +911,17 @@
         </div>
       </div>
     </div>
+
+
+
+
+
+    <?php   $setting = App\Models\Setting::all();     ?>
+
+
     <!-- Footer -->
+    @foreach($setting as $s)
+
     <footer
       class="w-100"
       style="
@@ -960,7 +972,7 @@
                   style="color: #fdfdfd"
                   href="mailto:info@cis.edu.eg"
                   target="_blank"
-                  >info@cis.edu.eg</a
+                  >{{$s->email}}</a
                 >
               </div>
               <div class="fs-5 color fw-bold py-1" style="color: #fdfdfd">
@@ -977,7 +989,7 @@
                     d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
                   ></path>
                 </svg>
-                19622
+                {{$s->phone}}
               </div>
             </div>
           </div>
@@ -1040,7 +1052,7 @@
                     class="text-decoration-none txt-gray"
                     href="mailto:info@cis.edu.eg"
                     target="_blank"
-                    >info@cis.edu.eg</a
+                    >{{$s->email}}</a
                   >
                 </li>
                 <li>
@@ -1057,7 +1069,7 @@
                       d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
                     ></path>
                   </svg>
-                  19622
+                  {{$s->phone}}
                 </li>
                 <li>FAQs</li>
                 <li>Prvacy Policy</li>
@@ -1077,7 +1089,7 @@
               class="text-decoration-none txt-green"
               style="text-decoration: none"
               target="_blank"
-              href="https://www.facebook.com/CIS.EDU1"
+              href="{{$s->link_facebook}}"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -1093,7 +1105,7 @@
             <a
               class="text-decoration-none txt-green"
               target="_blank"
-              href="https://www.linkedin.com/school/new-cairo-academy-nca/"
+              href="{{$s->link_linked_in}}"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -1126,5 +1138,6 @@
         </div>
       </div>
     </footer>
+    @endforeach
   </body>
 </html>

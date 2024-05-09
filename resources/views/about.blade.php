@@ -40,9 +40,8 @@
             <li class="nav-item">
               <a
                 class="nav-link active"
-                style="color: #00d084"
                 aria-current="page"
-                href="index.html"
+                href="{{url('/')}}"
                 >Home</a
               >
             </li>
@@ -143,7 +142,7 @@
               the field
             </p>
 
-            <a href="index.html" class="text-decoration-none"
+            <a href="{{url('/')}}" class="text-decoration-none"
               ><span class="txt-darkblue fw-bold">Join Now</span></a
             >
           </div>
@@ -167,7 +166,7 @@
               The best courses that will qualify you to be the best students in
               the field
             </p>
-            <a href="index.html" class="text-decoration-none"
+            <a href="{{url('/')}}" class="text-decoration-none"
               ><span class="txt-darkblue fw-bold">Join Now</span></a
             >
           </div>
@@ -191,7 +190,7 @@
               The best courses that will qualify you to be the best students in
               the field
             </p>
-            <a href="index.html" class="text-decoration-none"
+            <a href="{{url('/')}}" class="text-decoration-none"
               ><span class="txt-darkblue fw-bold">Join Now</span></a
             >
           </div>
@@ -397,9 +396,14 @@
         </div>
       </div>
     </div>
-    <!-- footer -->
-    <footer 
-    
+
+  <?php   $setting = App\Models\Setting::all();     ?>
+
+
+    <!-- Footer -->
+    @foreach($setting as $s)
+
+    <footer
       class="w-100"
       style="
         background-image: url(Assets/images/Vector.png);
@@ -449,7 +453,7 @@
                   style="color: #fdfdfd"
                   href="mailto:info@cis.edu.eg"
                   target="_blank"
-                  >info@cis.edu.eg</a
+                  >{{$s->email}}</a
                 >
               </div>
               <div class="fs-5 color fw-bold py-1" style="color: #fdfdfd">
@@ -466,7 +470,7 @@
                     d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
                   ></path>
                 </svg>
-                19622
+                {{$s->phone}}
               </div>
             </div>
           </div>
@@ -529,7 +533,7 @@
                     class="text-decoration-none txt-gray"
                     href="mailto:info@cis.edu.eg"
                     target="_blank"
-                    >info@cis.edu.eg</a
+                    >{{$s->email}}</a
                   >
                 </li>
                 <li>
@@ -546,7 +550,7 @@
                       d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
                     ></path>
                   </svg>
-                  19622
+                  {{$s->phone}}
                 </li>
                 <li>FAQs</li>
                 <li>Prvacy Policy</li>
@@ -566,7 +570,7 @@
               class="text-decoration-none txt-green"
               style="text-decoration: none"
               target="_blank"
-              href="https://www.facebook.com/CIS.EDU1"
+              href="{{$s->link_facebook}}"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -582,7 +586,7 @@
             <a
               class="text-decoration-none txt-green"
               target="_blank"
-              href="https://www.linkedin.com/school/new-cairo-academy-nca/"
+              href="{{$s->link_linked_in}}"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -615,5 +619,6 @@
         </div>
       </div>
     </footer>
+    @endforeach
   </body>
 </html>

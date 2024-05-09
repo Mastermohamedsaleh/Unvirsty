@@ -56,41 +56,55 @@ class ProfileController extends Controller
           }
 
 
-
-
-        $validated = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|unique:admins,email,'.$id
-        ]);
-
-
-      $authall =  $Model::findOrfail($id);         
-        try{
-        if (request()->hasFile('image')){
+          if($request->action == 'delete'){
+            $authall =  $Model::findOrfail($id);         
             $imagePath = public_path('image/'.$authall->image_name);
             if(File::exists($imagePath)){
-                unlink($imagePath);
+                unlink($imagePath);  
             }
-            $fileName = time().'.'.$request->file('image')->extension();  
-            $request->file('image')->move(public_path('image'), $fileName); 
-            } else {
-                $fileName = $authall->image_name ;
-            }
+            $authall->image_name = "default.jpg";
+            $authall->save();
+            Session::flash('message', 'delete Success'); 
+            return redirect()->back();
+          }else{
+
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|unique:admins,email,'.$id
+            ]);
+    
+    
+          $authall =  $Model::findOrfail($id);         
+            try{
+            if (request()->hasFile('image')){
+                $imagePath = public_path('image/'.$authall->image_name);
+                if(File::exists($imagePath)){
+                    unlink($imagePath);
+                }
+                $fileName = time().'.'.$request->file('image')->extension();  
+                $request->file('image')->move(public_path('image'), $fileName); 
+                } else {
+                    $fileName = $authall->image_name ;
+                }
+              
+           $authall->name = $request->name;
+           $authall->email = $request->email;
+           $authall->image_name =   $fileName;
+           $authall->save();
+    
+           
+           Session::flash('message', 'Udpate Success'); 
+           
+           return redirect()->back();
           
-       $authall->name = $request->name;
-       $authall->email = $request->email;
-       $authall->image_name =   $fileName;
-       $authall->save();
+
 
        
-       Session::flash('message', 'Udpate Success'); 
-       
-       return redirect()->back();
 
     }catch (\Exception $e) {
         return redirect()->back()->withErrors(['error' => $e->getMessage()]);
     }
-
+          }
 
     }
 
