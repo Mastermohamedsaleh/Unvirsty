@@ -24,7 +24,7 @@
   <?php  
     $namecollege = \App\Models\College::where('id',auth()->user()->college_id)->first();     
   ?>
-     <h2 class="text-primary text-center"><?php
+     <h2 class="txt-green text-center"><?php
        if($namecollege){
         echo $namecollege->name;
        }

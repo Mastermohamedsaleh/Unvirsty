@@ -72,6 +72,11 @@
                                             <td>{{$receipt_student->date}}</td>
                                                 <td>
                 <a href="{{route('receipt.edit',$receipt_student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+<button type="button" class="btn btn-danger btn-sm inline-block" data-bs-toggle="modal" data-bs-target="#deletereceipt{{$receipt_student->id}}">
+<i class="fas fa-trash"></i>
+</button>
+                
+@include('Accountant.receipt.delete')
                                                 </td>
                                             </tr>
                                        

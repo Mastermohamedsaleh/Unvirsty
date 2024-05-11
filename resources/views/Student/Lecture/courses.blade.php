@@ -43,7 +43,7 @@
 
 
 
- <div class="col">
+ <div class="col-4">
 
                   <!-- content -->
                   <div class="py-4 d-flex flex-wrap w-100">
@@ -70,12 +70,12 @@
 
                     </div>
 
-@endforeach
 
 
 
 </div>
 
+@endforeach
 
 
 

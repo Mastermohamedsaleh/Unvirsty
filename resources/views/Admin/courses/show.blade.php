@@ -23,8 +23,8 @@
 
 
 
-@if($course->image_name == "course_default.jpg")
-<img src="{{URL::asset('assets/images/course_default.jpg')}}" alt="" style="width:300px">
+@if($course->image_name == "defaultcourse.jpg")
+<img src="{{URL::asset('assets/images/defaultcourse.jpg')}}" alt="" style="width:300px">
 @else
 <img src="{{URL::asset('courses/'.$course->image_name)}}" alt="" style="width:300px">
 @endif

@@ -1,45 +1,22 @@
 
 
-
-
 <div>
-    <div class="mt-4">
+    <div>
         <div class="card card-statistics mb-30">
             <div class="card-body">
                 <h5 class="card-title"> {{$data[$counter]->title}}</h5>
-               
+
                 @foreach(preg_split('/(-)/', $data[$counter]->answers) as $index=>$answer)
-             
                     <div class="custom-control custom-radio">
                     <div class="d-flex">
-                        <input type="radio"  id="customRadio{{$index}}" name="customRadio" class="custom-control-input" inh>
-                        <label class="custom-control-label" for="customRadio{{$index}}" @php $cc="{{$data[$counter]->id}}, {{$data[$counter]->score}}, '{{$answer}}', '{{$data[$counter]->right_answer}}'" @endphp> {{$answer}}</label>
-                    </div>
+                        <input type="radio" id="customRadio{{$index}}" name="customRadio" class="custom-control-input" inh>
+                        <label class="custom-control-label" for="customRadio{{$index}}" wire:click="nextQuestion({{$data[$counter]->id}}, {{$data[$counter]->score}}, '{{$answer}}', '{{$data[$counter]->right_answer}}')"> {{$answer}}</label>
+</div>
                     </div>
                 @endforeach
-               
- 
-            
-
 
             </div>
         </div>
     </div>
-    {{$data[$counter]->title}}
-@foreach(preg_split('/(-)/', $data[$counter]->answers) as $answer)
-             
-             <div class="custom-control custom-radio">
-             <div class="d-flex">
-                 <input type="radio"  name="customRadio" class="custom-control-input" inh>
-                 <label class="custom-control-label" wire:click="nextQuestion({{$data[$counter]->id}}, {{$data[$counter]->score}}, '{{$answer}}', '{{$data[$counter]->right_answer}}')"> {{$answer}}</label>
-             </div>
-             </div>
-    
-             
-@endforeach
-
-
 
 </div>
-
-

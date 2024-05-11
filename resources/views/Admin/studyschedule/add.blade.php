@@ -278,9 +278,9 @@ $(document).ready(function(){
     <div class="col">
       <label>Doctor: <span class="text-danger">*</span> </label>
       <select name="doctor_id[]" >
-@foreach($doctors as $doctor)
-  <option value="{{$doctor->id}}">{{$doctor->name}}</option>
-@endforeach
+     @foreach($doctors as $doctor)
+      <option value="{{$doctor->id}}">{{$doctor->name}}</option>
+       @endforeach
 </select>
       
 
@@ -357,8 +357,6 @@ $('select[name="classroom_id"]').on('change', function () {
         console.log('AJAX load did not work');
         }
 });
-
-
 });
 
 

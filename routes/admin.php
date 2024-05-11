@@ -86,6 +86,7 @@ Route::controller(SettingController::class)->group(function() {
 
 Route::controller(AjaxController::class)->group(function() {  
 Route::get('getcourse/{id}','GetCourse');
+
 });
 
 

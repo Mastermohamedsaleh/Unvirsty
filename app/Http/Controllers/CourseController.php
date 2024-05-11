@@ -104,11 +104,20 @@ class CourseController extends Controller
             $course    =  Course::where('id',$id)->where('college_id',auth()->user()->college_id)->first();
         }
         if($course){
-            $colleges = College::where('id',auth()->user()->college_id)->get();
-            $classrooms = Classroom::where('college_id',auth()->user()->college_id)->get();
-            $sections = Section::where('college_id',auth()->user()->college_id)->get();
-            $doctors = Doctor::where('college_id',auth()->user()->college_id)->get();
-            return view('Admin.courses.show',compact('course','colleges','classrooms','sections','doctors'));
+            if(auth()->user()->status == 0){
+                $colleges = College::all();
+                $classrooms = Classroom::all();
+                $sections = Section::all();
+                $doctors = Doctor::all();
+                return view('Admin.courses.show',compact('course','colleges','classrooms','sections','doctors'));
+            }else{
+                $colleges = College::where('id',auth()->user()->college_id)->get();
+                $classrooms = Classroom::where('college_id',auth()->user()->college_id)->get();
+                $sections = Section::where('college_id',auth()->user()->college_id)->get();
+                $doctors = Doctor::where('college_id',auth()->user()->college_id)->get();
+                return view('Admin.courses.show',compact('course','colleges','classrooms','sections','doctors'));
+            }
+         
 
         }else{
             return redirect()->back();
@@ -160,6 +169,7 @@ class CourseController extends Controller
         catch(\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+
 
 
     }

@@ -8,7 +8,7 @@
 
 
 
-<h3 class="txt-green text-center">doctors</h3>
+<h3 class="txt-green text-center">Doctors</h3>
 
 
 

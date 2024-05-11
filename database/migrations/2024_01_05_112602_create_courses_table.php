@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('semester');
-            $table->string('image_name')->default('course_default.jpg');
+            $table->string('image_name')->default('defaultcourse.jpg');
             $table->foreignId('college_id')->references('id')->on('colleges')->onDelete('cascade');
             $table->foreignId('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreignId('section_id')->nullable()->references('id')->on('sections')->onDelete('cascade');

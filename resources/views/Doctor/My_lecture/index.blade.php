@@ -65,21 +65,35 @@
                             <li> <span class=" text-muted">{{$lecture->college->name}}</span></li>
                             <li> <span class=" text-muted">{{$lecture->classroom->name}}</span></li>
                             <li> <span class=" text-muted">{{  (  $lecture->section_id ? $lecture->section->name : '' ) }}</span></li>
+
+
+
                         </ul>
-                          
+                    
+
+
+
                       </div>
           
+                                            
+
                       <div class="mt-2">
 
+
                     <div class="btn-group" role="group">
+                      
     <button id="btnGroupDrop1" type="button" class="btn bg-color2 dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fa-solid fa-share"></i>
     </button>
+   
+
+
     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
 
-    <li><button type="button" class="btn btn-danger btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#deletelecture{{$lecture->id}}">
+    <li> <a type="button"  data-bs-toggle="modal" data-bs-target="#deletelecture{{$lecture->id}}">
 <i class="fa-solid fa-trash"></i>Delete
-</button></li>
+</a></li>
+
      <li><a href="{{route('lecture.edit',$lecture->id)}}" class="btn btn-success btn-sm dropdown-item"><i class="fa-solid fa-pen-to-square"></i>Edit</a></li>
       <li><a href="{{route('lecture.show',$lecture->id)}}" class="btn btn-primary btn-sm dropdown-item"><i class="fa-solid fa-eye"></i>Show</a></li>
     </ul>
@@ -89,7 +103,7 @@
 
 
 
-
+@include('Doctor.My_lecture.delete')
 </div>
 
 @empty

@@ -39,6 +39,7 @@ class ReceiptStudentController extends Controller
             $receipt_students->student_id = $request->student_id;
             $receipt_students->Debit = $request->Debit;
             $receipt_students->description = $request->description;
+            $receipt_students->academic_year = date("Y");
             $receipt_students->save();
 
             // حفظ البيانات في جدول الصندوق
@@ -57,6 +58,7 @@ class ReceiptStudentController extends Controller
             $student_accounts->Debit = 0.00;
             $student_accounts->credit = $request->Debit;
             $student_accounts->receipt_id  =  $receipt_students->id;
+            $student_accounts->academic_year = date("Y");
             $student_accounts->save();
 
             DB::commit();
@@ -108,6 +110,8 @@ class ReceiptStudentController extends Controller
             $receipt_students->student_id = $request->student_id;
             $receipt_students->Debit = $request->Debit;
             $receipt_students->description = $request->description;
+            $receipt_students->academic_year = date("Y");
+            
             $receipt_students->save();
 
 
@@ -129,6 +133,7 @@ class ReceiptStudentController extends Controller
             $student_accounts->receipt_id = $receipt_students->id;
             $student_accounts->Debit = 0.00;
             $student_accounts->credit = $request->Debit;
+            $student_accounts->academic_year = date("Y");
             $student_accounts->save();
 
             DB::commit();
@@ -152,6 +157,8 @@ class ReceiptStudentController extends Controller
 
     public function destroy($id)
     {
-        //
+        $ReceiptStudent = ReceiptStudent::findOrFail($id)->delete();
+    
+        return redirect()->route('receipt.index');
     }
 }

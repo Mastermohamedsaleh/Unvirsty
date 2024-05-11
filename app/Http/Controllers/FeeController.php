@@ -68,12 +68,14 @@ class FeeController extends Controller
    if($request->section_id){
          $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->get();       
     }else{
-         $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('academic_year',$request->academic_year)->get();
+         $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->get();
     }
 
     if($students->count() < 1){
         return redirect()->back()->with('error','No Students');
     }
+
+
 
     foreach($students as $student){  
         $fee_invoice = new Fee_invoice();
@@ -84,6 +86,7 @@ class FeeController extends Controller
         $fee_invoice->section_id = $request->section_id;
         $fee_invoice->fee_id = $fee->id;
         $fee_invoice->amount = $request->amount;
+        $fee_invoice->academic_year = $request->academic_year;
         $fee_invoice->save();  
         
         
@@ -92,6 +95,7 @@ class FeeController extends Controller
        $StudentAccount->fee_invoice_id = $fee_invoice->id;
        $StudentAccount->student_id = $student->id;
        $StudentAccount->Debit = $request->amount;
+       $StudentAccount->academic_year = $request->academic_year;
        $StudentAccount->credit = 0.00;
        $StudentAccount->save();
     }

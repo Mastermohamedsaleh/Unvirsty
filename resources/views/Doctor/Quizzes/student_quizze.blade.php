@@ -19,7 +19,7 @@
 <div class="container mt-5">
 
 
-<h3 class="text-primary text-center">Degree Student</h3>
+<h3 class="txt-green text-center">Degree Student</h3>
 
 
 
@@ -54,11 +54,11 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>اسم الطالب</th>
-                                            <th>الدرجة</th>
-                                            <th>تلاعب</th>
-                                            <th>تاريخ اجراء الاختبار</th>
-                                            <th>العمليات</th>
+                                            <th> Name Student</th>
+                                            <th>Degree</th>
+                                            <th>Play</th>
+                                            <th> Date </th>
+                                            <th>Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -68,9 +68,9 @@
                                                 <td>{{$degree->student->name}}</td>
                                                 <td>{{$degree->score}}</td>
                                                 @if($degree->abuse == 0)
-                                                    <td style="color: green">لا يوجد تلاعب</td>
+                                                    <td style="color: green">  No Play</td>
                                                     @else
-                                                    <td style="color: red"> يوجد تلاعب</td>
+                                                    <td style="color: red"> Play </td>
                                                 @endif
                                                 <td>{{$degree->date}}</td>
                                                   @if($degree->abuse == 1) 

@@ -14,7 +14,7 @@
 
 <div class="container">
      
-    <span>Score :{{$degree->score}}  </span> 
+    <span style="font-size:30px;font-weight:600">Score :{{$degree->score}}  </span> 
     <div class="mt-4">
     @foreach($answerstudent as $answer)
 
