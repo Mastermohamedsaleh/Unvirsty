@@ -38,7 +38,7 @@
        
                
               <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#quiz" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-regular fa-user pe-2" style="padding: 0 10px 0  0"></i> Quiz <i class="fa-solid fa-chevron-down float-end"></i></a>
+                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#quiz" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-regular fa-file-lines" style="padding: 0 10px 0  0" ></i> Quiz <i class="fa-solid fa-chevron-down float-end"></i></a>
                 <ul id="quiz" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
                         <a href="{{route('quizzes.index')}}" class="sidebar-link">Quiz</a>
@@ -78,11 +78,11 @@
 
 
               <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#onlinecourse" data-bs-toggle="collapse" area-expanded="false"></i><i class="fa-solid fa-clipboard-user" style="padding: 0 10px 0  0"></i> Online Course <i class="fa-solid fa-chevron-down float-end"></i></a>
+                <a href="#" class="sidebar-link collapsed coll" data-bs-target="#onlinecourse" data-bs-toggle="collapse" area-expanded="false"></i><i style="padding: 0 10px 0  0" class="fa-solid fa-globe"></i> Online Course <i class="fa-solid fa-chevron-down float-end"></i></a>
                 <ul id="onlinecourse" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
                         <a href="{{route('onlinecourse.index')}}" class="sidebar-link">OnlineCourse</a>
-                        <a href="{{route('onlinecourse.create')}}" class="sidebar-link">Add OnlineCourse</a>
+                        <a href="{{route('onlinecoursedirect.create')}}" class="sidebar-link">Add OnlineCourse</a>
                     </li>
                 </ul>
             </li>

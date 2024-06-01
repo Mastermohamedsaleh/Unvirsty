@@ -35,7 +35,7 @@ class OnlineCourseController extends Controller
 
 
         try{
-     $course =   Course::where('id',$request->course_id)->first();
+       $course =   Course::where('id',$request->course_id)->first();
 
         OnlineCourse::create([
         'doctor_id'=>auth()->user()->id,

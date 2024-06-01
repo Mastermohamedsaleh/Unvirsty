@@ -10,7 +10,7 @@ use App\Http\Controllers\Doctor\QuizzeController;
 
 use App\Http\Controllers\Doctor\QuestionController;
 use App\Http\Controllers\Doctor\LibraryController;
-use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController , TotalDegreeController,AssignmentController,StudentAssignmentController,OnlineCourseController};
+use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController , TotalDegreeController,AssignmentController,StudentAssignmentController,OnlineCourseController , OnlineCourseDirectController};
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AjaxController;
 
@@ -54,6 +54,7 @@ Route::get('dashboard/doctor', function () {
      
    Route::resource('lecture',LectureController::class);
    Route::resource('onlinecourse',OnlineCourseController::class);
+   Route::resource('onlinecoursedirect',OnlineCourseDirectController::class);
    Route::resource('assignments',AssignmentController::class);
 
    Route::post(' repeat_quizze/{id}',[QuizzeController::class , 'repeatquiz']);

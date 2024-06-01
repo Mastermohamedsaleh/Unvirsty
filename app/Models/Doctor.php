@@ -59,4 +59,21 @@ class Doctor extends Authenticatable
     {
         return $this->belongsTo('App\Models\Nationalitie', 'nationalitie_id');
     }
+
+
+    public static function clientID()
+    {
+        return 'zoom_client_of_user';
+    }
+
+    public static function clientSecret()
+    {
+        return 'zoom_client_secret_of_user';
+    }
+
+    public static function accountID()
+    {
+        return 'zoom_account_id_of_user';
+    }
+
 }

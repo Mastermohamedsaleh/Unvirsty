@@ -26,7 +26,12 @@
 @endif
 
 <a href="{{route('onlinecourse.create')}}" class="btn  btn-sm bg-color2" role="button"
-                                   aria-pressed="true"> Add New Lecuter </a><br><br>
+                                   aria-pressed="true"> Add New Lecuter </a>
+<a href="{{route('onlinecoursedirect.create')}}" class="btn  btn-sm bg-color2" role="button"
+                                   aria-pressed="true"> Add New Direct Lecuter </a><br><br>
+
+
+
 
 <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"

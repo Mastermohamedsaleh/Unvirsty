@@ -1,24 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Smart Academy</title>
 
-    <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
-    <link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
-    <script defer src="{{ URL::asset('Script/bootstrap.bundle.min.js') }}  "></script>
-    <script defer src="{{ URL::asset('Script/signin.js') }}"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-
-
-    <style>
-        .panel {display: none;}
-    </style>
-
+<link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
+<link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
+<script defer src="{{ URL::asset('Script/bootstrap.bundle.min.js') }}  "></script>
+<script defer src="{{ URL::asset('Script/signin.js') }}"></script>
   </head>
   <body>
     <!-- navbar -->
@@ -102,235 +93,68 @@
         </div>
       </div>
     </nav>
-
-
-
     <!-- signin form -->
-    <div class="container-fluid h-100">
-      <div class="row h-100">
-        <div class="col-lg-4 px-0 bg-table h-100">
-          <div class="h-75 mx-auto py-5" style="width: 85%">
-            <div class="fw-bold fs-3 my-3" style="color: #1e1e1e">Sign in</div>
-            <!-- account type selector -->
-            <div
-              class="py-1 px-1 my-3 rounded-pill d-flex"
-              style="border: 3px solid #192f59"
-            >
-              <button
-                type="button"
-                id="mybtn1"
-                class="bg-green txt-darkblue w-50 py-1 px-2 fs-4 fw-semibold border-0 rounded-pill"
-                style="color: white"
+    <div class="container-fluid d-flex flex-column" style="min-height: 100vh">
+      <div class="row flex-grow-1">
+        <div class="col-lg-4 px-0 bg-table vh-100 d-flex flex-column">
+          <div class="mx-auto pt-5 h-100" style="width: 85%">
+            <div class="w-75">
+              <div class="fw-bold fs-3 pb-3" style="color: #1e1e1e">
+                Sign in
+              </div>
+              <!-- account type selector -->
+              <div
+                class="py-1 px-1 mt-3 rounded-pill d-flex"
+                style="border: 3px solid #192f59"
               >
-                Student
-              </button>
-
-
-              <button
-                type="button"
-                id="mybtn2"
-                class="txt-darkblue w-50 py-1 fs-4 fw-semibold border-0 rounded-pill"
-                style="background-color: transparent"
-              >
-                Staff
-              </button>
-
-
-
-            </div>
-
-
-
-            <div class="main-signup-header">
-                                         
-                 @if ($errors->any())
-                     <div class="alert alert-danger mt-3">
-                         <ul>
-                             @foreach ($errors->all() as $error)
-                                 <li>{{ $error }}</li>
-                             @endforeach
-                         </ul>
-                     </div>
-                 @endif 
-          </div>
-
-            <select
-                class="form-select my-1 pb-3 px-0 pt-0 border-0 rounded-0 txt-gray fw-bold frmslct"
+                <button
+                  type="button"
+                  id="mybtn1"
+                  class="bg-green txt-darkblue w-50 py-1 px-2 fs-4 fw-semibold border-0 rounded-pill"
+                  style="color: white"
+                >
+                  Student
+                </button>
+                <button
+                  type="button"
+                  id="mybtn2"
+                  class="txt-darkblue w-50 py-1 fs-4 fw-semibold border-0 rounded-pill"
+                  style="background-color: transparent"
+                >
+                  Staff
+                </button>
+              </div>
+              <select
+                id="frmSlct"
+                onchange="accountTypeChanger()"
+                class="form-select my-1 pb-3 px-0 pt-3 border-0 rounded-0 txt-gray fw-bold"
                 style="
                   border-bottom: 1px solid black !important;
                   visibility: hidden;
                 "
                 aria-label="Default select example"
-
-                id="sectionChooser"
               >
-                <option selected>Type of the account</option>
-                <option value="admin">Admin</option>
-                <option value="doctor">Doctor</option>
-                <option value="accountant">Accountant</option>
+                <option selected>type of account</option>
+                <option value="doctor-form">Doctor</option>
+                <option value="admin-form">Admin</option>
+                <option value="accountant-form">Accountant</option>
               </select>
-
-
-
-
-              <div class="panel" id="admin">
-                
-                <form method="POST" action="{{route('admin.login')}}" class="admin-form">
-                    @csrf
-                    <div
-                class="form-floating mb-3"
-                style="border-bottom: 1px solid black !important"
-              >
-                <input
-                  type="email"
-                  name="email"
-                  class="form-control border-0"
-                  style="background-color: inherit"
-                  id="floatingInput"
-                  placeholder="name@example.com"
-                />
-                <label class="fw-bold txt-gray" for="floatingInput"
-                  >Email address</label
-                >
-              </div>
-              <div
-                class="form-floating mb-3"
-                style="border-bottom: 1px solid black !important"
-              >
-                <input
-                type="password"name="password"
-                  class="form-control border-0"
-                  style="background-color: inherit"
-                  id="floatingName"
-                  placeholder="Namee"
-                />
-                <label class="fw-bold txt-gray" for="floatingName"
-                  >Password</label
-                >
-              </div>
-
-              <button
-                type="submit"
-                class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
-              >
-                Sign in
-              </button>
-            </form>
-
-
-
-</div>
-              <div class="panel" id="accountant">
-               
-                <form method="POST" action="{{route('accountant.login')}}" class="accountant-form">
-                    @csrf
-                    <div
-                class="form-floating mb-3"
-                style="border-bottom: 1px solid black !important"
-              >
-                <input
-                  type="email"
-                  name="email"
-                  class="form-control border-0"
-                  style="background-color: inherit"
-                  id="floatingInput"
-                  placeholder="name@example.com"
-                />
-                <label class="fw-bold txt-gray" for="floatingInput"
-                  >Email address</label
-                >
-              </div>
-              <div
-                class="form-floating mb-3"
-                style="border-bottom: 1px solid black !important"
-              >
-                <input
-                type="password"name="password"
-                  class="form-control border-0"
-                  style="background-color: inherit"
-                  id="floatingName"
-                  placeholder="Namee"
-                />
-                <label class="fw-bold txt-gray" for="floatingName"
-                  >Password</label
-                >
-              </div>
-
-              <button
-                type="submit"
-                class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
-              >
-                Sign in
-              </button>
-            </form>
-
-
-
-</div>
-              <div class="panel" id="doctor" class="doctor-form">
-               
-                <form method="POST" action="{{route('doctor.login')}}">
-                    @csrf
-                    <div
-                class="form-floating mb-3"
-                style="border-bottom: 1px solid black !important"
-              >
-                <input
-                  type="email"
-                  name="email"
-                  class="form-control border-0"
-                  style="background-color: inherit"
-                  id="floatingInput"
-                  placeholder="name@example.com"
-                />
-                <label class="fw-bold txt-gray" for="floatingInput"
-                  >Email address</label
-                >
-              </div>
-              <div
-                class="form-floating mb-3"
-                style="border-bottom: 1px solid black !important"
-              >
-                <input
-                type="password"name="password"
-                  class="form-control border-0"
-                  style="background-color: inherit"
-                  id="floatingName"
-                  placeholder="Namee"
-                />
-                <label class="fw-bold txt-gray" for="floatingName"
-                  >Password</label
-                >
-              </div>
-
-              <button
-                type="submit"
-                class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
-              >
-                Sign in
-              </button>
-            </form>
-
-
-
-</div>
-
-
-
-            <!-- form -->
-            <form method="POST" action="{{route('student.login')}}" class="student-form">
+            </div>
+            <!-- student (default) form -->
+            <form action="{{route('student.login')}}"  method="post"  class="position-relative z-0 w-75 my-3" id="student-form">
                 @csrf
+              <!--form Data  -->
               <div
-                class="form-floating mb-3 "
+                class="form-floating mb-3"
                 style="border-bottom: 1px solid black !important"
               >
                 <input
                   type="email"
-                  name="email"
                   class="form-control border-0"
                   style="background-color: inherit"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  name="email"
                 />
                 <label class="fw-bold txt-gray" for="floatingInput"
                   >Email address</label
@@ -341,36 +165,182 @@
                 style="border-bottom: 1px solid black !important"
               >
                 <input
-                type="password"name="password"
+                  type="password"
                   class="form-control border-0"
                   style="background-color: inherit"
                   id="floatingName"
                   placeholder="Namee"
+                  name="password"
                 />
                 <label class="fw-bold txt-gray" for="floatingName"
                   >Password</label
                 >
               </div>
-
+              <!--  -->
               <button
                 type="submit"
                 class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
               >
                 Sign in
               </button>
-
-
+            </form>
+            <!-- Doctor form -->
+            <form
+            action="{{route('doctor.login')}}"  method="post"
+              class="position-relative z-0 w-75 my-3"
+              id="doctor-form"
+              style="display: none"
+            >
+            @csrf
+              <!--form Data  -->
+              <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                  type="email"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  name="email"
+                />
+                <label class="fw-bold txt-gray" for="floatingInput"
+                  >Email address</label
+                >
+              </div>
+              <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                  type="password"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingName"
+                  placeholder="Namee"
+                  name="password"
+                />
+                <label class="fw-bold txt-gray" for="floatingName"
+                  >Password</label
+                >
+              </div>
+              <!--  -->
+              <button
+                type="submit"
+                class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
+              >
+                Sign in
+              </button>
+            </form>
+            <!-- Admin form -->
+            <form
+            action="{{route('admin.login')}}"  method="post"
+              class="position-relative z-0 w-75 my-3"
+              id="admin-form"
+              style="display: none"
+            >
+            @csrf
+              <!--form Data  -->
+              <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                  type="email"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  name="email"
+                />
+                <label class="fw-bold txt-gray" for="floatingInput"
+                  >Email address</label
+                >
+              </div>
+              <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                  type="password"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingName"
+                  placeholder="Namee"
+                  name="password"
+                />
+                <label class="fw-bold txt-gray" for="floatingName"
+                  >Password</label
+                >
+              </div>
+              <!--  -->
+              <button
+                type="submit"
+                class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
+              >
+                Sign in
+              </button>
+            </form>
+            <!-- Accountant form -->
+            <form
+            action="{{route('accountant.login')}}"  method="post"
+              class="position-relative z-0 w-75 my-3"
+              id="accountant-form"
+              style="display: none"
+            >
+            @csrf
+              <!--form Data  -->
+              <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                  type="email"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  name="email"
+                />
+                <label class="fw-bold txt-gray" for="floatingInput"
+                  >Email address</label
+                >
+              </div>
+              <div
+                class="form-floating mb-3"
+                style="border-bottom: 1px solid black !important"
+              >
+                <input
+                  type="password"
+                  class="form-control border-0"
+                  style="background-color: inherit"
+                  id="floatingName"
+                  placeholder="Namee"
+                  name="password"
+                />
+                <label class="fw-bold txt-gray" for="floatingName"
+                  >Password</label
+                >
+              </div>
+              <!--  -->
+              <button
+                type="submit"
+                class="bg-green text-white border-0 fw-bold fs-6 w-50 py-3 mt-lg-3 rounded-4"
+              >
+                Sign in
+              </button>
             </form>
           </div>
           <!-- footer -->
-          <footer
-            class="h-25"
+          <div
+            class=""
             style="
               background-image: url(Assets/images/Vector.png);
               background-color: #192f59;
             "
           >
-            <div class="container h-25">
+            <div class="container">
               <div class="row">
                 <!-- logo -->
                 <div class="m-3 w-50 h-50">
@@ -442,14 +412,14 @@
                 </div>
               </div>
             </div>
-          </footer>
+          </div>
         </div>
 
         <!-- carousel -->
-        <div class="col-lg-8 px-0">
+        <div class="col-lg-8 px-0 h-100 d-flex flex-column">
           <div
             id="carouselExampleDark"
-            class="carousel carousel-dark slide h-100"
+            class="carousel carousel-dark slide"
             data-bs-ride="carousel"
           >
             <!-- indicators -->
@@ -477,7 +447,7 @@
               ></button>
             </div>
             <!-- items -->
-            <div class="carousel-inner h-100">
+            <div class="carousel-inner vh-100">
               <div
                 class="carousel-item active h-100 w-100"
                 data-bs-interval="4000"
@@ -523,7 +493,10 @@
                   class="carousel-caption d-none d-md-block position-absolute p-5 m-3 text-start"
                   style="top: 0px; left: 0px"
                 >
-                  <h1 class="txt-darkblue fw-bold w-50">
+                  <h1
+                    class="txt-darkblue fw-bold w-50"
+                    style="font-size: 55.62px"
+                  >
                     A community that helps you learn
                   </h1>
                   <p class="text-white fs-5 w-75">
@@ -547,7 +520,10 @@
                   class="carousel-caption d-none d-md-block position-absolute p-5 m-3 text-start"
                   style="top: 0px; left: 0px"
                 >
-                  <h1 class="txt-darkblue fw-bold w-50">
+                  <h1
+                    class="txt-darkblue fw-bold w-50"
+                    style="font-size: 55.62px"
+                  >
                     Huge library and more books
                   </h1>
                   <p class="text-white fs-5 w-75">
@@ -560,46 +536,6 @@
         </div>
       </div>
     </div>
-
-
-    <script>
-$(document).ready(function () {
-    $('#sectionChooser').change(function(){
-  var myID = $(this).val();
-  $('.panel').each(function(){
-      myID === $(this).attr('id') ? $(this).show() : $(this).hide();
-  });
-});
-});
-
-</script>
-
-
-
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-   
-                                            
-
-
-
-
-
 
