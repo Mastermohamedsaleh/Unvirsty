@@ -23,8 +23,7 @@
 
 
 
-
- 
+<div class="mb-2">
 @if ($errors->any())
                     <div class="alert alert-danger" style="width:500px;   margin: 0 auto ">
                         <ul>
@@ -41,7 +40,7 @@
 <p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
 @endif
 
-
+</div>
 
 
  <div class="card">

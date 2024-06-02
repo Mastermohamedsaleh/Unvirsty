@@ -11,7 +11,17 @@
 
 
  
+ <div class="container">
 
+<div class="col-lg-5 col-md-5 col-sm-12">
+
+<form action="{{url('graduated_student')}}" method="get">
+<div class="search-container">  
+<input type="text" name="search" placeholder="Search Name OR Email">
+  <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+</form>
+</div>
 
  <div class="container">
 
@@ -27,18 +37,6 @@
 
 
 
- <form action="{{url('graduated_student')}}" method="get">
-
-
-
-
-    <input type="text" name="search" placeholder="Search Name OR Email" style="width:300px">
-
-    <button class="btn bg-color2 btn-sm float-end mt-2"><i class="fa-solid fa-magnifying-glass "></i></button>
-
-
-
-</form>
 
 
  <div class="table-responsive">

@@ -25,7 +25,7 @@
                 @if(Session::has('message'))
 <p class="alert alert-info" style="width:300px; margin:0px auto">{{ Session::get('message') }}</p>
 @endif
-<div class="container">
+<div class="container mt-5">
 <div class="card">
 
 
@@ -44,7 +44,7 @@
 <div class="row">
 
 
-<legend><span class="number bg-color2">1</span> Add New Lecture</legend>
+<legend><span class="number bg-color2"><i class="fa-solid fa-pen"></i></span> Add New Lecture</legend>
 <div class="col-12">
 
 <label for="">Title<span class="text-danger">*</span> </label>
@@ -86,7 +86,7 @@
 </div>
 
 
-<button type="submit" class="btn bg-color2 mt-2">Add</button>
+<button type="submit" class="btn bg-color2 btn-sm mt-2">Add</button>
 
 </form>
 

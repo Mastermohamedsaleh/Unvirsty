@@ -140,7 +140,7 @@
 </button>
                 
 
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editsection{{$section->id}}">
+ <button type="button" class="btn bg-color2 btn-sm" data-bs-toggle="modal" data-bs-target="#editsection{{$section->id}}">
  <i class="fas fa-edit"></i>
 </button><br><br>
 @include('Admin.sections.edit')

@@ -51,7 +51,7 @@
 
 
 
-<a href="{{route('quizzes.create')}}" class="mb-2 btn bg-color2 btn-sm">Add New Quizze</a>
+<a href="{{route('quizzes.create')}}" class="mb-2 btn bg-color2 btn-sm">Add Quiz</a>
 
 
 

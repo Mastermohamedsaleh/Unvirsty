@@ -15,19 +15,16 @@
 
       <div class="row">
       <div class="col-12">
-      <div class="form-group">
-        <label>Name: </label>
+     
+        <label>Name : </label>
         <input type="text"  value="{{$college->name}}" name="name"  >
-        </div>
+
       </div>
 
      
-  
       <div class="col-12">
-      <div class="form-group">
-         <label>Note : </label>
+      <label>Note : </label>
          <textarea name="note" id="" cols="30" rows="10">{{$college->note}}</textarea>
-         </div>
       </div>
 
 
@@ -37,7 +34,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
-        <button  class="btn btn-primary button-mode">Udpate</button>
+        <button  class="btn bg-color2 button-mode">Udpate</button>
       </div>
       </form>
     </div>

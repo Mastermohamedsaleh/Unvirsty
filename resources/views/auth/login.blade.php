@@ -6,6 +6,9 @@
 
     <title>Smart Academy</title>
 
+    <link rel="website icon" type="png" href="assets/images/logo2.png" >
+
+
 <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
 <link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
 <script defer src="{{ URL::asset('Script/bootstrap.bundle.min.js') }}  "></script>
@@ -38,22 +41,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 fs-5">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
+              <a class="nav-link active" aria-current="page" href="{{url('/')}}"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="about.html"
+              <a class="nav-link active" aria-current="page" href="{{url('about')}}"
                 >About</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="fields.html"
+              <a class="nav-link active" aria-current="page" href="{{url('fields')}}"
                 >Fields</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="events.html"
+              <a class="nav-link active" aria-current="page" href="{{url('events')}}"
                 >Events</a
               >
             </li>
@@ -61,7 +64,7 @@
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="contactus.html"
+                href="{{url('contactus')}}"
                 >Contact us</a
               >
             </li>

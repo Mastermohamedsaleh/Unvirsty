@@ -60,8 +60,18 @@
 
                       <td>
 
+            
+   
+                      <?php  
+                      
+                      if($quizze->type_quiz == 1){
+                        $fun = "alertAbuse()" ;
+                      }else{
+                        $fun = true;
+                      }
+                       
+                      ?>
 
-      
    
                       <?php $mytime = \Carbon\Carbon::now('Africa/Cairo')->addHours(1);
         $mytime = $mytime->toDateTimeString();
@@ -92,7 +102,7 @@
                     @if($mytime <= $end_time)
                         <a href="{{route('student_quiz.show',$quizze->id)}}"
                                 class="btn btn-outline-success btn-sm" role="button"
-                                aria-pressed="true" onclick="alertAbuse()">
+                                aria-pressed="true"   onclick="{{$fun}}"    >
                                 <i class="fas fa-person-booth"></i></a>
                         @else
                         {{  "Quiz  End" }}  
@@ -116,9 +126,18 @@
 
 
 <script>
+ 
+
+
+
+
+
      function alertAbuse() {
                 alert("برجاء عدم إعادة تحميل الصفحة بعد دخول الاختبار - في حال تم تنفيذ ذلك سيتم الغاء الاختبار بشكل اوتوماتيك ");
             }
+
+
+   
 </script>
 
 

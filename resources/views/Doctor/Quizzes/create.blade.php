@@ -39,7 +39,20 @@
 <div class="row">
 
 
-<legend><span class="number bg-color2">1</span> Write basic info</legend>
+<legend><span class="number bg-color2"><i class="fa-solid fa-pen"></i></span> Write basic info</legend>
+
+
+<div class="col-12">
+
+     <label for="">Type Quiz : <span class="text-danger">*</span></label>
+
+      <select name="type_quiz" id="">
+         <option value="0">Easy Quiz</option>
+         <option value="1">Hard Quiz</option>
+      </select>
+
+</div>
+
 
 <div class="col-6">
 

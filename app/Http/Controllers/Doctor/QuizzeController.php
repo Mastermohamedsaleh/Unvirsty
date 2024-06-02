@@ -36,6 +36,8 @@ class QuizzeController extends Controller
         
        $course = Course::where('id' , $request->course_id)->first();
         try {
+
+
             $quizzes = new Quizze();
             $quizzes->name = $request->name;
             $quizzes->course_id =  $request->course_id;
@@ -44,6 +46,7 @@ class QuizzeController extends Controller
             $quizzes->section_id =  $course->section_id;
             $quizzes->start_time =  $request->start_time;
             $quizzes->end_time =  $request->end_time;
+            $quizzes->type_quiz =  $request->type_quiz;
             $quizzes->doctor_id = auth()->user()->id;
             $quizzes->save();
             Session::flash('message', 'Add Success');

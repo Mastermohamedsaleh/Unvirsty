@@ -32,6 +32,7 @@ class GraduatedController extends Controller
             $colleges = College::where('id',auth()->user()->college_id)->get();
         }
         return view('Admin.graduated.create',compact('colleges'));
+
         
     }
 

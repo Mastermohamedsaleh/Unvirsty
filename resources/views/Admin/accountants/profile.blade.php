@@ -200,7 +200,7 @@ input#file {
                               <button
                               name="action"
                                 type="submit"
-                                class="w-auto btn btn-success custom-success-button"
+                                class="w-auto btn bg-color2 custom-success-button"
                                 value="upload"
                               >
                                 Upload Photo
@@ -272,7 +272,7 @@ input#file {
                       </button>
                       <button
                         type="submit"
-                        class="btn btn-success custom-success-button"
+                        class="btn bg-color2 custom-success-button"
                       >
                         Change Password
                       </button>

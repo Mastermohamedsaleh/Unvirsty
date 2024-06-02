@@ -32,7 +32,7 @@
 
 
                 <li class="sidebar-item">
-                    <a href="{{url('dashboard/admin')}}" class="sidebar-link"><i class="fa-solid fa-list"></i>Dashboard</a>
+                    <a href="{{url('dashboard/admin')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-list"></i>Dashboard</a>
                 </li>
 
                 @if(\Auth::guard('admin')->user()->status == 0)
@@ -114,7 +114,7 @@
 
 
                 <li class="sidebar-item">
-                    <a href="{{route('accountant.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-clipboard-user"></i>Accountant </a>
+                    <a href="{{route('accountant.index')}}" class="sidebar-link"><i style="padding: 0 10px 0  0" class="fa-solid fa-user-tie"></i>Accountant </a>
                 </li>
 
                 <li class="sidebar-item">
@@ -155,7 +155,7 @@
               </li>
         
                 <li class="sidebar-item">
-                  <a href="#" class="sidebar-link collapsed" data-bs-target="#course" data-bs-toggle="collapse" area-expanded="false"><i style="padding: 0 10px 0  0" class="fa-solid fa-section"></i> Course <i class="fa-solid fa-chevron-down float-end"></i></a>
+                  <a href="#" class="sidebar-link collapsed" data-bs-target="#course" data-bs-toggle="collapse" area-expanded="false">  <i style="padding: 0 10px 0  0" class="fa-solid fa-book-open"></i> Course <i class="fa-solid fa-chevron-down float-end"></i></a>
                   <ul id="course" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                       <li class="sidebar-item">
                        <a href="{{route('course.index')}}" class="sidebar-link"> All Course</a>  

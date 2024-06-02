@@ -51,7 +51,7 @@
 									<form method="POST" action="{{ route('accountant.logout') }}">
 									@endif
 									@csrf
-                                       <a class="dropdown-item" href="#"
+                                       <a    class="dropdown-item" href="#"
                                         onclick="event.preventDefault();
                                         this.closest('form').submit();"><i class="bx bx-log-out"></i>Sign Out</a> 
                                      

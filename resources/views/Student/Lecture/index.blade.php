@@ -31,8 +31,8 @@
 
 <div class="d-flex ">
                                 
-  @if($lecture->course->image_name == "course_default.jpg")
-  <img src="{{URL::asset('assets/images/course_default.jpg')}}" alt="" style="width:150px">
+  @if($lecture->course->image_name == "defaultcourse.jpg")
+  <img src="{{URL::asset('assets/images/defaultcourse.jpg')}}" alt="" style="width:150px">
   @else
   <img src="{{URL::asset('courses/'.$lecture->course->image_name)}}" alt="" style="width:150px">
   @endif      

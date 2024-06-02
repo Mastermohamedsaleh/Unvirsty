@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreignId('section_id')->nullable()->references('id')->on('sections')->onDelete('cascade');
             $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->string('type_quiz');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->timestamps();

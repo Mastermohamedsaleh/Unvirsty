@@ -39,7 +39,7 @@
 <div class="row">
 
 
-<legend><span class="number bg-color2">1</span> Edit basic info</legend>
+<legend><span class="number bg-color2">1</span> Edit Assignment</legend>
 
 <div class="col-6">
 

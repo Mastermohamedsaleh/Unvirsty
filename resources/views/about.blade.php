@@ -46,7 +46,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{url('about')}}"
+              <a class="nav-link active"    style="color: #00d084" aria-current="page" href="{{url('about')}}"
                 >About</a
               >
             </li>

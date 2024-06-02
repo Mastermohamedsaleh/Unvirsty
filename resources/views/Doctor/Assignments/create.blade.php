@@ -24,7 +24,7 @@
 <div class="row">
 
 
-<legend><span class="number  bg-color2">1</span> Write basic info</legend>
+<legend><span class="number  bg-color2"><i class="fa-solid fa-pen"></i></span> Write basic info</legend>
 
 <div class="col-6">
 

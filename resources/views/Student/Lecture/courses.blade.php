@@ -35,8 +35,8 @@
  @foreach($courses as $course)
 
                                 
- @if($course->image_name == "course_default.jpg")
-   <?php    $image ='assets/images/course_default.jpg' ?>
+ @if($course->image_name == "defaultcourse.jpg")
+   <?php    $image ='assets/images/defaultcourse.jpg' ?>
   @else
 <?php      $image = 'courses/'.$course->image_name  ?>
   @endif 

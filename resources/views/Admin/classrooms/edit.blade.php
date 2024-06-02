@@ -26,7 +26,7 @@
 
       <div class="col">
       <label>College: </label>
-               <select name="college_id" class="form-select">
+               <select name="college_id" >
                <option value="" disable>Choose College</option>
                        @foreach($colleges as $college) 
                      
@@ -46,7 +46,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary  button-mode" data-bs-dismiss="modal">Close</button>
-        <button  class="btn btn-primary button-mode">Udpate</button>
+        <button  class="btn bg-color2 button-mode">Udpate</button>
       </div>
       </form>
     </div>

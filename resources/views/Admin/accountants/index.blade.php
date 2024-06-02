@@ -76,7 +76,7 @@
 </button>
                 
 
- <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editaccountant{{$accountant->id}}">
+ <button type="button" class="btn bg-color2 btn-sm" data-bs-toggle="modal" data-bs-target="#editaccountant{{$accountant->id}}">
  <i class="fas fa-edit"></i>
 </button><br><br>
 

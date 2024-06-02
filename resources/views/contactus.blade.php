@@ -63,6 +63,7 @@
               <a
                 class="nav-link active"
                 aria-current="page"
+                style="color: #00d084"
                 href="{{url('contact_us')}}"
                 >Contact us</a
               >

@@ -60,7 +60,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary button-mode">Save</button>
+        <button type="submit" class="btn bg-color2 button-mode">Save</button>
       </div>
 </form>
     </div>

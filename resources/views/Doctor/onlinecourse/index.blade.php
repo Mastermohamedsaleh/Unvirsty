@@ -31,6 +31,12 @@
                                    aria-pressed="true"> Add New Direct Lecuter </a><br><br>
 
 
+<div class="card">
+
+<div class="card-body">
+
+
+
 
 
 <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -79,7 +85,10 @@
 
 
 
+                                    </div>
 
+
+</div>
 
 </div>
 

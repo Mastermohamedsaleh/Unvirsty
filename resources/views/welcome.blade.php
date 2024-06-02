@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Academy</title>
+    <link rel="website icon" type="png" href="assets/images/logo2.png" >
+
     <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
     <!-- <link rel="stylesheet" href="{{ URL::asset('Styles/style.css') }} " /> -->
     <link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
@@ -45,6 +47,7 @@
               <a
                 class="nav-link active"
                 aria-current="page"
+                style="color: #00d084"
                 href="{{url('/')}}"
                 >Home</a
               >
