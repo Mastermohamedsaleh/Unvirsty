@@ -24,7 +24,7 @@
                 <a href="#" class="sidebar-link collapsed coll" data-bs-target="#auth" data-bs-toggle="collapse" area-expanded="false"><i class="fa-solid fa-book" style="padding: 0 10px 0  0"></i> Mylecture <i class="fa-solid fa-chevron-down float-end"></i></a>
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="{{route('lecture.index')}}" class="sidebar-link">lecture</a>
+                        <a href="{{url('lecturedoctorcourse')}}" class="sidebar-link">lecture</a>
                         <a href="{{route('lecture.create')}}" class="sidebar-link">Add lecture</a>
                     </li>
                 </ul>

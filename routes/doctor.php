@@ -10,7 +10,7 @@ use App\Http\Controllers\Doctor\QuizzeController;
 
 use App\Http\Controllers\Doctor\QuestionController;
 use App\Http\Controllers\Doctor\LibraryController;
-use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController , TotalDegreeController,AssignmentController,StudentAssignmentController,OnlineCourseController , OnlineCourseDirectController};
+use App\Http\Controllers\Doctor\{DoctorCollegeController , LectureController , TotalDegreeController,AssignmentController,StudentAssignmentController,OnlineCourseController , OnlineCourseDirectController , CourseController};
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AjaxController;
 
@@ -51,8 +51,14 @@ Route::get('dashboard/doctor', function () {
  
    Route::get('report_student_search/{id}',[AjaxController::class , 'report_student']);
     
-     
+
+
+
+
+   Route::get('lecturedoctor/{id}',[CourseController::class , 'lecturedoctor'])->name("lecturedoctor");
+   Route::get('lecturedoctorcourse',[CourseController::class , 'courses']);   
    Route::resource('lecture',LectureController::class);
+
    Route::resource('onlinecourse',OnlineCourseController::class);
    Route::resource('onlinecoursedirect',OnlineCourseDirectController::class);
    Route::resource('assignments',AssignmentController::class);

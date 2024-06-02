@@ -12,14 +12,19 @@ use File;
 
 class LectureController extends Controller
 {
+
+
+
+
     public function index(Request $request)  
      {
  
+
         $search = $request->input('search');          
         if ($search) {  
-             $lectures = Lecture::where('title', 'like', "%$search%")->paginate(PAGENATOR_COUNT);
+             $lectures = Lecture::where('title', 'like', "%$search%")->get();
         }else{
-            $lectures = Lecture::where('doctor_id',auth()->user()->id)->orderBy('id', 'DESC')->paginate(PAGENATOR_COUNT);  
+            $lectures = Lecture::where('doctor_id',auth()->user()->id)->orderBy('id', 'DESC')->get();  
         }      
         // $lectures = Lecture::where('doctor_id',auth()->user()->id)->orderBy('id', 'DESC')->get();
         return view('Doctor.My_lecture.index',compact('lectures'));
@@ -57,7 +62,7 @@ try{
     $lecture->section_id =  $course->section_id;
     $lecture->save();
     Session::flash('message', 'Add Success');
-    return redirect()->route('lecture.index');
+    return redirect()->back();
       
 
 
@@ -118,7 +123,7 @@ try{
             $lecture->section_id =  $course->section_id;
             $lecture->save();
             Session::flash('message', 'Update Success');
-            return redirect()->route('lecture.index');
+            return redirect()->back();
 
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -145,4 +150,10 @@ try{
 
 
     }
+
+
+
+
+
+
 }

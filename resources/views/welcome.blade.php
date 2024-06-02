@@ -939,7 +939,7 @@
             <div class="container">
               <a class="navbar-brand" href="#"
                 ><img
-                  src="Assets/images/logo3.png"
+                  src="assets/images/logo2.png"
                   alt="Smart Academy logo"
                   class="w-100 h-100 py-2"
               /></a>

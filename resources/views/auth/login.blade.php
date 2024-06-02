@@ -86,13 +86,14 @@
             </li>
           </ul>
 
-          <button
+          <a
             class="button fs-5 mx-5 px-5 py-1"
-            onclick="location.href='signin.html'"
+            href="{{route('login')}}"
             type="submit"
+            style=" text-decoration:none"
           >
             Sign in
-          </button>
+</a>
         </div>
       </div>
     </nav>

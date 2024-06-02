@@ -193,7 +193,7 @@ input#file {
                                 style="
                                   height: 38px;
                                   width: 38px;
-                                  background-color: red;
+                                  background-color: #ff6060;
                                 "
                                 value="delete"
                               >

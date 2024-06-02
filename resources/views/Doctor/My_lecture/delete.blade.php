@@ -1,4 +1,3 @@
-
 <!-- Modal -->
 <div class="modal fade" id="deletelecture{{$lecture->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -10,10 +9,10 @@
       <div class="modal-body">
         
       <form method="post"  action="{{route('lecture.destroy',$lecture->id)}}" autocomplete="off" >
-       @method('DELETE')
+      @method('DELETE')
       @csrf
 
-                        <div class="col">
+      <div class="col">
                             <p class="h5 text-danger"> Do You Want Delete This Lecture</p>
                             <input type="text" class="form-control" readonly value="{{ $lecture->title }}">
                         </div>
@@ -35,6 +34,10 @@
 
 
 
+
+        
+
+              
 
         
 

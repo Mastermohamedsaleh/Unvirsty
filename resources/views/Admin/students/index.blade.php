@@ -102,12 +102,12 @@
 
 
 
+  <a class="btn btn bg-color2 btn-sm btn-sm" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i></a>
    
     <button type="button" class=" btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletestudent{{$student->id}}" title="Delete Student">
 <i class="fas fa-trash"></i>
 </button>
 
-  <a class="btn btn-success btn-sm" href="{{route('students.edit',$student->id)}}"><i class="fa fa-edit"></i></a>
 
 
 

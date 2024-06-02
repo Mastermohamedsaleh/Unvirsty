@@ -75,7 +75,7 @@
 
                
 
-<a href="{{route('doctors.edit',$doctor->id)}}" class="mb-2 btn btn-success btn-sm"> <i class="fas fa-edit"></i></a>
+<a href="{{route('doctors.edit',$doctor->id)}}" class="mb-2 btn bg-color2 btn-sm"> <i class="fas fa-edit"></i></a>
 
 
 
