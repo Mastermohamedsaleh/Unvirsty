@@ -40,7 +40,7 @@
 
 
 
-
+<input type="hidden" name="course_id" value="{{$course_id}}">
 <div class="row">
 
 
@@ -52,18 +52,7 @@
 
 </div>
 
-<div class="col-12">
 
-
-<label>Course: <span class="text-danger">*</span> </label>
-<select name="course_id" >
-        <option value="" >Choose Course</option>
-            @foreach($courses as $course) 
-            <option value="{{$course->id}}" >{{$course->name}}</option>
-            @endforeach
- </select>
-
-</div>
 
 
 

@@ -34,6 +34,7 @@ class AssignmentRequest extends FormRequest
                     'course_id'=>'required|exists:courses,id',
                     'start_time'=>'required',
                     'end_time'=>'required',
+                    'degree'=>'required|in:1,2.5,3,5,10,15,20,25,30',
                     'file_name' => 'required|mimes:pdf|max:10000',
                 ];
             }

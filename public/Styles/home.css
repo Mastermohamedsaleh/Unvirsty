@@ -510,3 +510,7 @@ input::-webkit-inner-spin-button {
     background-color: white;
 }
 
+#srch-field{
+    border-color: #00D0844D;
+    background-color: #EBFCF6;
+  }

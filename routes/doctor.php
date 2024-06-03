@@ -56,7 +56,8 @@ Route::get('dashboard/doctor', function () {
 
 
    Route::get('lecturedoctor/{id}',[CourseController::class , 'lecturedoctor'])->name("lecturedoctor");
-   Route::get('lecturedoctorcourse',[CourseController::class , 'courses']);   
+   Route::get('lecturedoctorcourse',[CourseController::class , 'courses'])->name('lecturedoctorcourse');   
+   Route::get('lecturecreate/{id}',[LectureController::class , 'lecturecreate'])->name('lecturecreate');   
    Route::resource('lecture',LectureController::class);
 
    Route::resource('onlinecourse',OnlineCourseController::class);

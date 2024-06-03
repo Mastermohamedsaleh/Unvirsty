@@ -44,17 +44,18 @@ class AssignmentController extends Controller
         try {
             $fileName = time().'.'.$request->file('file_name')->extension();  
             $request->file('file_name')->move(public_path('Assignment_Doctor'), $fileName);
-            $quizzes = new Assignment();
-            $quizzes->name = $request->name;
-            $quizzes->course_id =  $request->course_id;
-            $quizzes->college_id =  $course->college_id;
-            $quizzes->classroom_id =  $course->classroom_id;
-            $quizzes->section_id =  $course->section_id;
-            $quizzes->start_time =  $request->start_time;
-            $quizzes->end_time =  $request->end_time;
-            $quizzes->file_name =   $fileName;
-            $quizzes->doctor_id = auth()->user()->id;
-            $quizzes->save();
+            $assignment = new Assignment();
+            $assignment->name = $request->name;
+            $assignment->course_id =  $request->course_id;
+            $assignment->college_id =  $course->college_id;
+            $assignment->classroom_id =  $course->classroom_id;
+            $assignment->section_id =  $course->section_id;
+            $assignment->start_time =  $request->start_time;
+            $assignment->end_time =  $request->end_time;
+            $assignment->file_name =   $fileName;
+            $assignment->degree =   $request->degree;
+            $assignment->doctor_id = auth()->user()->id;
+            $assignment->save();
             Session::flash('message', 'Add Success');
             return redirect()->route('assignments.index');
         }
@@ -113,6 +114,7 @@ class AssignmentController extends Controller
                    $Assignment->college_id =  $course->college_id;
                    $Assignment->classroom_id =  $course->classroom_id;
                    $Assignment->section_id =  $course->section_id;
+                   $Assignment->degree =   $request->degree;
                    $Assignment->save();
                    Session::flash('message', 'Update Success');
                    return redirect()->route('assignments.index');

@@ -27,8 +27,7 @@ class AttendanceController extends Controller
        $course = Course::where('id',$request->course_id)->first();
        $students = Student::where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
        $courses_doctors = Course::where('doctor_id',auth()->user()->id)->get();
-
-       return view('Student.Attendance.index',compact('students','courses_doctors'));
+       return view('Student.Attendance.index',compact('course','students','courses_doctors'));
     }
 
 
@@ -55,6 +54,7 @@ class AttendanceController extends Controller
                     'college_id'=> $request->college_id,
                     'classroom_id'=> $request->classroom_id,
                     'section_id'=> $request->section_id,
+                    'course_id'=> $request->course_id,
                     'doctor_id'=> auth()->user()->id,
                     'attendence_date'=> date('Y-m-d'),
                     'attendence_status'=> $attendence_status
@@ -76,6 +76,7 @@ class AttendanceController extends Controller
     public function show($id)
     {
         
+
     }
 
 
@@ -122,7 +123,7 @@ class AttendanceController extends Controller
    if($request->student_id == 0){
        $courses_doctors = Course::where('doctor_id',auth()->user()->id)->get();
        $course = Course::where('id',$request->course_id)->first();
-       $Students = Attendance::whereBetween('attendence_date', [$request->from, $request->to])->where('college_id',$course->college_id)->where('classroom_id',$course->classroom_id)->where('section_id',$course->section_id)->get();
+       $Students = Attendance::whereBetween('attendence_date', [$request->from, $request->to])->where('course_id',$request->course_id)->get();
        return view('Student.Attendance.report',compact('courses_doctors','Students'));
 
    }

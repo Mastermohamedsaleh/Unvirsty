@@ -76,19 +76,17 @@
               >
             </li>
             <li class="nav-item">
-              <button type="button" class="btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-search"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
-                  ></path>
-                </svg>
+              <button
+                class="border-0 p-1"
+                style="background-color: inherit"
+                id="srch-btn"
+              >
+                <img
+                  id="srch-img"
+                  style="height: 30px; width: 30px"
+                  src="Assets/images/51.png"
+                  alt=""
+                />
               </button>
             </li>
           </ul>
@@ -100,6 +98,31 @@
           >
         </div>
       </div>
+
+
+      <div
+        id="srch-toggler"
+        class="position-absolute d-flex justify-content-center bg-body- collapse d-none"
+        style="height: 50px; width: 100%; top: 76px; background-color: inherit"
+      >
+        <div class="">
+          <input
+            type="text"
+            id="srch-field"
+            class="form-control me-5"
+            style="width: 420px"
+            placeholder="Search"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
+      </div>
+
+
+
+
+
+
     </nav>
     <!-- carousel -->
     <div
@@ -435,7 +458,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green">{{App\Models\Doctor::count()}}</div>
+                <div class="span fs-1 fw-semibold txt-green" id="num">{{App\Models\Doctor::count()}}</div>
                 <div class="span fs-3 text-white">Certified Professors</div>
               </div>
             </div>
@@ -443,7 +466,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green">{{App\Models\Student::count()}}</div>
+                <div class="span fs-1 fw-semibold txt-green" id="num">{{App\Models\Student::count()}}</div>
                 <div class="span fs-3 text-white">Students</div>
               </div>
             </div>
@@ -451,7 +474,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green">{{App\Models\College::count()}}</div>
+                <div class="span fs-1 fw-semibold txt-green" id="num">{{App\Models\College::count()}}</div>
                 <div class="span fs-3 text-white">Education Fields</div>
               </div>
             </div>
@@ -459,7 +482,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green">40</div>
+                <div class="span fs-1 fw-semibold txt-green" id="num">40</div>
                 <div class="span fs-3 text-white">Awards Won</div>
               </div>
             </div>
@@ -939,7 +962,7 @@
             <div class="container">
               <a class="navbar-brand" href="#"
                 ><img
-                  src="assets/images/logo2.png"
+                  src="assets/images/logo3.png"
                   alt="Smart Academy logo"
                   class="w-100 h-100 py-2"
               /></a>
@@ -1144,3 +1167,11 @@
     @endforeach
   </body>
 </html>
+
+
+
+
+
+
+
+

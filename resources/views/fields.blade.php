@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Academy</title>
+    <link rel="website icon" type="png" href="assets/images/logo2.png" >
+
     <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
     <!-- <link rel="stylesheet" href="{{ URL::asset('Styles/style.css') }} " /> -->
     <link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
 
-    <script defer src="{{ URL::asset('script/bootstrap.bundle.min.js') }}  "></script>
-    <script defer src="{{ URL::asset('Script/index.js') }}"></script>
+    <script defer src="{{URL::asset('Script/bootstrap.bundle.min.js')}}"></script>
+    <script defer src="{{URL::asset('Script/index.js')}} "></script>
   </head>
   <body>
-    <!-- navbar -->
-    <nav
+     <!-- navbar -->
+     <nav
       class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0 z-1"
     >
       <div class="container-fluid">
@@ -92,7 +94,31 @@
           </button></a>
         </div>
       </div>
+
+      <div
+        id="srch-toggler"
+        class="position-absolute d-flex justify-content-center bg-body- collapse d-none"
+        style="height: 50px; width: 100%; top: 76px; background-color: inherit"
+      >
+        <div class="">
+          <input
+            type="text"
+            id="srch-field"
+            class="form-control me-5"
+            style="width: 420px"
+            placeholder="Search"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
+      </div>
+
+
     </nav>
+
+
+
+
     <!-- Hero -->
     <div
       class=""
@@ -113,16 +139,18 @@
         <span class="fs-4 txt-green">The Best Education</span>
         <span class="fs-1 fw-semibold text-white">Our Fields</span>
         <p class="txt-gray position-absolute" style="bottom: 70px">
-          <a href="index.html" class="text-decoration-none txt-gray">Home</a>
+          <a href="{{url('/')}}" class="text-decoration-none txt-gray">Home</a>
           <span class="px-3">></span>
           <span class="txt-green">Fields</span>
         </p>
       </div>
     </div>
     <!-- middle -->
-    <div class="container py-5">
-      <div class="row fs-1 fw-bold txt-darkblue my-4 mx-auto">
-        <div class="fs-1 fw-bold txt-darkblue text-center">Discover Our Fields</div>
+    <div class="container pb-5 pt-3">
+      <div class="row fs-1 fw-bold txt-darkblue my-4 pb-3 mx-auto">
+        <div class="fs-1 fw-bold txt-darkblue text-center">
+          Discover Our Fields
+        </div>
       </div>
       <div class="row">
         <div
@@ -146,14 +174,26 @@
           style="height: 414px; background-color: #192f59"
         >
           <div
-            class="my-auto h-100 w-75 py-3 px-2 d-flex flex-column justify-content-around"
+            class="my-auto h-100 w-75 py-3 px-2 d-flex flex-column justify-content-around position-relative"
           >
+            <div
+              class="bg-green position-absolute fs-4 fw-bold text-center text-white"
+              style="
+                height: 84px;
+                width: 74px;
+                right: -134px;
+                top: -50px;
+                border-bottom-right-radius: 16px;
+              "
+            >
+              4 <br />Years
+            </div>
             <span class="fs-1 fw-semibold txt-green">Computer Science</span>
             <p class="fs-4 text-white">
               Computer Science is a field that encompasses the study of
               computation, algorithms, data structures .
             </p>
-            <a href="about.html" style="width: fit-content"
+            <a href="{{url('about')}}" style="width: fit-content"
               ><button class="button2 fw-semibold">Join Now</button></a
             >
           </div>
@@ -162,8 +202,21 @@
       <div class="row">
         <div class="col-lg-7 py-5 bg-gray" style="height: 414px">
           <div
-            class="my-auto h-100 w-75 py-3 px-2 d-flex flex-column justify-content-around"
+            class="my-auto h-100 w-75 py-3 px-2 d-flex flex-column justify-content-around position-relative"
           >
+            <div
+              class="bg-green position-absolute fs-4 fw-bold text-center text-white"
+              style="
+                height: 84px;
+                width: 74px;
+                right: -134px;
+                top: -50px;
+                border-bottom-right-radius: 16px;
+              "
+            >
+              5 <br />Years
+            </div>
+
             <span class="fs-1 fw-semibold txt-darkblue"
               >Archetictural Engineering</span
             >
@@ -172,8 +225,8 @@
               integrates principles from architecture and engineering to design
               and create buildings and other structures.
             </p>
-            <a href="about.html" style="width: fit-content"
-              ><button class="button2 fw-semibold" >Join Now</button></a
+            <a href="{{url('about')}}" style="width: fit-content"
+              ><button class="button2 fw-semibold">Join Now</button></a
             >
           </div>
         </div>
@@ -216,8 +269,21 @@
           style="height: 414px; background-color: #192f59"
         >
           <div
-            class="my-auto h-100 w-75 py-3 px-2 d-flex flex-column justify-content-around"
+            class="my-auto h-100 w-75 py-3 px-2 d-flex flex-column justify-content-around position-relative"
           >
+            <div
+              class="bg-green position-absolute fs-4 fw-bold text-center text-white"
+              style="
+                height: 84px;
+                width: 74px;
+                right: -134px;
+                top: -50px;
+                border-bottom-right-radius: 16px;
+              "
+            >
+              4 <br />Years
+            </div>
+
             <span class="fs-1 fw-semibold txt-green"
               >Business Adminstration</span
             >
@@ -226,7 +292,7 @@
               that encompasses various principles, strategies, and activities
               related to the management and operation of organizations
             </p>
-            <a href="about.html" style="width: fit-content"
+            <a href="{{url('about')}}" style="width: fit-content"
               ><button class="button2 fw-semibold">Join Now</button></a
             >
           </div>
@@ -235,8 +301,21 @@
       <div class="row">
         <div class="col-lg-7 py-5 bg-gray" style="height: 414px">
           <div
-            class="my-auto h-100 w-75 py-3 px-2 d-flex flex-column justify-content-around"
+            class="my-auto h-100 w-75 py-3 px-2 d-flex flex-column justify-content-around position-relative"
           >
+            <div
+              class="bg-green position-absolute fs-4 fw-bold text-center text-white"
+              style="
+                height: 84px;
+                width: 74px;
+                right: -134px;
+                top: -50px;
+                border-bottom-right-radius: 16px;
+              "
+            >
+              5 <br />Years
+            </div>
+
             <span class="fs-1 fw-semibold txt-darkblue"
               >Electric Engineering</span
             >
@@ -245,7 +324,7 @@
               solutions in areas such as power generation, distribution,
               communication, control systems, and electronic circuits
             </p>
-            <a href="about.html" style="width: fit-content"
+            <a href="{{url('about')}}" style="width: fit-content"
               ><button class="button2 fw-semibold">Join Now</button></a
             >
           </div>
@@ -315,9 +394,10 @@
               <path
                 d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671"
               />
-              <path
-                d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"
-              />
+
+
+              
+<path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"/>
             </svg>
             <a
               class="text-decoration-none"
@@ -326,6 +406,7 @@
               target="_blank"
               >{{$s->email}}</a
             >
+
           </div>
           <div class="fs-5 color fw-bold py-1" style="color: #fdfdfd">
             <svg

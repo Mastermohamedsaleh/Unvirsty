@@ -20,7 +20,7 @@
 
 
 <div class="col-3">
-<a href="{{route('lecture.create')}}" class="mb-2 btn bg-color2 btn-sm mt-3">Add Lecture</a>
+<a href="{{route('lecturecreate',$course_id)}}" class="mb-2 btn bg-color2 btn-sm mt-3">Add Lecture</a>
 </div>
 
 

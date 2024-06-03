@@ -54,7 +54,7 @@
         <div class="card card-margin">
 
             <div class="card-header no-border">
-                <h5 class="card-title">Quizze</h5>
+                <h5 class="card-title">Quiz</h5>
             </div>
 
             <div class="card-body pt-0">

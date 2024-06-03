@@ -22,20 +22,20 @@ class CourseController extends Controller
 
 
     
-    public function lecturedoctor(Request $request, $id){
+    public function lecturedoctor(Request $request, $course_id){
 
-        $courses = Course::where('id',$id)->where('doctor_id',auth()->user()->id)->first();
+        $courses = Course::where('id',$course_id)->where('doctor_id',auth()->user()->id)->first();
 
 if($courses){
     $search = $request->input('search');          
     if ($search) {  
-        $lectures = Lecture::where('course_id',$id)->where('title', 'like', "%$search%")->where('doctor_id',auth()->user()->id)
+        $lectures = Lecture::where('course_id',$course_id)->where('title', 'like', "%$search%")->where('doctor_id',auth()->user()->id)
         ->orderBy('id', 'DESC')->get();
     }else{
-        $lectures = Lecture::where('course_id',$id)->where('doctor_id',auth()->user()->id)->get(); 
+        $lectures = Lecture::where('course_id',$course_id)->where('doctor_id',auth()->user()->id)->get(); 
     }  
     if( $lectures){
-    return view('Doctor.My_Lecture.index',compact('lectures','id'));
+    return view('Doctor.My_Lecture.index',compact('lectures','course_id'));
     }else{
         return redirect()->back();
     }

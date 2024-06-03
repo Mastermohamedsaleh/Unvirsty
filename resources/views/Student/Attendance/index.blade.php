@@ -20,12 +20,12 @@
      <select name="course_id" id="" style="width:300px">
        @foreach($courses_doctors as $course)
         <option value="{{$course->id}}">{{$course->name}}</option>
+
         @endforeach
      </select>
 
      <button type="submit" class="btn-sm btn bg-color2 float-end">View</button>
    </form>
- 
 
 
  
@@ -121,6 +121,7 @@
 <input type="hidden" name="college_id" value="{{ $student->college_id }}">
 <input type="hidden" name="classroom_id" value="{{ $student->classroom_id }}">
 <input type="hidden" name="section_id" value="{{ $student->section_id }}">
+<input type="hidden" name="course_id" value="{{ $course->id }}">
 
 </td>
 
@@ -136,6 +137,8 @@
 </form>
 </tbody>
 </table>
+
+
 
 <button class="btn-sm btn bg-color2" type="submit">submit</button>
 </div>

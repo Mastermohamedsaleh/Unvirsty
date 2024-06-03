@@ -63,11 +63,28 @@
                     End Date
                   </li>
                   <li
-                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 txt-green"
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 txt-green "
                   >
                   {{  date('l' , strtotime($assignment->end_time ) )}} {{  date('h:i A' , strtotime($assignment->end_time ) )}}
                   </li>
                 </ul>
+
+                <ul class="list-group list-group-horizontal w-100 rounded-0">
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 bg-light-green "
+                  >
+                    Degree Assignment
+                  </li>
+                  <li
+                    class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 txt-green bg-light-green"
+                  >
+                  {{  $assignment->degree }}   
+                  </li>
+                </ul>
+
+
+
+
                 <ul class="list-group list-group-horizontal w-100 rounded-0">
                   <li
                     class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6 bg-light-green"
