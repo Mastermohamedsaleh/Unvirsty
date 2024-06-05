@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\College;
 use App\Models\Student;
+use App\Models\Classroom;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\GraduatedRequest;
 
@@ -37,17 +38,22 @@ class GraduatedController extends Controller
     }
 
 
-    public function store(GraduatedRequest $request)
+public function store(GraduatedRequest $request)
     {
-        
+    
+       $classroom = Classroom::where('college_id',$request->college_id)->latest('id')->first();
+       $classroom_id = $classroom->id;
  if($request->section_id){
-   $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->get();
+   $students = Student::where('college_id',$request->college_id)->where('classroom_id', $classroom_id )->where('section_id',$request->section_id)->get();
  }else{
-     $students = Student::where('college_id',$request->college_id)->where('classroom_id',$request->classroom_id)->get();
+     $students = Student::where('college_id',$request->college_id)->where('classroom_id', $classroom_id )->get();
  }
 
  if($students->count() < 1){
-    return redirect()->back()->withErrors(['msg' => 'No Students']);
+
+Session::flash('message_error', 'No Students');
+return redirect()->back();
+    // return redirect()->back()->withErrors(['msg' => 'No Students']);
 }
 
 

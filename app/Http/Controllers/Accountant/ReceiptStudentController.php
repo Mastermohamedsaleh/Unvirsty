@@ -161,4 +161,20 @@ class ReceiptStudentController extends Controller
     
         return redirect()->route('receipt.index');
     }
+
+
+    public function receiptditalis($id){
+        
+        $student = Student::findorfail($id);
+        $fee_invoices = Fee_Invoice::where('student_id',$id)->where('college_id',$student->college_id)->where('classroom_id',$student->classroom_id)->where('section_id',$student->section_id)->first();
+        
+        $receipt = ReceiptStudent::where('student_id',$id)->get();
+        return view('Accountant.receipt.detilsreceipt',compact('fee_invoices','receipt','student'));
+
+
+
+
+    }
+
+
 }

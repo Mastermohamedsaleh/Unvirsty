@@ -5,6 +5,9 @@
       <div class="main">
  @include('nav')
 
+ @if(Session::has('message'))
+<p class="alert alert-info" style="width:500px;   margin: 0 auto ">{{ Session::get('message') }}</p>
+@endif
 
 
  <h3 class="text-center txt-green mt-3">Graduated Student</h3>
@@ -112,6 +115,8 @@
 
 
 
+@include('footer')
+   
 
 
 
@@ -121,7 +126,3 @@
 
 
 
-
-
-
- @include('footer')

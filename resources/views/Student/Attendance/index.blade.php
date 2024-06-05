@@ -84,6 +84,8 @@
                                     <?php $i= 1  ?>
                                 
                             @foreach($students as  $student)
+
+
                                 <tr>
                                     <td> {{$i++}} </td>
                                     <td>{{ $student->name }}</td>
@@ -121,7 +123,7 @@
 <input type="hidden" name="college_id" value="{{ $student->college_id }}">
 <input type="hidden" name="classroom_id" value="{{ $student->classroom_id }}">
 <input type="hidden" name="section_id" value="{{ $student->section_id }}">
-<input type="hidden" name="course_id" value="{{ $course->id }}">
+<input type="hidden" name="course_id" value="{{ $course_id }}">
 
 </td>
 

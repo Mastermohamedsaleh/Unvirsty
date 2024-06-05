@@ -12,7 +12,13 @@
 
     <script defer src="{{URL::asset('Script/bootstrap.bundle.min.js')}}"></script>
     <script defer src="{{URL::asset('Script/index.js')}} "></script>
+    <script defer src="{{URL::asset('Script/navbar.js')}} "></script>
   </head>
+
+
+
+
+
 
   <body>
     <!-- navbar -->
@@ -71,7 +77,7 @@
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="{{url('contactus')}}"
+                href="{{url('contact_us')}}"
                 >Contact us</a
               >
             </li>
@@ -458,7 +464,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green" id="num">{{App\Models\Doctor::count()}}</div>
+                <div class="number fs-1 fw-bold txt-green" id="num">0</div>
                 <div class="span fs-3 text-white">Certified Professors</div>
               </div>
             </div>
@@ -466,7 +472,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green" id="num">{{App\Models\Student::count()}}</div>
+                <div class="number fs-1 fw-bold txt-green" id="num">0</div>
                 <div class="span fs-3 text-white">Students</div>
               </div>
             </div>
@@ -474,7 +480,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green" id="num">{{App\Models\College::count()}}</div>
+                <div class="number fs-1 fw-bold txt-green" id="num">0</div>
                 <div class="span fs-3 text-white">Education Fields</div>
               </div>
             </div>
@@ -482,7 +488,7 @@
           <div class="col-sm-3">
             <div class="m-3 p-2 text-center">
               <div class="card border-0 bg-transparent">
-                <div class="span fs-1 fw-semibold txt-green" id="num">40</div>
+                <div class="number fs-1 fw-bold txt-green" id="num">40</div>
                 <div class="span fs-3 text-white">Awards Won</div>
               </div>
             </div>
@@ -1165,6 +1171,53 @@
       </div>
     </footer>
     @endforeach
+
+
+
+
+    
+    <script>
+
+
+// counter animation
+var numDivs = document.querySelectorAll(".number");
+var endValues = [{{App\Models\Doctor::count()}}, {{App\Models\Student::count()}}, {{App\Models\College::count()}}, 40]; // The end values for each number
+var observer = new IntersectionObserver(
+function (entries) {
+entries.forEach((entry) => {
+  if (entry.isIntersecting === true) {
+    entry.target.classList.add("animate");
+    var index = Array.from(numDivs).indexOf(entry.target);
+    animateValue(entry.target, 0, endValues[index], 2000); // animate from 0 to endValues[index] in 2 seconds
+  } else {
+    entry.target.classList.remove("animate");
+  }
+});
+},
+{ threshold: [0] }
+);
+
+numDivs.forEach((numDiv) => observer.observe(numDiv));
+function animateValue(obj, start, end, duration) {
+let startTimestamp = null;
+const step = (timestamp) => {
+if (!startTimestamp) startTimestamp = timestamp;
+const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+obj.innerHTML = Math.floor(progress * (end - start) + start);
+if (progress < 1) {
+  window.requestAnimationFrame(step);
+}
+};
+window.requestAnimationFrame(step);
+
+}
+</script>
+
+
+
+
+
+
   </body>
 </html>
 

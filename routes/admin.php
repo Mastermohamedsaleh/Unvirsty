@@ -114,6 +114,7 @@ Route::controller(SearchController::class)->group(function() {
 
 
 Route::get('/classes/{id}', [SectionController::class , 'getclasses'])->name('classes');
+Route::get('/classesgraduated/{id}', [SectionController::class , 'classesgraduated'])->name('classesgraduated');
 Route::get('/getsection/{id}', [SectionController::class , 'getsection'])->name('getsection');
 
 // ////////////////////////////////logout adminP///////////////////////////////////////////

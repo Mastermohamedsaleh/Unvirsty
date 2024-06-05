@@ -14,6 +14,7 @@ class Attendance extends Model
         'classroom_id',
         'section_id',
         'doctor_id',
+        'course_id',
         'attendence_date',
         'attendence_status',
     ];

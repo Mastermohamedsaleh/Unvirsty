@@ -22,7 +22,7 @@
 
 <div class="card-body">
 
-<legend><span class="number bg-color2">1</span> Write info Student</legend>
+<legend><span class="number bg-color2"><i class="fa-solid fa-pen"></i></span> Write info Student</legend>
 
  <!-- Message Success -->
  @if(Session::has('message'))
@@ -145,7 +145,7 @@
 
 <div class="form-group">
 
-<label>Section: <span class="text-danger">*</span> </label>
+<label>Section:  </label>
 <select name="section_id"   >
         <option value="" disabled>Choose Classroom</option>
  

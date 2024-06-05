@@ -75,6 +75,9 @@
 <button type="button" class="btn btn-danger btn-sm inline-block" data-bs-toggle="modal" data-bs-target="#deletereceipt{{$receipt_student->id}}">
 <i class="fas fa-trash"></i>
 </button>
+
+<a href="{{route('receiptditalis',$receipt_student->student_id)}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+
                 
 @include('Accountant.receipt.delete')
                                                 </td>

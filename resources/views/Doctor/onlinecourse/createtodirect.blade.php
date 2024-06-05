@@ -27,6 +27,9 @@
 @endif
 
 
+
+<h3 class="txt-color text-center">Online Zoom</h3>
+
 <div class="card">
 
 

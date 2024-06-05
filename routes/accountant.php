@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth:accountant'], function(){
 
      Route::resource('receipt',ReceiptStudentController::class);
 
+     Route::get('receiptditalis/{id}',[ReceiptStudentController::class , 'receiptditalis' ])->name('receiptditalis');
+
 
 });
 

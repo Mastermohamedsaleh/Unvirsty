@@ -7,7 +7,7 @@
 
 
 
-<div class="container mt-5">
+<div class="container ">
 
 
 
@@ -51,7 +51,7 @@
 
 
 
-<legend><span class="number bg-color2">1</span> Write New Question</legend>
+<legend><span class="number bg-color2"><i class="fa-solid fa-pen"></i></span> Write New Question</legend>
 
 
 <div class="col">

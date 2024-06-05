@@ -87,7 +87,7 @@
 <input type="text" value="{{$setting->link_facebook}}" name="link_facebook">
 
 <label for="">Link Youtube</label>
-<input type="text" value="{{$setting->link_youtube}}" name="link_twitter">
+<input type="text" value="{{$setting->link_youtube}}" name="link_youtube">
 
 
 

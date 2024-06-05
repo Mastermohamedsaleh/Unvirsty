@@ -97,6 +97,10 @@
         </div>
       </div>
     </nav>
+
+
+
+
     <!-- signin form -->
     <div class="container-fluid d-flex flex-column" style="min-height: 100vh">
       <div class="row flex-grow-1">
@@ -106,6 +110,8 @@
               <div class="fw-bold fs-3 pb-3" style="color: #1e1e1e">
                 Sign in
               </div>
+     
+
               <!-- account type selector -->
               <div
                 class="py-1 px-1 mt-3 rounded-pill d-flex"
@@ -139,11 +145,23 @@
                 aria-label="Default select example"
               >
                 <option selected>type of account</option>
-                <option value="doctor-form">Doctor</option>
                 <option value="admin-form">Admin</option>
+                <option value="doctor-form">Doctor</option>
                 <option value="accountant-form">Accountant</option>
               </select>
             </div>
+
+
+            @if ($errors->any())
+                    <div class="alert alert-danger" style="width:400px;   margin: 0 auto ">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
             <!-- student (default) form -->
             <form action="{{route('student.login')}}"  method="post"  class="position-relative z-0 w-75 my-3" id="student-form">
                 @csrf

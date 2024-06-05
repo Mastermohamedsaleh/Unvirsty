@@ -12,8 +12,11 @@
     <script defer src="{{ URL::asset('Script/index.js') }}"></script>
   </head>
   <body>
-    <!-- navbar -->
-    <nav
+  <!-- navbar -->
+
+
+
+  <nav
       class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0 z-1"
     >
       <div class="container-fluid">
@@ -41,12 +44,13 @@
               <a
                 class="nav-link active"
                 aria-current="page"
+              
                 href="{{url('/')}}"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{url('about')}}"
+              <a class="nav-link active"     aria-current="page" href="{{url('about')}}"
                 >About</a
               >
             </li>
@@ -56,7 +60,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active"    style="color: #00d084" aria-current="page" href="{{url('event')}}"
+              <a class="nav-link active" style="color: #00d084" aria-current="page" href="{{url('event')}}"
                 >Events</a
               >
             </li>
@@ -69,31 +73,55 @@
               >
             </li>
             <li class="nav-item">
-              <button type="button" class="btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-search"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
-                  ></path>
-                </svg>
+              <button
+                class="border-0 p-1"
+                style="background-color: inherit"
+                id="srch-btn"
+              >
+                <img
+                  id="srch-img"
+                  style="height: 30px; width: 30px"
+                  src="Assets/images/51.png"
+                  alt=""
+                />
               </button>
             </li>
           </ul>
-<a href="{{url('login')}}">
-<button class="button fs-5 mx-5 px-5 py-1" type="submit">
-            Sign in
-          </button>
-</a>
-  
+
+          <a href="{{url('login')}}">
+            <button class="button fs-5 mx-5 px-5 py-1" type="submit">
+              Sign in
+            </button></a
+          >
         </div>
       </div>
+
+
+      <div
+        id="srch-toggler"
+        class="position-absolute d-flex justify-content-center bg-body- collapse d-none"
+        style="height: 50px; width: 100%; top: 76px; background-color: inherit"
+      >
+        <div class="">
+          <input
+            type="text"
+            id="srch-field"
+            class="form-control me-5"
+            style="width: 420px"
+            placeholder="Search"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
+      </div>
+
+
+
+
+
+
     </nav>
+
     <!-- Hero -->
     <div
       class=""

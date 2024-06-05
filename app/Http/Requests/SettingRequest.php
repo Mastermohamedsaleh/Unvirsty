@@ -30,7 +30,7 @@ class SettingRequest extends FormRequest
             'email' => 'required|email', 
             'link_facebook' => 'required|url|max:2000', 
             'link_linked_in' => 'required|url|max:2000', 
-            'link_twitter' => 'required|url|max:2000', 
+            'link_youtube' => 'required|url|max:2000', 
         ];
     }
 }

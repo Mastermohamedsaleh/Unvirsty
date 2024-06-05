@@ -37,6 +37,8 @@ class SectionController extends Controller
         try {
 
        
+
+            
             $Sections = new Section();
       
             $Sections->name = $request->name;
@@ -128,6 +130,16 @@ class SectionController extends Controller
         $list_sections = Section::where("college_id", $id)->pluck("name", "id");
         return  $list_sections;
     }
+
+    // public function classesgraduated($id){
+    //     $list_classes = Classroom::where("college_id", $id)->latest()->take(1)->pluck("name", "id");
+
+
+        
+    
+
+    //     return $list_classes;
+    // }
 
 
 }

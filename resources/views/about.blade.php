@@ -4,16 +4,22 @@
   <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Academy</title>
+    <link rel="website icon" type="png" href="assets/images/logo2.png" >
+
     <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
     <!-- <link rel="stylesheet" href="{{ URL::asset('Styles/style.css') }} " /> -->
     <link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
 
-    <script defer src="{{ URL::asset('script/bootstrap.bundle.min.js') }}  "></script>
-    <script defer src="{{ URL::asset('Script/index.js') }}"></script>
+    <script defer src="{{URL::asset('Script/bootstrap.bundle.min.js')}}"></script>
+    <script defer src="{{URL::asset('Script/index.js')}} "></script>
+    <script defer src="{{URL::asset('Script/navbar.js')}} "></script>
   </head>
   <body>
-    <!-- navbar -->
-    <nav
+  <!-- navbar -->
+
+
+
+  <nav
       class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0 z-1"
     >
       <div class="container-fluid">
@@ -41,6 +47,7 @@
               <a
                 class="nav-link active"
                 aria-current="page"
+              
                 href="{{url('/')}}"
                 >Home</a
               >
@@ -64,35 +71,61 @@
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="{{url('contactus')}}"
+                href="{{url('contact_us')}}"
                 >Contact us</a
               >
             </li>
             <li class="nav-item">
-              <button type="button" class="btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-search"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
-                  ></path>
-                </svg>
+              <button
+                class="border-0 p-1"
+                style="background-color: inherit"
+                id="srch-btn"
+              >
+                <img
+                  id="srch-img"
+                  style="height: 30px; width: 30px"
+                  src="Assets/images/51.png"
+                  alt=""
+                />
               </button>
             </li>
           </ul>
 
           <a href="{{url('login')}}">
-          <button class="button fs-5 mx-5 px-5 py-1" type="submit">
-            Sign in
-          </button></a>
+            <button class="button fs-5 mx-5 px-5 py-1" type="submit">
+              Sign in
+            </button></a
+          >
         </div>
       </div>
+
+
+      <div
+        id="srch-toggler"
+        class="position-absolute d-flex justify-content-center bg-body- collapse d-none"
+        style="height: 50px; width: 100%; top: 76px; background-color: inherit"
+      >
+        <div class="">
+          <input
+            type="text"
+            id="srch-field"
+            class="form-control me-5"
+            style="width: 420px"
+            placeholder="Search"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
+      </div>
+
+
+
+
+
+
     </nav>
+
+ 
     <!-- Hero -->
     <div
       class=""
@@ -113,7 +146,7 @@
         <span class="fs-4 txt-green">Know Us Better</span>
         <span class="fs-1 fw-semibold text-white">About Us</span>
         <p class="txt-gray position-absolute" style="bottom: 70px">
-          <a href="index.html" class="text-decoration-none txt-gray">Home</a>
+          <a href="{{url('/')}}" class="text-decoration-none txt-gray">Home</a>
           <span class="px-3">></span>
           <span class="txt-green">About Us</span>
         </p>
@@ -160,7 +193,7 @@
             class="card card-body px-3 py-3 d-flex flex-column justify-content-center align-items-center position-absolute border-0 rounded-0 text-center"
           >
             <span class="text-white pb-4 fs-4 fw-bold"
-              >Learn Professional Courses</span
+              >No.1 of universities</span
             >
             <p class="txt-gray px-5">
               The best courses that will qualify you to be the best students in
@@ -184,7 +217,7 @@
             class="card card-body px-3 py-3 d-flex flex-column justify-content-center align-items-center position-absolute border-0 rounded-0 text-center"
           >
             <span class="text-white pb-4 fs-4 fw-bold"
-              >Learn Professional Courses</span
+              >Certified Professors</span
             >
             <p class="txt-gray px-5">
               The best courses that will qualify you to be the best students in
@@ -208,7 +241,7 @@
           background-position: center;
         "
       >
-        <div class="col-lg-4 text-center position-relative" style="top: 100px">
+        <div class="col-lg-4 text-center position-relative" style="top: 70px">
           <div
             class="text-white fs-1"
             style="
@@ -221,7 +254,7 @@
           </div>
         </div>
         <div class="col-lg-4 my-auto">
-          <p class="txt-gray fw-semibold pe-5">
+          <p class="txt-gray fs-5 fw-semibold pe-5">
             If you would like to study in the university in the heart of the
             city that focus on chaning the world for better to morrow, you're
             choosin the right place. We do not use special formulas to select
@@ -231,7 +264,7 @@
           </p>
         </div>
         <div class="col-lg-4 my-auto">
-          <p class="txt-gray fw-semibold pe-5">
+          <p class="txt-gray fs-5 fw-semibold pe-5">
             If you would like to study in the university in the heart of the
             city that focus on chaning the world for better to morrow, you're
             choosin the right place. We do not use special formulas to select
@@ -244,7 +277,7 @@
     <!-- Students says about Us -->
     <div class="container py-3">
       <div class="row">
-        <h1 class="fw-semibold txt-darkblue text-center">
+        <h1 class="fw-semibold fs-1 txt-darkblue text-center">
           Students Say About Us
         </h1>
       </div>
@@ -620,5 +653,6 @@
       </div>
     </footer>
     @endforeach
+
   </body>
 </html>

@@ -25,7 +25,6 @@ class GraduatedRequest extends FormRequest
     {
         return [
             'college_id'=>'required|exists:students',
-            'classroom_id'=>'required|exists:students',
             'section_id'=>'exists:students',
         ];
     }
@@ -34,8 +33,6 @@ class GraduatedRequest extends FormRequest
     {
         return [
             'college_id.required' => 'The College is required.',
-            'classroom_id.required' => 'classroom is required .',
-            'classroom_id.exists' => 'classroom is required .',
             'college_id.exists' => 'The College is required.'
         ];
         }

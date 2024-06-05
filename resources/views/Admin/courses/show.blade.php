@@ -72,7 +72,7 @@
 
 
 
-    <button>update</button>
+    <button type="submit" class="btn bg-color2">update</button>
 </form>
 
 

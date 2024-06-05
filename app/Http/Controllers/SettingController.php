@@ -55,7 +55,7 @@ class SettingController extends Controller
         $setting->logo = $logoName;
         $setting->link_facebook = $request->link_facebook;
         $setting->link_linked_in = $request->link_linked_in;
-        $setting->link_twitter = $request->link_twitter;
+        $setting->link_youtube = $request->link_youtube;
         $setting->save();
 
         Session::flash('message', 'Update Success');       
