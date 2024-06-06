@@ -12,6 +12,7 @@ use App\Models\Option;
 use App\Models\AnswerStudent;
 use Illuminate\Support\Facades\Auth;
 Use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 
 
@@ -77,12 +78,14 @@ class QuizController extends Controller
         $degree = new Degree();
         $degree->quizze_id = $request->quizze_id;
         $degree->student_id = Auth::guard('student')->user()->id;
+        $degree->question_id = $options[0]->question->id;
    
         $degree->course_id = $request->course_id;
         $degree->score = $score;
         $degree->date = date('Y-m-d');
         $degree->save();
     }
+    Session::flash('message','تم إجراء الاختبار بنجاح');
         return redirect()->route('student_quiz.index');
 
      

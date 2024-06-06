@@ -75,7 +75,7 @@
                                                 <td>{{$degree->date}}</td>
                                                   @if($degree->abuse == 1) 
                                                 <td> 
-                                    <button type="button" class="btn btn-info btn-sm"
+                                    <button type="button" class="btn btn bg-color2 btn-sm"
                                      data-bs-toggle="modal"
                                      data-bs-target="#repeat_quizze{{ $degree->quizze_id }}" title="إعادة">
                                     <i class="fas fa-repeat"></i></button>    
@@ -116,7 +116,7 @@
                            
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary button-mode" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary button-mode">Save</button>
+        <button type="submit" class="btn bg-color2 button-mode">Save</button>
       </div>
    
 </form>

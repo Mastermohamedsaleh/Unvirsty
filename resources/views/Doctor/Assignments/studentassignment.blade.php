@@ -101,7 +101,7 @@
         <ul class="list-group list-group-horizontal w-100 rounded-0">  
         <li class="list-group-item w-50 border-0 rounded-0 fw-bold fs-6">
                   <input type="number" name="score">
-      <button type="submit"  class="btn btn-success btn-sm" >Submit</button>
+      <button type="submit"  class="btn bg-color2 btn-sm" >Submit</button>
 
          </li>
   
