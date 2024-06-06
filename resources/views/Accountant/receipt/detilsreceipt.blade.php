@@ -8,14 +8,14 @@
 
 
 
- <div class="container mt-5">
+ <div class="container mt-5 " id="print">
  
   <h3 class="text-center txt-green">All Details</h3>
 
 
 
 
-  <table class="table">
+  <table class="table" >
 
 
   <tr>
@@ -52,7 +52,7 @@
   
 @endforeach
 
-<th ><a class="text-center" href="">Print</a></th><th></th>
+<th ><a class="text-center" onclick="printDiv()" href="">Print</a></th><th></th>
   </table>
   
  
@@ -67,7 +67,17 @@
 
 
 
+<script type="text/javascript">
+        function printDiv() {
+            var printContents = document.getElementById('print').innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+            location.reload();
+        }
 
+    </script>
 
 
  @include('footer')

@@ -81,7 +81,7 @@ class ShowQuestion extends Component
 
             // update
             if ($stuDegree->question_id >= $this->data[$this->counter]->id) {
-    AnswerStudent::where('student_id',$this->student_id)->where('quizze_id',$this->quizze_id)->delete();
+                AnswerStudent::where('student_id',$this->student_id)->where('quizze_id',$this->quizze_id)->delete();
                 $stuDegree->score = 0;
                 $stuDegree->abuse = '1';
                 $stuDegree->save();

@@ -76,7 +76,7 @@
 <i class="fas fa-trash"></i>
 </button>
 
-<a href="{{route('receiptditalis',$receipt_student->student_id)}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+<a href="{{route('receiptditalis',$receipt_student->student_id)}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true"><i class="fa-solid fa-download"></i></a>
 
                 
 @include('Accountant.receipt.delete')
