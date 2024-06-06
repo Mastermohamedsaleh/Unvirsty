@@ -74,7 +74,7 @@
  
 
 <div class="col-12">
-<label for="title">Answers => <span class="text-danger">You must separate each answer with a mark <span class="display-6"> [-] </span> Like Yes - No </span></label>
+<label for="title">Answers => <span class="text-danger">You must separate each answer with a mark <span class="display-6"> [-] </span> Like True - False </span></label>
 <textarea name="answers"  id="exampleFormControlTextarea1" rows="4">{{ old('answers') }} </textarea>
 </div>
 

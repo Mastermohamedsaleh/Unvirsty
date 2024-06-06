@@ -29,7 +29,7 @@ class SettingSeeder extends Seeder
             'phone'=>'19924',
             'address'=>'Cairo',
             'logo'=>'logo2.png',
-            'email'=>'SmartAcademy@gmail.com',
+            'email'=>'Academy@cis.edu.eg',
             'link_facebook'=>'https://facebook.com/unvirsty',
             'link_linked_in'=>'https://linked_in.com/unvirsty',
             'link_youtube'=>'https://youtube.com/unvirsty',

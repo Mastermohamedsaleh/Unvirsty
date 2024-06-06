@@ -100,12 +100,13 @@ class QuizController extends Controller
        ->where('classroom_id',    Auth::guard('student')->user()->classroom_id)
        ->where('section_id', Auth::guard('student')->user()->section_id)->first();
 
+      $countquestion = Question::where('quizze_id',$quizze_id)->count();
 
        if($Quizzes){
         if($Quizzes->type_quiz == 0){
             return view('Student.quizzes.showeasyquiz',compact('quizze_id','student_id','Quizzes','questions'));      
             }else{
-             return view('Student.quizzes.show',compact('quizze_id','student_id'));        
+             return view('Student.quizzes.show',compact('quizze_id','student_id','countquestion'));        
             }
        }else{
              return redirect()->back();

@@ -14,8 +14,8 @@
 
 <div class="container">
      
-    <span style="font-size:30px;font-weight:600">Score :{{$degree->score}}  </span> 
-    <div class="mt-4">
+    <span style="font-size:30px;font-weight:600">Score :{{$degree->score}} <h2 style="display:inline-block">&#128513;</h2>   </span> 
+    <div class="mt-4">	
     @foreach($answerstudent as $answer)
 
         <div class="card card-statistics mb-30 mt-2">

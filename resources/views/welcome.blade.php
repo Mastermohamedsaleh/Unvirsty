@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ URL::asset('Styles/bootstrap.min.css') }}  " />
     <!-- <link rel="stylesheet" href="{{ URL::asset('Styles/style.css') }} " /> -->
     <link rel="stylesheet" href="{{ URL::asset('Styles/home.css') }} " />
+    
 
     <script defer src="{{URL::asset('Script/bootstrap.bundle.min.js')}}"></script>
     <script defer src="{{URL::asset('Script/index.js')}} "></script>

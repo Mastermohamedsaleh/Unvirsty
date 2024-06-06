@@ -142,7 +142,7 @@
         <span class="fs-4 txt-green">Discover Upcoming Events</span>
         <span class="fs-1 fw-semibold text-white">Our Events</span>
         <p class="txt-gray position-absolute" style="bottom: 70px">
-          <a href="index.html" class="text-decoration-none txt-gray">Home</a>
+          <a href="{{url('/')}}" class="text-decoration-none txt-gray">Home</a>
           <span class="px-3">></span>
           <span class="txt-green">Events</span>
         </p>
